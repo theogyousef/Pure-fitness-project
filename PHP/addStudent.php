@@ -1,6 +1,7 @@
+<head><?php   include "../includes/head.php"   ?></head>
 <div class="small-container container">
     <h3 class="my-3">Create New Account for Student</h3>
-    <form id="signupForm" method="POST" action="/admin/user">
+    <form id="signupForm" method="POST" action="">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="signupName" name="name" required placeholder="Enter Name">
@@ -23,6 +24,10 @@
                 placeholder="Confirm Password">
             <span id="confirmPasswordErrorMessage" class="error-message"></span>
         </div>
+        <div class="mb-3">
+      <label for="newProductImage" class="form-label">Image</label>
+      <input type="file" class="form-control" id="newProductImage" accept="image/png, image/gif, image/jpeg" name="image" required >
+    </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Create</button>
         </div>
