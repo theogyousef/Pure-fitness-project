@@ -1,6 +1,6 @@
 <head><?php   include "../includes/head.php"   ?></head>
 <div class="container small-container">
-  <h1>New Resource</h1>
+  <h1>update  Resource</h1>
   <form method="POST" action="" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="newProductName" class="form-label">Name</label>

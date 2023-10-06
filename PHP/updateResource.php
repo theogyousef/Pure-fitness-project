@@ -2,6 +2,10 @@
 <div class="container small-container">
   <h1>New Resource</h1>
   <form method="POST" action="" enctype="multipart/form-data">
+  <div class="mb-3">
+      <label for="newProductName" class="form-label">ID</label>
+      <input type="text" class="form-control" id="newProductName" name="name" required >
+    </div>
     <div class="mb-3">
       <label for="newProductName" class="form-label">Name</label>
       <input type="text" class="form-control" id="newProductName" name="name" required >

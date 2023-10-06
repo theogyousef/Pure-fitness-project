@@ -42,7 +42,7 @@
                     <a href="../PHP/updateStudent.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Student</span> </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span> </a>
+                    <a href="../PHP/updateResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span> </a>
                   </li>
                 </ul>
               </li>
