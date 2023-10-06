@@ -29,7 +29,7 @@
       <input type="text" class="form-control" id="newProductDescription" name="description"  required>
     </div>
     <div class="mb-3">
-      <button type="submit" class="btn btn-primary">New Product</button>
+      <button type="submit" class="btn btn-primary">New Resource</button>
     </div>
   </form>
 </div>

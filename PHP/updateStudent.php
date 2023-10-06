@@ -29,7 +29,7 @@
       <input type="file" class="form-control" id="newProductImage" accept="image/png, image/gif, image/jpeg" name="image" required >
     </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
 </div>
