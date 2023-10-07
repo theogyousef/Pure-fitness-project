@@ -1,10 +1,5 @@
-function getImage(imagename) {
-    var newimg = imagename.replace(/^.*\\/, "");
-    document.getElementById("display-image").innerHTML = newimg;
-  }
-  
-  
-  function myMenuFunction() {
+//The resposive nav
+function myMenuFunction() {
     var i = document.getElementById("navMenu");
     if (i.className === "nav-menu") {
       i.className += " responsive";
@@ -12,7 +7,7 @@ function getImage(imagename) {
       i.className = "nav-menu";
     }
   }
-  
+  //The swip between login and signup
   var a = document.getElementById("loginBtn");
   var b = document.getElementById("registerBtn");
   var x = document.getElementById("login");
@@ -36,6 +31,7 @@ function getImage(imagename) {
     y.style.opacity = 1;
   }
   
+  // >>>>>>>>>  i want to make them in one function >>>>>>>///////////
   // login eye hide password
   const togglePassword = document.querySelector("#togglePassword");
   const password = document.querySelector("#id_password");
@@ -66,6 +62,7 @@ function getImage(imagename) {
     this.classList.toggle("fa-eye");
   });
   
+  //register validations
   
   function validations(event) {
     event.preventDefault();
@@ -74,11 +71,10 @@ function getImage(imagename) {
   
     let x = document.forms["myform"]["fname"].value;
     let y = document.forms["myform"]["lname"].value;
-    let j = document.forms["myform"]["emailin"].value;
-    let h = document.forms["myform"]["passwordo"].value;
+    let j = document.forms["myform"]["email"].value;
+    let h = document.forms["myform"]["password"].value;
     let d = document.forms["myform"]["confirmpassword"].value;
-    let n = document.forms["myform"]["nationalID"].value;
-  
+
     if (x === "") {
       errorMessages = "You must fill the first name field<br>";
       showError = true;
@@ -98,10 +94,6 @@ function getImage(imagename) {
       errorMessages = "Passwords do not match<br>";
       showError = true;
     }
-    else if (n === "") {
-      errorMessages = "You must fill the national ID";
-      showError = true;
-    }
   
     const errorSpan = document.getElementById("errorMessages");
     if (showError) {
@@ -113,6 +105,7 @@ function getImage(imagename) {
   }
   document.getElementById("myform").addEventListener("submit", validations);
   
+  //login validations
   function validationsLogin(event) {
     event.preventDefault();
     let errorMessages = "";
