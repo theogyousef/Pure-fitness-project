@@ -15,23 +15,25 @@
 
 <body>
   <div class="containerbox">
+    <!-- Nav menu -->
     <nav class="nav">
-      <!-- <div class="nav-name">
-        <p>Maska</p>
-      </div> -->
+      <div class="nav-name">
+        <p>Website Name</p>
+      </div>
       <div class="nav-menu" id="navMenu">
         <ul>
-          <li><a href="/Home/Home.html" class="link">Home</a></li>
-          <li><a href="#" class="link">Booking</a></li>
-          <li><a href="/contact-us/contact-us.html" class="link">Contact us</a></li>
-
+          <li><a href="#" class="link">Home</a></li>
+          <li><a href="#" class="link">Services</a></li>
+          <li><a href="#" class="link">Contact us</a></li>
           <li><a href="#" class="link">About</a></li>
         </ul>
       </div>
+      <!-- Nav 2 buttons -->
       <div class="nav-button">
         <button class="btn white-btn" id="loginBtn" onclick="login()">Log in</button>
         <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
       </div>
+      <!-- responsive nav -->
       <div class="nav-menu-btn">
         <i class="bx bx-menu" onclick="myMenuFunction()"></i>
       </div>
@@ -72,7 +74,7 @@
 
       <form name="myform" id="myform" onsubmit="validations(event)">
         <!-- register -->
-        <div class="register-container" id="register">
+        <div class="register-container" id="register" style="height: 580px;">
           <div class="top">
             <h3>Become a member ?</h3>
             <header>Register now</header>
@@ -88,11 +90,11 @@
             </div>
           </div>
           <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" name="emailin" />
+            <input type="text" class="input-field" placeholder="Email" name="email" />
             <i class="bx bx-envelope"></i>
           </div>
           <div class="input-box">
-            <input id="reg-password" type="password" class="input-field" placeholder="Password" name="passwordo" />
+            <input id="reg-password" type="password" class="input-field" placeholder="Password" name="password" />
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword2" class="fa-regular fa-eye-slash"></i>
           </div>
@@ -125,19 +127,7 @@
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword3" class="fa-regular fa-eye-slash"></i>
           </div>
-          <div class="upload">
-            <div class="input-box">
-              <input type="text" class="input-field" placeholder="National ID" name="nationalID">
-              <i class='bx bxs-id-card'></i>
-            </div>
-            <div class="uploadimg">
-              <label for="id-image"><i class='bx bx-upload' style="cursor: pointer;"></i> </label>
-              <input id="id-image" type="file" name="image" accept="image/*" style="display: none; visibility: none;"
-                onchange="getImage(this.value);">
-              <span class="tooltiptext" style="color: #fff;">Upload your Image</span>
-            </div>
-            <div id="display-image" style="color: #fff;"></div>
-          </div>
+
           <!-- Add the span element for error messages -->
           <div style="height: 20px;">
             <span id="errorMessages" class="error-message"></span>
