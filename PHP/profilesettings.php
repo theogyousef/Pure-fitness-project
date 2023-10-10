@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/prfilesettings.css" />
+    <!-- <link rel="stylesheet" href="../CSS/prfilesettings.css" /> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
 
     <title>profile settings</title>
-
+    <style>
+        <?php include "../CSS/prfilesettings.css" ?>
+    </style>
 </head>
 
 <body>
@@ -21,6 +23,9 @@
             <a class="nav-link active ms-0" id="detailsnav" href="#" onClick="detailsa()">Profile</a>
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
+            <a class="nav-link" href="home.php" >Home</a>
+
+
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
@@ -190,7 +195,8 @@
                             </div>
 
                             <div class="form-check form-switch ">
-                                <label class="form-check-label" for="notificationemail">Get an SMS for important events</label>
+                                <label class="form-check-label" for="notificationemail">Get an SMS for important
+                                    events</label>
                                 <input class="form-check-input" id="#" type="checkbox">
                             </div>
 

@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../CSS/registeration.css" />
+  <!-- <link rel="stylesheet" href="../CSS/registeration.css" /> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/0b0cd0c012.js" crossorigin="anonymous"></script>
 
   <title>Registration</title>
+
+  <style>
+    <?php include "../CSS/registeration.css" ?>
+  </style>
 </head>
 
 <body>
