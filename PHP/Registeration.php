@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php  
-    // include_once "../controller/dbh.inc.php";
+     //include_once "../controller/dbh.inc.php";
     // include_once "../controller/userFun.php";
 
   ?>
@@ -73,7 +73,7 @@
       </div>
 
       <!-- Register -->
-      <form action="../controller/insert.php" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
+      <form action="<?php include_once "../controller/userFun.php";  insertUser(); ?>" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
         <div class="register-container" id="register" style="height: 580px;">
           <div class="top">
             <h3>Become a member?</h3>
