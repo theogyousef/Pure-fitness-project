@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php  
-    // include_once "../controller/dbh.inc.php";
+     //include_once "../controller/dbh.inc.php";
     // include_once "../controller/userFun.php";
 
   ?>
@@ -50,7 +50,7 @@
           <h3>Welcome back ...</h3>
           <header>Log in</header>
         </div>
-        <form name="loginForm" id="loginForm" onsubmit="validationsLogin(event)">
+        <form action="<?php include_once "../controller/userFun.php";  FindUser(); ?>" name="loginForm" id="loginForm" onsubmit="validationsLogin(event)">
           <div class="input-box">
             <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-user"></i>
@@ -73,7 +73,7 @@
       </div>
 
       <!-- Register -->
-      <form action="../controller/insert.php" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
+      <form action="<?php include_once "../controller/userFun.php";  insertUser(); ?>" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
         <div class="register-container" id="register" style="height: 580px;">
           <div class="top">
             <h3>Become a member?</h3>
