@@ -56,7 +56,7 @@ function FindUser()
           $_SESSION["LName"]=$row["lastname"];
           $_SESSION["Email"]=$row["email"];
           $_SESSION [ "Password"]=$row["email"];
-         // var_dump($row);
+          var_dump($row);
             echo "Login Done";
 
         } else {
