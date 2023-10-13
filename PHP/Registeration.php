@@ -50,7 +50,7 @@
           <h3>Welcome back ...</h3>
           <header>Log in</header>
         </div>
-        <form action="<?php include_once "../controller/userFun.php";  FindUser(); ?>" name="loginForm" id="loginForm" onsubmit="validationsLogin(event)">
+        <form action="<?php include_once "../controller/userFun.php";  FindUser(); ?>" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
           <div class="input-box">
             <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-user"></i>
