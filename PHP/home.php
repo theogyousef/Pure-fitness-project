@@ -16,6 +16,9 @@ include 'footer.php';
   </style>
 </head>
 
+
+
+<body>
 <nav>
   <div class="logo">Website name</div>
   <ul>
@@ -64,16 +67,17 @@ include 'footer.php';
       </ul>
     </li>
 
-    <!-- <li>
+     <li>
           <div class="search-box" action="#" method="get">
             <input class = "input-search"type="text" placeholder="Search...">
-            <button class ="btn-search"><i class="fa fa-search"></i></button>
+            
           </div>
-        </li> -->
+          <li>
+          <button class ="btn-search"><i class="fa fa-search"></i></button>
+          </li>
+        </li> 
   </ul>
 </nav>
-
-<body>
 </body>
 
 </html>
