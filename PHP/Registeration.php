@@ -50,13 +50,13 @@
           <h3>Welcome back ...</h3>
           <header>Log in</header>
         </div>
-        <form action="../controller/login.php" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
+        <form action="../controller/login.php" method="POST" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
           <div class="input-box">
             <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-user"></i>
           </div>
           <div class="input-box">
-            <input id="id_password" type="password" class="input-field" placeholder="Password" name="pass">
+            <input id="id_password" type="password" class="input-field" placeholder="Password" name="password">
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
             <div class="forgotpass">

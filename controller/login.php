@@ -15,13 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if($password==$row['password'])
         {
-            
           $_SESSION["ID"] = $row["user_id"];
           $_SESSION["FName"]=$row["firstname"];
           $_SESSION["LName"]=$row["lastname"];
           $_SESSION["Email"]=$row["email"];
           $_SESSION [ "Password"]=$row["email"];
-          var_dump($row);
             echo "Login Done";
 
         } else {
