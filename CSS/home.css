@@ -110,46 +110,45 @@ nav ul ul ul li {
 
 .search-box {
     box-sizing:border-box;
-    margin: 25% 0 0 25%;
+    margin: 0;
     text-align: center;
     width: 50%;
     position: relative;
 }
 
 .input-search {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border: none;
     padding-left: 50px;
-    font-size: 50px;
+    font-size: 25px;
     letter-spacing: 2px;
     outline: none;
     transition: all .5s ease-in-out;
     color: cyan;
-    border-radius: 25px;
 }
 
 .input-search::placeholder {
-    color: #f2f2f2;
-    font-size: 50px;
+    color: cyan;
+    font-size:25px;
     letter-spacing: 2px;
     font-weight: 100;
 }
 
 .btn-search {
-    width: 100px;
-    height: 100px;
+    box-sizing:border-box;
+    width: 50px;
+    height: 50px;
     border: none;
-    padding-left: 50px;
-    font-size: 45px;
+    padding-left: 5px;
+    font-size: 25px;
     font-weight: bold;
     letter-spacing: 2px;
     outline: none;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     color: white;
     background-color: cyan;
-    border-radius: 25px;
 }
 
 .btn-search:focus ~ .input-search,
