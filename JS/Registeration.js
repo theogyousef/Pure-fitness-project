@@ -89,7 +89,6 @@ document.getElementById("myform").addEventListener("submit", validateRegistratio
 
 // Validation for login form
 function validateLogin(event) {
-  event.preventDefault();
   let errorMessages = "";
   let showError = false;
 
@@ -106,12 +105,14 @@ function validateLogin(event) {
 
   const errorSpan = document.getElementById("loginErrorMessages");
   if (showError) {
+    event.preventDefault(); // Prevent form submission only when there are errors
     errorSpan.innerHTML = errorMessages;
     errorSpan.style.display = "block";
   } else {
     errorSpan.style.display = "none";
   }
 }
+
 
 document.getElementById("loginForm").addEventListener("submit", validateLogin);
 
@@ -142,13 +143,3 @@ passwordInput.addEventListener("input", (event) => {
     }
   });
 });
-
-// Combined form submission and validation
-function validateAndSubmit() {
-  validateLogin(event);
-  if (document.forms["loginForm"]["email"].value && document.forms["loginForm"]["pass"].value) {
-    loginAction(); // Replace with your login action function
-  }
-}
-
-document.getElementById("loginForm").addEventListener("submit", validateAndSubmit);
