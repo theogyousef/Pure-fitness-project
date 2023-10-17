@@ -1,6 +1,6 @@
 <?php
 // profile picture upload 
-include "dbh.incf.php";
+include "config.php";
 
 function uploadpic()
 {
@@ -81,7 +81,6 @@ function updatepasswords()
     $oldpassowrd = $_POST["oldpassword"];
     $newpassword = $_POST["newpassword"];
     $conpassword = $_POST["conpassword"];
-    echo "<script> alert('wasal');</script> ";
 
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
@@ -92,7 +91,7 @@ function updatepasswords()
             if ($oldpassowrd == $row['password']) {
                 $query = "UPDATE users SET password = '$newpassword' WHERE  id = $id ";
                 mysqli_query($conn, $query);
-                echo "<script> alert('Updatesd successfuly');</script> ";
+                // echo "<script> alert('Updatesd successfuly');</script> ";
             } else {
                 echo "<script> alert('old passes do not match ');</script> ";
 
