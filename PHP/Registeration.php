@@ -1,10 +1,39 @@
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+
+</script>
+
+<?php
+
+//require "../controller/config.php";
+require "../controller/registerationsystem.php";
+
+// Check for form submissions and perform the corresponding action
+if (isset($_POST["submit"])) {
+    signup();
+} else if (isset($_POST["login"])) {
+    signin();
+} 
+
+
+// if (!empty($_SESSION["id"])) {
+//     $id = $_SESSION["id"];
+//     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+//     $row = mysqli_fetch_assoc($result);
+// } else {
+//     header("Location: registeration.php");
+// }
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-<?php  
-     //include_once "../controller/dbh.inc.php";
-    // include_once "../controller/userFun.php";
 
-  ?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +43,10 @@
   <script src="https://kit.fontawesome.com/0b0cd0c012.js" crossorigin="anonymous"></script>
   <title>Registration</title>
   <style>
-    <?php include "../CSS/registeration.css" ?>
+    <?php include "CSS/registeration.css" ?>
   </style>
 </head>
+
 <body>
   <div class="containerbox">
     <!-- Nav menu -->
@@ -50,32 +80,31 @@
           <h3>Welcome back ...</h3>
           <header>Log in</header>
         </div>
-        <form action="../controller/userFun.php"  method="POST" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
-        <input type="hidden" name="action" value="FindUser">
+        <form method="post" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
           <div class="input-box">
             <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-user"></i>
           </div>
           <div class="input-box">
-            <input id="id_password" type="password" class="input-field" placeholder="Password" name="password">
+            <input id="id_password" type="password" class="input-field" placeholder="Password" name="pass">
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
             <div class="forgotpass">
               <a href="forgetpass.html">Forgot password?</a>
             </div>
           </div>
-          <div class="input-box">
-            <input type="submit" class="submit" value="Log in" style="margin-top: 15px;">
-          </div>
           <div style="height: 20px;">
             <span id="loginErrorMessages" style="display: none;"></span>
           </div>
+          <div class="input-box">
+            <input name="login" type="submit" class="submit" value="Log in" style="margin-top: 15px;">
+          </div>
+
         </form>
       </div>
 
       <!-- Register -->
-      <form action="../controller/userFun.php" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
-      <input type="hidden" name="action" value="insertUser">
+      <form method="post" name="signupform" id="myform" onsubmit="validateRegistration(event)">
         <div class="register-container" id="register" style="height: 580px;">
           <div class="top">
             <h3>Become a member?</h3>
@@ -92,7 +121,7 @@
             </div>
           </div>
           <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" name="email">
+            <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-envelope"></i>
           </div>
           <div class="input-box">
@@ -128,7 +157,8 @@
             </div>
           </div>
           <div class="input-box">
-            <input id="conpassword" type="password" class="input-field" placeholder="Confirm password" name="confirmpassword">
+            <input id="conpassword" type="password" class="input-field" placeholder="Confirm password"
+              name="confirmpassword">
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword3" class="fa-regular fa-eye-slash"></i>
           </div>
@@ -137,7 +167,7 @@
             <span id="errorMessages" class="error-message"></span>
           </div>
           <div class="input-box">
-            <input type="submit" class="submit" value="Register" id="submit-button">
+            <input name="submit" type="submit" class="submit" value="Register" id="submit-button">
 
           </div>
         </div>
@@ -146,5 +176,5 @@
   </div>
   <script src="../JS/Registeration.js"></script>
 </body>
-</html>
 
+</html>
