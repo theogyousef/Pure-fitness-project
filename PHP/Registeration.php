@@ -50,7 +50,8 @@
           <h3>Welcome back ...</h3>
           <header>Log in</header>
         </div>
-        <form action="../controller/login.php" method="POST" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
+        <form action="../controller/userFun.php"  method="POST" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
+        <input type="hidden" name="action" value="FindUser">
           <div class="input-box">
             <input type="email" class="input-field" placeholder="Email" name="email">
             <i class="bx bx-user"></i>
@@ -73,7 +74,8 @@
       </div>
 
       <!-- Register -->
-      <form action="../controller/siginin.php" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
+      <form action="../controller/userFun.php" method="post" name="myform" id="myform" onsubmit="validateRegistration(event)">
+      <input type="hidden" name="action" value="insertUser">
         <div class="register-container" id="register" style="height: 580px;">
           <div class="top">
             <h3>Become a member?</h3>
