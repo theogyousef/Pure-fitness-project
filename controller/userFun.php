@@ -1,4 +1,6 @@
 <?php
+
+
 function insertUser(){
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
@@ -21,9 +23,9 @@ function insertUser(){
 
         $sql = "INSERT INTO users (firstname, lastname, email,password) VALUES ('$firstname', '$lastname','$email', '$password')";
 
-        if ($connection->query($sql) === TRUE) {
-            echo "Data inserted successfully.";
-            header("Location:dashboard.php");
+        if ($connection->query($sql) === TRUE) 
+        {
+            header("Location:../php/home.php");
         } else {
             echo "Error: " . $connection->error;
         }
@@ -56,8 +58,9 @@ function FindUser()
           $_SESSION["LName"]=$row["lastname"];
           $_SESSION["Email"]=$row["email"];
           $_SESSION [ "Password"]=$row["email"];
-          var_dump($row);
-            echo "Login Done";
+          //var_dump($row);
+          header("Location:../php/home.php");
+            
 
         } else {
             echo "Incorrect Password";
@@ -71,5 +74,18 @@ function FindUser()
     $connection->close(); 
 
 
+    }
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST["action"])) {
+        $action = $_POST["action"];
+
+        if ($action === "insertUser") {
+            insertUser();
+        } elseif ($action === "FindUser") {
+            FindUser();
+        } else {
+            echo "Invalid action";
+        }
     }
 }
