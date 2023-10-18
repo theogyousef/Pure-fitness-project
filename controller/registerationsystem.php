@@ -21,7 +21,8 @@ function signup(){
       //if the password == confirm password 
       if ($password == $confirmpassword) {
         // we create a query with the inputs of the form to insert into the databse 
-        $query = "INSERT INTO users (firstname, lastname , email , password ) VALUES ('$firstname' , '$lastname', '$email','$password');";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO users (firstname, lastname , email , password ) VALUES ('$firstname' , '$lastname', '$email','$hashedPassword');";
        
         // we pass the connection of the database and the quarey 
         mysqli_query($conn, $query);
@@ -46,7 +47,7 @@ $result = mysqli_query($conn, "SELECT * FROM users where email = '$email'");
 $row = mysqli_fetch_assoc($result);
 //if the user was found 
 if (mysqli_num_rows($result) > 0) {
-  if ($password == $row["password"]) {
+  if (password_verify($password, $row["password"])) {
     $_SESSION["login"] = true;
     $_SESSION["id"] = $row["id"];
     header("Location: home.php");
