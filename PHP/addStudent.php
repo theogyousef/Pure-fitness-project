@@ -1,38 +1,47 @@
-<head><?php   include "../includes/head.php"   ?></head>
-<div class="small-container container">
-    <h3 class="my-3">Create New Account for Student</h3>
-    <form id="signupForm" method="POST" action="">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="signupName" name="name" required placeholder="Enter Name">
-            <span id="nameErrorMessage" class="error-message"></span>
+<div class="row">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <?php   include "../includes/aside.php"   ?>
+                </div>
+            </div>
+            <div class="col">
+                <h3 class="my-3">Create New Account for Student</h3>
+                <form id="signupForm" method="POST" action="">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="signupName" name="name" required
+                            placeholder="Enter Name">
+                        <span id="nameErrorMessage" class="error-message"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="signupEmail" name="email" required
+                            placeholder="Enter email">
+                        <span id="emailErrorMessage" class="error-message"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" name="password" required
+                            placeholder="Enter Password">
+                        <span id="passwordErrorMessage" class="error-message"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="signupConfirmPassword" required
+                            placeholder="Confirm Password">
+                        <span id="confirmPasswordErrorMessage" class="error-message"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newProductImage" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="newProductImage"
+                            accept="image/png, image/gif, image/jpeg" name="image" required>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="signupEmail" name="email" required placeholder="Enter email">
-            <span id="emailErrorMessage" class="error-message"></span>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="signupPassword" name="password" required
-                placeholder="Enter Password">
-            <span id="passwordErrorMessage" class="error-message"></span>
-        </div>
-        <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="signupConfirmPassword" required
-                placeholder="Confirm Password">
-            <span id="confirmPasswordErrorMessage" class="error-message"></span>
-        </div>
-        <div class="mb-3">
-      <label for="newProductImage" class="form-label">Image</label>
-      <input type="file" class="form-control" id="newProductImage" accept="image/png, image/gif, image/jpeg" name="image" required >
-    </div>
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Create</button>
-        </div>
-    </form>
-</div>
 <script>
     const form = document.getElementById('signupForm');
 
