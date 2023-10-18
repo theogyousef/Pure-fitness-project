@@ -15,30 +15,33 @@
               </li>
               <li>
                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                   <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">ADD</span> </a>
+                   <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Product</span> </a>
                 <ul class="collapse  nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                   <li class="w-100">
-                    <a href="../php/addStudent.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Student</span>  </a>
+                    <a href="../php/addResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
                   </li>
                   <li>
-                    <a href="../PHP/addResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span>  </a>
+                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
+                  </li>
+                  <li>
+                    <a href="../PHP/updateResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
                   </li>
                 </ul>
               </li>
              
               <li>
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                  <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Update</span></a>
+                  <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">User</span></a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                   <li class="w-100">
-                    <a href="../PHP/updateStudent.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Student</span> </a>
+                    <a href="../PHP/updateStudent.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span> </a>
                   </li>
                   <li>
-                    <a href="../PHP/updateResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span> </a>
+                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span> </a>
                   </li>
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                   <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Delete</span> </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -49,7 +52,7 @@
                     <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span> </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
               <li>
                 <a href="#" class="nav-link px-0 align-middle">
                   <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
