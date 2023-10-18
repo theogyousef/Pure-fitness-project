@@ -21,7 +21,7 @@
                     <a href="../php/addProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
+                    <a href="../php/deleteproduct.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
                   </li>
                   <li>
                     <a href="../PHP/updateProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
