@@ -88,8 +88,9 @@ function updatepasswords()
 
     if ($newpassword == $conpassword) {
         if ($newpassword != $oldpassowrd) {
-            if ($oldpassowrd == $row['password']) {
-                $query = "UPDATE users SET password = '$newpassword' WHERE  id = $id ";
+            if (password_verify($oldpassowrd, $row['password'])) {
+                $hashedPassword = password_hash($newpassword, PASSWORD_DEFAULT);
+                $query = "UPDATE users SET password = '$hashedPassword' WHERE  id = $id ";
                 mysqli_query($conn, $query);
                 // echo "<script> alert('Updatesd successfuly');</script> ";
             } else {
