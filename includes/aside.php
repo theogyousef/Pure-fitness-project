@@ -18,13 +18,13 @@
                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Product</span> </a>
                 <ul class="collapse  nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                   <li class="w-100">
-                    <a href="../php/addResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
+                    <a href="../php/addProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
                   </li>
                   <li>
                     <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
                   </li>
                   <li>
-                    <a href="../PHP/updateResource.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
+                    <a href="../PHP/updateProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
                   </li>
                 </ul>
               </li>
@@ -41,18 +41,6 @@
                   </li>
                 </ul>
               </li>
-              <!-- <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Delete</span> </a>
-                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                  <li class="w-100">
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Student</span></a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resource</span> </a>
-                  </li>
-                </ul>
-              </li> -->
               <li>
                 <a href="#" class="nav-link px-0 align-middle">
                   <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>

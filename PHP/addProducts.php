@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include "../includes/head.php"; ?>
+    <?php include "../includes/head.php"; 
+    require"../controller/admin_products_fun.php";
+    if(isset($_POST["add"])){
+        addproduct();
+    }
+    ?>
 </head>
 <body>
 
@@ -20,26 +25,23 @@
                 </div>
                 <div class="mb-3">
                     <label for="newProductSlug" class="form-label">Type</label>
-                    <input type="text" class="form-control" id="newProductSlug" name="slug" required>
+                    <input type="text" class="form-control" id="newProductSlug" name="type" required>
                 </div>
                 <div class="mb-3">
-                    <label for="newProductCategory" class="form-label">Category</label>
-                    <select class="form-select" id="newProductCategory" name="category" required>
-                        <option value="">Select a category</option>
-                        <option value="school">Cours</option>
-                        <option value="school">Resource</option>
-                    </select>
+                    <label for="newProductSlug" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="newProductSlug" name="price" required>
                 </div>
+                <!-- < -->
                 <div class="mb-3">
                     <label for="newProductImage" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="newProductImage" accept="image/png, image/gif, image/jpeg" name="image" required>
+                    <input type="file" class="form-control" id="newProductImage" accept="image/png, image/gif, image/jpeg" name="file" required>
                 </div>
                 <div class="mb-3">
                     <label for="newProductDescription" class="form-label">Description</label>
                     <input type="text" class="form-control" id="newProductDescription" name="description" required>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">New Resource</button>
+                    <input type="submit" name="add" value="ADD Product">
                 </div>
             </form>
         </div>

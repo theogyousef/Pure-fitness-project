@@ -63,7 +63,7 @@
           </main>
           <!-- end of main-->
 
-          <<div style="display: flex;">
+          <div style="display: flex;">
                  <div style="width: 900px;">
                    <canvas id="myChart"></canvas>
                  </div>
