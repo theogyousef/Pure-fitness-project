@@ -117,7 +117,7 @@ include '../SWE/PHP/header.php';
   <div class="viewproduct">
     <div class="row">
       <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
-        <h2>Shop Trending Exercise Equipment</h2>
+        <h2>Shop Popular Products</h2>
       </div>
     </div>
     <div class="container products-carousel">
@@ -125,10 +125,10 @@ include '../SWE/PHP/header.php';
         <div class="col-md-3">
           <div class="products">
             <div class="product-image">
-              <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+              <a href="#" class="images">
+                <img src="../SWE/photos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/Concept 2 PM5 BikeErg2.webp" alt="Concept 2 PM5 BikeErg" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -166,9 +166,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="bike2.webp" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1" width="500px">
 
-                <img src="51GTNtZYELL.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -186,16 +186,17 @@ include '../SWE/PHP/header.php';
                   <span class="tooltiptext">Quick view</span>
                 </div>
               </div>
-
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>Flat</h3>
+              <h3>Bench</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">CROSSFIT EQUIPMENT</span> 
+                <span class="separate"></span> <span class="nofdays">BENCHES</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">5.850 EGP</span>
                 </p>
               </div>
             </div>
@@ -206,9 +207,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/Concept 2 SkiErg.webp" alt="Concept 2 SkiErg" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -229,9 +230,9 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>Concept 2 SkiErg</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">SKIERGS</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
@@ -246,9 +247,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -269,7 +270,7 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>ASSAULT AIRBIKE</h3>
               <p class="detailsinfo">
                 <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
               </p>
@@ -292,27 +293,35 @@ include '../SWE/PHP/header.php';
   <!-- sixth Product -->
 
   <!-- image -->
-  <a href="#" id="centered-anchor">
-    <img src="../SWE/photos/home.webp" alt="Clickable Image">
+  <div class="position-relative text-center">
+  <a href="#" id="centered-anchor" class="d-block">
+    <img src="../SWE/photos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
   </a>
+  <button class="btn btn-dark btn-lg position-absolute top-25 start-50 translate-middle">
+    Shop Now
+  </button>
+</div>
+
 
   <!-- benches product -->
   <!-- First product -->
   <div class="viewproduct">
-    <div class="row">
-      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
-        <h2>BEST OF BENCHES</h2>
-      </div>
-    </div>
+  <div class="row">
+  <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
+    <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
+  </div>
+</div>
+
+
     <div class="container products-carousel">
       <div class="row">
         <div class="col-md-3">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/hex.webp" alt="Hex Dumbbells" class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/86.webp" alt="Hex Dumbbells" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -333,13 +342,14 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>Hex Dumbbells-KG (Pair) </h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">95  EGP</span>
+                  To <span class="price">4.750  EGP</span>
                 </p>
               </div>
             </div>
@@ -350,9 +360,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="bike2.webp" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/Bumber-Plates-2-scaled-1200x1200.webp" alt="dumble" class="pic-1" width="500px">
 
-                <img src="51GTNtZYELL.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -373,13 +383,14 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>Virgin Bumper Plates-(Pair)</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">PLATE</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">1.450 EGP</span>
+                  To <span class="price">5.800 EGP</span>
                 </p>
               </div>
             </div>
@@ -390,9 +401,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -413,13 +424,13 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
+              <h3>Pure Fitness TPU Plates Set-2.5,5,10,15,20kg </h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">PLATES</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">15.225 EGP</span>
                 </p>
               </div>
             </div>
@@ -430,9 +441,9 @@ include '../SWE/PHP/header.php';
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="pic2.png" alt="newyork photo" class="pic-1" width="500px">
+                <img src="../SWE/photos/Wall-Ball-6-scaled-1200x1200.webp" alt="Wall Ball" class="pic-1" width="500px">
 
-                <img src="pic3.webp" alt="sanfransisco photo" class="pic-2" width="500px">
+                <img src="../SWE/photos/Wall-Balls-3-scaled-1200x1200.webp" alt="Wall Ball" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -453,17 +464,17 @@ include '../SWE/PHP/header.php';
 
             </div>
             <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
-              <div class="myDIV">Other options</div>
+              <h3>Wall Ball Set of 4</h3>
+              <!-- <div class="myDIV">Other options</div>
               <div class="hide">
                 <img src="bench1.jpg" alt="newyork photo" class="pic-1">
-              </div>
+              </div> -->
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">MEDICINE BALLS</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">6.500 EGP</span>
                 </p>
               </div>
             </div>
@@ -476,6 +487,14 @@ include '../SWE/PHP/header.php';
 
     <!-- container div -->
   </div>
+
+
+  <!-- image -->
+  <div class="position-relative text-center">
+  <a href="#" id="centered-anchor" class="d-block">
+    <img src="../SWE/photos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
+  </a>
+</div>
 
   <!-- bmi calculator -->
 
