@@ -1,0 +1,51 @@
+.announcement-container {
+    background: #000000;
+  }
+
+  .header-middle {
+    background: #080808;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    border-color: rgba(255, 255, 255, 0.25);
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    background: #080808;
+  }
+
+  .nav-item {
+    color: white;
+    border-right: 1px solid white;
+    font-family: URW DIN SemiCond, sans-serif;
+    font-size: 20px;  
+    font-weight: 600;
+    
+  }
+
+/* The line of the last item in nav bar */
+  .nav-item:last-child {
+    border-right: none;
+  }
+
+  .nav-link {
+    color: white;
+    font-size: 18px;
+    margin: 0 20px;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+  }
+.navbar .nav-link {
+    color: white;
+}
+  /* Custom CSS to show dropdown on hover */
+  .nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  }
+  .search-input {
+    color: black;
+  }
+
+  .search-input:focus {
+color: white !important;
+}
