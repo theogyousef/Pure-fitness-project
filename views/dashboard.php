@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
- <?php include "../includes/head.php"; ?>
+ <?php include "../public/includes/head.php"; ?>
     <title>Admin panel</title>
 </head>
 
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="sidebar">
-        <?php   include "../includes/aside.php"   ?>
+        <?php   include "../public/includes/aside.php"   ?>
         </div>
         <div class="main">
             <div class="cards">
