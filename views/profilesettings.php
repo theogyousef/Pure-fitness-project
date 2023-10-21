@@ -52,9 +52,9 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
     <title>profile settings</title>
     <style>
-        <?php include "../CSS/profilesettings.css" ?>
+        <?php include "../public/CSS/profilesettings.css" ?>
     </style>
-       <script src="../JS/profilesettings.js"></script>
+       <script src="../public/JS/profilesettings.js"></script>
 </head>
 
 <body>

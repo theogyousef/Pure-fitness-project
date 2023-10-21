@@ -16,10 +16,10 @@
           We make it easy for you
         </h2>
         <div class="socialMediaLogos">
-          <a href="#"><img src="../photos/facebook.svg" alt="facebook logo" /></a>
-          <a href="#"><img src="../photos/twitter.svg" alt="twitter logo" /></a>
-          <a href="#"><img src="../photos/instagram.svg" alt="instagram logo" /></a>
-          <a href="#"><img src="../photos/linkedIn.svg" alt="LinkedIn logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/facebook.svg" alt="facebook logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/twitter.svg" alt="twitter logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/instagram.svg" alt="instagram logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/linkedIn.svg" alt="LinkedIn logo" /></a>
         </div>
       </div>
       <div class="company">
