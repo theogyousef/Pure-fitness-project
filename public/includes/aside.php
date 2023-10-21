@@ -1,7 +1,7 @@
 <div class="sidebar">
             <ul>
                 <li>
-                    <a href="../PHP/dashboard.php">
+                    <a href="../views/dashboard.php">
                         <i class="fas fa-th-large"></i>
                         <div>Dashboard</div>
                     </a>
@@ -11,13 +11,13 @@
                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Product</span> </a>
                 <ul class="collapse  nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                   <li class="w-100">
-                    <a href="../php/addProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
+                    <a href="../views/addProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">ADD</span>  </a>
                   </li>
                   <li>
-                    <a href="../php/deleteproduct.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
+                    <a href="../views/deleteproduct.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span>  </a>
                   </li>
                   <li>
-                    <a href="../PHP/updateProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
+                    <a href="../views/updateProducts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span>  </a>
                   </li>
                 </ul>
               </li>
@@ -26,7 +26,7 @@
                   <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">User</span></a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                   <li class="w-100">
-                    <a href="../PHP/updateStudent.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span> </a>
+                    <a href="../views/updateUser.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Update</span> </a>
                   </li>
                   <li>
                     <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Delete</span> </a>
