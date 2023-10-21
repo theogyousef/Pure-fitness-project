@@ -90,13 +90,13 @@ img {
     list-style: none;
 }
 
-.sidebar ul li:hover {
+/* .nav-link :hover {
     background: #fff;
 }
 
-.sidebar ul li:hover a {
+.nav-link:hover a {
     color: #299B63;
-}
+} */
 
 .sidebar ul li a {
     width: 100%;

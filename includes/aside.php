@@ -35,33 +35,10 @@
               </li>
                 <li>
                     <a href="#">
-                        <i class="fas fa-users"></i>
-                        <div>Employees</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         <i class="fas fa-chart-bar"></i>
                         <div>Analytics</div>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <div>Earnings</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                        <div>Settings</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-question"></i>
-                        <div>Help</div>
-                    </a>
-                </li>
+                
             </ul>
         </div>
