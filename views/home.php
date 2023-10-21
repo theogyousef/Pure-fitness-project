@@ -25,7 +25,7 @@ else {
   <!-- <link rel="stylesheet" href="../CSS/home.css"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    <?php include "../CSS/home.css" ?>
+    <?php include "../public/CSS/home.css" ?>
   </style>
 </head>
 

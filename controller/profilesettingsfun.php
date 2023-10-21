@@ -8,7 +8,7 @@ function uploadpic()
 
     global $conn;
     $file = $_FILES["file"];
-    $uploadDirectory = '../photos/'; // Directory where you save the uploaded files
+    $uploadDirectory = '../public/photos/userPhotos/'; // Directory where you save the uploaded files
 
     // Check if the file was uploaded successfully
     if (move_uploaded_file($file["tmp_name"], $uploadDirectory . $file["name"])) {

@@ -2,12 +2,10 @@
 <!-- <link rel="stylesheet" href="../css/footer.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <style>
-    <?php include "../CSS/footer.css" ?>
+   
   </style>
 
 <div class="footer">
- 
-  <hr />
   <div class="container">
     <div class="footerDetail">
       <div class="socialMedia">
@@ -16,21 +14,19 @@
         </a>
         <h2>
           We make it easy for you
-</h2>
+        </h2>
         <div class="socialMediaLogos">
-          <a href="#"><img src="../resources/facebook.svg" alt="facebook logo" /></a>
-          <a href="#"><img src="../resources/twitter.svg" alt="twitter logo" /></a>
-          <a href="#"><img src="../resources/instagram.svg" alt="instagram logo" /></a>
-          <a href="#"><img src="../resources/linkedIn.svg" alt="LinkedIn logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/facebook.svg" alt="facebook logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/twitter.svg" alt="twitter logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/instagram.svg" alt="instagram logo" /></a>
+          <a href="#"><img src="public/photos/logoPhotos/linkedIn.svg" alt="LinkedIn logo" /></a>
         </div>
       </div>
       <div class="company">
         <h4>Company</h4>
        
       </div>
-      <div class="products">
-        <h4>Products</h4>
-      </div>
+      
       <div class="contactUs">
         <h4>Contact Us</h4>
         
