@@ -15,6 +15,7 @@ include '../SWE/PHP/header.php';
   <title>Home Page</title>
   <style>
     <?php include "../SWE/CSS/index.css" ?>
+
   </style>
 </head>
 <body>
@@ -552,4 +553,8 @@ include '../SWE/PHP/header.php';
     }
 
   </script>
+  <footer>
+    <?php
+    include "../SWE/PHP/footer.php"?>
+  </footer>
 </body>
