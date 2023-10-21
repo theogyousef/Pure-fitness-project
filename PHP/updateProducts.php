@@ -35,7 +35,7 @@
                     <input type="text" class="form-control" id="newProductDescription" name="description" required>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" name="update" value="Update Product">
+                    <input type="submit" name="update" value="Update Product"  style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                 </div>
             </form>
             </div>

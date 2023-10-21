@@ -19,6 +19,6 @@
                     <input type="text" class="form-control" id="newProductName" name="id" required>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" name="delete" value="Delete Product">
+                    <input type="submit" name="delete" value="Delete Product"  style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                 </div>
 </div>
