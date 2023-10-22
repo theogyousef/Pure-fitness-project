@@ -456,101 +456,141 @@
     color: #FFFFFF;
   }
 
-.footer{
-  background-color:#000;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-   overflow-x: hidden;
-   text-align: left;
-}
-.footer p {
+
+
+  .footer {
+  background-color: #333333;
   color: #ffffff;
+  padding: 30px 0;
+  font-family: Arial, sans-serif;
 }
-.footer a {
-  color: #bdbec4;
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-.footer a:hover,
-footer a:active {
-  color: #ffffff;
-}
-.footer h4 {
-  color: #ffffff;
-}
-.footer h2{
-  color:#ffffff
+
+.footer hr {
+  border: none;
+  border-top: 1px solid #5c5c5c;
+  margin: 20px 0;
 }
 
 .footerDetail {
-  padding: 70px 40px 66px 0;
-  display:flex;
-  row-gap: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.footerDetail p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 160%;
-}
-.footerDetail h4 {
-  margin-bottom: 20px;
-  text-align: justify;
-}
-.footerDetail h2 {
-  margin-bottom: 20px;
-  text-align: left;
 
-}
-.fo
-.footerDetail .socialMedia {
+.socialMedia {
   flex-basis: 30%;
   margin-right: 20px;
 }
-.footerDetail .socialMedia p {
-  max-width: 252px;
-  margin: 16px 0 32px 0;
+
+.socialMedia a {
+  color: #ffffff;
 }
-.footerDetail .socialMedia .socialMediaLogos {
+
+.socialMedia a:hover {
+  color: red;
+}
+
+.socialMedia h2 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.socialMediaLogos {
   display: flex;
   gap: 16px;
 }
-.footerDetail .company {
+
+.company {
   flex-basis: 20%;
 }
-.footerDetail .company li {
+
+.company h4 {
+  color: #ffffff;
+  font-size: 18px;
   margin-bottom: 10px;
 }
-.footerDetail .products {
-  flex-basis: 20%;
+
+.company ul {
+  padding-left: 0;
 }
-.footerDetail .products li {
+
+.company li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.company a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.company a:hover {
+  color: red;
+}
+
+.contactUs {
+  flex-basis: 40%;
+}
+
+.contactUs h4 {
+  color: #ffffff;
+  font-size: 18px;
   margin-bottom: 10px;
 }
-.footerDetail .contactUs p:first-child {
-  max-width: 233px;
-  margin-bottom: 16px;
+
+.contactUs ul {
+  padding-left: 0;
 }
-.footerDetail .contactUs .contact {
+
+.contactUs li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.contactUs i {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.contactUs p {
+  display: inline;
+}
+
+.policyWrapper {
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-top: 20px;
 }
 
 .policies {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 400;
   font-size: 12px;
-  line-height: 160%;
-  padding: 0px 32px 32px 32px;
-}
-.policies ul {
-  display: flex;
-  gap: 12px;
-}
-.policies ul span {
   color: #8f8f8f;
 }
 
+.policies ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
 
-  
+.policies li {
+  display: inline;
+}
+
+.policies a {
+  color: #8f8f8f;
+  text-decoration: none;
+}
+
+.policies a:hover {
+  color: red;
+}
