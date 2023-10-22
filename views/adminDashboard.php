@@ -7,16 +7,22 @@
 <?php
 
 //require "../controller/config.php";
-require "../controller/admin_products_fun.php";
+require "../controller/adminFunctions.php";
 
-// Check for form submissions and perform the corresponding action
-if (isset($_POST["add"])) {
+if (isset($_POST["addproduct"])) {
     addproduct();
-} else if (isset($_POST["update"])) {
+} else if (isset($_POST["updateproduct"])) {
     updateproduct();
-} else if (isset($_POST["delete"])) {
+} else if (isset($_POST["deleteproduct"])) {
     deleteproduct();
+} else if (isset($_POST["adduserb"])) {
+    adduser();
+}  else if (isset($_POST["updateuser"])) {
+    updateuser();
+} else if (isset($_POST["deleteuser"])) {
+    deleteuser();
 }
+
 
 
 if (!empty($_SESSION["id"])) {
@@ -54,8 +60,8 @@ if (!empty($_SESSION["id"])) {
             </div>
 
             <div class="search">
-                <h1>Welcome back 
-                    <?php echo $row["firstname"] . " " . $row["lastname"] . " <3" ?>
+                <h1>Welcome back
+                    <?php echo $row["firstname"] . " (:" ?>
                 </h1>
             </div>
             <div class="user">
@@ -79,9 +85,9 @@ if (!empty($_SESSION["id"])) {
                     </a>
                     <div class="dropdown-content">
 
-                        <a href="#">Add user</a>
-                        <a href="#">edit User</a>
-                        <a href="#">delete User</a>
+                        <a href="#" onclick="adduserside()">Add user</a>
+                        <a href="#" onclick="edituserside()">edit User</a>
+                        <a href="#" onclick="deleteuserside()">delete User</a>
 
                         <!-- Add more links as needed -->
                     </div>
@@ -123,7 +129,7 @@ if (!empty($_SESSION["id"])) {
                         <div class="card-name">Tatal Users</div>
                     </div>
                     <div class="icon-box">
-                    <i class="fas fa-user"></i>
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
                 <div class="card">
@@ -135,7 +141,7 @@ if (!empty($_SESSION["id"])) {
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                 </div>
-              
+
             </div>
             <div class="charts">
                 <div class="chart">
@@ -154,23 +160,23 @@ if (!empty($_SESSION["id"])) {
         </div>
         <!-- Add product  -->
         <div class="main" id="addproduct">
-            <div class="cards">
-                <div class="card">
+            <div class="formcards">
+                <div class="formcard">
                     <div class="card-content form-container">
 
                         <h1>ADD Product</h1>
                         <form method="POST" action="" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="newProductName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="newProductName" name="name" required>
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="newProductSlug" class="form-label">Type</label>
-                                <input type="text" class="form-control" id="newProductSlug" name="type" required>
+                                <label class="form-label">Type</label>
+                                <input type="text" class="form-control" name="type" required>
                             </div>
                             <div class="mb-3">
-                                <label for="newProductSlug" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="newProductSlug" name="price" required>
+                                <label class="form-label">Price</label>
+                                <input type="text" class="form-control" name="price" required>
                             </div>
                             <div class="mb-3">
                                 <label for="newProductImage" class="form-label">Image</label>
@@ -178,12 +184,11 @@ if (!empty($_SESSION["id"])) {
                                     accept="image/png, image/gif, image/jpeg" name="file" required>
                             </div>
                             <div class="mb-3">
-                                <label for="newProductDescription" class="form-label">Description</label>
-                                <input type="text" class="form-control" id="newProductDescription" name="description"
-                                    required>
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" name="description" required>
                             </div>
                             <div class="mb-3">
-                                <input type="submit" name="add" value="ADD Product"
+                                <input type="submit" name="addproduct" value="ADD Product"
                                     style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                             </div>
 
@@ -194,35 +199,34 @@ if (!empty($_SESSION["id"])) {
         </div>
         <!-- Edit product  -->
         <div class="main" id="editproduct">
-            <div class="cards">
-                <div class="card">
+            <div class="formcards">
+                <div class="formcard">
                     <div class="card-content form-container">
 
                         <h1>Update product</h1>
                         <form method="POST" action="" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="newProductName" class="form-label">ID</label>
-                                <input type="text" class="form-control" id="newProductName" name="id" required>
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
                             </div>
                             <div class="mb-3">
-                                <label for="newProductName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="newProductName" name="name" required>
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="newProductSlug" class="form-label">Type</label>
-                                <input type="text" class="form-control" id="newProductSlug" name="type" required>
+                                <input type="text" class="form-control" name="type" required>
                             </div>
                             <div class="mb-3">
                                 <label for="newProductSlug" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="newProductSlug" name="price" required>
+                                <input type="text" class="form-control" name="price" required>
                             </div>
                             <div class="mb-3">
-                                <label for="newProductDescription" class="form-label">Description</label>
-                                <input type="text" class="form-control" id="newProductDescription" name="description"
-                                    required>
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" name="description" required>
                             </div>
                             <div class="mb-3">
-                                <input type="submit" name="update" value="Update Product"
+                                <input type="submit" name="updateproduct" value="Update Product"
                                     style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                             </div>
                         </form>
@@ -232,63 +236,227 @@ if (!empty($_SESSION["id"])) {
         </div>
         <!-- delete product  -->
         <div class="main" id="deleteproduct">
-            <div class="cards">
-                <div class="card">
+            <div class="formcards">
+                <div class="formcard">
                     <div class="card-content form-container">
 
                         <h1>Delete product</h1>
                         <form method="POST" action="" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="newProductName" class="form-label">ID</label>
-                                <input type="text" class="form-control" id="newProductName" name="id" required>
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
                             </div>
                             <div class="mb-3">
-                                <input type="submit" name="delete" value="Delete Product"
+                                <input type="submit" name="deleteproduct" value="Delete Product"
                                     style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+        <!-- Add user -->
+
+        <div class="main" id="adduser">
+            <div class="formcards">
+                <div class="formcard">
+                    <div class="card-content form-container">
+
+                        <h1>ADD User</h1>
+                        <form method="POST" action="" enctype="multipart/form-data">   
+                            <div class="two-forms">
+                                <div class="input-box">
+                                    <input type="text" class="input-field" placeholder="First name" name="fname">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" class="input-field" placeholder="Last name" name="lname">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" class="input-field" placeholder="Email" name="email">
+                                <i class="bx bx-envelope"></i>
+                            </div>
+                            <div class="input-box">
+                                <input id="reg-password" type="password" class="input-field" placeholder="Password"
+                                    name="password">
+                            </div>
+                            <div class="input-box">
+                                <input id="conpassword" type="password" class="input-field"
+                                    placeholder="Confirm password" name="confirmpassword">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="adduserb" value="add user"
+                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit user  -->
+        <div class="main" id="edituser">
+            <div class="formcards">
+                <div class="formcard">
+                    <div class="card-content form-container">
+
+                        <h1>Update user</h1>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
+                            </div>
+                            <div class="two-forms">
+                                <div class="input-box">
+                                    <input type="text" class="input-field" placeholder="First name" name="fname">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" class="input-field" placeholder="Last name" name="lname">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" class="input-field" placeholder="Email" name="email">
+                                <i class="bx bx-envelope"></i>
+                            </div>
+                            <div class="input-box">
+                                <input id="reg-password" type="password" class="input-field" placeholder="Password"
+                                    name="password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="updateuser" value="Update Product"
+                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- delete product  -->
+        <div class="main" id="deleteuser">
+            <div class="formcards">
+                <div class="formcard">
+                    <div class="card-content form-container">
+
+                        <h1>Delete user</h1>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="deleteuser" value="Delete Product"
+                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="../public/JS/admindasboard.js"></script>
     <script>
 
-        var dashboard = document.getElementById("dashboard");
-        var users = document.getElementById("users");
-        var products = document.getElementById("products");
+        // var dashboard = document.getElementById("dashboard");
+        // var users = document.getElementById("users");
+        // var products = document.getElementById("products");
 
         var mainpart = document.getElementById("mainpart");
+        // product forms 
         var addproduct = document.getElementById("addproduct");
         var edirproduct = document.getElementById("editproduct");
         var deleteproduct = document.getElementById("deleteproduct");
+        //user forms 
+        var adduser = document.getElementById("adduser");
+        var edituser = document.getElementById("edituser");
+        var deleteuser = document.getElementById("deleteuser");
 
         function dasboardside() {
             addproduct.style.display = "none";
             edirproduct.style.display = "none";
             deleteproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+
             mainpart.style.display = "block";
         }
         function addproductside() {
             mainpart.style.display = "none";
             edirproduct.style.display = "none";
             deleteproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+
             addproduct.style.display = "block";
         }
         function editproductside() {
             mainpart.style.display = "none";
             addproduct.style.display = "none";
             deleteproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+
             edirproduct.style.display = "block";
         }
         function deleteproductside() {
             mainpart.style.display = "none";
             addproduct.style.display = "none";
             edirproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+
             deleteproduct.style.display = "block";
+        }
 
+        function adduserside() {
+            mainpart.style.display = "none";
+            edirproduct.style.display = "none";
+            deleteproduct.style.display = "none";
 
+            adduser.style.display = "block";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+
+            addproduct.style.display = "none";
+        }
+        function edituserside() {
+            mainpart.style.display = "none";
+            addproduct.style.display = "none";
+            deleteproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "block";
+            deleteuser.style.display = "none";
+
+            edirproduct.style.display = "none";
+        }
+        function deleteuserside() {
+            mainpart.style.display = "none";
+            addproduct.style.display = "none";
+            edirproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "block";
+
+            deleteproduct.style.display = "none";
         }
 
 
