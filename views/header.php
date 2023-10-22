@@ -47,9 +47,9 @@
         </div>
         <div id="left_elements" class="col-md-2 d-flex justify-content-end"> 
           <!-- Cart -->
-          <a href="#" class="text-decoration-none">
+          <!-- <a href="#" class="text-decoration-none">
             <i class="bi bi-cart3 text-white fs-4 me-3"></i>
-          </a>
+          </a> -->
           <!-- wishlist -->
           <a href="#" class="text-decoration-none">
             <i class="bi bi-heart text-white fs-4 me-3"></i>

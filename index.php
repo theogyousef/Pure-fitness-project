@@ -9,6 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -20,6 +22,79 @@
   </style>
 </head>
 <body>
+  <!-- open btn -->
+  <button id ="open_cart_btn">
+  <a href="#" class="text-decoration-none">
+            <i class="bi bi-cart3 text-white fs-4 me-3"></i>
+          </a>
+  </button>
+
+  <!-- backdrop -->
+  <div class="backdrop">
+
+  </div>
+  <!-- side cart -->
+  <div class="sidecart">
+    <div class="cart_content">
+      <!-- cart header -->
+      <div class="cart_header">
+      <a href="#"><i class="bi bi-cart3"></i></i></a>
+      <div class="header_title">
+        <h2>Your Cart</h2>
+        <span id ="items_num">4</span>
+      </div>
+      <span id="close_btn" class="close_btn">&times;</span>
+      </div>
+      <!-- cart items -->
+      <div class="cart_items">
+        <!-- item 1 -->
+        <div class="cart_item">
+          <div class="remove_item">
+            <span>&times;</span>
+          </div>
+          <div class="item_img">
+            <img src ="" alt=""/>
+          </div>
+          <div class="items_details">
+            <p>Product 1 Image</p>
+            <strong>$2500</strong>
+            <div class="qty">
+              <span>-</span>
+              <strong>1</strong>
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+        <!-- item 2 -->
+        <div class="cart_item">
+          <div class="remove_item">
+            <span>&times;</span>
+          </div>
+          <div class="item_img">
+            <img src ="" alt=""/>
+          </div>
+          <div class="items_details">
+            <p>Product 2 Image</p>
+            <strong>$500</strong>
+            <div class="qty">
+              <span>-</span>
+              <strong>1</strong>
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- cart actions -->
+      <div class="cart_actions">
+        <div class="subtotal">
+          <p>SUBTOTAL:</p>
+          <P>$<span id ="subtotal_price">3000</span></P>
+        </div>
+        <button>View Cart</button>
+        <button>Checkout</button>
+      </div>
+    </div>
+  </div>
   <!-- The slider -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -134,8 +209,8 @@
               </a>
               <div class="links">
                 <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
+                   <a href="#"><i class="bi bi-cart3"></i></i></a> 
+                  <span class="tooltiptext">Add to cart</span> 
                 </div>
                 <div class="Icon">
                   <a href=""><i class="bi bi-heart"></i></i></a>
@@ -553,7 +628,29 @@
       container.src = image.src;
     }
 
+    const openBtn = document.getElementById('open_cart_btn');
+const cart = document.querySelector('.sidecart');
+const closeBtn = document.getElementById('close_btn');
+const backdrop = document.querySelector('.backdrop');
+
+openBtn.addEventListener('click', openCart);
+closeBtn.addEventListener('click', closeCart);
+
+// open cart
+function openCart() {
+  cart.classList.add('open');
+  backdrop.style.display = 'block';
+  backdrop.classList.add('show');
+}
+
+// close cart
+function closeCart() {
+  cart.classList.remove('open');
+  backdrop.classList.remove('show');
+  backdrop.style.display = 'none';
+}
   </script>
+  <!-- <script src="../public/JS/cart.js"></script> -->
   <footer>
     <?php
     include "../SWE/views/footer.php"?>
