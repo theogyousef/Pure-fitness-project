@@ -18,7 +18,7 @@
             </div>
             <i class="fas fa-bell"></i>
             <div class="user">
-                <img src="../photos/user.png" alt="">
+                <img src="../public/photos/userPhotos/user.png" alt="">
             </div>
         </div>
         <div class="sidebar">
@@ -80,8 +80,8 @@
         </div>
   
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <script src="../JS/chart1.js"></script>
-    <script src="../JS/chart2.js"></script>
+    <script src="../public/JS/chart1.js"></script>
+    <script src="../public/JS/chart2.js"></script>
     
 </body>
 

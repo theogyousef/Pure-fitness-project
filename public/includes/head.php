@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <!-- Set the viewport for responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../public/CSS/styles.css">
   <!-- Include Bootstrap CSS and Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -21,7 +21,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
   <!-- Include your custom CSS file -->
-  <link rel="stylesheet" href="../CSS/dashboard.css" />
+  
 
   <!-- Include Google Fonts for Material Symbols Outlined -->
   <link rel="stylesheet"
