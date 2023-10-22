@@ -17,7 +17,7 @@ if (isset($_POST["addproduct"])) {
     deleteproduct();
 } else if (isset($_POST["adduserb"])) {
     adduser();
-}  else if (isset($_POST["updateuser"])) {
+} else if (isset($_POST["updateuser"])) {
     updateuser();
 } else if (isset($_POST["deleteuser"])) {
     deleteuser();
@@ -32,6 +32,11 @@ if (!empty($_SESSION["id"])) {
 } else {
     header("Location: registeration.php");
 }
+
+$sql = "SELECT * from products ";
+$result = mysqli_query($conn, $sql);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +52,7 @@ if (!empty($_SESSION["id"])) {
     <title>Admin panel</title>
     <style>
         <?php include "../public/CSS/adminDasboard.css" ?>
+        
     </style>
 
 </head>
@@ -145,17 +151,35 @@ if (!empty($_SESSION["id"])) {
             </div>
             <div class="charts">
                 <div class="chart">
-                    <h2>Earnings (past 12 months)</h2>
-                    <div>
-                        <canvas id="lineChart"></canvas>
-                    </div>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>name</th>
+                                <th>type</th>
+                                <th>price</th>
+                                <th>description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        echo   " <tr>
+                                <td>" . $row["id"] . "</td>
+                                <td> ". $row["name"] . "</td>
+                                <td> ". $row["type"] . "</td>
+                                <td> ". $row["price"] . "</td>
+                                <td> ". $row["description"] . "</td>
+
+
+                            </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="chart doughnut-chart">
-                    <h2>Employees</h2>
-                    <div>
-                        <canvas id="doughnut"></canvas>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <!-- Add product  -->
@@ -267,7 +291,7 @@ if (!empty($_SESSION["id"])) {
                     <div class="card-content form-container">
 
                         <h1>ADD User</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">   
+                        <form method="POST" action="" enctype="multipart/form-data">
                             <div class="two-forms">
                                 <div class="input-box">
                                     <input type="text" class="input-field" placeholder="First name" name="fname">
