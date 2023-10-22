@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
   <script src="https://kit.fontawesome.com/0b0cd0c012.js" crossorigin="anonymous"></script>
   <title>Registration</title>
   <style>
-    <?php include "CSS/registeration.css" ?>
+    <?php include "../public/CSS/registeration.css" ?>
   </style>
 </head>
 
@@ -174,7 +174,7 @@ if (isset($_POST["submit"])) {
       </form>
     </div>
   </div>
-  <script src="../JS/Registeration.js"></script>
+  <script src="../public/JS/Registeration.js"></script>
 </body>
 
 </html>

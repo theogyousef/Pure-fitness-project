@@ -11,7 +11,7 @@ function addproduct()
 
 
     
-    $uploadDirectory = '../productPhotos/'; // Directory where you save the uploaded files
+    $uploadDirectory = '../public/photos/productPhotos/'; // Directory where you save the uploaded files
 
     // Check if the file was uploaded successfully
     if (move_uploaded_file($file["tmp_name"], $uploadDirectory . $file["name"])) {
