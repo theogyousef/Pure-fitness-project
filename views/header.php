@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hedaer</title>
-    
+
     <style>
         <?php 
          include "../public/CSS/header.css";
@@ -60,20 +60,19 @@
           <a href="#" class="text-decoration-none">
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
-          <!-- Login/signup -->
-          <a href="../SWE/views/Registeration.php" class="text-decoration-none" id="loginSignupDropdown">
-            <i class="bi bi-person text-white fs-4"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
-            <div class="dropdown-item-columns">
-              <div class="dropdown-items-horizontal">
-                <a class="dropdown-item" href="#">Profile Settings</a>
-                <a class="dropdown-item" href="#">Admin Dashboard</a>
-                <a class="dropdown-item" href="#">Logout</a>
 
-              </div>
-            </div>
-          </div>
+          <div id="left_elements" class="col-md-2 d-flex justify-content-end ml-auto">
+    <!-- Login/signup dropdown -->
+    <a href="#" class="text-decoration-none" data-bs-toggle="dropdown" data-bs-target="#loginSignupDropdown">
+        <i class="bi bi-person text-white fs-4"></i>
+    </a>
+    <div class="dropdown-menu" id="loginSignupDropdown">
+        <a class="dropdown-item" href="#">Profile Settings</a>
+        <a class="dropdown-item" href="#">Admin Dashboard</a>
+        <a class="dropdown-item" href="#">Logout</a>
+    </div>
+</div>
+
         </div>
       </div>
     </div>
@@ -225,6 +224,7 @@
     </div>
   </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
