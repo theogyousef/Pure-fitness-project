@@ -1,7 +1,3 @@
-<?php
-    include "header.php"
-    ?>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +13,9 @@
 
   <title>Home Page</title>
   <style>
-    <?php include "../public/CSS/index.css" ?> 
+    <?php include "../public/CSS/index.css" ;
+    include "header.php"
+    ?> 
 
   </style>
 </head>
