@@ -49,3 +49,21 @@
   .search-input:focus {
 color: white !important;
 }
+.dropdown-item {
+  border-bottom: 1px solid white;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-header {
+  color: maroon!important;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Adjust the size of the header items as needed */
+.dropdown-menu .dropdown-items-horizontal a {
+  font-size: 16px;
+}

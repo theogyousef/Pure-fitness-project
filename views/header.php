@@ -55,7 +55,7 @@
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
           <!-- Login/signup -->
-          <a href="#" class="text-decoration-none">
+          <a href="../SWE/views/Registeration.php" class="text-decoration-none">
             <i class="bi bi-person text-white fs-4"></i>
           </a>
         </div>
@@ -65,54 +65,150 @@
 
   <!-- The Nav bar -->
   <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
-        <ul class="navbar-nav text-white text-center">
-         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              shop
-            </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
-              <div class="dropdown-item-columns">
-                <a class="dropdown-item" href="#">GYM Tools</a>
-                <a class="dropdown-item" href="#">Presonal Gear</a>
-              </div>
-              <div class="dropdown-item-columns">
-                <a class="dropdown-item" href="#">GYMNASTICS & BODYWEIGHT</a>
-                <a class="dropdown-item" href="#">GYM Machines</a>
-              </div>
-              <div class="dropdown-item-columns">
-                <a class="dropdown-item" href="#">HOME GYM</a>
-                <!-- Add more items in this column -->
+  <div class="container">
+    <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
+      <ul class="navbar-nav text-white text-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            SHOP
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <h3 class="dropdown-header">GYM Tools</h3>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Personal Gear</a>
+                <a class="dropdown-item" href="#">Gymnastics & Bodyweight</a>
               </div>
             </div>
-         </li>
-          <li class="nav-item dropdown"> <!-- Use the dropdown class for dropdown items -->
-            <a class="nav-link" href="#" id="navbarDropdownGymTools" role="button" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              GYM Tools
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownGymTools">
-              <a class="dropdown-item"
-                href="#">Gymnastics &
-                Bodyweight</a>
-              <a class="dropdown-item"
-                href="#/">Personal Gear</a>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">CROSSFIT EQUIPMENT</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Weightlifting</a>
+                <a class="dropdown-item" href="#">Cages & Racks and Attachments</a>	
+                <a class="dropdown-item" href="#">Gym Essential</a>
+                <a class="dropdown-item" href="#">Free Weights</a>
+              </div>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">CARDIO</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Bikes</a>
+                <a class="dropdown-item" href="#">Rowers</a>	
+                <a class="dropdown-item" href="#">Treadmills</a>
+                <a class="dropdown-item" href="#">Skiergs</a>
+                <a class="dropdown-item" href="#">Elliptical</a>
+              </div>
+            </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">GYM Machines</h6>
+              <h6 class="dropdown-header">HOME GYM</h6>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          GYM TOOLS
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <h3 class="dropdown-header">GYMNASTICS & BODYWEIGHT</h3>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Bands</a>
+                <a class="dropdown-item" href="#">Parallettes</a>
+                <a class="dropdown-item" href="#">Gym Chalk</a>
+              </div>
+            </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">PERSONAL GEAR</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Speed Ropes</a>
+                <a class="dropdown-item" href="#">Mats</a>	
+                <a class="dropdown-item" href="#">AB Mat</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CROSSFIT EQUIPMENT
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <h3 class="dropdown-header">WEIGHTLIFTING</h3>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Barbells</a>
+                <a class="dropdown-item" href="#">Plates</a>
+                <a class="dropdown-item" href="#">Collars</a>
+              </div>
+            </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">CAGES & RACKS AND ATTACHMENTS</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Weightlifting</a>
+                <a class="dropdown-item" href="#">Cages</a>	
+                <a class="dropdown-item" href="#">Racks</a>
+                <a class="dropdown-item" href="#">Attachments</a>
+                <a class="dropdown-item" href="#">Pull Up Bars</a>
+                <a class="dropdown-item" href="#">Storages</a>
+                <a class="dropdown-item" href="#">Cable Cross Attachments</a>
+              </div>
+            </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">GYM ESSENTIAL</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Benches</a>
+                <a class="dropdown-item" href="#">Boxes</a>	
+                <a class="dropdown-item" href="#">Rings</a>
+                <a class="dropdown-item" href="#">Sleds</a>
+              </div>
+            </div>
+            <div class="dropdown-item-columns">
+              <h6 class="dropdown-header">FREE WEIGHTS</h6>
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Kettlebells</a>
+                <a class="dropdown-item" href="#">Dumbbells</a>	
+                <a class="dropdown-item" href="#">Medicine Balls</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CARDIO   </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Bikes</a>
+                <a class="dropdown-item" href="#">Rowers</a>
+                <a class="dropdown-item" href="#">Treadmills</a>
+                <a class="dropdown-item" href="#">Skiergs</a>
+                <a class="dropdown-item" href="#">Elliptical</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          GYM MACHINES   </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Life fitness</a>
+                <a class="dropdown-item" href="#">Precor</a>
+                <a class="dropdown-item" href="#">Tecnhogym</a>
+                <a class="dropdown-item" href="#">Cybex</a>
+              </div>
+            </div>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          HOME GYM </a>
+       </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 </body>
 </html>
