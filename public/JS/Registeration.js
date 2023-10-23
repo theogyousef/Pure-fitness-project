@@ -1,15 +1,4 @@
 
-
-// The responsive nav
-function myMenuFunction() {
-  var i = document.getElementById("navMenu");
-  if (i.className === "nav-menu") {
-    i.className += " responsive";
-  } else {
-    i.className = "nav-menu";
-  }
-}
-
 // Toggle between login and signup
 var a = document.getElementById("loginBtn");
 var b = document.getElementById("registerBtn");

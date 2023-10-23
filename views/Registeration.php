@@ -46,31 +46,21 @@ if (isset($_POST["submit"])) {
     <?php include "../public/CSS/registeration.css" ?>
   </style>
 </head>
-
 <body>
   <div class="containerbox">
     <!-- Nav menu -->
     <nav class="nav">
-      <div class="nav-name">
-        <p>Website Name</p>
-      </div>
-      <div class="nav-menu" id="navMenu">
-        <ul>
-          <li><a href="#" class="link">Home</a></li>
-          <li><a href="#" class="link">Services</a></li>
-          <li><a href="#" class="link">Contact us</a></li>
-          <li><a href="#" class="link">About</a></li>
-        </ul>
-      </div>
       <!-- Nav 2 buttons -->
       <div class="nav-button">
         <button class="btn white-btn" id="loginBtn" onclick="login()">Log in</button>
         <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+        <button class="btn" id="registerBtn">
+           <a href="../index.php" style="text-decoration: none; color: black;">Home</a>
+           </button>
+
+
       </div>
       <!-- Responsive nav -->
-      <div class="nav-menu-btn">
-        <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-      </div>
     </nav>
 
     <div class="form-box">
@@ -102,7 +92,6 @@ if (isset($_POST["submit"])) {
 
         </form>
       </div>
-
       <!-- Register -->
       <form method="post" name="signupform" id="myform" onsubmit="validateRegistration(event)">
         <div class="register-container" id="register" style="height: 580px;">
