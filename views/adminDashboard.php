@@ -214,20 +214,28 @@ if ($row["admin"] != 1) {
                                 <th>ID</th>
                                 <th>name</th>
                                 <th>email</th>
+                                <th>Type</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sql2 = "SELECT * from users where admin != '1'";
+                            $sql2 = "SELECT * from users ";
                             $resultusers = mysqli_query($conn, $sql2);
                             
                             while ($row = mysqli_fetch_assoc($resultusers)) {
+                               if( $row["admin"] == 1 ){
+                                $admin = "Admin" ;
+                               }elseif( $row["admin"] == 0){
+                                $admin = "User";}
+                               
                                 echo " <tr>
                                 <td>" . $row["id"] . "</td>
                                 <td> " . $row["firstname"] . $row["lastname"] . "</td>
                                 <td> " . $row["email"] . "</td>
-                             
+                                
+                                <td> " . $admin . "</td>
+
 
 
                             </tr>";
