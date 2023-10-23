@@ -55,9 +55,19 @@
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
           <!-- Login/signup -->
-          <a href="../SWE/views/Registeration.php" class="text-decoration-none">
+          <a href="../SWE/views/Registeration.php" class="text-decoration-none" id="loginSignupDropdown">
             <i class="bi bi-person text-white fs-4"></i>
           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+            <div class="dropdown-item-columns">
+              <div class="dropdown-items-horizontal">
+                <a class="dropdown-item" href="#">Profile Settings</a>
+                <a class="dropdown-item" href="#">Admin Dashboard</a>
+                <a class="dropdown-item" href="#">Logout</a>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

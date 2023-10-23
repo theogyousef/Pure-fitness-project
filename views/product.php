@@ -104,7 +104,7 @@
                             <a href="#" class="images">
                                 <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic img-fluid">
                             </a>
-                            <div class "links">
+                            <div class="links">
                                 <div class="Icon">
                                     <a href="#"><i class="bi bi-cart3"></i></a>
                                     <span class="tooltiptext">Add to cart</span>

@@ -3,14 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
+    
 }
 
 body {
-    background-image: url("https://r4.wallpaperflare.com/wallpaper/935/706/440/working-out-gyms-smoke-kettlebells-wallpaper-b9c0a87df11aad6b1627780fa081c66d.jpg");
+    background-image: url("https://images.pexels.com/photos/669582/pexels-photo-669582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
+    
 }
 
 .containerbox {
