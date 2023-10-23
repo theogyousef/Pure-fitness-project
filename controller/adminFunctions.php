@@ -59,7 +59,6 @@ function deleteproduct()
 
 function adduser()
 {
-    echo "<script> alert('wasal ');</script> ";
 
     global $conn;
 
@@ -83,7 +82,7 @@ function adduser()
 
             // we pass the connection of the database and the quarey 
             mysqli_query($conn, $query);
-            echo "<script> alert('Regsitered successfully');</script> ";
+            // echo "<script> alert('Regsitered successfully');</script> ";
 
         } else {
             echo "<script> alert('Passwords do not match');</script> ";
@@ -114,6 +113,14 @@ function deleteuser()
     global $conn;
     $id = $_POST["id"];
     $query = "DELETE FROM users WHERE id = '$id'";
+    mysqli_query($conn, $query);
+
+}
+
+function makeadmin(){
+    global $conn;
+    $id = $_POST["id"];
+    $query = "UPDATE users  set admin = '1' WHERE id = '$id'";
     mysqli_query($conn, $query);
 
 }

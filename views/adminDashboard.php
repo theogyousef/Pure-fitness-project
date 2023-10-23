@@ -21,6 +21,8 @@ if (isset($_POST["addproduct"])) {
     updateuser();
 } else if (isset($_POST["deleteuser"])) {
     deleteuser();
+} else if (isset($_POST["makeadminn"])) {
+    makeadmin();
 }
 
 
@@ -95,7 +97,8 @@ if ($row["admin"] != 1) {
 
                         <a href="#" onclick="adduserside()">Add user</a>
                         <a href="#" onclick="edituserside()">edit User</a>
-                        <a href="#" onclick="deleteuserside()">delete User</a>
+                   <a href="#" onclick="deleteuserside()">delete user </a>
+                   <a href="#" onclick="makeadminside()">makeadmin </a>
 
                         <!-- Add more links as needed -->
                     </div>
@@ -133,15 +136,17 @@ if ($row["admin"] != 1) {
             <div class="cards">
                 <div class="card">
                     <div class="card-content">
-                        <div class="number"> <?php
-                          $sql2 = "SELECT * from users where admin != '1'";
-                          $resultusers = mysqli_query($conn, $sql2);
-                          
+                        <div class="number">
+                            <?php
+                            $sql2 = "SELECT * from users";
+                            $resultusers = mysqli_query($conn, $sql2);
+
                             $counterusers = 0;
                             while ($row = mysqli_fetch_assoc($resultusers)) {
                                 $counterusers++;
                             }
-                            echo $counterusers ?></div>
+                            echo $counterusers ?>
+                        </div>
                         <div class="card-name">Total Users</div>
                     </div>
                     <div class="icon-box">
@@ -154,7 +159,7 @@ if ($row["admin"] != 1) {
                             <?php
                             $sql = "SELECT * from products ";
                             $resultproduct = mysqli_query($conn, $sql);
-                            
+
                             $counterproducts = 0;
                             while ($row = mysqli_fetch_assoc($resultproduct)) {
                                 $counterproducts++;
@@ -187,7 +192,7 @@ if ($row["admin"] != 1) {
                             <?php
                             $sql = "SELECT * from products ";
                             $resultproduct = mysqli_query($conn, $sql);
-                            
+
                             while ($row = mysqli_fetch_assoc($resultproduct)) {
                                 echo " <tr>
                                 <td>" . $row["id"] . "</td>
@@ -222,13 +227,14 @@ if ($row["admin"] != 1) {
                             <?php
                             $sql2 = "SELECT * from users ";
                             $resultusers = mysqli_query($conn, $sql2);
-                            
+
                             while ($row = mysqli_fetch_assoc($resultusers)) {
-                               if( $row["admin"] == 1 ){
-                                $admin = "Admin" ;
-                               }elseif( $row["admin"] == 0){
-                                $admin = "User";}
-                               
+                                if ($row["admin"] == 1) {
+                                    $admin = "Admin";
+                                } elseif ($row["admin"] == 0) {
+                                    $admin = "User";
+                                }
+
                                 echo " <tr>
                                 <td>" . $row["id"] . "</td>
                                 <td> " . $row["firstname"] . $row["lastname"] . "</td>
@@ -448,6 +454,28 @@ if ($row["admin"] != 1) {
             </div>
         </div>
 
+        <!-- make admin  -->
+        <div class="main" id="makeadmin">
+            <div class="formcards">
+                <div class="formcard">
+                    <div class="card-content form-container">
+
+                        <h1>Make admin</h1>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="makeadminn" value="Update"
+                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
@@ -467,6 +495,8 @@ if ($row["admin"] != 1) {
         var adduser = document.getElementById("adduser");
         var edituser = document.getElementById("edituser");
         var deleteuser = document.getElementById("deleteuser");
+        var makeadmin = document.getElementById("makeadmin");
+
 
         function dasboardside() {
             addproduct.style.display = "none";
@@ -476,6 +506,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "none";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             mainpart.style.display = "block";
         }
@@ -487,6 +518,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "none";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             addproduct.style.display = "block";
         }
@@ -498,6 +530,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "none";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             edirproduct.style.display = "block";
         }
@@ -509,6 +542,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "none";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             deleteproduct.style.display = "block";
         }
@@ -521,6 +555,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "block";
             edituser.style.display = "none";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             addproduct.style.display = "none";
         }
@@ -532,6 +567,7 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "block";
             deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
 
             edirproduct.style.display = "none";
         }
@@ -543,13 +579,28 @@ if ($row["admin"] != 1) {
             adduser.style.display = "none";
             edituser.style.display = "none";
             deleteuser.style.display = "block";
+            makeadmin.style.display = "none";
+
+            deleteproduct.style.display = "none";
+        }
+
+        function makeadminside() {
+            mainpart.style.display = "none";
+            addproduct.style.display = "none";
+            edirproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+            makeadmin.style.display = "block";
+
 
             deleteproduct.style.display = "none";
         }
 
 
 
-        dasboardside()
+        dasboardside();
     </script>
 
 </body>

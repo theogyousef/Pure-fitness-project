@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hedaer</title>
     <style>
-        <?php include "public/CSS/header.css" ?>
+        <?php include "../public/CSS/header.css" ?>
     </style>
 </head>
 <body>

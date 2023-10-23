@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="../CSS/footer.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<style>
+        <?php include "../public/CSS/footer.css" ?>
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 <footer class="footer">
   <hr />

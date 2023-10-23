@@ -1,5 +1,5 @@
 <?php
-    include "../SWE/views/header.php"
+    include "header.php"
     ?>
     
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 
   <title>Home Page</title>
   <style>
-    <?php include "public/CSS/index.css" ?> 
+    <?php include "../public/CSS/index.css" ?> 
 
   </style>
 </head>
@@ -107,7 +107,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="public/photos/productPhotos/slider1.jpg" class="d-block w-100" alt="..." >
+        <img src="../public/photos/productPhotos/slider1.jpg" class="d-block w-100" alt="..." >
         <div class="carousel-caption1">
       <h1>TRANSFORM YOUR BODY WITH</h1>
       <h1>PURE FITNESS EQUIPMENT</h1>
@@ -115,7 +115,7 @@
     </div>
       </div>
       <div class="carousel-item">
-        <img src="public/photos/productPhotos/slider2.png" class="d-block w-100" alt="...">
+        <img src="../public/photos/productPhotos/slider2.png" class="d-block w-100" alt="...">
         <div class="carousel-caption">
                   <h1>PURE FITNESS EQUIPMENT:</h1>
                   <h1>WHERE STRENGTH MEETS ENDURANCE.</h1>
@@ -123,7 +123,7 @@
       </div>
 
       <div class="carousel-item">
-        <img src="public/photos/productPhotos/slider3.png" class="d-block w-100" alt="...">
+        <img src="../public/photos/productPhotos/slider3.png" class="d-block w-100" alt="...">
         <div class="carousel-caption">
                   <h1>PURE FITNESS EQUIPMENT:</h1>
                   <h1>THE PERFECT PARTNER FOR YOUR</h1>
@@ -158,8 +158,8 @@
           <div class="col-md-6">
             <div class="images p-3">
               <!-- Add a container for the magnifier -->
-              <div class="thumbnail text-center"> <img onclick="change_image(this)" src="public/photos/productPhotos/pic3.webp" width="70"> <img
-                  onclick="change_image(this)" src="public/photos/productPhotos/pic4.webp" width="70"> </div>
+              <div class="thumbnail text-center"> <img onclick="change_image(this)" src="../public/photos/productPhotos/pic3.webp" width="70"> <img
+                  onclick="change_image(this)" src="../public/photos/productPhotos/pic4.webp" width="70"> </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -203,9 +203,9 @@
           <div class="products">
             <div class="product-image">
               <a href="#" class="images">
-                <img src="public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" alt="Concept 2 PM5 BikeErg" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" alt="Concept 2 PM5 BikeErg" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -243,9 +243,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -284,9 +284,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/Concept 2 SkiErg.webp" alt="Concept 2 SkiErg" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/Concept 2 SkiErg.webp" alt="Concept 2 SkiErg" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -324,9 +324,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -372,7 +372,7 @@
   <!-- image -->
   <div class="position-relative text-center">
   <a href="#" id="centered-anchor" class="d-block">
-    <img src="public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
+    <img src="../public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
   </a>
   <button class="btn btn-dark btn-lg position-absolute top-25 start-50 translate-middle">
     Shop Now
@@ -396,9 +396,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos//hex.webp" alt="Hex Dumbbells" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos//hex.webp" alt="Hex Dumbbells" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/86.webp" alt="Hex Dumbbells" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/86.webp" alt="Hex Dumbbells" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -437,9 +437,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/Bumber-Plates-2-scaled-1200x1200.webp" alt="dumble" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/Bumber-Plates-2-scaled-1200x1200.webp" alt="dumble" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -478,9 +478,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -518,9 +518,9 @@
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="public/photos/productPhotos/Wall-Ball-6-scaled-1200x1200.webp" alt="Wall Ball" class="pic-1" width="500px">
+                <img src="../public/photos/productPhotos/Wall-Ball-6-scaled-1200x1200.webp" alt="Wall Ball" class="pic-1" width="500px">
 
-                <img src="public/photos/productPhotos/Wall-Balls-3-scaled-1200x1200.webp" alt="Wall Ball" class="pic-2" width="500px">
+                <img src="../public/photos/productPhotos/Wall-Balls-3-scaled-1200x1200.webp" alt="Wall Ball" class="pic-2" width="500px">
               </a>
               <div class="links">
                 <div class="Icon">
@@ -569,7 +569,7 @@
   <!-- image -->
   <div class="position-relative text-center">
   <a href="#" id="centered-anchor" class="d-block">
-    <img src="public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
+    <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
   </a>
 </div>
 
@@ -579,7 +579,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="image-container position-relative text-center">
-            <img src="public/photos/productPhotos/footerSIGNup.jpg" class="custom-img img-fluid" alt="Your Image">
+            <img src="../public/photos/productPhotos/footerSIGNup.jpg" class="custom-img img-fluid" alt="Your Image">
             <div class="overlay d-flex flex-column justify-content-center align-items-center">
                 <div class="quote mt-2 text-center">
                     <h4 class="custom-about-us">NEWSLETTER SIGNUP</h4>
@@ -600,7 +600,7 @@
     
         <div class="col-md-6">
             <div class="image-container position-relative text-center">
-                <img src="public/photos/productPhotos/aboutUs.png" class="custom-img img-fluid" alt="Your Image">
+                <img src="../public/photos/productPhotos/aboutUs.png" class="custom-img img-fluid" alt="Your Image">
                 <div class="overlay d-flex flex-column justify-content-center align-items-center">
                     <div class="quote mt-2 text-center">
                         <h4 class="custom-about-us">ABOUT US</h4>
@@ -653,6 +653,6 @@ function closeCart() {
   <!-- <script src="../public/JS/cart.js"></script> -->
   <footer>
     <?php
-    include "../SWE/views/footer.php"?>
+    include "footer.php"?>
   </footer>
 </body>
