@@ -1,5 +1,4 @@
 <?php
-include 'footer.php';
 
 
 require '../controller/config.php';
@@ -76,6 +75,11 @@ else {
         <ul>
           <li><a href="profilesettings.php">profile settings</a></li>
           <li> <a href="logout.php">logout</a></li>
+          <?php 
+          if($row["admin"] ==1){
+            echo "<li> <a href='adminDashboard.php'>Admin dasboard</a></li> ";
+          }
+          ?>
         </ul>
       </li>
       <!-- 

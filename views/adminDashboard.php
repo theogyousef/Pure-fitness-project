@@ -33,8 +33,11 @@ if (!empty($_SESSION["id"])) {
     header("Location: registeration.php");
 }
 
-$sql = "SELECT * from products ";
-$result = mysqli_query($conn, $sql);
+if ($row["admin"] != 1) {
+    header("Location: home.php");
+
+}
+
 
 
 ?>
@@ -52,7 +55,6 @@ $result = mysqli_query($conn, $sql);
     <title>Admin panel</title>
     <style>
         <?php include "../public/CSS/adminDasboard.css" ?>
-        
     </style>
 
 </head>
@@ -131,8 +133,16 @@ $result = mysqli_query($conn, $sql);
             <div class="cards">
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
-                        <div class="card-name">Tatal Users</div>
+                        <div class="number"> <?php
+                          $sql2 = "SELECT * from users where admin != '1'";
+                          $resultusers = mysqli_query($conn, $sql2);
+                          
+                            $counterusers = 0;
+                            while ($row = mysqli_fetch_assoc($resultusers)) {
+                                $counterusers++;
+                            }
+                            echo $counterusers ?></div>
+                        <div class="card-name">Total Users</div>
                     </div>
                     <div class="icon-box">
                         <i class="fas fa-user"></i>
@@ -140,7 +150,17 @@ $result = mysqli_query($conn, $sql);
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">42</div>
+                        <div class="number">
+                            <?php
+                            $sql = "SELECT * from products ";
+                            $resultproduct = mysqli_query($conn, $sql);
+                            
+                            $counterproducts = 0;
+                            while ($row = mysqli_fetch_assoc($resultproduct)) {
+                                $counterproducts++;
+                            }
+                            echo $counterproducts ?>
+                        </div>
                         <div class="card-name">pieces of equipment</div>
                     </div>
                     <div class="icon-box">
@@ -149,9 +169,10 @@ $result = mysqli_query($conn, $sql);
                 </div>
 
             </div>
-            <div class="charts">
-                <div class="chart">
-                    
+
+            <div class="cards">
+                <div class="card">
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -163,14 +184,17 @@ $result = mysqli_query($conn, $sql);
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        echo   " <tr>
+                            <?php
+                            $sql = "SELECT * from products ";
+                            $resultproduct = mysqli_query($conn, $sql);
+                            
+                            while ($row = mysqli_fetch_assoc($resultproduct)) {
+                                echo " <tr>
                                 <td>" . $row["id"] . "</td>
-                                <td> ". $row["name"] . "</td>
-                                <td> ". $row["type"] . "</td>
-                                <td> ". $row["price"] . "</td>
-                                <td> ". $row["description"] . "</td>
+                                <td> " . $row["name"] . "</td>
+                                <td> " . $row["type"] . "</td>
+                                <td> " . $row["price"] . "</td>
+                                <td> " . $row["description"] . "</td>
 
 
                             </tr>";
@@ -179,7 +203,39 @@ $result = mysqli_query($conn, $sql);
                         </tbody>
                     </table>
                 </div>
-               
+
+
+
+                <div class="card">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>name</th>
+                                <th>email</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2 = "SELECT * from users where admin != '1'";
+                            $resultusers = mysqli_query($conn, $sql2);
+                            
+                            while ($row = mysqli_fetch_assoc($resultusers)) {
+                                echo " <tr>
+                                <td>" . $row["id"] . "</td>
+                                <td> " . $row["firstname"] . $row["lastname"] . "</td>
+                                <td> " . $row["email"] . "</td>
+                             
+
+
+                            </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- Add product  -->
