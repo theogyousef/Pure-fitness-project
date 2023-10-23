@@ -215,6 +215,9 @@
   .product {
     background-color: #eee;
   }
+  .productcontainer{
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
 
   /* Brand text styles */
   .brand {
@@ -447,14 +450,16 @@
 }
 
 .carousel-caption1 {
-    position: absolute;
-    right: 50px;
-    top: 450px; 
-    text-align: center;
-    font-family: "Georgia", sans-serif;
-    font-size: 36px;
-    color: #FFFFFF;
-  }
+  position: absolute;
+  top: 50%; /* Move the top to the vertical center */
+  left: 50%; /* Move the left to the horizontal center */
+  transform: translate(-50%, -50%); /* Center the element */
+  text-align: center;
+  font-family: "Georgia", sans-serif;
+  font-size: 36px;
+  color: #FFFFFF;
+}
+
 
 /* footer */
 
