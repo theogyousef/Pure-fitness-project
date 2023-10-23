@@ -9,7 +9,7 @@
     <div class="footerDetail">
       <div class="socialMedia">
         
-        <h2>We make it easy for you</h2>
+        <h3>We make it easy for you</h3>
         <div class="socialMediaLogos">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
