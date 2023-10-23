@@ -6,7 +6,12 @@
     <title>Hedaer</title>
     
     <style>
-        <?php include "../public/CSS/header.css" ?>
+        <?php 
+         include "../public/CSS/header.css";
+         include "../public/css/index.css";
+        ?>
+        
+   
     </style>
 </head>
 <body>
