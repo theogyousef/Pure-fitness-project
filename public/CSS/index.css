@@ -826,3 +826,15 @@ button:hover {
 .cart_actions button:nth-of-type(2) {
   background-color: var(--accent-color);
 }
+
+.announcement-container {
+  background: #000000;
+}
+
+.header-middle {
+  background: #080808;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  border-color: rgba(255, 255, 255, 0.25);
+  overflow-x: hidden;
+}
