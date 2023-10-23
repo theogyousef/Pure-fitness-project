@@ -108,9 +108,9 @@ include "header.php"
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <video width="1900" autoplay loop muted>
-          <source src="../public/photos/slidervideos/vid.mp4" type="video/mp4">
-        </video>
+         <video width="100%" height="100%" autoplay loop muted>
+      <source src="../public/photos/slidervideos/vid.mp4" type="video/mp4">
+    </video>
 
         <!-- <img src="../public/photos/productPhotos/slider1.jpg" class="d-block w-100" alt="..." > -->
         <div class="carousel-caption1">
@@ -215,7 +215,7 @@ include "header.php"
         <div class="col-md-3  productcontainer" >
           <div class="products">
             <div class="product-image">
-              <a href="#" class="images">
+              <a href="product.php" class="images">
                 <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
                   class="pic-1" width="500px">
 
@@ -257,7 +257,7 @@ include "header.php"
         <div class="col-md-3 productcontainer">
           <div class="products">
             <div class="product-image">
-              <a href="" class="images">
+              <a href="product.php" class="images">
                 <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1" width="500px">
 
                 <img src="../public/photos/productPhotos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2" width="500px">
@@ -298,7 +298,7 @@ include "header.php"
         <div class="col-md-3 productcontainer">
           <div class="products">
             <div class="product-image">
-              <a href="" class="images">
+              <a href="product.php" class="images">
                 <img src="../public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1"
                   width="500px">
 
@@ -340,7 +340,7 @@ include "header.php"
         <div class="col-md-3 productcontainer">
           <div class="products">
             <div class="product-image">
-              <a href="" class="images">
+              <a href="product.php" class="images">
                 <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
@@ -603,6 +603,41 @@ include "header.php"
   </div>
 
   <!-- bmi calculator -->
+  
+  <h2>What Our Customers Have To Say</h2>
+<section class="feedback-section">
+
+    <div class="container" style="margin-bottom: 80px; ">
+        <div class="feedback-slider">
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                        We ordered our treadmill online from Pure Fitness, the next day I received an email confirming our order with full contact information. I called instead of replying to the email because I had a question.waleed was awesome and answered all my questions! Prior to shipping the treadmill, he sent me a photo of the equipment so I could approve the order. They were very quick to respond via email too. We are very happy with our purchase and the customer service! We will definitely shop with Pure Fitness again!!
+                    </p>
+                    <p class="feedback-name"> -Mariam Samy </p>
+                </div>
+            </div>
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                    Awesome customer service.They assisted us in finding the perfect machines for our home gym. Great prices, I am definitely coming back for more equipment.
+                    </p>
+                    <p class="feedback-name"> -Moaz </p>
+                </div>
+            </div>
+            <!-- Add more review elements as needed -->
+        </div>
+        <div class="slider-controls">
+    <button class="prev-button">
+    <i class="bi bi-arrow-left-circle"></i>
+    </button>
+    <button class="next-button">
+    <i class="bi bi-arrow-right-circle"></i>
+    </button>
+</div>
+
+    </div>
+</section>
 
   <div class="container">
     <div class="row">
@@ -679,6 +714,33 @@ include "header.php"
       backdrop.classList.remove('show');
       backdrop.style.display = 'none';
     }
+
+ const reviews = document.querySelectorAll('.feedback-review');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+let currentIndex = 0;
+
+function showReview(index) {
+    reviews.forEach((review, i) => {
+        review.style.transform = `translateX(-${100 * index}%)`;
+    });
+}
+
+prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        showReview(currentIndex);
+    }
+});
+
+nextButton.addEventListener('click', () => {
+    if (currentIndex < reviews.length - 1) {
+        currentIndex++;
+        showReview(currentIndex);
+    }
+});
+
+showReview(currentIndex);
   </script>
   <!-- <script src="../public/JS/cart.js"></script> -->
   <footer>
