@@ -66,7 +66,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a>
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
-            <a class="nav-link home" id="homenav" href="home.php">Home</a>
+            <a class="nav-link home" id="homenav" href="index.php">Home</a>
 
 
         </nav>

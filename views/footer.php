@@ -11,9 +11,9 @@
         
         <h3>We make it easy for you</h3>
         <div class="socialMediaLogos">
-          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/Pure.fitness.equipment.eg?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/pure_fitness_equipment/"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>

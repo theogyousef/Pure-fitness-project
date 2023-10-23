@@ -1,6 +1,25 @@
+<?php
 
+
+require '../controller/config.php';
+if(!empty($_SESSION["id"])){
+$id = $_SESSION["id"];
+$result = mysqli_query($conn , "SELECT * FROM users WHERE id = '$id'  ") ;
+$row = mysqli_fetch_assoc($result);
+
+}
+else {
+    header("Location: registeration.php");
+}
+
+    include "header.php"
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- Set the character encoding for your document -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Set the character encoding for your document -->
 <meta charset="UTF-8">
   <!-- Set the viewport for responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +52,18 @@
 
   <!-- Title for your web page -->
 <!------ Include the above in your HEAD tag ---------->
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<head>
+
 
 </head>
 
 <body>
-    <?php
-    include "../views/header.php";
-    ?>
 
 
 

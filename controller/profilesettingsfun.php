@@ -14,7 +14,7 @@ function uploadpic()
     if (move_uploaded_file($file["tmp_name"], $uploadDirectory . $file["name"])) {
         $uploadedFileName = $file["name"];
         $fileUrl = $uploadDirectory . $uploadedFileName;
-        echo "<script>alert('The URL is: " . $fileUrl . "'); </script>";
+        // echo "<script>alert('The URL is: " . $fileUrl . "'); </script>";
 
         $id = $_SESSION["id"];
         $query = "UPDATE users SET profilepicture = '$fileUrl' WHERE  id = $id ";

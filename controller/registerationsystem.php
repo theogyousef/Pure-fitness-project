@@ -50,7 +50,7 @@ if (mysqli_num_rows($result) > 0) {
   if (password_verify($password, $row["password"])) {
     $_SESSION["login"] = true;
     $_SESSION["id"] = $row["id"];
-    header("Location: home.php");
+    header("Location: index.php");
   } else {
     echo "<script> alert('Wrong password ');</script> ";
 

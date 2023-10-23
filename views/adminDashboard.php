@@ -36,7 +36,7 @@ if (!empty($_SESSION["id"])) {
 }
 
 if ($row["admin"] != 1) {
-    header("Location: home.php");
+    header("Location: index.php");
 
 }
 
@@ -124,7 +124,7 @@ if ($row["admin"] != 1) {
                     </a>
                 </li>
                 <li>
-                    <a href="home.php">
+                    <a href="index.php">
                         <i class="fas fa-home"></i>
                         <div>Home</div>
                     </a>
@@ -134,25 +134,7 @@ if ($row["admin"] != 1) {
         <!-- Dashboard -->
         <div class="main" id="mainpart">
             <div class="cards">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">
-                            <?php
-                            $sql2 = "SELECT * from users";
-                            $resultusers = mysqli_query($conn, $sql2);
-
-                            $counterusers = 0;
-                            while ($row = mysqli_fetch_assoc($resultusers)) {
-                                $counterusers++;
-                            }
-                            echo $counterusers ?>
-                        </div>
-                        <div class="card-name">Total Users</div>
-                    </div>
-                    <div class="icon-box">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
+                
                 <div class="card">
                     <div class="card-content">
                         <div class="number">
@@ -170,6 +152,26 @@ if ($row["admin"] != 1) {
                     </div>
                     <div class="icon-box">
                         <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">
+                            <?php
+                            $sql2 = "SELECT * from users";
+                            $resultusers = mysqli_query($conn, $sql2);
+
+                            $counterusers = 0;
+                            while ($row = mysqli_fetch_assoc($resultusers)) {
+                                $counterusers++;
+                            }
+                            echo $counterusers ?>
+                        </div>
+                        <div class="card-name">Total Users</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
 

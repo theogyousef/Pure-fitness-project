@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hedaer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    
     <style>
         <?php 
          include "../public/CSS/header.css";
@@ -57,7 +59,7 @@
             <i class="bi bi-cart3 text-white fs-4 me-3"></i>
           </a> -->
           <!-- wishlist -->
-          <a href="#" class="text-decoration-none">
+          <a href="wishlist.php" class="text-decoration-none">
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
 
@@ -67,9 +69,14 @@
         <i class="bi bi-person text-white fs-4"></i>
     </a>
     <div class="dropdown-menu" id="loginSignupDropdown">
-        <a class="dropdown-item" href="#">Profile Settings</a>
-        <a class="dropdown-item" href="#">Admin Dashboard</a>
-        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item" href="profilesettings.php">Profile Settings</a>
+        <?php 
+          if($row["admin"] ==1){
+            echo " <a class='dropdown-item' href='adminDashboard.php'>Admin dasboard</a> ";
+          }
+          ?>
+        
+        <a class="dropdown-item" href="logout.php">Logout</a>
     </div>
 </div>
 

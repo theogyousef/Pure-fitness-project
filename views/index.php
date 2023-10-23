@@ -1,6 +1,19 @@
 <?php
-include "header.php"
-  ?>
+
+
+require '../controller/config.php';
+if(!empty($_SESSION["id"])){
+$id = $_SESSION["id"];
+$result = mysqli_query($conn , "SELECT * FROM users WHERE id = '$id'  ") ;
+$row = mysqli_fetch_assoc($result);
+
+}
+else {
+    header("Location: registeration.php");
+}
+
+include "header.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +52,7 @@ include "header.php"
     <div class="cart_content">
       <!-- cart header -->
       <div class="cart_header">
-        <a href="#"><i class="bi bi-cart3"></i></i></a>
+      
         <div class="header_title">
           <h2>Your Cart</h2>
         </div>
@@ -187,8 +200,8 @@ include "header.php"
             <div class="images p-3">
               <!-- Add a container for the magnifier -->
               <div class="thumbnail text-center"> <img onclick="change_image(this)"
-                  src="../public/photos/productPhotos/pic3.webp" width="70"> <img onclick="change_image(this)"
-                  src="../public/photos/productPhotos/pic4.webp" width="70"> </div>
+                  src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" width="70"> <img onclick="change_image(this)"
+                  src="../public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" width="70"> </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -229,7 +242,7 @@ include "header.php"
     <div class="container products-carousel">
       <div class="row">
 
-        <div class="col-md-3  productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="#" class="images">
@@ -271,7 +284,7 @@ include "header.php"
           </div>
         </div>
         <!-- Second Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -312,7 +325,7 @@ include "header.php"
           </div>
         </div>
         <!-- Third Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -354,7 +367,7 @@ include "header.php"
           </div>
         </div>
         <!-- Fourth Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -428,7 +441,7 @@ include "header.php"
 
     <div class="container products-carousel">
       <div class="row">
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -470,7 +483,7 @@ include "header.php"
           </div>
         </div>
         <!-- Second Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -514,7 +527,7 @@ include "header.php"
           </div>
         </div>
         <!-- Third Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -557,7 +570,7 @@ include "header.php"
           </div>
         </div>
         <!-- Fourth Product -->
-        <div class="col-md-3 productcontainer">
+        <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -614,9 +627,9 @@ include "header.php"
 
   <!-- image -->
   <div class="position-relative text-center">
-    <a href="#" id="centered-anchor" class="d-block">
+    <!-- <a href="#" id="centered-anchor" class="d-block"> -->
       <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
-    </a>
+    <!-- </a> -->
   </div>
 
   <!-- bmi calculator -->
