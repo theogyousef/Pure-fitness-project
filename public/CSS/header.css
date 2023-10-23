@@ -67,3 +67,19 @@ color: white !important;
 .dropdown-menu .dropdown-items-horizontal a {
   font-size: 16px;
 }
+#loginSignupDropdown:hover + .dropdown-menu {
+  overflow: visible;
+  display: block;
+  top: 70px;
+  margin-right: -60px;
+}
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent; 
+}

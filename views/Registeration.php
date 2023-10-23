@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
         <button class="btn white-btn" id="loginBtn" onclick="login()">Log in</button>
         <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
         <button class="btn" id="registerBtn">
-           <a href="../index.php" style="text-decoration: none; color: black;">Home</a>
+           <a href="../views/index.php" style="text-decoration: none; color: black;">Home</a>
            </button>
 
 
@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
             <div class="forgotpass">
-              <a href="forgetpass.html">Forgot password?</a>
+              <a href="../views/forgetpass.php">Forgot password?</a>
             </div>
           </div>
           <div style="height: 20px;">
