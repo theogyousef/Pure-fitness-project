@@ -36,11 +36,11 @@ include "header.php";
 
 <body>
   <!-- open btn -->
-  <button id="open_cart_btn">
+  <!-- <button id="open_cart_btn">
     <a href="#" class="text-decoration-none">
       <i class="bi bi-cart3 text-white fs-4 me-3"></i>
     </a>
-  </button>
+  </button> -->
 
   <!-- backdrop -->
   <div class="backdrop">
@@ -701,7 +701,7 @@ include "header.php";
       container.src = image.src;
     }
 
-    const openBtn = document.getElementById('open_cart_btn');
+    const openBtn = document.getElementById('open_cart_btnn');
     const cart = document.querySelector('.sidecart');
     const closeBtn = document.getElementById('close_btn');
     const backdrop = document.querySelector('.backdrop');
