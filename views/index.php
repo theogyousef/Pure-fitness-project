@@ -442,7 +442,7 @@ include "header.php";
   <!-- First product -->
   <div class="viewproduct">
     <div class="row">
-      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
+      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
         <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
       </div>
     </div>
@@ -643,6 +643,44 @@ include "header.php";
 
   <!-- bmi calculator -->
 
+
+
+<!-- what our customers have to say -->
+  <h2>What Our Customers Have To Say</h2>
+<section class="feedback-section">
+
+    <div class="container" style="margin-bottom: 80px; ">
+        <div class="feedback-slider">
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                        We ordered our treadmill online from Pure Fitness, the next day I received an email confirming our order with full contact information. I called instead of replying to the email because I had a question.waleed was awesome and answered all my questions! Prior to shipping the treadmill, he sent me a photo of the equipment so I could approve the order. They were very quick to respond via email too. We are very happy with our purchase and the customer service! We will definitely shop with Pure Fitness again!!
+                    </p>
+                    <p class="feedback-name"> -Mariam Samy </p>
+                </div>
+            </div>
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                    Awesome customer service.They assisted us in finding the perfect machines for our home gym. Great prices, I am definitely coming back for more equipment.
+                    </p>
+                    <p class="feedback-name"> -Moaz </p>
+                </div>
+            </div>
+            <!-- Add more review elements as needed -->
+        </div>
+        <div class="slider-controls">
+    <button class="prev-button">
+    <i class="bi bi-arrow-left-circle"></i>
+    </button>
+    <button class="next-button">
+    <i class="bi bi-arrow-right-circle"></i>
+    </button>
+</div>
+
+    </div>
+</section>
+  <!-- About us and signup containers -->
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -685,6 +723,7 @@ include "header.php";
       </div>
     </div>
   </div>
+
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
