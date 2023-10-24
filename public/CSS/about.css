@@ -1,90 +1,60 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.box {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   h1 {
-    margin: 0;
-    font-size: 32px;
-  }
-  
-  section {
-    padding: 40px;
-    margin-bottom: 40px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    text-align: center;
-  }
-  
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  p {
-    color: #777;
-    margin: 0;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    h1 {
       font-size: 24px;
-    }
-  
-    h2 {
+  }
+
+  h2 {
       font-size: 20px;
-    }
-  
-    img {
-      width: 120px;
-      height: 120px;
-    }
-  
-    h3 {
-      font-size: 16px;
-    }
   }
-
-  .announcement-container {
-    background: #000000;
-  }
-
-  .header-middle {
-    background: #080808;
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
-    border-color: rgba(255, 255, 255, 0.25);
-    overflow-x: hidden;
-  }
+}
