@@ -79,9 +79,9 @@ include "header.php";
               </div>
               <div class="cart-controls">
                 <div class="cart-quantity">
-                  <button class="minus">-</button>
-                  <input type="text" class="quantity" value="1">
-                  <button class="plus">+</button>
+                  <button class="minus" id="decrement" >-</button>
+                  <input type="text" class="quantity" id="quantity" value="1">
+                  <button class="plus" id="increment" >+</button>
                 </div>
               </div>
             </div>
@@ -106,10 +106,10 @@ include "header.php";
                 </p>
               </div>
               <div class="cart-controls">
-                <div class="cart-quantity">
-                  <button class="minus">-</button>
-                  <input type="text" class="quantity" value="1">
-                  <button class="plus">+</button>
+              <div class="cart-quantity">
+                  <button class="minus" id="decrement2" >-</button>
+                  <input type="text" class="quantity" id="quantity2" value="1">
+                  <button class="plus" id="increment2" >+</button>
                 </div>
               </div>
             </div>
@@ -360,7 +360,7 @@ include "header.php";
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">58.000 EGP</span>
                 </p>
               </div>
             </div>
@@ -402,7 +402,7 @@ include "header.php";
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+                  From <span class="price">39.000 EGP</span>
                 </p>
               </div>
             </div>
@@ -665,7 +665,8 @@ include "header.php";
             <div class="quote mt-2 text-center">
               <h4 class="custom-about-us">ABOUT US</h4>
               <p class="custom-quote">Pure Fitness Equipment one of the biggest fitness equipment store in Egypt.</p>
-              <button type="button" class="btn-About-us btn-dark">Read Our Story</button>
+              <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
+"> Read Our Story</a></button>
             </div>
           </div>
         </div>
@@ -709,6 +710,45 @@ include "header.php";
       backdrop.classList.remove('show');
       backdrop.style.display = 'none';
     }
+
+    const decrementButton = document.getElementById("decrement");
+  const incrementButton = document.getElementById("increment");
+  const quantityInput = document.getElementById("quantity");
+  
+
+  decrementButton.addEventListener("click", () => {
+      let quantity = parseInt(quantityInput.value, 10);
+      if (quantity > 1) {
+          quantity--;
+          quantityInput.value = quantity;
+      }
+  });
+  
+  incrementButton.addEventListener("click", () => {
+      let quantity = parseInt(quantityInput.value, 10);
+      quantity++;
+      quantityInput.value = quantity;
+  });
+
+  const decrementButton2 = document.getElementById("decrement2");
+  const incrementButton2 = document.getElementById("increment2");
+  const quantityInput2 = document.getElementById("quantity2");
+  
+
+  decrementButton2.addEventListener("click", () => {
+      let quantity = parseInt(quantityInput2.value, 10);
+      if (quantity > 1) {
+          quantity--;
+          quantityInput2.value = quantity;
+      }
+  });
+  
+  incrementButton2.addEventListener("click", () => {
+      let quantity = parseInt(quantityInput2.value, 10);
+      quantity++;
+      quantityInput2.value = quantity;
+  });
+
   </script>
   <!-- <script src="../public/JS/cart.js"></script> -->
   <footer>
