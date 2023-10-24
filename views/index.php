@@ -442,7 +442,7 @@ include "header.php";
   <!-- First product -->
   <div class="viewproduct">
     <div class="row">
-      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
+      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
         <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
       </div>
     </div>
@@ -643,6 +643,44 @@ include "header.php";
 
   <!-- bmi calculator -->
 
+
+
+<!-- what our customers have to say -->
+  <h2>What Our Customers Have To Say</h2>
+<section class="feedback-section">
+
+    <div class="container" style="margin-bottom: 80px; ">
+        <div class="feedback-slider">
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                        We ordered our treadmill online from Pure Fitness, the next day I received an email confirming our order with full contact information. I called instead of replying to the email because I had a question.waleed was awesome and answered all my questions! Prior to shipping the treadmill, he sent me a photo of the equipment so I could approve the order. They were very quick to respond via email too. We are very happy with our purchase and the customer service! We will definitely shop with Pure Fitness again!!
+                    </p>
+                    <p class="feedback-name"> -Mariam Samy </p>
+                </div>
+            </div>
+            <div class="feedback-review">
+                <div class="white-box">
+                    <p class="feedback-text">
+                    Awesome customer service.They assisted us in finding the perfect machines for our home gym. Great prices, I am definitely coming back for more equipment.
+                    </p>
+                    <p class="feedback-name"> -Moaz </p>
+                </div>
+            </div>
+            <!-- Add more review elements as needed -->
+        </div>
+        <div class="slider-controls">
+    <button class="prev-button">
+    <i class="bi bi-arrow-left-circle"></i>
+    </button>
+    <button class="next-button">
+    <i class="bi bi-arrow-right-circle"></i>
+    </button>
+</div>
+
+    </div>
+</section>
+  <!-- About us and signup containers -->
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -686,6 +724,68 @@ include "header.php";
     </div>
   </div>
 
+<!-- BMI Calculator and Chart -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="bmi-calculator-container text-black p-4">
+          <h3 class="card-title text-center" style="color: maroon;">CALCULATE YOUR BMI</h3>
+          <p class="small">BMI stands for Body Mass Index. The approximated calculation is used to determine your weight to your height. The calculator is useful for adults over 18 years of age. The calculator is only used as an estimator only and should not be used as a medical determination. The team at 365 recommend professional Dr or accredited Health Professional in regards to specific health and nutrition advice.</p>
+          <form id="bmiForm">
+              <div class="mb-3">
+                  <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Weight (kg)">
+              </div>
+              <div class="mb-3">
+                  <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Height (m)">
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
+              </div>
+          </form>
+          <div id="result" class="mt-3">
+              <h3 class="text-center">Your BMI: <span id="bmiValue">--</span></h3>
+              <p class="text-center">Category: <span id="bmiCategory">--</span></p>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <!-- BMI Chart Container -->
+    <div class="bmi-chart-container text-black p-4">
+        <h3 class="card-title text-center" style="color: maroon;">BMI Categories</h3>
+        <p class="small">BMI categories are a way to classify individuals based on their BMI value. Here's a simple chart:</p>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">BMI Range</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Less than 18.5</td>
+                    <td>Underweight</td>
+                </tr>
+                <tr>
+                    <td>18.5 - 24.9</td>
+                    <td>Normal Weight</td>
+                </tr>
+                <tr>
+                    <td>25.0 - 29.9</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr>
+                    <td>30.0 or more</td>
+                    <td>Obese</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="small mt-3">Please note that this is a general reference. For personalized health advice, consult a healthcare professional.</p>
+    </div>
+</div>
+</div>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
