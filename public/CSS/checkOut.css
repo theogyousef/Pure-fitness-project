@@ -1,11 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #333333;
+    background-color: #ffffff;
   }
   
-  .container {
-    max-width: 400px;
-    margin: 0 auto;
+  .containercheckout {
+  width: 700px;
+    margin: 30px 410px;
     padding: 20px;
     background-color: black;
     border-radius: 8px;

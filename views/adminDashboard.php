@@ -23,6 +23,8 @@ if (isset($_POST["addproduct"])) {
     deleteuser();
 } else if (isset($_POST["makeadminn"])) {
     makeadmin();
+} else if (isset($_POST["makeuserr"])) {
+    makeuser();
 }
 
 
@@ -97,8 +99,10 @@ if ($row["admin"] != 1) {
 
                         <a href="#" onclick="adduserside()">Add user</a>
                         <a href="#" onclick="edituserside()">edit User</a>
-                   <a href="#" onclick="deleteuserside()">delete user </a>
-                   <a href="#" onclick="makeadminside()">make admin </a>
+                        <a href="#" onclick="deleteuserside()">delete user </a>
+                        <a href="#" onclick="makeadminside()">make admin </a>
+                        <a href="#" onclick="makeuserside()">make user </a>
+
 
                         <!-- Add more links as needed -->
                     </div>
@@ -134,7 +138,7 @@ if ($row["admin"] != 1) {
         <!-- Dashboard -->
         <div class="main" id="mainpart">
             <div class="cards">
-                
+
                 <div class="card">
                     <div class="card-content">
                         <div class="number">
@@ -478,6 +482,27 @@ if ($row["admin"] != 1) {
             </div>
         </div>
 
+        <!-- make user  -->
+        <div class="main" id="makeuser">
+            <div class="formcards">
+                <div class="formcard">
+                    <div class="card-content form-container">
+
+                        <h1>Make user</h1>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">ID</label>
+                                <input type="text" class="form-control" name="id" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="makeuserr" value="Update"
+                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
@@ -498,6 +523,7 @@ if ($row["admin"] != 1) {
         var edituser = document.getElementById("edituser");
         var deleteuser = document.getElementById("deleteuser");
         var makeadmin = document.getElementById("makeadmin");
+        var makeuser = document.getElementById("makeuser");
 
 
         function dasboardside() {
@@ -509,6 +535,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             mainpart.style.display = "block";
         }
@@ -521,6 +548,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             addproduct.style.display = "block";
         }
@@ -533,6 +561,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             edirproduct.style.display = "block";
         }
@@ -545,6 +574,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             deleteproduct.style.display = "block";
         }
@@ -558,6 +588,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             addproduct.style.display = "none";
         }
@@ -570,6 +601,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "block";
             deleteuser.style.display = "none";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             edirproduct.style.display = "none";
         }
@@ -582,6 +614,7 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "block";
             makeadmin.style.display = "none";
+            makeuser.style.display = "none";
 
             deleteproduct.style.display = "none";
         }
@@ -595,6 +628,21 @@ if ($row["admin"] != 1) {
             edituser.style.display = "none";
             deleteuser.style.display = "none";
             makeadmin.style.display = "block";
+            makeuser.style.display = "none";
+
+
+            deleteproduct.style.display = "none";
+        }
+        function makeuserside() {
+            mainpart.style.display = "none";
+            addproduct.style.display = "none";
+            edirproduct.style.display = "none";
+
+            adduser.style.display = "none";
+            edituser.style.display = "none";
+            deleteuser.style.display = "none";
+            makeadmin.style.display = "none";
+            makeuser.style.display = "block";
 
 
             deleteproduct.style.display = "none";

@@ -1,7 +1,7 @@
 <script>
-  if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-  }
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>
 
 <?php
@@ -54,7 +54,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
     <style>
         <?php include "../public/CSS/profilesettings.css" ?>
     </style>
-       <script src="../public/JS/profilesettings.js"></script>
+    <script src="../public/JS/profilesettings.js"></script>
 </head>
 
 <body>
@@ -66,6 +66,12 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a>
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
+            <?php
+            if ($row["admin"] == 1) {
+                echo ' <a class="nav-link" href="adminDashboard.php">Admin Dasboard</a>';
+            }
+            ?>
+
             <a class="nav-link home" id="homenav" href="index.php">Home</a>
 
 
@@ -188,7 +194,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
-           
+
             <!-- Social -->
             <div class="col-xl-8" style="display: none;" id="social">
                 <div class="card mb-4">
@@ -217,8 +223,8 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
-             <!-- Security -->
-             <div class="col-xl-8" style="display: none;" id="security">
+            <!-- Security -->
+            <div class="col-xl-8" style="display: none;" id="security">
                 <div class="card mb-4">
                     <div class="card-header">Security</div>
                     <div class="card-body">
@@ -279,74 +285,74 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         </div>
     </div>
 
- 
-<script> 
 
-var detailsnav = document.getElementById("detailsnav");
-  var securitysnav = document.getElementById("securitysnav");
-  var socilanav = document.getElementById("socilanav");
-  var notificationsnav = document.getElementById("notificationsnav");
+    <script>
 
-  var details = document.getElementById("details");
-  var security = document.getElementById("security");
-  var social = document.getElementById("social");
-  var notifications = document.getElementById("notifications");
+        var detailsnav = document.getElementById("detailsnav");
+        var securitysnav = document.getElementById("securitysnav");
+        var socilanav = document.getElementById("socilanav");
+        var notificationsnav = document.getElementById("notificationsnav");
 
-
-  function detailsa() {
-      detailsnav.classList.add("active");
-      securitysnav.classList.remove("active");
-      socilanav.classList.remove("active");
-      notificationsnav.classList.remove("active");
+        var details = document.getElementById("details");
+        var security = document.getElementById("security");
+        var social = document.getElementById("social");
+        var notifications = document.getElementById("notifications");
 
 
-      details.style.display = "block";
-      security.style.display = "none";
-      social.style.display = "none";
-      notifications.style.display = "none";
-  }
+        function detailsa() {
+            detailsnav.classList.add("active");
+            securitysnav.classList.remove("active");
+            socilanav.classList.remove("active");
+            notificationsnav.classList.remove("active");
 
-  function securitya() {
-      detailsnav.classList.remove("active");
-      securitysnav.classList.add("active");
-      socilanav.classList.remove("active");
-      notificationsnav.classList.remove("active");
 
-      details.style.display = "none";
-      security.style.display = "block";
-      social.style.display = "none";
-      notifications.style.display = "none";
+            details.style.display = "block";
+            security.style.display = "none";
+            social.style.display = "none";
+            notifications.style.display = "none";
+        }
 
-  }
+        function securitya() {
+            detailsnav.classList.remove("active");
+            securitysnav.classList.add("active");
+            socilanav.classList.remove("active");
+            notificationsnav.classList.remove("active");
 
-  function sociala() {
+            details.style.display = "none";
+            security.style.display = "block";
+            social.style.display = "none";
+            notifications.style.display = "none";
 
-      detailsnav.classList.remove("active");
-      securitysnav.classList.remove("active");
-      socilanav.classList.add("active");
-      notificationsnav.classList.remove("active");
+        }
 
-      details.style.display = "none";
-      security.style.display = "none";
-      social.style.display = "block";
-      notifications.style.display = "none";
+        function sociala() {
 
-  }
+            detailsnav.classList.remove("active");
+            securitysnav.classList.remove("active");
+            socilanav.classList.add("active");
+            notificationsnav.classList.remove("active");
 
-  function notificationsa() {
+            details.style.display = "none";
+            security.style.display = "none";
+            social.style.display = "block";
+            notifications.style.display = "none";
 
-      detailsnav.classList.remove("active");
-      securitysnav.classList.remove("active");
-      socilanav.classList.remove("active");
-      notificationsnav.classList.add("active");
+        }
 
-      details.style.display = "none";
-      security.style.display = "none";
-      social.style.display = "none";
-      notifications.style.display = "block";
+        function notificationsa() {
 
-  }
-  </script>
+            detailsnav.classList.remove("active");
+            securitysnav.classList.remove("active");
+            socilanav.classList.remove("active");
+            notificationsnav.classList.add("active");
+
+            details.style.display = "none";
+            security.style.display = "none";
+            social.style.display = "none";
+            notifications.style.display = "block";
+
+        }
+    </script>
 </body>
 
 </html>

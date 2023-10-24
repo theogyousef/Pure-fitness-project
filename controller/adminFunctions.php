@@ -124,3 +124,11 @@ function makeadmin(){
     mysqli_query($conn, $query);
 
 }
+
+function makeuser(){
+    global $conn;
+    $id = $_POST["id"];
+    $query = "UPDATE users  set admin = '0' WHERE id = '$id'";
+    mysqli_query($conn, $query);
+
+}
