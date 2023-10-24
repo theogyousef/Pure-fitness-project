@@ -121,7 +121,9 @@ include "header.php";
           <P>$<span id="subtotal_price">3000</span></P>
         </div>
         <button>View Cart</button>
-        <button>Checkout</button>
+        <button type="button"><a href="checkOut.php" style="color: white;   text-decoration: none;
+                "> Check Out</a>
+                </button>
       </div>
     </div>
   </div>
