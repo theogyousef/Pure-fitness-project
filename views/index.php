@@ -121,7 +121,9 @@ include "header.php";
           <P>$<span id="subtotal_price">3000</span></P>
         </div>
         <button>View Cart</button>
-        <button>Checkout</button>
+        <button type="button"><a href="checkOut.php" style="color: white;   text-decoration: none;
+                "> Check Out</a>
+                </button>
       </div>
     </div>
   </div>
@@ -658,7 +660,9 @@ include "header.php";
                     style="background: transparent; color: #000;">
                   <label for="email">Enter your email address</label>
                 </div>
-                <button type="button" class="btn-About-us btn-dark">Sign up</button>
+                <button type="button" class="btn-About-us btn-dark"><a href="Registeration.php" style="color: white;   text-decoration: none;
+                "> Sign Up</a>
+                </button>
               </div>
             </form>
           </div>
@@ -672,8 +676,9 @@ include "header.php";
             <div class="quote mt-2 text-center">
               <h4 class="custom-about-us">ABOUT US</h4>
               <p class="custom-quote">Pure Fitness Equipment one of the biggest fitness equipment store in Egypt.</p>
-              <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
-"> Read Our Story</a></button>
+                <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
+                "> Read Our Story</a>
+                </button>
             </div>
           </div>
         </div>
