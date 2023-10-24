@@ -2,14 +2,13 @@
 
 
 require '../controller/config.php';
-if(!empty($_SESSION["id"])){
-$id = $_SESSION["id"];
-$result = mysqli_query($conn , "SELECT * FROM users WHERE id = '$id'  ") ;
-$row = mysqli_fetch_assoc($result);
+if (!empty($_SESSION["id"])) {
+  $id = $_SESSION["id"];
+  $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+  $row = mysqli_fetch_assoc($result);
 
-}
-else {
-    header("Location: registeration.php");
+} else {
+  header("Location: registeration.php");
 }
 
 include "header.php";
@@ -52,7 +51,7 @@ include "header.php";
     <div class="cart_content">
       <!-- cart header -->
       <div class="cart_header">
-      
+
         <div class="header_title">
           <h2>Your Cart</h2>
         </div>
@@ -61,58 +60,58 @@ include "header.php";
       <!-- cart items -->
       <div class="cart_items">
         <!-- item 1 -->
-          <div class="cart_item">
-            <div class="productcontainer">
-              <button class="remove-item">X</button> <!-- Move this X button to the top right -->
-              <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
-                  class="pic-1" width="100px">
-              </div>
-              <div class="Content">
-                <h6>Concept 2 PM5 BikeErg</h6>
-                <p class="detailsinfo">
-                  <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-                </p>
-                <p class="lower-price">
-                  From <span class="price">72,000 EGP</span>
-                </p>
-              </div>
-              <div class="cart-controls">
-                <div class="cart-quantity">
-                  <button class="minus" id="decrement" >-</button>
-                  <input type="text" class="quantity" id="quantity" value="1">
-                  <button class="plus" id="increment" >+</button>
-                </div>
+        <div class="cart_item">
+          <div class="productcontainer">
+            <button class="remove-item">X</button> <!-- Move this X button to the top right -->
+            <div class="cartimage">
+              <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                class="pic-1" width="100px">
+            </div>
+            <div class="Content">
+              <h6>Concept 2 PM5 BikeErg</h6>
+              <p class="detailsinfo">
+                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              </p>
+              <p class="lower-price">
+                From <span class="price">72,000 EGP</span>
+              </p>
+            </div>
+            <div class="cart-controls">
+              <div class="cart-quantity">
+                <button class="minus" id="decrement">-</button>
+                <input type="text" class="quantity" id="quantity" value="1">
+                <button class="plus" id="increment">+</button>
               </div>
             </div>
           </div>
+        </div>
 
 
         <!-- item 2 -->
         <div class="cart_item">
-            <div class="productcontainer">
-              <button class="remove-item">X</button> <!-- Move this X button to the top right -->
-              <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
-                  class="pic-1" width="100px">
-              </div>
-              <div class="Content">
-                <h6>Concept 2 SkiErg</h6>
-                <p class="detailsinfo">
-                  <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-                </p>
-                <p class="lower-price">
-                  From <span class="price">72,000 EGP</span>
-                </p>
-              </div>
-              <div class="cart-controls">
+          <div class="productcontainer">
+            <button class="remove-item">X</button> <!-- Move this X button to the top right -->
+            <div class="cartimage">
+              <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                class="pic-1" width="100px">
+            </div>
+            <div class="Content">
+              <h6>Concept 2 SkiErg</h6>
+              <p class="detailsinfo">
+                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              </p>
+              <p class="lower-price">
+                From <span class="price">72,000 EGP</span>
+              </p>
+            </div>
+            <div class="cart-controls">
               <div class="cart-quantity">
-                  <button class="minus" id="decrement2" >-</button>
-                  <input type="text" class="quantity" id="quantity2" value="1">
-                  <button class="plus" id="increment2" >+</button>
-                </div>
+                <button class="minus" id="decrement2">-</button>
+                <input type="text" class="quantity" id="quantity2" value="1">
+                <button class="plus" id="increment2">+</button>
               </div>
             </div>
+          </div>
         </div>
       </div>
       <!-- cart actions -->
@@ -197,12 +196,20 @@ include "header.php";
         </div>
         <div class="row">
           <div class="col-md-6">
-            <div class="images p-3">
-              <!-- Add a container for the magnifier -->
-              <div class="thumbnail text-center"> <img onclick="change_image(this)"
-                  src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" width="70"> <img onclick="change_image(this)"
-                  src="../public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" width="70"> </div>
-            </div>
+          <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
+                        alt="Product Image" class="img-fluid" style="height: 500px;">
+                    <div class="images p-3">
+                        <!-- Add a container for the magnifier -->
+                        <div class="thumbnail text-center">
+                            <img onmouseover="change_image(this)"
+                                src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
+                            <img onmouseover="change_image(this)"
+                                src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
+                            <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp"
+                                width="70">
+                        </div>
+
+                    </div>
           </div>
           <div class="col-md-6">
             <div class="product p-4">
@@ -211,7 +218,7 @@ include "header.php";
               <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">CARDIO/BIKES</span>
                 <h5 class="text-uppercase">Concept 2 PM5 BikeErg</h5>
                 <div class="price d-flex flex-row align-items-center"> <span class="act-price">72.000 EGP</span>
-                  <div class="ml-2"> <small class="dis-price">82.000 EGP</small> <span>40% OFF</span> </div>
+                  <!-- <div class="ml-2"> <small class="dis-price">82.000 EGP</small> <span>40% OFF</span> </div> -->
                 </div>
               </div>
               <p class="about">The bike features a clutch that keeps the flywheel spinning when you stop pedaling,
@@ -245,7 +252,7 @@ include "header.php";
         <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
-              <a href="#" class="images">
+              <a href="product.php" class="images">
                 <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
                   class="pic-1" width="500px">
 
@@ -628,7 +635,7 @@ include "header.php";
   <!-- image -->
   <div class="position-relative text-center">
     <!-- <a href="#" id="centered-anchor" class="d-block"> -->
-      <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
+    <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
     <!-- </a> -->
   </div>
 
@@ -712,42 +719,48 @@ include "header.php";
     }
 
     const decrementButton = document.getElementById("decrement");
-  const incrementButton = document.getElementById("increment");
-  const quantityInput = document.getElementById("quantity");
-  
+    const incrementButton = document.getElementById("increment");
+    const quantityInput = document.getElementById("quantity");
 
-  decrementButton.addEventListener("click", () => {
+
+    decrementButton.addEventListener("click", () => {
       let quantity = parseInt(quantityInput.value, 10);
       if (quantity > 1) {
-          quantity--;
-          quantityInput.value = quantity;
+        quantity--;
+        quantityInput.value = quantity;
       }
-  });
-  
-  incrementButton.addEventListener("click", () => {
+    });
+
+    incrementButton.addEventListener("click", () => {
       let quantity = parseInt(quantityInput.value, 10);
       quantity++;
       quantityInput.value = quantity;
-  });
+    });
 
-  const decrementButton2 = document.getElementById("decrement2");
-  const incrementButton2 = document.getElementById("increment2");
-  const quantityInput2 = document.getElementById("quantity2");
-  
+    const decrementButton2 = document.getElementById("decrement2");
+    const incrementButton2 = document.getElementById("increment2");
+    const quantityInput2 = document.getElementById("quantity2");
 
-  decrementButton2.addEventListener("click", () => {
+
+    decrementButton2.addEventListener("click", () => {
       let quantity = parseInt(quantityInput2.value, 10);
       if (quantity > 1) {
-          quantity--;
-          quantityInput2.value = quantity;
+        quantity--;
+        quantityInput2.value = quantity;
       }
-  });
-  
-  incrementButton2.addEventListener("click", () => {
+    });
+
+    incrementButton2.addEventListener("click", () => {
       let quantity = parseInt(quantityInput2.value, 10);
       quantity++;
       quantityInput2.value = quantity;
-  });
+    });
+
+    function change_image(image) {
+    var mainProductImage = document.getElementById("mainProductImage");
+    mainProductImage.src = image.src;
+ }
+  
 
   </script>
   <!-- <script src="../public/JS/cart.js"></script> -->
