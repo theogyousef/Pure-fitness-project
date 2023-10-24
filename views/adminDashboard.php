@@ -98,7 +98,7 @@ if ($row["admin"] != 1) {
                         <a href="#" onclick="adduserside()">Add user</a>
                         <a href="#" onclick="edituserside()">edit User</a>
                    <a href="#" onclick="deleteuserside()">delete user </a>
-                   <a href="#" onclick="makeadminside()">makeadmin </a>
+                   <a href="#" onclick="makeadminside()">make admin </a>
 
                         <!-- Add more links as needed -->
                     </div>
@@ -360,7 +360,7 @@ if ($row["admin"] != 1) {
         <div class="main" id="adduser">
             <div class="formcards">
                 <div class="formcard">
-                    <div class="card-content form-container">
+                    <div class="form-container">
 
                         <h1>ADD User</h1>
                         <form method="POST" action="" enctype="multipart/form-data">
