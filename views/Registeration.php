@@ -12,10 +12,10 @@ require "../controller/registerationsystem.php";
 
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
-    signup();
+  signup();
 } else if (isset($_POST["login"])) {
-    signin();
-} 
+  signin();
+}
 
 
 // if (!empty($_SESSION["id"])) {
@@ -46,6 +46,7 @@ if (isset($_POST["submit"])) {
     <?php include "../public/CSS/registeration.css" ?>
   </style>
 </head>
+
 <body>
   <div class="containerbox">
     <!-- Nav menu -->
@@ -54,10 +55,9 @@ if (isset($_POST["submit"])) {
       <div class="nav-button">
         <button class="btn white-btn" id="loginBtn" onclick="login()">Log in</button>
         <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
-        <button class="btn" id="registerBtn">
-           <a href="../views/index.php" style="text-decoration: none; color: black;">Home</a>
-           </button>
-
+        <a href="index.php" style="text-decoration: none; color: black;"> <button class="btn" id="registerBtn">
+            Home
+          </button></a>
 
       </div>
       <!-- Responsive nav -->

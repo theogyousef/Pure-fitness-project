@@ -30,6 +30,11 @@ if (!empty($_SESSION["id"])) {
 }
 
 
+if ($row["id"] ==20) {
+    header("Location: index.php");
+
+}
+
 
 $instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
 $instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);

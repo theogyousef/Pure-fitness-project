@@ -67,16 +67,23 @@
     <a href="#" class="text-decoration-none" data-bs-toggle="dropdown" data-bs-target="#loginSignupDropdown">
         <i class="bi bi-person text-white fs-4"></i>
     </a>
+
+    <?php if ($_SESSION["id"] != 20) : ?>
     <div class="dropdown-menu" id="loginSignupDropdown">
         <a class="dropdown-item" href="profilesettings.php">Profile Settings</a>
         <?php 
-          if($row["admin"] ==1){
-            echo " <a class='dropdown-item' href='adminDashboard.php'>Admin dasboard</a> ";
-          }
-          ?>
-        
-        <a class="dropdown-item" href="logout.php">Logout</a>
+            if ($row["admin"] == 1) {
+                echo "<a class='dropdown-item' href='adminDashboard.php'>Admin dashboard</a>";
+            }
+        ?>
+        <a class="dropdown-item" href="logout.php">Log out</a>
     </div>
+<?php else : ?>
+    <div class="dropdown-menu" id="loginSignupDropdown">
+        <a class="dropdown-item" href="logout.php">Log in</a>
+    </div>
+<?php endif; ?>
+
 </div>
 
         </div>

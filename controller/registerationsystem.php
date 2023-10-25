@@ -43,7 +43,6 @@ $email = $_POST['email'];
 $password = $_POST["pass"];
 //searching for the uder by username or email
 $result = mysqli_query($conn, "SELECT * FROM users where email = '$email'");
-//
 $row = mysqli_fetch_assoc($result);
 //if the user was found 
 if (mysqli_num_rows($result) > 0) {
