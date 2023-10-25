@@ -42,7 +42,7 @@
           <div class="input-box">
             <input type="submit" class="submit" value="Continue" />
             <div class="forgotpass">
-              <a href="registeration.html">Already have an account ?</a>
+              <a href="../views/Registeration.php">Already have an account ?</a>
             </div>
           </div>         
 

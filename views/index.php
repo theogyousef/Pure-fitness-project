@@ -641,9 +641,6 @@ include "header.php";
     <!-- </a> -->
   </div>
 
-  <!-- bmi calculator -->
-
-
 
 <!-- what our customers have to say -->
   <h2>What Our Customers Have To Say</h2>
@@ -787,88 +784,11 @@ include "header.php";
 </div>
 </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="path-to-slick/slick.min.js"></script>
-
-  <script>
-
-    function change_image(image) {
-
-      var container = document.getElementById("main-image");
-
-      container.src = image.src;
-    }
-
-    const openBtn = document.getElementById('open_cart_btnn');
-    const cart = document.querySelector('.sidecart');
-    const closeBtn = document.getElementById('close_btn');
-    const backdrop = document.querySelector('.backdrop');
-
-    openBtn.addEventListener('click', openCart);
-    closeBtn.addEventListener('click', closeCart);
-
-    // open cart
-    function openCart() {
-      cart.classList.add('open');
-      backdrop.style.display = 'block';
-      backdrop.classList.add('show');
-    }
-
-    // close cart
-    function closeCart() {
-      cart.classList.remove('open');
-      backdrop.classList.remove('show');
-      backdrop.style.display = 'none';
-    }
-
-    const decrementButton = document.getElementById("decrement");
-    const incrementButton = document.getElementById("increment");
-    const quantityInput = document.getElementById("quantity");
-
-
-    decrementButton.addEventListener("click", () => {
-      let quantity = parseInt(quantityInput.value, 10);
-      if (quantity > 1) {
-        quantity--;
-        quantityInput.value = quantity;
-      }
-    });
-
-    incrementButton.addEventListener("click", () => {
-      let quantity = parseInt(quantityInput.value, 10);
-      quantity++;
-      quantityInput.value = quantity;
-    });
-
-    const decrementButton2 = document.getElementById("decrement2");
-    const incrementButton2 = document.getElementById("increment2");
-    const quantityInput2 = document.getElementById("quantity2");
-
-
-    decrementButton2.addEventListener("click", () => {
-      let quantity = parseInt(quantityInput2.value, 10);
-      if (quantity > 1) {
-        quantity--;
-        quantityInput2.value = quantity;
-      }
-    });
-
-    incrementButton2.addEventListener("click", () => {
-      let quantity = parseInt(quantityInput2.value, 10);
-      quantity++;
-      quantityInput2.value = quantity;
-    });
-
-    function change_image(image) {
-    var mainProductImage = document.getElementById("mainProductImage");
-    mainProductImage.src = image.src;
- }
   
+  <script src="../public/JS/index.js"></script>
 
-  </script>
-  <!-- <script src="../public/JS/cart.js"></script> -->
   <footer>
     <?php
     include "footer.php" ?>
