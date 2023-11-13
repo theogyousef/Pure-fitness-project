@@ -382,24 +382,10 @@ else {
     include "footer.php"?>
   </footer>
 
-  <script>
-
-$(document).ready(function() {
-  $('.btn-list').click(function(e) {
-    e.preventDefault();
-    $('.grid-container').addClass('list-view');
-    $('.products').css('flex-direction', 'row');
-  });
-
-  $('.btn-grid').click(function(e) {
-    e.preventDefault();
-    $('.grid-container').removeClass('list-view');
-    $('.products').css('flex-direction', 'column'); 
-  });
-});
-
-
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="../public/JS/collections.js"></script>
 
 
 </body>
