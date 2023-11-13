@@ -230,8 +230,9 @@
           </div>
        </li>
        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" href="collections.php" id="navbarDropdownShop" aria-haspopup="true" aria-expanded="false">
           HOME GYM </a>
+          <!-- <a class="nav-link" href="collections.php">HOME GYM</a> -->
        </li>
       </ul>
     </div>
