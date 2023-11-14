@@ -34,7 +34,6 @@ include "header.php"
     <style>
         <?php
         include "../public/css/collections.css";
-        include "../public/css/index.css";
         ?>
     </style>
 

@@ -382,7 +382,7 @@ include "header.php";
           </div>
         </div>
         <!-- Fourth Product -->
-        <div class="col-md-3 ">
+        <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -422,10 +422,10 @@ include "header.php";
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Fifth Product -->
-        <div class="col-md-3 ">
+        <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -465,11 +465,11 @@ include "header.php";
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         <!-- 6 Product -->
-        <div class="col-md-3 ">
+        <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -509,17 +509,17 @@ include "header.php";
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 <!-- 7 Product -->
 <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+                <img src="../public/photos/productPhotos/DH66(2).webp" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+                <img src="../public/photos/productPhotos/DHZ6.webp" alt="ASSAULT AIRBIKE" class="pic-2"
                   width="500px">
               </a>
               <div class="links">
@@ -541,13 +541,13 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>ASSAULT AIRBIKE</h3>
+              <h3>DHZ Smith (Evost Model) E3063</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">HOME GYM</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">39.000 EGP</span>
+                  From <span class="price">38.000 EGP</span>
                 </p>
               </div>
             </div>
@@ -559,10 +559,10 @@ include "header.php";
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+                <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+                <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg" alt="ASSAULT AIRBIKE" class="pic-2"
                   width="500px">
               </a>
               <div class="links">
@@ -584,13 +584,13 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>ASSAULT AIRBIKE</h3>
+              <h3>Ground Parallettes</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">CROSSFIT EQUIPMENT</span> <span class="separate"></span> <span class="nofdays">GYM ESSENTIAL</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">39.000 EGP</span>
+                  From <span class="price">1.850 EGP</span>
                 </p>
               </div>
             </div>
@@ -602,10 +602,10 @@ include "header.php";
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+                <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-1_480x.png?v=1648242147" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+                <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-3_480x.png?v=1648242147" alt="ASSAULT AIRBIKE" class="pic-2"
                   width="500px">
               </a>
               <div class="links">
@@ -627,13 +627,13 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>ASSAULT AIRBIKE</h3>
+              <h3>Assault Air-Runner</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">CARDIO</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">39.000 EGP</span>
+                  From <span class="price">195.000 EGP</span>
                 </p>
               </div>
             </div>
@@ -703,13 +703,15 @@ include "header.php";
             </div>
         </div>
         <div class="Content">
-            <h3>Concept 2 PM5 BikeErg </h3>
+            <h3>Hex Dumbbells</h3>
+            <h3> KG (Pair)</h3>
+
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">72.000 EGP</span>
+                 <span class="price">95 EGP – 4.750 EGP</span>
               </p>
             </div>
           </div>
@@ -721,7 +723,7 @@ include "header.php";
         <div class="products">
           <div class="product-image">
           <a href="" class="images">
-                <img src="../public/photos/productPhotos/Bumber-Plates-2-scaled-1200x1200.webp" alt="dumble"
+                <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
                   class="pic-1" width="500px">
 
                 <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
@@ -745,15 +747,15 @@ include "header.php";
             </div>
           </div>
           <div class="Content">
-            <h3>Flat</h3>
-            <h3>Bench</h3>
+            <h3>High temp. Bumper Plates</h3>
+            <h3>(Pair)</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CROSSFIT EQUIPMENT</span>
-              <span class="separate"></span> <span class="nofdays">BENCHES</span>
+              <span class="typetrip">WEIGHTLIFTING</span>
+              <span class="separate"></span> <span class="nofdays">PLATES</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">5.850 EGP</span>
+                 <span class="price">1.305 EGP – 5.855 EGP</span>
               </p>
             </div>
           </div>
@@ -764,10 +766,10 @@ include "header.php";
         <div class="products">
           <div class="product-image">
           <a href="" class="images">
-                <img src="../public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-1"
+                <img src="../public/photos/productPhotos/Olympic-Hex-Bar-scaled-1200x1200.webp" alt="Pure Fitness TPU " class="pic-1"
                   width="500px">
 
-                <img src="../public/photos/productPhotos/pureFitness10.webp" alt="Pure Fitness TPU " class="pic-2"
+                <img src="../public/photos/productPhotos/Hex Barbell.webp" alt="Pure Fitness TPU " class="pic-2"
                   width="500px">
               </a>
             <div class="links">
@@ -789,13 +791,13 @@ include "header.php";
 
           </div>
           <div class="Content">
-            <h3>Concept 2 SkiErg</h3>
+            <h3>Hex Barbell</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">SKIERGS</span>
+              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">BARBELLS</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">58.000 EGP</span>
+                From <span class="price">4.500 EGP</span>
               </p>
             </div>
           </div>
@@ -806,10 +808,10 @@ include "header.php";
         <div class="products">
           <div class="product-image">
           <a href="" class="images">
-                <img src="../public/photos/productPhotos/Wall-Ball-6-scaled-1200x1200.webp" alt="Wall Ball"
+                <img src="../public/photos/productPhotos/EZCB-scaled-1-1536x1536.webp" alt="Wall Ball"
                   class="pic-1" width="500px">
 
-                <img src="../public/photos/productPhotos/Wall-Balls-3-scaled-1200x1200.webp" alt="Wall Ball"
+                <img src="../public/photos/productPhotos/EZ Barbell.webp" alt="Wall Ball"
                   class="pic-2" width="500px">
               </a>
             <div class="links">
@@ -828,16 +830,15 @@ include "header.php";
                 <span class="tooltiptext">Quick view</span>
               </div>
             </div>
-
           </div>
           <div class="Content">
-            <h3>ASSAULT AIRBIKE</h3>
+            <h3>EZ Barbell</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">BARBELLS</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">39.000 EGP</span>
+                From <span class="price">3.200 EGP</span>
               </p>
             </div>
           </div>
@@ -849,10 +850,10 @@ include "header.php";
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+              <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE" class="pic-1"
                 width="500px">
 
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+              <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE" class="pic-2"
                 width="500px">
             </a>
             <div class="links">
@@ -872,15 +873,15 @@ include "header.php";
               </div>
             </div>
 
-          </div>
+          </div> 
           <div class="Content">
-            <h3>ASSAULT AIRBIKE</h3>
+            <h3>plates-techno-gym</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">PLATES</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">39.000 EGP</span>
+                From <span class="price">15.225 EGP</span>
               </p>
             </div>
           </div>
@@ -889,7 +890,7 @@ include "header.php";
 
 
       <!-- 6 Product -->
-      <div class="col-md-3 ">
+      <!-- <div class="col-md-3 ">
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
@@ -929,17 +930,17 @@ include "header.php";
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 <!-- 7 Product -->
 <div class="col-md-3 ">
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+              <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-1"
                 width="500px">
 
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+              <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-2"
                 width="500px">
             </a>
             <div class="links">
@@ -961,14 +962,15 @@ include "header.php";
 
           </div>
           <div class="Content">
-            <h3>ASSAULT AIRBIKE</h3>
+            <h3>Cast Iron Kettlebells</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">KETTLEBELLS</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">39.000 EGP</span>
+                 <span class="price">260 EGP - 2.080 EGP</span> 
               </p>
+              
             </div>
           </div>
         </div>
@@ -979,11 +981,10 @@ include "header.php";
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                width="500px">
+              <img src="../public/photos/productPhotos/dumbles.png" alt="ASSAULT AIRBIKE" class="pic-1"
+                width="700px">
 
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                width="500px">
+              <img src="../public/photos/productPhotos/3-1365x2048.webp" alt="ASSAULT AIRBIKE" class="pic-2">
             </a>
             <div class="links">
               <div class="Icon">
@@ -1004,13 +1005,13 @@ include "header.php";
 
           </div>
           <div class="Content">
-            <h3>ASSAULT AIRBIKE</h3>
+            <h3>Pure Fitness TPU Dumbbells</h3>
             <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
             </p>
             <div class="cost">
               <p class="lower-price">
-                From <span class="price">39.000 EGP</span>
+                From <span class="price">113.100 EGP</span>
               </p>
             </div>
           </div>
@@ -1018,7 +1019,7 @@ include "header.php";
       </div>
 
       <!-- 9 Product -->
-      <div class="col-md-3 ">
+      <!-- <div class="col-md-3 ">
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
@@ -1058,7 +1059,7 @@ include "header.php";
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       </div>
   </div>
