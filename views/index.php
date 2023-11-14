@@ -515,7 +515,7 @@ include "header.php";
 <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
-              <a href="" class="images">
+              <a href="../views/product.php" class="images">
                 <img src="../public/photos/productPhotos/DH66(2).webp" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
@@ -541,7 +541,7 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>DHZ Smith (Evost Model) E3063</h3>
+              <h4>DHZ Smith (Evost Model) E3063</h4>
               <p class="detailsinfo">
                 <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">HOME GYM</span>
               </p>

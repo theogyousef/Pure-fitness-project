@@ -260,7 +260,7 @@ include "header.php"
                 <div class="col-md-2">
                     <div class="products">
                         <div class="product-image">
-                            <a href="#" class="images">
+                            <a href="../views/product.php" class="images">
                                 <img src="../public/photos/productPhotos/DHZ6.webp" alt="ASSAULT AIRBIKE"
                                     class="pic img-fluid" style="margin-top: -28px;">
                             </a>
