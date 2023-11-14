@@ -85,3 +85,18 @@ color: white !important;
   border-style: solid;
   border-color: transparent transparent #ffffff transparent; 
 }
+
+.navbar .dropdown-menu {
+  min-width: 575px;
+  margin-right: 250px;
+}
+
+
+.navbar .dropdown-menu .col {
+  max-width: 300px;
+}
+
+
+.navbar .dropdown-header {
+  margin-left: -13px;
+}
