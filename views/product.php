@@ -21,10 +21,19 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the ElevateZoom plugin -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
+
+
+
     <title>product</title>
     <style> 
     <?php
@@ -43,14 +52,19 @@ else {
           <div class="row">
             <div class="col-md-6">
               <!-- Product image -->
-              <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
+              <div class="magnifier-container" style="position: relative;">
+
+              <img id="mainProductImage" src="../public/photos/productPhotos/DHZ6.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
+              <div class="magnify-glass" id="magnifyGlass"></div>
+<!-- </div> -->
               <div class="images p-3">
                   <!-- Add a container for the magnifier -->
-                  <div class="thumbnail text-center">
-    <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
-    <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
-    <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp" width="70">
-</div>
+                  <img onmouseover="change_image(this)" src="../public/photos/productPhotos/DH66(2).webp" width="70" class="thumbnail-image">
+<img onmouseover="change_image(this)" src="../public/photos/productPhotos/DHZ6.webp" width="70" class="thumbnail-image">
+<img onmouseover="change_image(this)" src="../public/photos/productPhotos/DHZ6(3).webp" width="70" class="thumbnail-image">
+
+              </div>
+
 
               </div>
           </div>
@@ -58,11 +72,11 @@ else {
             <div class="col-md-6">
                 <!-- Product details -->
                 <p class="detailsinfo">
-                <span class="typetrip">CARDIO /</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+                <span class="typetrip">SHOP /</span> <span class="separate"></span> <span class="nofdays">HOME GYM</span>
               </p>
-                <h1>Assault Classic Airbike</h1>
-                <h3 class="price">39.500 EGP</h3>
-                <p class="description">A heavy-duty exercise bike designed directly from the feedback of athletes and coaches. Designed in the USA. Warranty & Maintenance one year for FREE.</p>
+                <h1>DHZ Smith (Evost Model) E3063</h1>
+                <h3 class="price">38.000 EGP</h3>
+                <p class="description">The Evost Series Smith Machine is popular among users as an innovative, stylish, and safe plate loaded machine. The vertical motion of the Smith bar provides a stable path to assist exercisers in achieving the correct squat. Multiple locking positions allow users to stop training by rotating the Smith bar at any point during process of the exercise, and a cushioned base on the bottom protects the machine from damage caused by a sudden drop of the load bar.</p>
                 <!-- Quantity input -->
                 <div class="input-group mb-2" id="input-group">
                     <button class="btn btn-outline-secondary" type="button" id="decrement" >-</button>
@@ -206,6 +220,9 @@ else {
                 </div>
                 <!-- Fifth Product -->
             </div>
+
+            <!-- Product image with magnifier lens -->
+
         </section>
  </main>
 
@@ -215,6 +232,31 @@ else {
   </footer>
 
   <script src="../public/JS/product.js"></script>
+
+
+
+<script>
+  $(document).ready(function() {
+    function change_image(element) {
+        var newImageSrc = $(element).attr('src');
+        $('#mainProductImage').attr('src', newImageSrc).data('zoom-image', newImageSrc);
+
+        $('.zoomContainer').remove();
+        $('#mainProductImage').elevateZoom({
+            zoomType: "inner",
+            cursor: "crosshair"
+        });
+    }
+    $('#mainProductImage').elevateZoom({
+        zoomType: "inner",
+        cursor: "crosshair"
+    });
+
+    $('.thumbnail-image').on('mouseover', function() {
+        change_image(this);
+    });
+});
+</script>
 
 </body>
 </html>
