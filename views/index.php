@@ -123,18 +123,20 @@ include "header.php";
           <p>SUBTOTAL:</p>
           <P>$<span id="subtotal_price">3000</span></P>
         </div>
-        <div class="subtotal">
-          <p>Deliver to address :</p><br>
-          <address>
-          <?php echo "Egypt , ". $row['city'] ." , " . $row['street'] , " street  , building " . $row['house'] ?><br>
-        </address>
-        </div>
+        <?php if ($row["guest"] != 1) { ?>
+          <div class="subtotal">
+            <p>Deliver to address :</p><br>
+            <address>
+              <?php echo "Egypt , " . $row['city'] . " , " . $row['street'], " street  , building " . $row['house'] ?><br>
+            </address>
+          </div>
+        <?php } ?>
 
         <div>
-        <address>
-       
+          <address>
 
-        </address>
+
+          </address>
         </div>
         <button>View Cart</button>
         <button type="button"><a href="checkOut.php" style="color: white;   text-decoration: none;
@@ -266,7 +268,73 @@ include "header.php";
 
       <div class="wrapper">
         <div class="slider">
-          <div class="col-md-3 ">
+
+          <?php
+          // Assuming you have already connected to the database ($conn)
+          
+          // Fetch products from the database
+          $sql = "SELECT * FROM products";
+          $result = mysqli_query($conn, $sql);
+
+          // Check if there are any products
+          if (mysqli_num_rows($result) > 0) {
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+          }
+          ?>
+
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+              <div class="col-md-3">
+                <div class="products">
+                  <div class="product-image">
+                    <a href="product.php?id=<?php echo $product['id']; ?>" class="images">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                        width="500px">
+                    </a>
+                    <div class="links">
+                      <div class="Icon">
+                        <a href="#"><i class="bi bi-cart3"></i></i></a>
+                        <span class="tooltiptext">Add to cart</span>
+                      </div>
+                      <div class="Icon">
+                        <a href=""><i class="bi bi-heart"></i></i></a>
+                        <span class="tooltiptext">Move to wishlist</span>
+                      </div>
+                      <div class="Icon">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <i class="bi bi-eye"></i>
+                        </a>
+                        <span class="tooltiptext">Quick view</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Content">
+                    <h3>
+                      <?php echo $product['name']; ?>
+                    </h3>
+                    <p class="detailsinfo">
+                      <span class="typetrip">
+                        <?php echo $product['type']; ?>
+                      </span>
+
+                    </p>
+                    <div class="cost">
+                      <p class="lower-price">
+                        From <span class="price">
+                          <?php echo $product['price'] . " EGP"; ?>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No products found.</p>
+          <?php endif; ?>
+
+
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="product.php" class="images">
@@ -306,10 +374,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Second Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -350,9 +418,9 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Third Product -->
-          <div class="col-md-3 ">
+          </div> -->
+          <!-- Third Product  -->
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -393,7 +461,7 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div>  -->
           <!-- Fourth Product -->
           <!-- <div class="col-md-3 ">
           <div class="products">
@@ -525,7 +593,7 @@ include "header.php";
         </div> -->
 
           <!-- 7 Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="../views/product.php" class="images">
@@ -565,10 +633,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- 8 Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -609,10 +677,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- 9 Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -652,7 +720,7 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
