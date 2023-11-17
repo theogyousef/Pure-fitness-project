@@ -98,3 +98,26 @@ label {
   margin-bottom: 5px;
 
 }
+
+#phonenumberdiv {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the start (left) of the container */
+}
+
+.phone-input-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%; /* Ensure the container takes full width */
+}
+
+.phone-input-container select {
+  width: 80px; /* Set the width to 80px */
+  margin-right: 5px; /* Adjust spacing between select and input */
+}
+
+.phone-input-container input {
+  flex: 1; /* Distribute remaining space equally */
+}
+

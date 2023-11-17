@@ -10,6 +10,17 @@
 //require "../controller/config.php";
 require "../controller/registerationsystem.php";
 
+
+if ($row["guest"] !=1) {
+  header("Location: index.php");
+}
+else if (!empty($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $row = mysqli_fetch_assoc($result);
+} 
+
+
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
   signup();
@@ -18,13 +29,6 @@ if (isset($_POST["submit"])) {
 }
 
 
-// if (!empty($_SESSION["id"])) {
-//     $id = $_SESSION["id"];
-//     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-//     $row = mysqli_fetch_assoc($result);
-// } else {
-//     header("Location: registeration.php");
-// }
 
 
 ?>

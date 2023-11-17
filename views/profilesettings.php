@@ -30,7 +30,7 @@ if (!empty($_SESSION["id"])) {
 }
 
 
-if ($row["guest"] ==1) {
+if ($row["guest"] == 1) {
     header("Location: index.php");
 
 }
@@ -186,6 +186,17 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <label class="small mb-1" for="inputEmailAddress">Email address</label>
                                 <input name="email" class="form-control" id="inputEmailAddress" type="email"
                                     placeholder="Enter your email address" value="<?php echo $row['email'] ?>">
+                            </div>
+                            <div class="mb-3" id="phonenumberdiv">
+                                <label class="small mb-1" for="inputphonenumber">Phone number</label>
+                                <div class="phone-input-container">
+                                    <select class="form-control" name="international" id="international">
+                                        <option value="volvo">+20</option>
+                                        <option value="saab">+965</option>
+                                    </select>
+                                    <input name="phone" class="form-control" type="tel" id="youridhere" class="phone"
+                                        value="<?php echo $row['phone'] ?>">
+                                </div>
                             </div>
 
 

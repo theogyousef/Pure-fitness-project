@@ -38,13 +38,13 @@ function editdetails()
     $lastname = $_POST["lname"];
     $email = $_POST["email"];
     $username = $_POST["username"];
-
+    $phone = $_POST["phone"];
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    $query = "UPDATE users SET firstname = '$firstname' , lastname = '$lastname' ,username = '$username' , email = '$email' WHERE  id = $id ";
+    $query = "UPDATE users SET firstname = '$firstname' , lastname = '$lastname' ,username = '$username' , email = '$email' , phone = '$phone' WHERE  id = $id ";
     mysqli_query($conn, $query);
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";

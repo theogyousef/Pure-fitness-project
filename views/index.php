@@ -1,6 +1,5 @@
 <?php
 
-
 require '../controller/config.php';
 if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
@@ -11,9 +10,9 @@ if (!empty($_SESSION["id"])) {
   header("Location: registeration.php");
 }
 
-$j = $row['id'];
-$idt= $row['guest'];
-echo "<script>alert('the id = $j and guest is $idt '); </script>";
+// $j = $row['id'];
+// $idt= $row['guest'];
+// echo "<script>alert('the id = $j and guest is $idt '); </script>";
 
 include "header.php";
 ?>
