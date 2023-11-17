@@ -28,6 +28,9 @@ function addproduct()
 
     mysqli_query($conn, $query);
 
+    header("Location: adminDashboard.php");
+
+
 }
 function updateproduct()
 {
@@ -42,6 +45,7 @@ function updateproduct()
     $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description'  where id = '$id'";
 
     mysqli_query($conn, $query);
+    header("Location: adminDashboard.php");
 
 
 }
@@ -52,6 +56,7 @@ function deleteproduct()
     $id = $_POST["id"];
     $query = "DELETE FROM products WHERE id = '$id'";
     mysqli_query($conn, $query);
+    header("Location: adminDashboard.php");
 
 }
 
@@ -83,6 +88,7 @@ function adduser()
             // we pass the connection of the database and the quarey 
             mysqli_query($conn, $query);
             // echo "<script> alert('Regsitered successfully');</script> ";
+            header("Location: users.php");
 
         } else {
             echo "<script> alert('Passwords do not match');</script> ";
@@ -93,18 +99,18 @@ function adduser()
 
 function updateuser()
 {
-
     global $conn;
     $id = $_POST["id"];
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
 
-
-    $query = "update users set firstname ='$firstname',lastname ='$lastname',email ='$email',password ='$password'  where id = '$id'";
+    $query = "update users set firstname ='$firstname',lastname ='$lastname',email ='$email'  where id = '$id'";
 
     mysqli_query($conn, $query);
+
+    header("Location: users.php");
+
 }
 
 function deleteuser()
@@ -114,6 +120,7 @@ function deleteuser()
     $id = $_POST["id"];
     $query = "DELETE FROM users WHERE id = '$id'";
     mysqli_query($conn, $query);
+    header("Location: users.php");
 
 }
 
@@ -122,6 +129,7 @@ function makeadmin(){
     $id = $_POST["id"];
     $query = "UPDATE users  set admin = '1' WHERE id = '$id'";
     mysqli_query($conn, $query);
+    header("Location: users.php");
 
 }
 
@@ -130,5 +138,6 @@ function makeuser(){
     $id = $_POST["id"];
     $query = "UPDATE users  set admin = '0' WHERE id = '$id'";
     mysqli_query($conn, $query);
+    header("Location: users.php");
 
 }

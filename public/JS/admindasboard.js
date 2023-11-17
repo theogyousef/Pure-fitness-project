@@ -52,3 +52,22 @@ var myChart2 = new Chart(ctx2, {
     }
 });
 
+
+
+        
+var product = document.getElementById("product");
+var user = document.getElementById("user");
+
+function product() {
+    
+    product.style.display = "block";
+    user.style.display = "none";
+
+}
+ 
+function user() {
+    
+    product.style.display = "none";
+    user.style.display = "block";
+
+}

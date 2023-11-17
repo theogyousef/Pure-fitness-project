@@ -42,11 +42,12 @@ if ($row["admin"] != 1) {
 
 }
 
-if ($row["id"] ==1) {
+if ($row["id"] == 1) {
     header("Location: index.php");
 
 }
 
+include "adminnav.php";
 
 
 ?>
@@ -59,6 +60,7 @@ if ($row["id"] ==1) {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 
     <title>Admin panel</title>
@@ -66,80 +68,13 @@ if ($row["id"] ==1) {
         <?php include "../public/CSS/adminDasboard.css" ?>
     </style>
 
+
 </head>
 
 
 <body>
     <div class="container">
-        <div class="topbar">
-            <div class="logo">
-                <h2>Pure Fitness</h2>
-            </div>
-
-            <div class="search">
-                <h1>Welcome back
-                    <?php echo $row["firstname"] . " (:" ?>
-                </h1>
-            </div>
-            <div class="user">
-                <img src="<?php echo $row['profilepicture'] ?>" alt="">
-            </div>
-        </div>
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <ul>
-                <li class="active" id="dashboard">
-                    <a href="#" onclick="dasboardside()">
-                        <i class="fas fa-th-large"></i>
-                        <div>Dashboard</div>
-                    </a>
-                </li>
-
-                <li class="dropdown" id="users">
-                    <a href="#">
-                        <i class="fas fa-users"></i>
-                        <div>Users</div>
-                    </a>
-                    <div class="dropdown-content">
-
-                        <a href="#" onclick="adduserside()">Add user</a>
-                        <a href="#" onclick="edituserside()">edit User</a>
-                        <a href="#" onclick="deleteuserside()">delete user </a>
-                        <a href="#" onclick="makeadminside()">make admin </a>
-                        <a href="#" onclick="makeuserside()">make user </a>
-
-
-                        <!-- Add more links as needed -->
-                    </div>
-                </li>
-                <li class="dropdown" id="products">
-                    <a href="#">
-                        <i class="fas fa-dumbbell"></i>
-                        <div>products</div>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="addproductside()">Add product</a>
-                        <a href="#" onclick="editproductside()">edit product</a>
-                        <a href="#" onclick="deleteproductside()">delete product</a>
-                        <!-- Add more links as needed -->
-                    </div>
-                </li>
-
-
-                <li>
-                    <a href="profilesettings.php">
-                        <i class="fas fa-cog"></i>
-                        <div>Profile Settings</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php">
-                        <i class="fas fa-home"></i>
-                        <div>Home</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+       
         <!-- Dashboard -->
         <div class="main" id="mainpart">
             <div class="cards">
@@ -164,107 +99,56 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">
-                            <?php
-                            $sql2 = "SELECT * from users";
-                            $resultusers = mysqli_query($conn, $sql2);
-
-                            $counterusers = 0;
-                            while ($row = mysqli_fetch_assoc($resultusers)) {
-                                $counterusers++;
-                            }
-                            echo $counterusers ?>
-                        </div>
-                        <div class="card-name">Total Users</div>
-                    </div>
-                    <div class="icon-box">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
+             
 
             </div>
 
-            <div class="cards">
-                <div class="card">
+            <div class="container-fluid">
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM products";
+                        $resultproduct = mysqli_query($conn, $sql);
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>name</th>
-                                <th>type</th>
-                                <th>price</th>
-                                <th>description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $sql = "SELECT * from products ";
-                            $resultproduct = mysqli_query($conn, $sql);
-
-                            while ($row = mysqli_fetch_assoc($resultproduct)) {
-                                echo " <tr>
-                                <td>" . $row["id"] . "</td>
-                                <td> " . $row["name"] . "</td>
-                                <td> " . $row["type"] . "</td>
-                                <td> " . $row["price"] . "</td>
-                                <td> " . $row["description"] . "</td>
-
-
-                            </tr>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-                <div class="card">
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>name</th>
-                                <th>email</th>
-                                <th>Type</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $sql2 = "SELECT * from users ";
-                            $resultusers = mysqli_query($conn, $sql2);
-
-                            while ($row = mysqli_fetch_assoc($resultusers)) {
-                                if ($row["admin"] == 1) {
-                                    $admin = "Admin";
-                                } elseif ($row["admin"] == 0) {
-                                    $admin = "User";
-                                }
-
-                                echo " <tr>
-                                <td>" . $row["id"] . "</td>
-                                <td> " . $row["firstname"] . $row["lastname"] . "</td>
-                                <td> " . $row["email"] . "</td>
-                                
-                                <td> " . $admin . "</td>
-
-
-
-                            </tr>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                        while ($row = mysqli_fetch_assoc($resultproduct)) {
+                            echo "<tr>
+                    <td>" . $row["id"] . "</td>
+                    <td>" . $row["name"] . "</td>
+                    <td>" . $row["type"] . "</td>
+                    <td>" . $row["price"] . "</td>
+                    <td>" . $row["description"] . "</td>
+                    <td>
+                        <a href='editproduct.php?id=" . $row["id"] . "' style='color: orange; '>
+                            <span class='fas fa-edit'></span> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href='deleteproduct.php?id=" . $row["id"] . "' style='color: red;'>
+                            <span class='fas fa-trash-alt'></span> 
+                        </a>
+                    </td>
+                </tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
+
+
         </div>
         <!-- Add product  -->
-        <div class="main" id="addproduct">
+        <!-- <div class="main" id="addproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -301,9 +185,9 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Edit product  -->
-        <div class="main" id="editproduct">
+        <!-- <div class="main" id="editproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -338,9 +222,9 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- delete product  -->
-        <div class="main" id="deleteproduct">
+        <!-- <div class="main" id="deleteproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -360,13 +244,13 @@ if ($row["id"] ==1) {
                 </div>
             </div>
         </div>
-
+ -->
 
 
 
         <!-- Add user -->
 
-        <div class="main" id="adduser">
+        <!-- <div class="main" id="adduser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="form-container">
@@ -403,9 +287,9 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Edit user  -->
-        <div class="main" id="edituser">
+        <!-- <div class="main" id="edituser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -442,9 +326,9 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- delete product  -->
-        <div class="main" id="deleteuser">
+        </div> -->
+        <!-- delete user  -->
+        <!-- <div class="main" id="deleteuser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -463,10 +347,10 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- make admin  -->
-        <div class="main" id="makeadmin">
+        <!-- <div class="main" id="makeadmin">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -485,10 +369,10 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- make user  -->
-        <div class="main" id="makeuser">
+        <!-- <div class="main" id="makeuser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -507,7 +391,7 @@ if ($row["id"] ==1) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
