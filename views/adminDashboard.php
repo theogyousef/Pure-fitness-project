@@ -42,7 +42,7 @@ if ($row["admin"] != 1) {
 
 }
 
-if ($row["id"] ==20) {
+if ($row["id"] ==1) {
     header("Location: index.php");
 
 }

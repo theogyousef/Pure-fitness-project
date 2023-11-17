@@ -30,7 +30,7 @@ if (!empty($_SESSION["id"])) {
 }
 
 
-if ($row["id"] ==20) {
+if ($row["guest"] ==1) {
     header("Location: index.php");
 
 }

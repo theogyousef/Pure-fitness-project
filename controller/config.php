@@ -6,10 +6,10 @@ $DB = "swe";
 
 session_start();
 $conn = mysqli_connect($DBservername, $DBusername, $DBpasswordd, $DB);
-$guest = "20";
+
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-    $result = mysqli_query($conn, "SELECT * FROM users where id = '$guest' ");
+    $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
     $row = mysqli_fetch_assoc($result);
     $_SESSION["login"] = true;
     $_SESSION["id"] = $row["id"];

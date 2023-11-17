@@ -68,7 +68,7 @@
         <i class="bi bi-person text-white fs-4"></i>
     </a>
 
-    <?php if ($_SESSION["id"] != 20) : ?>
+    <?php if ($row["guest"] != 1) { ?>
     <div class="dropdown-menu" id="loginSignupDropdown">
         <a class="dropdown-item" href="profilesettings.php">Profile Settings</a>
         <?php 
@@ -78,11 +78,11 @@
         ?>
         <a class="dropdown-item" href="logout.php">Log out</a>
     </div>
-<?php else : ?>
+<?php ; } else if ($row["guest"] != 0) {?>
     <div class="dropdown-menu" id="loginSignupDropdown">
         <a class="dropdown-item" href="logout.php">Log in</a>
     </div>
-<?php endif; ?>
+<?php ;} ?>
 
 </div>
 
