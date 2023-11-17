@@ -53,6 +53,27 @@ function editdetails()
 
 }
 
+function updateaddress(){
+    global $conn;
+
+    $city = $_POST["city"];
+    $street = $_POST["street"];
+    $house = $_POST["house"];
+    $postalcode = $_POST["postalcode"];
+
+    $id = $_SESSION["id"];
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $row = mysqli_fetch_assoc($result);
+    // echo "<script> alert('Updatesd successfuly');</script> ";
+
+    $query = "UPDATE users SET city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  id = $id ";
+    mysqli_query($conn, $query);
+    //         $jjj = $row["firstname"];
+// echo "<script>alert('$jjj');</script>";
+    // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
+
+
+}
 // socials update
 function updatesocials()
 {
