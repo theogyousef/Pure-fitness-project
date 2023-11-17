@@ -203,7 +203,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
                             <div style="height: 20px;">
-                                <span id="DetailserrorMessages" style="display: none;"></span>
+                                <span id="DetailserrorMessages" class="errormessage" style="display: none;"></span>
                             </div>
                             <br>
                             <input name="accountdetails" type="submit" class="btn btn-primary" value="Save changes">
@@ -224,7 +224,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                             <h2 class="small mb-1" for="inputUsername">Egypt</h2>
                             <label for="governorates">Select a state:</label>
                             <select  class="form-control" id="governorates" name="governorates">
-                            <option value="none" selected disabled hidden><?php echo $row['governorates'] ?></option> 
+                            <option value="<?php echo $row['governorates'] ?>" selected><?php echo $row['governorates'] ?></option> 
                                 <option value="Al Daqahliyah">Al Daqahliyah</option>
                                 <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
                                 <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
@@ -280,7 +280,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                             </div>
 
                             <div style="height: 20px;">
-                                <span id="AddresserrorMessages" style="display: none;"></span>
+                                <span id="AddresserrorMessages" class="errormessage" style="display: none;"></span>
                             </div>
                             <br>
                             <input name="addressdetails" type="submit" class="btn btn-primary" value="Save changes">
@@ -339,7 +339,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <input name="conpassword" class="form-control" id="conpassword" type="password">
                             </div>
                             <div style="height: 20px;">
-                                <span id="SecurityerrorMessages" style="display: none;"></span>
+                                <span id="SecurityerrorMessages" class="errormessage" style="display: none;"></span>
                             </div><br>
 
                             <!-- // Save changes button -->

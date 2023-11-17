@@ -55,7 +55,7 @@ function editdetails()
 
 function updateaddress(){
     global $conn;
-
+$governorates = $_POST["governorates"];
     $city = $_POST["city"];
     $street = $_POST["street"];
     $house = $_POST["house"];
@@ -66,7 +66,7 @@ function updateaddress(){
     $row = mysqli_fetch_assoc($result);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    $query = "UPDATE users SET city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  id = $id ";
+    $query = "UPDATE users SET governorates = '$governorates' , city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  id = $id ";
     mysqli_query($conn, $query);
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
