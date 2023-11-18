@@ -18,6 +18,8 @@ if (isset($_POST["fileupload"])) {
     updatesocials();
 } else if (isset($_POST["updatesecurity"])) {
     updatepasswords();
+}else if (isset($_POST["addressdetails"])) {
+    updateaddress();
 }
 
 
@@ -68,6 +70,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         <!-- prfile settings nav bar -->
         <nav class="nav nav-borders">
             <a class="nav-link active ms-0" id="detailsnav" href="" onClick="detailsa()">Profile</a>
+            <a class="nav-link" id="adresssnav" href="#" onClick="addressa()">Address</a>
             <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a>
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
@@ -76,7 +79,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 echo ' <a class="nav-link" href="adminDashboard.php">Admin Dasboard</a>';
             }
             ?>
-
             <a class="nav-link home" id="homenav" href="index.php">Home</a>
 
 
@@ -201,7 +203,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
                             <div style="height: 20px;">
-                                <span id="DetailserrorMessages" style="display: none;"></span>
+                                <span id="DetailserrorMessages" class="errormessage" style="display: none;"></span>
                             </div>
                             <br>
                             <input name="accountdetails" type="submit" class="btn btn-primary" value="Save changes">
@@ -210,6 +212,82 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
+            <!--    Address details -->
+            <div class="col-xl-8" id="Address" style="display: none;">
+                <div class="card mb-4">
+                    <div class="card-header">Address Details</div>
+                    <div class="card-body">
+
+                        <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)" >
+                        <div class="col-md-6">
+
+                            <h2 class="small mb-1" for="inputUsername">Egypt</h2>
+                            <label for="governorates">Select a state:</label>
+                            <select  class="form-control" id="governorates" name="governorates">
+                            <option value="<?php echo $row['governorates'] ?>" selected><?php echo $row['governorates'] ?></option> 
+                                <option value="Al Daqahliyah">Al Daqahliyah</option>
+                                <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
+                                <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
+                                <option value="Al Fayyum">Al Fayyum</option>
+                                <option value="Al Gharbiyah">Al Gharbiyah (Gharbia)</option>
+                                <option value="Al Iskandariyah">Al Iskandariyah (Alexandria)</option>
+                                <option value="Al Isma'iliyah">Al Isma'iliyah (Ismailia)</option>
+                                <option value="Al Jizah">Al Jizah (Giza)</option>
+                                <option value="Al Minufiyah">Al Minufiyah (Menufia)</option>
+                                <option value="Al Minya">Al Minya</option>
+                                <option value="Al Qahirah">Al Qahirah (Cairo)</option>
+                                <option value="Al Qalyubiyah">Al Qalyubiyah (Qalyubia)</option>
+                                <option value="Al Wadi al Jadid">Al Wadi al Jadid (New Valley)</option>
+                                <option value="As Suways">As Suways (Suez)</option>
+                                <option value="Ash Sharqiyah">Ash Sharqiyah (Eastern)</option>
+                                <option value="Aswan">Aswan</option>
+                                <option value="Asyut">Asyut</option>
+                                <option value="Bur Sa'id">Bur Sa'id (Port Said)</option>
+                                <option value="Dumyat">Dumyat (Damietta)</option>
+                                <option value="Janub Sina'">Janub Sina' (South Sinai)</option>
+                                <option value="Kafr ash Shaykh">Kafr ash Shaykh</option>
+                                <option value="Matruh">Matruh</option>
+                                <option value="Qina">Qina (Qena)</option>
+                                <option value="Shamal Sina'">Shamal Sina' (North Sinai)</option>
+                                <option value="Suhaj">Suhaj (Sohag)</option>
+                                <option value="The 6th of October">The 6th of October</option>
+                                <option value="Luxor">Luxor</option>
+                            </select>
+                        </div>
+                            <div class="row gx-3 mb-3">
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputcity">Town/city</label>
+                                    <input name="city" class="form-control" id="inputcity" type="text"
+                                        placeholder="Enter your city" value="<?php echo $row['city'] ?>">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputstreet">Street address</label>
+                                    <input name="street" class="form-control" id="inputstreet" type="text"
+                                        placeholder="Enter your street name / number" value="<?php echo $row['street'] ?>">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
+                                <input name="house" class="form-control" id="inputhouse" type="text"
+                                    placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
+                                <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
+                                    placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
+                            </div>
+
+                            <div style="height: 20px;">
+                                <span id="AddresserrorMessages" class="errormessage" style="display: none;"></span>
+                            </div>
+                            <br>
+                            <input name="addressdetails" type="submit" class="btn btn-primary" value="Save changes">
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- Social -->
             <div class="col-xl-8" style="display: none;" id="social">
@@ -261,7 +339,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <input name="conpassword" class="form-control" id="conpassword" type="password">
                             </div>
                             <div style="height: 20px;">
-                                <span id="SecurityerrorMessages" style="display: none;"></span>
+                                <span id="SecurityerrorMessages" class="errormessage" style="display: none;"></span>
                             </div><br>
 
                             <!-- // Save changes button -->
@@ -308,24 +386,44 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         var securitysnav = document.getElementById("securitysnav");
         var socilanav = document.getElementById("socilanav");
         var notificationsnav = document.getElementById("notificationsnav");
+        var addressnav = document.getElementById("adresssnav");
 
         var details = document.getElementById("details");
         var security = document.getElementById("security");
         var social = document.getElementById("social");
         var notifications = document.getElementById("notifications");
-
+        var address = document.getElementById("Address");
 
         function detailsa() {
             detailsnav.classList.add("active");
             securitysnav.classList.remove("active");
             socilanav.classList.remove("active");
             notificationsnav.classList.remove("active");
+            addressnav.classList.remove("active");
 
 
             details.style.display = "block";
             security.style.display = "none";
             social.style.display = "none";
             notifications.style.display = "none";
+            address.style.display = "none";
+
+        }
+
+        function addressa() {
+            detailsnav.classList.remove("active");
+            securitysnav.classList.remove("active");
+            socilanav.classList.remove("active");
+            notificationsnav.classList.remove("active");
+            addressnav.classList.add("active");
+
+
+            details.style.display = "none";
+            security.style.display = "none";
+            social.style.display = "none";
+            notifications.style.display = "none";
+            address.style.display = "block";
+
         }
 
         function securitya() {
@@ -333,11 +431,13 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             securitysnav.classList.add("active");
             socilanav.classList.remove("active");
             notificationsnav.classList.remove("active");
+            addressnav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "block";
             social.style.display = "none";
             notifications.style.display = "none";
+            address.style.display = "none";
 
         }
 
@@ -347,11 +447,13 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             securitysnav.classList.remove("active");
             socilanav.classList.add("active");
             notificationsnav.classList.remove("active");
+            addressnav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "none";
             social.style.display = "block";
             notifications.style.display = "none";
+            address.style.display = "none";
 
         }
 
@@ -361,11 +463,13 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             securitysnav.classList.remove("active");
             socilanav.classList.remove("active");
             notificationsnav.classList.add("active");
+            addressnav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "none";
             social.style.display = "none";
             notifications.style.display = "block";
+            address.style.display = "none";
 
         }
     </script>

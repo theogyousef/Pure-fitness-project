@@ -33,6 +33,40 @@ function validatedetails(event){
   }
   document.getElementById("detailss").addEventListener("accountdetails", validatedetails);
   
+  //validation for address 
+  function validateaddress(event){
+    console.log("wasal");
+    let errorMessages = "";
+    let showError = false;
+  
+    const inputs = document.forms["Address"].elements;
+  
+    if (inputs.city.value === "") {
+      errorMessages = "You must fill the city field<br>";
+      showError = true;
+    } else if (inputs.street.value === "") {
+      errorMessages = "You must fill the street field<br>";
+      showError = true;
+    } else if (inputs.house.value === "") {
+      errorMessages = "You must fill the house field<br>";
+      showError = true;
+    } else if (inputs.postalcode.value === "") {
+      errorMessages = "You must fill the postalcode field<br>";
+      showError = true;
+    }
+  
+    const errorSpan = document.getElementById("AddresserrorMessages");
+    if (showError) {
+      event.preventDefault(); // Prevent form submission only when there are errors
+      errorSpan.innerHTML = errorMessages;
+      errorSpan.style.display = "block";
+    } else {
+      errorSpan.style.display = "none";
+    }
+  
+  }
+  document.getElementById("Addresss").addEventListener("addressdetails", validateaddress);
+  
   //validate security
   function validatesecurity(event) {
     let errorMessages = "";

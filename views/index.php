@@ -35,7 +35,8 @@ include "header.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 
   <title>Home Page</title>
   <style>
@@ -129,10 +130,25 @@ include "header.php";
           <p>SUBTOTAL:</p>
           <P>$<span id="subtotal_price">3000</span></P>
         </div>
+        <?php if ($row["guest"] != 1) { ?>
+          <div class="subtotal">
+            <p>Deliver to address :</p><br>
+            <address>
+              <?php echo "Egypt , " . $row['city'] . " , " . $row['street'], " street  , building " . $row['house'] ?><br>
+            </address>
+          </div>
+        <?php } ?>
+
+        <div>
+          <address>
+
+
+          </address>
+        </div>
         <button>View Cart</button>
         <button type="button"><a href="checkOut.php" style="color: white;   text-decoration: none;
                 "> Check Out</a>
-                </button>
+        </button>
       </div>
     </div>
   </div>
@@ -207,20 +223,19 @@ include "header.php";
         </div>
         <div class="row">
           <div class="col-md-6">
-          <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
-                        alt="Product Image" class="img-fluid" style="height: 500px;">
-                    <div class="images p-3">
-                        <!-- Add a container for the magnifier -->
-                        <div class="thumbnail text-center">
-                            <img onmouseover="change_image(this)"
-                                src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
-                            <img onmouseover="change_image(this)"
-                                src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
-                            <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp"
-                                width="70">
-                        </div>
+            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image"
+              class="img-fluid" style="height: 500px;">
+            <div class="images p-3">
+              <!-- Add a container for the magnifier -->
+              <div class="thumbnail text-center">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp"
+                  width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
+                  width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp" width="70">
+              </div>
 
-                    </div>
+            </div>
           </div>
           <div class="col-md-6">
             <div class="product p-4">
@@ -248,232 +263,214 @@ include "header.php";
     </div>
   </div>
 
- <div class="viewproduct">
+  <div class="viewproduct">
 
-  <div class="row">
+    <div class="row">
       <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif;">
         <h2>Shop Popular Products</h2>
       </div>
     </div>
 
- <div class="container products-carousel">
+    <div class="container products-carousel">
 
-  <div class="wrapper">
+      <div class="wrapper">
         <div class="slider">
-        <div class="col-md-3 ">
-          <div class="products">
-          <div class="product-image">
-          <a href="product.php" class="images">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
-                  class="pic-1" width="500px">
 
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" alt="Concept 2 PM5 BikeErg"
-                  class="pic-2" width="500px">
-              </a>
+          <?php
+          // Assuming you have already connected to the database ($conn)
+          
+          // Fetch products from the database
+          $sql = "SELECT * FROM products";
+          $result = mysqli_query($conn, $sql);
 
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
+          // Check if there are any products
+          if (mysqli_num_rows($result) > 0) {
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+          }
+          ?>
+
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+              <div class="col-md-3">
+                <div class="products">
+                  <div class="product-image">
+                    <a href="product.php?id=<?php echo $product['id']; ?>" class="images">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                        width="500px">
+                    </a>
+                    <div class="links">
+                      <div class="Icon">
+                        <a href="#"><i class="bi bi-cart3"></i></i></a>
+                        <span class="tooltiptext">Add to cart</span>
+                      </div>
+                      <div class="Icon">
+                        <a href=""><i class="bi bi-heart"></i></i></a>
+                        <span class="tooltiptext">Move to wishlist</span>
+                      </div>
+                      <div class="Icon">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <i class="bi bi-eye"></i>
+                        </a>
+                        <span class="tooltiptext">Quick view</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Content">
+                    <h3>
+                      <?php echo $product['name']; ?>
+                    </h3>
+                    <p class="detailsinfo">
+                      <span class="typetrip">
+                        <?php echo $product['type']; ?>
+                      </span>
+
+                    </p>
+                    <div class="cost">
+                      <p class="lower-price">
+                        From <span class="price">
+                          <?php echo $product['price'] . " EGP"; ?>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-          </div>
-          <div class="Content">
-              <h3>Concept 2 PM5 BikeErg </h3>
-              <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">72.000 EGP</span>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No products found.</p>
+          <?php endif; ?>
+
+
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="product.php" class="images">
+                  <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                    class="pic-1" width="500px">
+
+                  <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg2.webp" alt="Concept 2 PM5 BikeErg"
+                    class="pic-2" width="500px">
+                </a>
+
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Content">
+                <h3>Concept 2 PM5 BikeErg </h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <!-- Second Product -->
-        <div class="col-md-3 ">
-          <div class="products">
-            <div class="product-image">
-              <a href="" class="images">
-                <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1" width="500px">
-
-                <img src="../public/photos/productPhotos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2" width="500px">
-              </a>
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">72.000 EGP</span>
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="Content">
-              <h3>Flat</h3>
-              <h3>Bench</h3>
-              <p class="detailsinfo">
-                <span class="typetrip">CROSSFIT EQUIPMENT</span>
-                <span class="separate"></span> <span class="nofdays">BENCHES</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">5.850 EGP</span>
+          </div> -->
+
+          <!-- Second Product -->
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench" class="pic-1"
+                    width="500px">
+
+                  <img src="../public/photos/productPhotos/Flat-Bench2.webp" alt="Flat-Bench" class="pic-2"
+                    width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Content">
+                <h3>Flat</h3>
+                <h3>Bench</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">CROSSFIT EQUIPMENT</span>
+                  <span class="separate"></span> <span class="nofdays">BENCHES</span>
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-       <!-- Third Product -->
-        <div class="col-md-3 ">
-          <div class="products">
-            <div class="product-image">
-              <a href="" class="images">
-                <img src="../public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1"
-                  width="500px">
-
-                <img src="../public/photos/productPhotos/Concept 2 SkiErg.webp" alt="Concept 2 SkiErg" class="pic-2"
-                  width="500px">
-              </a>
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">5.850 EGP</span>
+                  </p>
                 </div>
               </div>
-
             </div>
-            <div class="Content">
-              <h3>Concept 2 SkiErg</h3>
-              <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">SKIERGS</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">58.000 EGP</span>
+          </div> -->
+          <!-- Third Product  -->
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg" class="pic-1"
+                    width="500px">
+
+                  <img src="../public/photos/productPhotos/Concept 2 SkiErg.webp" alt="Concept 2 SkiErg" class="pic-2"
+                    width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Concept 2 SkiErg</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">CARDIO</span> <span class="separate"></span> <span
+                    class="nofdays">SKIERGS</span>
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Fourth Product -->
-        <!-- <div class="col-md-3 ">
-          <div class="products">
-            <div class="product-image">
-              <a href="" class="images">
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                  width="500px">
-
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                  width="500px">
-              </a>
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">58.000 EGP</span>
+                  </p>
                 </div>
               </div>
-
             </div>
-            <div class="Content">
-              <h3>ASSAULT AIRBIKE</h3>
-              <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">39.000 EGP</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Fifth Product -->
-        <!-- <div class="col-md-3 ">
-          <div class="products">
-            <div class="product-image">
-              <a href="" class="images">
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                  width="500px">
-
-                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                  width="500px">
-              </a>
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
-                </div>
-              </div>
-
-            </div>
-            <div class="Content">
-              <h3>ASSAULT AIRBIKE</h3>
-              <p class="detailsinfo">
-                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">39.000 EGP</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-
-        <!-- 6 Product -->
-        <!-- <div class="col-md-3 ">
+          </div>  -->
+          <!-- Fourth Product -->
+          <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
@@ -515,58 +512,15 @@ include "header.php";
           </div>
         </div> -->
 
-<!-- 7 Product -->
-<div class="col-md-3 ">
-          <div class="products">
-            <div class="product-image">
-              <a href="../views/product.php" class="images">
-                <img src="../public/photos/productPhotos/DH66(2).webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                  width="500px">
-
-                <img src="../public/photos/productPhotos/DHZ6.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                  width="500px">
-              </a>
-              <div class="links">
-                <div class="Icon">
-                  <a href="#"><i class="bi bi-cart3"></i></i></a>
-                  <span class="tooltiptext">Add to cart</span>
-                </div>
-                <div class="Icon">
-                  <a href=""><i class="bi bi-heart"></i></i></a>
-                  <span class="tooltiptext">Move to wishlist</span>
-                </div>
-                <div class="Icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                  <span class="tooltiptext">Quick view</span>
-                </div>
-              </div>
-
-            </div>
-            <div class="Content">
-              <h4>DHZ Smith (Evost Model) E3063</h4>
-              <p class="detailsinfo">
-                <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">HOME GYM</span>
-              </p>
-              <div class="cost">
-                <p class="lower-price">
-                  From <span class="price">38.000 EGP</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 Product -->
-        <div class="col-md-3 ">
+          <!-- Fifth Product -->
+          <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg" alt="ASSAULT AIRBIKE" class="pic-1"
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
-                <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg" alt="ASSAULT AIRBIKE" class="pic-2"
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
                   width="500px">
               </a>
               <div class="links">
@@ -588,28 +542,29 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>Ground Parallettes</h3>
+              <h3>ASSAULT AIRBIKE</h3>
               <p class="detailsinfo">
-                <span class="typetrip">CROSSFIT EQUIPMENT</span> <span class="separate"></span> <span class="nofdays">GYM ESSENTIAL</span>
+                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">1.850 EGP</span>
+                  From <span class="price">39.000 EGP</span>
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <!-- 9 Product -->
-        <div class="col-md-3 ">
+
+          <!-- 6 Product -->
+          <!-- <div class="col-md-3 ">
           <div class="products">
             <div class="product-image">
               <a href="" class="images">
-                <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-1_480x.png?v=1648242147" alt="ASSAULT AIRBIKE" class="pic-1"
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
                   width="500px">
 
-                <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-3_480x.png?v=1648242147" alt="ASSAULT AIRBIKE" class="pic-2"
+                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
                   width="500px">
               </a>
               <div class="links">
@@ -631,26 +586,156 @@ include "header.php";
 
             </div>
             <div class="Content">
-              <h3>Assault Air-Runner</h3>
+              <h3>ASSAULT AIRBIKE</h3>
               <p class="detailsinfo">
-                <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">CARDIO</span>
+                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
               </p>
               <div class="cost">
                 <p class="lower-price">
-                  From <span class="price">195.000 EGP</span>
+                  From <span class="price">39.000 EGP</span>
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+          <!-- 7 Product -->
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="../views/product.php" class="images">
+                  <img src="../public/photos/productPhotos/DH66(2).webp" alt="ASSAULT AIRBIKE" class="pic-1"
+                    width="500px">
+
+                  <img src="../public/photos/productPhotos/DHZ6.webp" alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h4>DHZ Smith (Evost Model) E3063</h4>
+                <p class="detailsinfo">
+                  <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">HOME
+                    GYM</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">38.000 EGP</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- 8 Product -->
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg"
+                    alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
+
+                  <img src="https://purefitness-eg.com/wp-content/uploads/2023/05/Ground-Parallettes.jpg"
+                    alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Ground Parallettes</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">CROSSFIT EQUIPMENT</span> <span class="separate"></span> <span
+                    class="nofdays">GYM ESSENTIAL</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">1.850 EGP</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- 9 Product -->
+          <!-- <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-1_480x.png?v=1648242147"
+                    alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
+
+                  <img src="https://www.assaultfitness.com/cdn/shop/products/Runner-Elite-3_480x.png?v=1648242147"
+                    alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Assault Air-Runner</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">SHOP</span> <span class="separate"></span> <span class="nofdays">CARDIO</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">195.000 EGP</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
 
         </div>
+      </div>
+
+
     </div>
 
-
   </div>
-
- </div>
   <!-- product -->
 
   <!-- sixth Product -->
@@ -670,360 +755,235 @@ include "header.php";
   <!-- First product -->
   <div class="viewproduct">
 
-  <div class="row">
-      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
+    <div class="row">
+      <div class="col-md text-center"
+        style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
         <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
       </div>
     </div>
 
-<div class="container products-carousel">
+    <div class="container products-carousel">
 
-<div class="wrapper">
-      <div class="slider">
-      <div class="col-md-3 ">
-        <div class="products">
-        <div class="product-image">
-        <a href="" class="images">
-                <img src="../public/photos/productPhotos//hex.webp" alt="Hex Dumbbells" class="pic-1" width="500px">
+      <div class="wrapper">
+        <div class="slider">
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos//hex.webp" alt="Hex Dumbbells" class="pic-1" width="500px">
 
-                <img src="../public/photos/productPhotos/86.webp" alt="Hex Dumbbells" class="pic-2" width="500px">
-              </a>
-
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
+                  <img src="../public/photos/productPhotos/86.webp" alt="Hex Dumbbells" class="pic-2" width="500px">
                 </a>
-                <span class="tooltiptext">Quick view</span>
-              </div>
-            </div>
-        </div>
-        <div class="Content">
-            <h3>Hex Dumbbells</h3>
-            <h3> KG (Pair)</h3>
 
-            <p class="detailsinfo">
-              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                 <span class="price">95 EGP – 4.750 EGP</span>
-              </p>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Content">
+                <h3>Hex Dumbbells</h3>
+                <h3> KG (Pair)</h3>
+
+                <p class="detailsinfo">
+                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span
+                    class="nofdays">DUMBBELLS</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    <span class="price">95 EGP – 4.750 EGP</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-              <!-- Second Product -->
-      <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-          <a href="" class="images">
-                <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
-                  class="pic-1" width="500px">
+          <!-- Second Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
+                    class="pic-1" width="500px">
 
-                <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
-                  class="pic-2" width="500px">
-              </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
+                  <img src="../public/photos/productPhotos/Bumber-Plates-3-scaled-1200x799.webp" alt="dumble"
+                    class="pic-2" width="500px">
                 </a>
-                <span class="tooltiptext">Quick view</span>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Content">
+                <h3>High temp. Bumper Plates</h3>
+                <h3>(Pair)</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">WEIGHTLIFTING</span>
+                  <span class="separate"></span> <span class="nofdays">PLATES</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    <span class="price">1.305 EGP – 5.855 EGP</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="Content">
-            <h3>High temp. Bumper Plates</h3>
-            <h3>(Pair)</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">WEIGHTLIFTING</span>
-              <span class="separate"></span> <span class="nofdays">PLATES</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                 <span class="price">1.305 EGP – 5.855 EGP</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-     <!-- Third Product -->
-      <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-          <a href="" class="images">
-                <img src="../public/photos/productPhotos/Olympic-Hex-Bar-scaled-1200x1200.webp" alt="Pure Fitness TPU " class="pic-1"
-                  width="500px">
+          <!-- Third Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/Olympic-Hex-Bar-scaled-1200x1200.webp"
+                    alt="Pure Fitness TPU " class="pic-1" width="500px">
 
-                <img src="../public/photos/productPhotos/Hex Barbell.webp" alt="Pure Fitness TPU " class="pic-2"
-                  width="500px">
-              </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
+                  <img src="../public/photos/productPhotos/Hex Barbell.webp" alt="Pure Fitness TPU " class="pic-2"
+                    width="500px">
                 </a>
-                <span class="tooltiptext">Quick view</span>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Hex Barbell</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span
+                    class="nofdays">BARBELLS</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">4.500 EGP</span>
+                  </p>
+                </div>
               </div>
             </div>
-
           </div>
-          <div class="Content">
-            <h3>Hex Barbell</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">BARBELLS</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                From <span class="price">4.500 EGP</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fourth Product -->
-      <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-          <a href="" class="images">
-                <img src="../public/photos/productPhotos/EZCB-scaled-1-1536x1536.webp" alt="Wall Ball"
-                  class="pic-1" width="500px">
+          <!-- Fourth Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/EZCB-scaled-1-1536x1536.webp" alt="Wall Ball" class="pic-1"
+                    width="500px">
 
-                <img src="../public/photos/productPhotos/EZ Barbell.webp" alt="Wall Ball"
-                  class="pic-2" width="500px">
-              </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
+                  <img src="../public/photos/productPhotos/EZ Barbell.webp" alt="Wall Ball" class="pic-2" width="500px">
                 </a>
-                <span class="tooltiptext">Quick view</span>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Content">
+                <h3>EZ Barbell</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span
+                    class="nofdays">BARBELLS</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">3.200 EGP</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="Content">
-            <h3>EZ Barbell</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">BARBELLS</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                From <span class="price">3.200 EGP</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Fifth Product -->
-      <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-            <a href="" class="images">
-              <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE" class="pic-1"
-                width="500px">
+          <!-- Fifth Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE"
+                    class="pic-1" width="500px">
 
-              <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE" class="pic-2"
-                width="500px">
-            </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
+                  <img src="../public/photos/productPhotos/plates-techno-gym-ijhqm4xfnnv-1.jpg" alt="ASSAULT AIRBIKE"
+                    class="pic-2" width="500px">
                 </a>
-                <span class="tooltiptext">Quick view</span>
-              </div>
-            </div>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
 
-          </div> 
-          <div class="Content">
-            <h3>plates-techno-gym</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span class="nofdays">PLATES</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                From <span class="price">15.225 EGP</span>
-              </p>
+              </div>
+              <div class="Content">
+                <h3>plates-techno-gym</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">WEIGHTLIFTING</span> <span class="separate"></span> <span
+                    class="nofdays">PLATES</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">15.225 EGP</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
 
-      <!-- 6 Product -->
-      <!-- <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-            <a href="" class="images">
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                width="500px">
-
-              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                width="500px">
-            </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
-                </a>
-                <span class="tooltiptext">Quick view</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="Content">
-            <h3>ASSAULT AIRBIKE</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                From <span class="price">39.000 EGP</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-<!-- 7 Product -->
-<div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-            <a href="" class="images">
-              <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-1"
-                width="500px">
-
-              <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-2"
-                width="500px">
-            </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
-                </a>
-                <span class="tooltiptext">Quick view</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="Content">
-            <h3>Cast Iron Kettlebells</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">KETTLEBELLS</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                 <span class="price">260 EGP - 2.080 EGP</span> 
-              </p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8 Product -->
-      <div class="col-md-3 ">
-        <div class="products">
-          <div class="product-image">
-            <a href="" class="images">
-              <img src="../public/photos/productPhotos/dumbles.png" alt="ASSAULT AIRBIKE" class="pic-1"
-                width="700px">
-
-              <img src="../public/photos/productPhotos/3-1365x2048.webp" alt="ASSAULT AIRBIKE" class="pic-2">
-            </a>
-            <div class="links">
-              <div class="Icon">
-                <a href="#"><i class="bi bi-cart3"></i></i></a>
-                <span class="tooltiptext">Add to cart</span>
-              </div>
-              <div class="Icon">
-                <a href=""><i class="bi bi-heart"></i></i></a>
-                <span class="tooltiptext">Move to wishlist</span>
-              </div>
-              <div class="Icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                  <i class="bi bi-eye"></i>
-                </a>
-                <span class="tooltiptext">Quick view</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="Content">
-            <h3>Pure Fitness TPU Dumbbells</h3>
-            <p class="detailsinfo">
-              <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
-            </p>
-            <div class="cost">
-              <p class="lower-price">
-                From <span class="price">113.100 EGP</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9 Product -->
-      <!-- <div class="col-md-3 ">
+          <!-- 6 Product -->
+          <!-- <div class="col-md-3 ">
         <div class="products">
           <div class="product-image">
             <a href="" class="images">
@@ -1065,13 +1025,146 @@ include "header.php";
         </div>
       </div> -->
 
+          <!-- 7 Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img
+                    src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp"
+                    alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
+
+                  <img
+                    src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp"
+                    alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Cast Iron Kettlebells</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span
+                    class="nofdays">KETTLEBELLS</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    <span class="price">260 EGP - 2.080 EGP</span>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 Product -->
+          <div class="col-md-3 ">
+            <div class="products">
+              <div class="product-image">
+                <a href="" class="images">
+                  <img src="../public/photos/productPhotos/dumbles.png" alt="ASSAULT AIRBIKE" class="pic-1"
+                    width="700px">
+
+                  <img src="../public/photos/productPhotos/3-1365x2048.webp" alt="ASSAULT AIRBIKE" class="pic-2">
+                </a>
+                <div class="links">
+                  <div class="Icon">
+                    <a href="#"><i class="bi bi-cart3"></i></i></a>
+                    <span class="tooltiptext">Add to cart</span>
+                  </div>
+                  <div class="Icon">
+                    <a href=""><i class="bi bi-heart"></i></i></a>
+                    <span class="tooltiptext">Move to wishlist</span>
+                  </div>
+                  <div class="Icon">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <span class="tooltiptext">Quick view</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="Content">
+                <h3>Pure Fitness TPU Dumbbells</h3>
+                <p class="detailsinfo">
+                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span
+                    class="nofdays">DUMBBELLS</span>
+                </p>
+                <div class="cost">
+                  <p class="lower-price">
+                    From <span class="price">113.100 EGP</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 Product -->
+          <!-- <div class="col-md-3 ">
+        <div class="products">
+          <div class="product-image">
+            <a href="" class="images">
+              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE" class="pic-1"
+                width="500px">
+
+              <img src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" alt="ASSAULT AIRBIKE" class="pic-2"
+                width="500px">
+            </a>
+            <div class="links">
+              <div class="Icon">
+                <a href="#"><i class="bi bi-cart3"></i></i></a>
+                <span class="tooltiptext">Add to cart</span>
+              </div>
+              <div class="Icon">
+                <a href=""><i class="bi bi-heart"></i></i></a>
+                <span class="tooltiptext">Move to wishlist</span>
+              </div>
+              <div class="Icon">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                  <i class="bi bi-eye"></i>
+                </a>
+                <span class="tooltiptext">Quick view</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="Content">
+            <h3>ASSAULT AIRBIKE</h3>
+            <p class="detailsinfo">
+              <span class="typetrip">CARDIO</span> <span class="separate"></span> <span class="nofdays">BIKES</span>
+            </p>
+            <div class="cost">
+              <p class="lower-price">
+                From <span class="price">39.000 EGP</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+        </div>
       </div>
+
+
+    </div>
+
   </div>
-
-
-</div>
-
-</div>
 
   <!-- image -->
   <div class="position-relative text-center">
@@ -1081,41 +1174,46 @@ include "header.php";
   </div>
 
 
-<!-- what our customers have to say -->
+  <!-- what our customers have to say -->
   <h2>What Our Customers Have To Say</h2>
-<section class="feedback-section">
+  <section class="feedback-section">
 
     <div class="container" style="margin-bottom: 80px; ">
-        <div class="feedback-slider">
-            <div class="feedback-review">
-                <div class="white-box">
-                    <p class="feedback-text">
-                        We ordered our treadmill online from Pure Fitness, the next day I received an email confirming our order with full contact information. I called instead of replying to the email because I had a question.waleed was awesome and answered all my questions! Prior to shipping the treadmill, he sent me a photo of the equipment so I could approve the order. They were very quick to respond via email too. We are very happy with our purchase and the customer service! We will definitely shop with Pure Fitness again!!
-                    </p>
-                    <p class="feedback-name"> -Mariam Samy </p>
-                </div>
-            </div>
-            <div class="feedback-review">
-                <div class="white-box">
-                    <p class="feedback-text">
-                    Awesome customer service.They assisted us in finding the perfect machines for our home gym. Great prices, I am definitely coming back for more equipment.
-                    </p>
-                    <p class="feedback-name"> -Moaz </p>
-                </div>
-            </div>
-            <!-- Add more review elements as needed -->
+      <div class="feedback-slider">
+        <div class="feedback-review">
+          <div class="white-box">
+            <p class="feedback-text">
+              We ordered our treadmill online from Pure Fitness, the next day I received an email confirming our order
+              with full contact information. I called instead of replying to the email because I had a question.waleed
+              was awesome and answered all my questions! Prior to shipping the treadmill, he sent me a photo of the
+              equipment so I could approve the order. They were very quick to respond via email too. We are very happy
+              with our purchase and the customer service! We will definitely shop with Pure Fitness again!!
+            </p>
+            <p class="feedback-name"> -Mariam Samy </p>
+          </div>
         </div>
-        <div class="slider-controls">
-    <button class="prev-button">
-    <i class="bi bi-arrow-left-circle"></i>
-    </button>
-    <button class="next-button">
-    <i class="bi bi-arrow-right-circle"></i>
-    </button>
-</div>
+        <div class="feedback-review">
+          <div class="white-box">
+            <p class="feedback-text">
+              Awesome customer service.They assisted us in finding the perfect machines for our home gym. Great prices,
+              I am definitely coming back for more equipment.
+            </p>
+            <p class="feedback-name"> -Moaz </p>
+          </div>
+        </div>
+        <!-- Add more review elements as needed -->
+      </div>
+      <div class="slider-controls">
+        <button class="prev-button">
+          <i class="bi bi-arrow-left-circle"></i>
+        </button>
+        <button class="next-button">
+          <i class="bi bi-arrow-right-circle"></i>
+        </button>
+      </div>
 
     </div>
-</section>
+  </section>
   <!-- About us and signup containers -->
   <div class="container">
     <div class="row">
@@ -1150,9 +1248,9 @@ include "header.php";
             <div class="quote mt-2 text-center">
               <h4 class="custom-about-us">ABOUT US</h4>
               <p class="custom-quote">Pure Fitness Equipment one of the biggest fitness equipment store in Egypt.</p>
-                <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
+              <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
                 "> Read Our Story</a>
-                </button>
+              </button>
             </div>
           </div>
         </div>
@@ -1160,75 +1258,82 @@ include "header.php";
     </div>
   </div>
 
-<!-- BMI Calculator and Chart -->
-<div class="container mt-5">
+  <!-- BMI Calculator and Chart -->
+  <div class="container mt-5">
     <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="bmi-calculator-container text-black p-4">
+      <div class="col-md-6">
+        <div class="bmi-calculator-container text-black p-4">
           <h3 class="card-title text-center" style="color: maroon;">CALCULATE YOUR BMI</h3>
-          <p class="small">BMI stands for Body Mass Index. The approximated calculation is used to determine your weight to your height. The calculator is useful for adults over 18 years of age. The calculator is only used as an estimator only and should not be used as a medical determination. The team at 365 recommend professional Dr or accredited Health Professional in regards to specific health and nutrition advice.</p>
+          <p class="small">BMI stands for Body Mass Index. The approximated calculation is used to determine your weight
+            to your height. The calculator is useful for adults over 18 years of age. The calculator is only used as an
+            estimator only and should not be used as a medical determination. The team at 365 recommend professional Dr
+            or accredited Health Professional in regards to specific health and nutrition advice.</p>
           <form id="bmiForm">
-              <div class="mb-3">
-                  <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Weight (kg)">
-              </div>
-              <div class="mb-3">
-                  <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Height (m)">
-              </div>
-              <div class="text-center">
-                  <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
-              </div>
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-sm" id="weight" name="weight"
+                placeholder="Weight (kg)">
+            </div>
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-sm" id="height" name="height"
+                placeholder="Height (m)">
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
+            </div>
           </form>
           <div id="result" class="mt-3">
-              <h3 class="text-center">Your BMI: <span id="bmiValue">--</span></h3>
-              <p class="text-center">Category: <span id="bmiCategory">--</span></p>
+            <h3 class="text-center">Your BMI: <span id="bmiValue">--</span></h3>
+            <p class="text-center">Category: <span id="bmiCategory">--</span></p>
           </div>
+        </div>
       </div>
-  </div>
-  <div class="col-md-6">
-    <!-- BMI Chart Container -->
-    <div class="bmi-chart-container text-black p-4">
-        <h3 class="card-title text-center" style="color: maroon;">BMI Categories</h3>
-        <p class="small">BMI categories are a way to classify individuals based on their BMI value. Here's a simple chart:</p>
-        
-        <table class="table table-bordered">
+      <div class="col-md-6">
+        <!-- BMI Chart Container -->
+        <div class="bmi-chart-container text-black p-4">
+          <h3 class="card-title text-center" style="color: maroon;">BMI Categories</h3>
+          <p class="small">BMI categories are a way to classify individuals based on their BMI value. Here's a simple
+            chart:</p>
+
+          <table class="table table-bordered">
             <thead>
-                <tr>
-                    <th scope="col">BMI Range</th>
-                    <th scope="col">Category</th>
-                </tr>
+              <tr>
+                <th scope="col">BMI Range</th>
+                <th scope="col">Category</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Less than 18.5</td>
-                    <td>Underweight</td>
-                </tr>
-                <tr>
-                    <td>18.5 - 24.9</td>
-                    <td>Normal Weight</td>
-                </tr>
-                <tr>
-                    <td>25.0 - 29.9</td>
-                    <td>Overweight</td>
-                </tr>
-                <tr>
-                    <td>30.0 or more</td>
-                    <td>Obese</td>
-                </tr>
+              <tr>
+                <td>Less than 18.5</td>
+                <td>Underweight</td>
+              </tr>
+              <tr>
+                <td>18.5 - 24.9</td>
+                <td>Normal Weight</td>
+              </tr>
+              <tr>
+                <td>25.0 - 29.9</td>
+                <td>Overweight</td>
+              </tr>
+              <tr>
+                <td>30.0 or more</td>
+                <td>Obese</td>
+              </tr>
             </tbody>
-        </table>
-        
-        <p class="small mt-3">Please note that this is a general reference. For personalized health advice, consult a healthcare professional.</p>
+          </table>
+
+          <p class="small mt-3">Please note that this is a general reference. For personalized health advice, consult a
+            healthcare professional.</p>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 
-  
+
   <script src="../public/JS/index.js"></script>
 
   <footer>
