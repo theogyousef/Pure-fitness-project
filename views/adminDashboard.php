@@ -74,7 +74,7 @@ include "adminnav.php";
 
 <body>
     <div class="container">
-       
+
         <!-- Dashboard -->
         <div class="main" id="mainpart">
             <div class="cards">
@@ -95,13 +95,38 @@ include "adminnav.php";
                         <div class="card-name">pieces of equipment</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fas fa-dumbbell"></i>
                     </div>
                 </div>
 
-             
+
+
+
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">
+                            <?php
+                            $sql = "SELECT * from users ";
+                            $resultuser = mysqli_query($conn, $sql);
+
+                            $counteruser = -1;
+                            while ($row = mysqli_fetch_assoc($resultuser)) {
+                                $counteruser++;
+                            }
+                            echo $counteruser ?>
+                        </div>
+                        <div class="card-name">Total users :</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+
+
 
             </div>
+
 
             <div class="container-fluid">
                 <table class="table custom-table">
@@ -111,7 +136,6 @@ include "adminnav.php";
                             <th>Name</th>
                             <th>Type</th>
                             <th>Price</th>
-                            <th>Description</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -127,7 +151,6 @@ include "adminnav.php";
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["type"] . "</td>
                     <td>" . $row["price"] . "</td>
-                    <td>" . $row["description"] . "</td>
                     <td>
                         <a href='editproduct.php?id=" . $row["id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
@@ -143,12 +166,59 @@ include "adminnav.php";
                         ?>
                     </tbody>
                 </table>
+
+                <table class="table custom-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>Admin</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>make user</th>
+                            <th>make admin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+
+                        $sql2 = "SELECT * from users ";
+                        $resultusers = mysqli_query($conn, $sql2);
+
+                        while ($row = mysqli_fetch_assoc($resultusers)) {
+                            if ($row["admin"] == 1) {
+                                $admin = "Admin";
+                            } elseif ($row["admin"] == 0) {
+                                $admin = " ";
+                            }
+                            if ($row["guest"] != 1) {
+                                echo " <tr>
+        <td>" . $row["id"] . "</td>
+        <td>" . $row["firstname"] . $row["lastname"] . "</td>
+        <td>" . $row["email"] . "</td>
+        <td> " . $admin . "</td>
+        <td>  <a href='edituser.php?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
+        <td> <a href='deleteuser.php?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
+        <td>  <a href='makeuser.php?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
+        <td>  <a href='makeadmin.php?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
+
+</tr>";
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+
             </div>
 
 
         </div>
-        <!-- Add product  -->
-        <!-- <div class="main" id="addproduct">
+    </div>
+    <!-- Add product  -->
+    <!-- <div class="main" id="addproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -186,8 +256,8 @@ include "adminnav.php";
                 </div>
             </div>
         </div> -->
-        <!-- Edit product  -->
-        <!-- <div class="main" id="editproduct">
+    <!-- Edit product  -->
+    <!-- <div class="main" id="editproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -223,8 +293,8 @@ include "adminnav.php";
                 </div>
             </div>
         </div> -->
-        <!-- delete product  -->
-        <!-- <div class="main" id="deleteproduct">
+    <!-- delete product  -->
+    <!-- <div class="main" id="deleteproduct">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -248,9 +318,9 @@ include "adminnav.php";
 
 
 
-        <!-- Add user -->
+    <!-- Add user -->
 
-        <!-- <div class="main" id="adduser">
+    <!-- <div class="main" id="adduser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="form-container">
@@ -288,8 +358,8 @@ include "adminnav.php";
                 </div>
             </div>
         </div> -->
-        <!-- Edit user  -->
-        <!-- <div class="main" id="edituser">
+    <!-- Edit user  -->
+    <!-- <div class="main" id="edituser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -327,8 +397,8 @@ include "adminnav.php";
                 </div>
             </div>
         </div> -->
-        <!-- delete user  -->
-        <!-- <div class="main" id="deleteuser">
+    <!-- delete user  -->
+    <!-- <div class="main" id="deleteuser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -349,8 +419,8 @@ include "adminnav.php";
             </div>
         </div> -->
 
-        <!-- make admin  -->
-        <!-- <div class="main" id="makeadmin">
+    <!-- make admin  -->
+    <!-- <div class="main" id="makeadmin">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">
@@ -371,8 +441,8 @@ include "adminnav.php";
             </div>
         </div> -->
 
-        <!-- make user  -->
-        <!-- <div class="main" id="makeuser">
+    <!-- make user  -->
+    <!-- <div class="main" id="makeuser">
             <div class="formcards">
                 <div class="formcard">
                     <div class="card-content form-container">

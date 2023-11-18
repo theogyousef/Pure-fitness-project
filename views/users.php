@@ -68,7 +68,7 @@ include "adminnav.php";
                             $sql = "SELECT * from users ";
                             $resultuser = mysqli_query($conn, $sql);
 
-                            $counteruser = 0;
+                            $counteruser = -1;
                             while ($row = mysqli_fetch_assoc($resultuser)) {
                                 $counteruser++;
                             }
@@ -77,7 +77,7 @@ include "adminnav.php";
                         <div class="card-name">Total users :</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
 

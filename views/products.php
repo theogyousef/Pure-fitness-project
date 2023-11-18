@@ -77,8 +77,8 @@ include "adminnav.php";
                         <div class="card-name">pieces of equipment</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
+                    <i class="fas fa-dumbbell"></i>    
+                                </div>
                 </div>
 
 
