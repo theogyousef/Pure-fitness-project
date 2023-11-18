@@ -30,10 +30,10 @@ class adminModel{
         $query = "INSERT INTO users (firstname, lastname , email , password ) VALUES ('$firstname' , '$lastname', '$email','$hashedPassword');";
          mysqli_query($conn, $query);
     }
-    public static function updateuser($firstname,$lastname,$email,$password,$id)
+    public static function updateuser($firstname,$lastname,$email,$id)
     {
         global $conn;
-        $query = "update users set firstname ='$firstname',lastname ='$lastname',email ='$email',password ='$password'  where id = '$id'";
+        $query = "update users set firstname ='$firstname',lastname ='$lastname',email ='$email'  where id = '$id'";
         mysqli_query($conn, $query);
     }
     public static function deleteuser($id)

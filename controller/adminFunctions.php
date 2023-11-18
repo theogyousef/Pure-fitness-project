@@ -1,5 +1,6 @@
 <?php
 include "config.php";
+include "../model/adminModle.php";
 // products funvtions
 function addproduct()
 {
@@ -22,11 +23,8 @@ function addproduct()
         echo "<script>alert('File upload failed.'); </script>";
     }
 
-
-
-    $query = "insert into products (name,type,price,description,file) values (' $name','$type','$price','$description','$fileUrl')";
-
-    mysqli_query($conn, $query);
+    /// apply th query to db by pass to the handler func
+    adminModel::addproduct( $name,$type,$price,$description,$fileUrl);
 
     header("Location: adminDashboard.php");
 
@@ -34,17 +32,15 @@ function addproduct()
 }
 function updateproduct()
 {
-    global $conn;
+    
     $id = $_POST["id"];
     $name = $_POST["name"];
     $price = $_POST["price"];
     $type = $_POST["type"];
     $description = $_POST["description"];
 
-
-    $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description'  where id = '$id'";
-
-    mysqli_query($conn, $query);
+    /// apply th query to db by pass to the handler func
+    adminModel::updateproduct($id,$name,$price,$type, $description);
     header("Location: adminDashboard.php");
 
 
@@ -52,10 +48,9 @@ function updateproduct()
 function deleteproduct()
 {
 
-    global $conn;
+    
     $id = $_POST["id"];
-    $query = "DELETE FROM products WHERE id = '$id'";
-    mysqli_query($conn, $query);
+    adminModel::deleteproduct($id);
     header("Location: adminDashboard.php");
 
 }
@@ -83,10 +78,7 @@ function adduser()
         if ($password == $confirmpassword) {
             // we create a query with the inputs of the form to insert into the databse 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $query = "INSERT INTO users (firstname, lastname , email , password ) VALUES ('$firstname' , '$lastname', '$email','$hashedPassword');";
-
-            // we pass the connection of the database and the quarey 
-            mysqli_query($conn, $query);
+           adminModel::adduser($firstname,$lastname,$email,$hashedPassword);
             // echo "<script> alert('Regsitered successfully');</script> ";
             header("Location: users.php");
 
@@ -105,9 +97,7 @@ function updateuser()
     $lastname = $_POST["lname"];
     $email = $_POST["email"];
 
-    $query = "update users set firstname ='$firstname',lastname ='$lastname',email ='$email'  where id = '$id'";
-
-    mysqli_query($conn, $query);
+    adminModel::updateuser($firstname,$lastname,$email,$id);
 
     header("Location: users.php");
 
@@ -118,8 +108,7 @@ function deleteuser()
 
     global $conn;
     $id = $_POST["id"];
-    $query = "DELETE FROM users WHERE id = '$id'";
-    mysqli_query($conn, $query);
+    adminModel::deleteuser($id);
     header("Location: users.php");
 
 }
@@ -127,8 +116,7 @@ function deleteuser()
 function makeadmin(){
     global $conn;
     $id = $_POST["id"];
-    $query = "UPDATE users  set admin = '1' WHERE id = '$id'";
-    mysqli_query($conn, $query);
+    adminModel::makeadmin($id);
     header("Location: users.php");
 
 }
@@ -136,8 +124,7 @@ function makeadmin(){
 function makeuser(){
     global $conn;
     $id = $_POST["id"];
-    $query = "UPDATE users  set admin = '0' WHERE id = '$id'";
-    mysqli_query($conn, $query);
+   adminModel::makeuser($id);
     header("Location: users.php");
 
 }
