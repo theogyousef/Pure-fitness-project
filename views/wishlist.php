@@ -8,7 +8,7 @@ if (!empty($_SESSION["id"])) {
     $row = mysqli_fetch_assoc($result);
 
 } else {
-    header("Location: registeration.php");
+    header("Location: registeration");
 }
 
 include "header.php";

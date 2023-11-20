@@ -46,7 +46,7 @@
         </div>
         <div id="logo" class="col-md-8 text-center">
           <!-- Header logo -->
-          <a href="index.php" rel="home">
+          <a href="index" rel="home">
             <img
               src="https://purefitness-eg.com/wp-content/uploads/2023/07/IMG_%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A7%D9%A2%D9%A3_%D9%A1%D9%A9%D9%A1%D9%A0%D9%A4%D9%A0-1400x623.png"
               alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
@@ -58,7 +58,7 @@
             <i class="bi bi-cart3 text-white fs-4 me-3"></i>
           </a>
           <!-- wishlist -->
-          <a href="wishlist.php" class="text-decoration-none">
+          <a href="wishlist" class="text-decoration-none">
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
 
@@ -70,17 +70,17 @@
 
     <?php if ($row["guest"] != 1) { ?>
     <div class="dropdown-menu" id="loginSignupDropdown">
-        <a class="dropdown-item" href="profilesettings.php">Profile Settings</a>
+        <a class="dropdown-item" href="profilesettings">Profile Settings</a>
         <?php 
             if ($row["admin"] == 1) {
-                echo "<a class='dropdown-item' href='adminDashboard.php'>Admin dashboard</a>";
+                echo "<a class='dropdown-item' href='adminDashboard'>Admin dashboard</a>";
             }
         ?>
-        <a class="dropdown-item" href="logout.php">Log out</a>
+        <a class="dropdown-item" href="logout">Log out</a>
     </div>
 <?php ; } else if ($row["guest"] != 0) {?>
     <div class="dropdown-menu" id="loginSignupDropdown">
-        <a class="dropdown-item" href="logout.php">Log in</a>
+        <a class="dropdown-item" href="logout">Log in</a>
     </div>
 <?php ;} ?>
 
@@ -221,7 +221,7 @@
 </li>
 <!-- Home Gym Nav -->
 <li class="nav-item dropdown">
-<a class="nav-link" href="collections.php" id="navbarDropdownShop" aria-haspopup="true" aria-expanded="false">
+<a class="nav-link" href="collections" id="navbarDropdownShop" aria-haspopup="true" aria-expanded="false">
           HOME GYM </a>
 </li>
       </ul>

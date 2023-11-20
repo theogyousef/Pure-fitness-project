@@ -20,7 +20,7 @@
       <div class="company">
         <h4>Company</h4>
         <ul>
-          <li><a href="./about.php">About us</a></li>
+          <li><a href="about">About us</a></li>
         </ul>
       </div>
       <div class="contactUs">

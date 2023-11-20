@@ -1,5 +1,4 @@
 <?php
-
 require '../controller/config.php';
 if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
@@ -139,7 +138,7 @@ include "header.php";
           </address>
         </div>
         <button>View Cart</button>
-        <button type="button"><a href="checkOut.php" style="color: white;   text-decoration: none;
+        <button type="button"><a href="checkOut" style="color: white;   text-decoration: none;
                 "> Check Out</a>
         </button>
       </div>
@@ -287,7 +286,7 @@ include "header.php";
               <div class="col-md-3">
                 <div class="products">
                   <div class="product-image">
-                    <a href="product.php?id=<?php echo $product['id']; ?>" class="images">
+                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
                       <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
                         width="500px">
                     </a>
@@ -297,7 +296,7 @@ include "header.php";
                         <span class="tooltiptext">Add to cart</span>
                       </div>
                       <div class="Icon">
-                        <a href=""><i class="bi bi-heart"></i></i></a>
+                        <a href="#"><i class="bi bi-heart"></i></i></a>
                         <span class="tooltiptext">Move to wishlist</span>
                       </div>
                       <div class="Icon">
@@ -1225,7 +1224,7 @@ include "header.php";
                     style="background: transparent; color: #000;">
                   <label for="email">Enter your email address</label>
                 </div>
-                <button type="button" class="btn-About-us btn-dark"><a href="Registeration.php" style="color: white;   text-decoration: none;
+                <button type="button" class="btn-About-us btn-dark"><a href="registeration" style="color: white;   text-decoration: none;
                 "> Sign Up</a>
                 </button>
               </div>
@@ -1241,7 +1240,7 @@ include "header.php";
             <div class="quote mt-2 text-center">
               <h4 class="custom-about-us">ABOUT US</h4>
               <p class="custom-quote">Pure Fitness Equipment one of the biggest fitness equipment store in Egypt.</p>
-              <button type="button" class="btn-About-us btn-dark"><a href="about.php" style="color: white;   text-decoration: none;
+              <button type="button" class="btn-About-us btn-dark"><a href="about" style="color: white;   text-decoration: none;
                 "> Read Our Story</a>
               </button>
             </div>
@@ -1331,8 +1330,11 @@ include "header.php";
 
   <footer>
     <?php
-    include "footer.php" ?>
+    include "footer.php" ;
+   
+    ?>
   </footer>
+  
 </body>
 
 </html>

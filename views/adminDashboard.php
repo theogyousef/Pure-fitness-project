@@ -34,16 +34,16 @@ if (!empty($_SESSION["id"])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } else {
-    header("Location: registeration.php");
+    header("Location: registeration");
 }
 
 if ($row["admin"] != 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
 if ($row["id"] == 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
@@ -152,12 +152,12 @@ include "adminnav.php";
                     <td>" . $row["type"] . "</td>
                     <td>" . $row["price"] . "</td>
                     <td>
-                        <a href='editproduct.php?id=" . $row["id"] . "' style='color: orange; '>
+                        <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
                         </a>
                     </td>
                     <td>
-                        <a href='deleteproduct.php?id=" . $row["id"] . "' style='color: red;'>
+                        <a href='deleteproduct?id=" . $row["id"] . "' style='color: red;'>
                             <span class='fas fa-trash-alt'></span> 
                         </a>
                     </td>
@@ -199,10 +199,10 @@ include "adminnav.php";
         <td>" . $row["firstname"] . $row["lastname"] . "</td>
         <td>" . $row["email"] . "</td>
         <td> " . $admin . "</td>
-        <td>  <a href='edituser.php?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
-        <td> <a href='deleteuser.php?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
-        <td>  <a href='makeuser.php?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
-        <td>  <a href='makeadmin.php?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
+        <td>  <a href='edituser?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
+        <td> <a href='deleteuser?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
+        <td>  <a href='makeuser?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
+        <td>  <a href='makeadmin?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
 
 </tr>";
                             }

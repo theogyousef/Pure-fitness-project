@@ -15,16 +15,16 @@ if (!empty($_SESSION["id"])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } else {
-    header("Location: registeration.php");
+    header("Location: registeration");
 }
 
 if ($row["admin"] != 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
 if ($row["id"] == 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
@@ -71,20 +71,20 @@ if ($row["id"] == 1) {
         <div class="sidebar">
             <ul>
                 <li class="active" id="dashboard">
-                    <a href="adminDashboard.php" >
+                    <a href="adminDashboard" >
                         <i class="fas fa-th-large"></i>
                         <div>Dashboard</div>
                     </a>
                 </li>
 
                 <li class="dropdown" id="users">
-                    <a href="users.php">
+                    <a href="users">
                         <i class="fas fa-users"></i>
                         <div>Users</div>
                     </a>
                     <div class="dropdown-content">
 
-                        <a href="adduser.php" >Add user</a>
+                        <a href="adduser" >Add user</a>
                        
 
 
@@ -92,25 +92,25 @@ if ($row["id"] == 1) {
                     </div>
                 </li>
                 <li class="dropdown" id="products">
-                    <a href="products.php">
+                    <a href="products">
                         <i class="fas fa-dumbbell"></i>
                         <div>products</div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="addproduct.php" >Add product</a>
+                        <a href="addproduct" >Add product</a>
                         <!-- Add more links as needed -->
                     </div>
                 </li>
 
 
                 <li>
-                    <a href="profilesettings.php">
+                    <a href="profilesettings">
                         <i class="fas fa-cog"></i>
                         <div>Profile Settings</div>
                     </a>
                 </li>
                 <li>
-                    <a href="index.php">
+                    <a href="index">
                         <i class="fas fa-home"></i>
                         <div>Home</div>
                     </a>
