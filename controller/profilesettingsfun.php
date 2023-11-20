@@ -1,12 +1,12 @@
 <?php
 // profile picture upload 
-include "config.php";
+include "../model/userModel.php";
 
 function uploadpic()
 {
     
 
-    global $conn;
+    
     $file = $_FILES["file"];
     $uploadDirectory = '../public/photos/userPhotos/'; // Directory where you save the uploaded files
 
@@ -17,8 +17,8 @@ function uploadpic()
         // echo "<script>alert('The URL is: " . $fileUrl . "'); </script>";
 
         $id = $_SESSION["id"];
-        $query = "UPDATE users SET profilepicture = '$fileUrl' WHERE  id = $id ";
-        mysqli_query($conn, $query);
+        UserModel::uploadpic($fileUrl,$id);
+        
 
 
     } else {
@@ -31,8 +31,7 @@ function uploadpic()
 // Account details 
 function editdetails()
 {
-    global $conn;
-
+    
     // echo "<script> alert('changes saved'); </script>";
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
@@ -40,12 +39,12 @@ function editdetails()
     $username = $_POST["username"];
     $phone = $_POST["phone"];
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-    $row = mysqli_fetch_assoc($result);
+    //$result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    //$row = mysqli_fetch_assoc($result);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    $query = "UPDATE users SET firstname = '$firstname' , lastname = '$lastname' ,username = '$username' , email = '$email' , phone = '$phone' WHERE  id = $id ";
-    mysqli_query($conn, $query);
+    UserModel::editdetails($firstname,$lastname,$username,$email,$phone,$id);
+    
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
@@ -54,20 +53,19 @@ function editdetails()
 }
 
 function updateaddress(){
-    global $conn;
-$governorates = $_POST["governorates"];
+
+    $governorates = $_POST["governorates"];
     $city = $_POST["city"];
     $street = $_POST["street"];
     $house = $_POST["house"];
     $postalcode = $_POST["postalcode"];
 
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-    $row = mysqli_fetch_assoc($result);
+   $row = $row = UserModel::selectUser($id);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    $query = "UPDATE users SET governorates = '$governorates' , city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  id = $id ";
-    mysqli_query($conn, $query);
+    
+    UserModel::updateaddress($governorates,$city,$street,$house,$postalcode,$id);
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
@@ -83,11 +81,10 @@ function updatesocials()
     $instagram = $_POST["instagram"];
 
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-    $row = mysqli_fetch_assoc($result);
+    $row = $row = UserModel::selectUser($id);
 
-    $query = "UPDATE users SET github = '$github' , instagram = '$instagram' WHERE  id = $id ";
-    mysqli_query($conn, $query);
+    
+    UserModel::updatesocials($github,$instagram,$id);
     // echo "<script> alert('Updatesd successfuly');</script> ";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
 
@@ -104,15 +101,15 @@ function updatepasswords()
     $conpassword = $_POST["conpassword"];
 
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-    $row = mysqli_fetch_assoc($result);
+   
+    $row = UserModel::selectUser($id);
 
     if ($newpassword == $conpassword) {
         if ($newpassword != $oldpassowrd) {
             if (password_verify($oldpassowrd, $row['password'])) {
                 $hashedPassword = password_hash($newpassword, PASSWORD_DEFAULT);
-                $query = "UPDATE users SET password = '$hashedPassword' WHERE  id = $id ";
-                mysqli_query($conn, $query);
+               
+                UserModel:: UpdatePassword($hashedPassword,$id);
                 // echo "<script> alert('Updatesd successfuly');</script> ";
             } else {
                 echo "<script> alert('old passes do not match ');</script> ";
@@ -136,8 +133,7 @@ function updatepasswords()
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
-    $row = mysqli_fetch_assoc($result);
+    $row = UserModel::selectUser($id);
 } else {
     header("Location: registeration.php");
 }
