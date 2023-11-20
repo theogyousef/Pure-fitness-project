@@ -16,6 +16,7 @@ class Routere {
     // Extract the 'id' value from the matched URL
     $action = $matches[1];
     $id = $matches[2];
+    echo $id;
         }
 
        if($path===$root)
@@ -95,6 +96,12 @@ class Routere {
         elseif($path==='/swe/views/editproduct?id='.$id)
         {
         require '../views/editproduct.php';
+            exit();
+
+        }
+        elseif($path==='/swe/views/product?id='.$id)
+        {
+        require '../views/product.php';
             exit();
 
         }
