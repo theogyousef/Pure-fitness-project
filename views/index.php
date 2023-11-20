@@ -1,13 +1,5 @@
 <?php
 require '../controller/config.php';
-require '../views/Router.php';
-Router::handle(method: 'GET', path:'/products', filename: '../views/product.php');
-Router::handle(method: 'GET', path:'/collections', filename: '../views/collections.php');
-Router::handle(method: 'GET', path:'/Registeration', filename: '../views/Registeration.php');
-Router::handle(method: 'GET', path:'/profilesettings', filename: '../views/profilesettings.php');
-
-/////////////////////////////////////////////////////
-
 if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
@@ -1338,8 +1330,11 @@ include "header.php";
 
   <footer>
     <?php
-    include "footer.php" ?>
+    include "footer.php" ;
+   
+    ?>
   </footer>
+  
 </body>
 
 </html>
