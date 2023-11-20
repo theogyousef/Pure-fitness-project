@@ -4,7 +4,7 @@ include "config.php";
 
 function uploadpic()
 {
-    global $conn;
+    
 
     global $conn;
     $file = $_FILES["file"];

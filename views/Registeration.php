@@ -10,11 +10,7 @@
 //require "../controller/config.php";
 require "../controller/registerationsystem.php";
 
-
-if ($row["guest"] !=1) {
-  header("Location: index.php");
-}
-else if (!empty($_SESSION["id"])) {
+ if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
@@ -59,7 +55,7 @@ if (isset($_POST["submit"])) {
       <div class="nav-button">
         <button class="btn white-btn" id="loginBtn" onclick="login()">Log in</button>
         <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
-        <a href="index.php" style="text-decoration: none; color: black;"> <button class="btn" id="registerBtn">
+        <a href="index" style="text-decoration: none; color: black;"> <button class="btn" id="registerBtn">
             Home
           </button></a>
 

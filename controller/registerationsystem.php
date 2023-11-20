@@ -1,16 +1,17 @@
 
 <?php 
-include "config.php";
+//require "config.php";
 
 function signup(){
-
-    global $conn;
+  
+  require "config.php";
 
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
+    
     // making sure the useranme and email from registeration is unique 
     $duplicate = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email' ");
     //if you found any duplicate 
@@ -36,11 +37,13 @@ function signup(){
 }
 
 function signin(){
-
-global $conn ;
+ // echo "ienvie";
+ require "config.php";
+//global $conn ;
 
 $email = $_POST['email'];
 $password = $_POST["pass"];
+//echo $conn;
 //searching for the uder by username or email
 $result = mysqli_query($conn, "SELECT * FROM users where email = '$email'");
 $row = mysqli_fetch_assoc($result);
@@ -48,8 +51,9 @@ $row = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) > 0) {
   if (password_verify($password, $row["password"])) {
     $_SESSION["login"] = true;
+    
     $_SESSION["id"] = $row["id"];
-    header("Location: index.php");
+    header("Location: index");
   } else {
     echo "<script> alert('Wrong password ');</script> ";
 

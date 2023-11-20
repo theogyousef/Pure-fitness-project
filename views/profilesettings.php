@@ -28,12 +28,12 @@ if (!empty($_SESSION["id"])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } else {
-    header("Location: registeration.php");
+    header("Location: registeration");
 }
 
 
 if ($row["guest"] == 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
@@ -76,10 +76,10 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
             <?php
             if ($row["admin"] == 1) {
-                echo ' <a class="nav-link" href="adminDashboard.php">Admin Dasboard</a>';
+                echo ' <a class="nav-link" href="adminDashboard">Admin Dasboard</a>';
             }
             ?>
-            <a class="nav-link home" id="homenav" href="index.php">Home</a>
+            <a class="nav-link home" id="homenav" href="index">Home</a>
 
 
         </nav>

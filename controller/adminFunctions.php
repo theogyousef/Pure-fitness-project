@@ -1,10 +1,9 @@
 <?php
-include "config.php";
+//include "config.php";
 include "../model/adminModle.php";
 // products funvtions
 function addproduct()
 {
-    global $conn;
     $name = $_POST["name"];
     $price = $_POST["price"];
     $type = $_POST["type"];
@@ -26,7 +25,7 @@ function addproduct()
     /// apply th query to db by pass to the handler func
     adminModel::addproduct( $name,$type,$price,$description,$fileUrl);
 
-    header("Location: adminDashboard.php");
+    header("Location: adminDashboard");
 
 
 }
@@ -41,7 +40,7 @@ function updateproduct()
 
     /// apply th query to db by pass to the handler func
     adminModel::updateproduct($id,$name,$price,$type, $description);
-    header("Location: adminDashboard.php");
+    header("Location: adminDashboard");
 
 
 }
@@ -51,7 +50,7 @@ function deleteproduct()
     
     $id = $_POST["id"];
     adminModel::deleteproduct($id);
-    header("Location: adminDashboard.php");
+    header("Location: adminDashboard");
 
 }
 
@@ -80,7 +79,7 @@ function adduser()
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
            adminModel::adduser($firstname,$lastname,$email,$hashedPassword);
             // echo "<script> alert('Regsitered successfully');</script> ";
-            header("Location: users.php");
+            header("Location: adminDashboard");
 
         } else {
             echo "<script> alert('Passwords do not match');</script> ";
@@ -99,7 +98,7 @@ function updateuser()
 
     adminModel::updateuser($firstname,$lastname,$email,$id);
 
-    header("Location: users.php");
+    header("Location: adminDashboard");
 
 }
 
@@ -109,7 +108,7 @@ function deleteuser()
     global $conn;
     $id = $_POST["id"];
     adminModel::deleteuser($id);
-    header("Location: users.php");
+    header("Location: adminDashboard");
 
 }
 
@@ -117,7 +116,7 @@ function makeadmin(){
     global $conn;
     $id = $_POST["id"];
     adminModel::makeadmin($id);
-    header("Location: users.php");
+    header("Location: adminDashboard");
 
 }
 
@@ -125,6 +124,6 @@ function makeuser(){
     global $conn;
     $id = $_POST["id"];
    adminModel::makeuser($id);
-    header("Location: users.php");
+    header("Location: adminDashboard");
 
 }
