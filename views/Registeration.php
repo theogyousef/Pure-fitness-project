@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
             <i class="bx bx-lock-alt"></i>
             <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
             <div class="forgotpass">
-              <a href="../views/forgetpass.php">Forgot password?</a>
+              <a href="../views/forgetpass">Forgot password?</a>
             </div>
           </div>
           <div style="height: 20px;">

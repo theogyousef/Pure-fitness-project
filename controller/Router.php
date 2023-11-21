@@ -106,7 +106,7 @@ class Routere
             exit();
 
         }
-        elseif ($path === '/SWE/views/forgetpassword') {
+        elseif ($path === '/SWE/views/forgetpass') {
             require '../views/forgetpass.php';
             exit();
 
