@@ -105,7 +105,22 @@ class Routere
             require '../views/makeadmin.php';
             exit();
 
-        } else {
+        }
+        elseif ($path === '/SWE/views/forgetpassword') {
+            require '../views/forgetpass.php';
+            exit();
+
+        }
+        elseif ($path === '/SWE/views/otp') {
+            require '../views/otp.php';
+            exit();
+
+        } 
+        elseif ($path === '/SWE/views/newpassword') {
+            require '../views/resetpassword.php';
+            exit();
+
+        }  else {
 
             require '../views/404.php';
             exit();
