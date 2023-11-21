@@ -1,0 +1,6 @@
+/model/phpmailer/
+/phpmailer/vendor/autoload.php
+/phpmailer/vendor/composer/*
+/phpmailer/
+composer.json
+composer.lock
