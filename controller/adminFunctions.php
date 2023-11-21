@@ -23,7 +23,7 @@ function addproduct()
     }
 
     /// apply th query to db by pass to the handler func
-    adminModel::addproduct( $name,$type,$price,$description,$fileUrl);
+    adminModel::addproduct($name, $type, $price, $description, $fileUrl);
 
     header("Location: adminDashboard");
 
@@ -31,7 +31,7 @@ function addproduct()
 }
 function updateproduct()
 {
-    
+
     $id = $_POST["id"];
     $name = $_POST["name"];
     $price = $_POST["price"];
@@ -39,7 +39,7 @@ function updateproduct()
     $description = $_POST["description"];
 
     /// apply th query to db by pass to the handler func
-    adminModel::updateproduct($id,$name,$price,$type, $description);
+    adminModel::updateproduct($id, $name, $price, $type, $description);
     header("Location: adminDashboard");
 
 
@@ -47,7 +47,7 @@ function updateproduct()
 function deleteproduct()
 {
 
-    
+
     $id = $_POST["id"];
     adminModel::deleteproduct($id);
     header("Location: adminDashboard");
@@ -67,9 +67,8 @@ function adduser()
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
     // making sure the useranme and email from registeration is unique 
-    $duplicate = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email' ");
     //if you found any duplicate 
-    if (mysqli_num_rows($duplicate) > 0) {
+    if (adminModel::checkduplicate($email)) {
         echo "<script> alert(' email has already been taken ');</script> ";
     } else {
         // reaching here means email is unique so we check
@@ -77,7 +76,7 @@ function adduser()
         if ($password == $confirmpassword) {
             // we create a query with the inputs of the form to insert into the databse 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-           adminModel::adduser($firstname,$lastname,$email,$hashedPassword);
+            adminModel::adduser($firstname, $lastname, $email, $hashedPassword);
             // echo "<script> alert('Regsitered successfully');</script> ";
             header("Location: adminDashboard");
 
@@ -96,7 +95,7 @@ function updateuser()
     $lastname = $_POST["lname"];
     $email = $_POST["email"];
 
-    adminModel::updateuser($firstname,$lastname,$email,$id);
+    adminModel::updateuser($firstname, $lastname, $email, $id);
 
     header("Location: adminDashboard");
 
@@ -112,7 +111,8 @@ function deleteuser()
 
 }
 
-function makeadmin(){
+function makeadmin()
+{
     global $conn;
     $id = $_POST["id"];
     adminModel::makeadmin($id);
@@ -120,10 +120,11 @@ function makeadmin(){
 
 }
 
-function makeuser(){
+function makeuser()
+{
     global $conn;
     $id = $_POST["id"];
-   adminModel::makeuser($id);
+    adminModel::makeuser($id);
     header("Location: adminDashboard");
 
 }

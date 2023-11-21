@@ -86,49 +86,49 @@ include "adminnav.php";
             </div>
 
             <div class="container-fluid">
-                <table class="table custom-table">
+            <table class="table custom-table">
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>Admin</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            <th>make user</th>
-                            <th>make admin</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>email</th>
+        <th>Admin</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>make user</th>
+        <th>make admin</th>
+    </tr>
+</thead>
+<tbody>
+    <?php
 
-                        $sql2 = "SELECT * from users ";
-                        $resultusers = mysqli_query($conn, $sql2);
+    $sql2 = "SELECT * from users ";
+    $resultusers = mysqli_query($conn, $sql2);
 
-                        while ($row = mysqli_fetch_assoc($resultusers)) {
-                            if ($row["admin"] == 1) {
-                                $admin = "Admin";
-                            } elseif ($row["admin"] == 0) {
-                                $admin = " ";
-                            }
-                            if ($row["guest"] != 1) {
-                                echo " <tr>
-                            <td>" . $row["id"] . "</td>
-                            <td>" . $row["firstname"] . $row["lastname"] . "</td>
-                            <td>" . $row["email"] . "</td>
-                            <td> " . $admin . "</td>
-                            <td>  <a href='edituser.php?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
-                            <td> <a href='deleteuser.php?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
-                            <td>  <a href='makeuser.php?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
-                            <td>  <a href='makeadmin.php?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
+    while ($row = mysqli_fetch_assoc($resultusers)) {
+        if ($row["admin"] == 1) {
+            $admin = "Admin";
+        } elseif ($row["admin"] == 0) {
+            $admin = " ";
+        }
+        if ($row["guest"] != 1) {
+            echo " <tr>
+<td>" . $row["id"] . "</td>
+<td>" . $row["firstname"] . $row["lastname"] . "</td>
+<td>" . $row["email"] . "</td>
+<td> " . $admin . "</td>
+<td>  <a href='edituser?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
+<td> <a href='deleteuser?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
+<td>  <a href='makeuser?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
+<td>  <a href='makeadmin?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
 
-                </tr>";
-                            }
-                        }
-                        ?>
-                    </tbody>
-                </table>
+</tr>";
+        }
+    }
+    ?>
+</tbody>
+</table>
             </div>
 
 

@@ -1,6 +1,6 @@
 <?php
 // profile picture upload 
-include "config.php";
+// include "config.php";
 include "../model/userModel.php";
 
 function uploadpic()

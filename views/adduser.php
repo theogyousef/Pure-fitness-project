@@ -9,6 +9,7 @@
 //require "../controller/config.php";
 require "../controller/adminFunctions.php";
 if (isset($_POST["adduserb"])) {
+    echo "wasal2";
     adduser();
 }
 if (!empty($_SESSION["id"])) {

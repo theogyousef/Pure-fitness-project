@@ -1,7 +1,7 @@
 <?php
 
 
-require '../controller/config.php';
+// require '../controller/config.php';
 
 // Assuming you have already connected to the database ($conn)
 

@@ -8,20 +8,28 @@ class Routere
         $currentUri = $_SERVER['REQUEST_URI'];
          echo $currentUri;*/
 
-         $path = '/' . ltrim($path, '/');
-         $root = '/SWE/views/index';
-         $id = null; // Initialize $id here
- 
-         $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
-         if (preg_match($pattern, $path, $matches)) {
-             // Extract the 'id' value from the matched URL
-             $action = $matches[1];
-             $id = $matches[2];
+        $path = '/' . ltrim($path, '/');
+        $root = '/SWE/views/index';
+        $id = null; // Initialize $id here
+
+        $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
+        if (preg_match($pattern, $path, $matches)) {
+            // Extract the 'id' value from the matched URL
+            $action = $matches[1];
+            $id = $matches[2];
 
             //  echo "id = " . $id;
-         }
-         echo $path;
-         echo "id = " .$id;
+        }
+        //  echo $path;
+        //  echo "id = " .$id;
+        require "config.php";
+        session_start();
+        if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+            $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION["login"] = true;
+            $_SESSION["id"] = $row["id"];
+        }
 
         if ($path === $root) {
             require '../views/index.php';

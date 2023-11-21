@@ -32,10 +32,10 @@ if (!empty($_SESSION["id"])) {
 }
 
 
-/*if ($row["guest"] == 1) {
+if ($row["guest"] == 1) {
     header("Location: index");
 
-}*/
+}
 
 
 $instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace

@@ -86,14 +86,13 @@ include "adminnav.php";
             </div>
 
             <div class="container-fluid">
-                <table class="table custom-table">
+            <table class="table custom-table">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Price</th>
-                            <th>Description</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -109,14 +108,13 @@ include "adminnav.php";
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["type"] . "</td>
                     <td>" . $row["price"] . "</td>
-                    <td>" . $row["description"] . "</td>
                     <td>
-                        <a href='editproduct.php?id=" . $row["id"] . "' style='color: orange; '>
+                        <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
                         </a>
                     </td>
                     <td>
-                        <a href='deleteproduct.php?id=" . $row["id"] . "' style='color: red;'>
+                        <a href='deleteproduct?id=" . $row["id"] . "' style='color: red;'>
                             <span class='fas fa-trash-alt'></span> 
                         </a>
                     </td>

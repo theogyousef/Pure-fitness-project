@@ -88,7 +88,7 @@ include "adminnav.php";
                                 <input type="text" class="form-control" name="id" required value="<?php echo $userDetails['id'] ?>">
                             </div>
                             <div class="mb-3">
-                                <input type="submit" name="deleteuser" value="Delete Product"
+                                <input type="submit" name="deleteuser" value="Delete user"
                                     style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                             </div>
                         </form>
