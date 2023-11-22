@@ -18,8 +18,10 @@ if (isset($_POST["fileupload"])) {
     updatesocials();
 } else if (isset($_POST["updatesecurity"])) {
     updatepasswords();
-}else if (isset($_POST["addressdetails"])) {
+} else if (isset($_POST["addressdetails"])) {
     updateaddress();
+} else if (isset($_POST["deactivateaccount"])){
+    deactivateaccount();
 }
 
 
@@ -74,6 +76,8 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a>
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
+            <a class="nav-link" href="#" id="deactivatenav" onClick="deactivatea()">Deactiavte account</a>
+
             <?php
             if ($row["admin"] == 1) {
                 echo ' <a class="nav-link" href="adminDashboard">Admin Dasboard</a>';
@@ -96,7 +100,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <h4>
                                     <?php echo $row['firstname'] . " " . $row['lastname'] ?>
                                 </h4>
-                                <p class="text-secondary mb-1">Junior developer </p>
 
                             </div>
                         </div>
@@ -218,42 +221,44 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                     <div class="card-header">Address Details</div>
                     <div class="card-body">
 
-                        <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)" >
-                        <div class="col-md-6">
+                        <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)">
+                            <div class="col-md-6">
 
-                            <h2 class="small mb-1" for="inputUsername">Egypt</h2>
-                            <label for="governorates">Select a state:</label>
-                            <select  class="form-control" id="governorates" name="governorates">
-                            <option value="<?php echo $row['governorates'] ?>" selected><?php echo $row['governorates'] ?></option> 
-                                <option value="Al Daqahliyah">Al Daqahliyah</option>
-                                <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
-                                <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
-                                <option value="Al Fayyum">Al Fayyum</option>
-                                <option value="Al Gharbiyah">Al Gharbiyah (Gharbia)</option>
-                                <option value="Al Iskandariyah">Al Iskandariyah (Alexandria)</option>
-                                <option value="Al Isma'iliyah">Al Isma'iliyah (Ismailia)</option>
-                                <option value="Al Jizah">Al Jizah (Giza)</option>
-                                <option value="Al Minufiyah">Al Minufiyah (Menufia)</option>
-                                <option value="Al Minya">Al Minya</option>
-                                <option value="Al Qahirah">Al Qahirah (Cairo)</option>
-                                <option value="Al Qalyubiyah">Al Qalyubiyah (Qalyubia)</option>
-                                <option value="Al Wadi al Jadid">Al Wadi al Jadid (New Valley)</option>
-                                <option value="As Suways">As Suways (Suez)</option>
-                                <option value="Ash Sharqiyah">Ash Sharqiyah (Eastern)</option>
-                                <option value="Aswan">Aswan</option>
-                                <option value="Asyut">Asyut</option>
-                                <option value="Bur Sa'id">Bur Sa'id (Port Said)</option>
-                                <option value="Dumyat">Dumyat (Damietta)</option>
-                                <option value="Janub Sina'">Janub Sina' (South Sinai)</option>
-                                <option value="Kafr ash Shaykh">Kafr ash Shaykh</option>
-                                <option value="Matruh">Matruh</option>
-                                <option value="Qina">Qina (Qena)</option>
-                                <option value="Shamal Sina'">Shamal Sina' (North Sinai)</option>
-                                <option value="Suhaj">Suhaj (Sohag)</option>
-                                <option value="The 6th of October">The 6th of October</option>
-                                <option value="Luxor">Luxor</option>
-                            </select>
-                        </div>
+                                <h2 class="small mb-1" for="inputUsername">Egypt</h2>
+                                <label for="governorates">Select a state:</label>
+                                <select class="form-control" id="governorates" name="governorates">
+                                    <option value="<?php echo $row['governorates'] ?>" selected>
+                                        <?php echo $row['governorates'] ?>
+                                    </option>
+                                    <option value="Al Daqahliyah">Al Daqahliyah</option>
+                                    <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
+                                    <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
+                                    <option value="Al Fayyum">Al Fayyum</option>
+                                    <option value="Al Gharbiyah">Al Gharbiyah (Gharbia)</option>
+                                    <option value="Al Iskandariyah">Al Iskandariyah (Alexandria)</option>
+                                    <option value="Al Isma'iliyah">Al Isma'iliyah (Ismailia)</option>
+                                    <option value="Al Jizah">Al Jizah (Giza)</option>
+                                    <option value="Al Minufiyah">Al Minufiyah (Menufia)</option>
+                                    <option value="Al Minya">Al Minya</option>
+                                    <option value="Al Qahirah">Al Qahirah (Cairo)</option>
+                                    <option value="Al Qalyubiyah">Al Qalyubiyah (Qalyubia)</option>
+                                    <option value="Al Wadi al Jadid">Al Wadi al Jadid (New Valley)</option>
+                                    <option value="As Suways">As Suways (Suez)</option>
+                                    <option value="Ash Sharqiyah">Ash Sharqiyah (Eastern)</option>
+                                    <option value="Aswan">Aswan</option>
+                                    <option value="Asyut">Asyut</option>
+                                    <option value="Bur Sa'id">Bur Sa'id (Port Said)</option>
+                                    <option value="Dumyat">Dumyat (Damietta)</option>
+                                    <option value="Janub Sina'">Janub Sina' (South Sinai)</option>
+                                    <option value="Kafr ash Shaykh">Kafr ash Shaykh</option>
+                                    <option value="Matruh">Matruh</option>
+                                    <option value="Qina">Qina (Qena)</option>
+                                    <option value="Shamal Sina'">Shamal Sina' (North Sinai)</option>
+                                    <option value="Suhaj">Suhaj (Sohag)</option>
+                                    <option value="The 6th of October">The 6th of October</option>
+                                    <option value="Luxor">Luxor</option>
+                                </select>
+                            </div>
                             <div class="row gx-3 mb-3">
 
                                 <div class="col-md-6">
@@ -265,7 +270,8 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputstreet">Street address</label>
                                     <input name="street" class="form-control" id="inputstreet" type="text"
-                                        placeholder="Enter your street name / number" value="<?php echo $row['street'] ?>">
+                                        placeholder="Enter your street name / number"
+                                        value="<?php echo $row['street'] ?>">
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -376,6 +382,32 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                     </div>
                 </div>
             </div>
+
+            <!-- Deactiavte account -->
+            <div class="col-xl-8" style="display: none;" id="deactivate">
+                <div class="card mb-4">
+                    <div class="card-header">Deactiavte account</div>
+                    <div class="card-body">
+                        <form method="post" id="deactivate" name="deactivate">
+
+                            <div class="mb-3">
+                                <label class="small mb-1" for="password"> passowrd</label>
+                                <input name="password" class="form-control" id="password" type="password">
+                            </div>
+
+
+                            <div style="height: 20px;">
+                                <span id="SecurityerrorMessages" class="errormessage" style="display: none;"></span>
+                            </div><br>
+
+                            <!-- // Save changes button -->
+                            <input name="deactivateaccount" type="submit" class="btn btn-primary" value="Deactiavte">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -387,12 +419,14 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         var socilanav = document.getElementById("socilanav");
         var notificationsnav = document.getElementById("notificationsnav");
         var addressnav = document.getElementById("adresssnav");
+        var deactivatenav = document.getElementById("deactivatenav");
 
         var details = document.getElementById("details");
         var security = document.getElementById("security");
         var social = document.getElementById("social");
         var notifications = document.getElementById("notifications");
         var address = document.getElementById("Address");
+        var deactivate =document.getElementById("deactivate");
 
         function detailsa() {
             detailsnav.classList.add("active");
@@ -400,14 +434,14 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             socilanav.classList.remove("active");
             notificationsnav.classList.remove("active");
             addressnav.classList.remove("active");
-
+            deactivatenav.classList.remove("active");
 
             details.style.display = "block";
             security.style.display = "none";
             social.style.display = "none";
             notifications.style.display = "none";
             address.style.display = "none";
-
+            deactivate.style.display = "none";
         }
 
         function addressa() {
@@ -416,6 +450,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             socilanav.classList.remove("active");
             notificationsnav.classList.remove("active");
             addressnav.classList.add("active");
+            deactivatenav.classList.remove("active");
 
 
             details.style.display = "none";
@@ -423,6 +458,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             social.style.display = "none";
             notifications.style.display = "none";
             address.style.display = "block";
+            deactivate.style.display = "none";
 
         }
 
@@ -432,12 +468,14 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             socilanav.classList.remove("active");
             notificationsnav.classList.remove("active");
             addressnav.classList.remove("active");
+            deactivatenav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "block";
             social.style.display = "none";
             notifications.style.display = "none";
             address.style.display = "none";
+            deactivate.style.display = "none";
 
         }
 
@@ -448,12 +486,14 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             socilanav.classList.add("active");
             notificationsnav.classList.remove("active");
             addressnav.classList.remove("active");
+            deactivatenav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "none";
             social.style.display = "block";
             notifications.style.display = "none";
             address.style.display = "none";
+            deactivate.style.display = "none";
 
         }
 
@@ -464,13 +504,31 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             socilanav.classList.remove("active");
             notificationsnav.classList.add("active");
             addressnav.classList.remove("active");
+            deactivatenav.classList.remove("active");
 
             details.style.display = "none";
             security.style.display = "none";
             social.style.display = "none";
             notifications.style.display = "block";
             address.style.display = "none";
+            deactivate.style.display = "none";
 
+        }
+
+        function deactivatea() {
+            detailsnav.classList.remove("active");
+            securitysnav.classList.remove("active");
+            socilanav.classList.remove("active");
+            notificationsnav.classList.remove("active");
+            addressnav.classList.remove("active");
+            deactivatenav.classList.add("active");
+
+            details.style.display = "none";
+            security.style.display = "none";
+            social.style.display = "none";
+            notifications.style.display = "none";
+            address.style.display = "none";
+            deactivate.style.display = "block";
         }
     </script>
 </body>

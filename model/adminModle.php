@@ -65,4 +65,11 @@ class adminModel
         $query = "UPDATE users  set admin = '0' WHERE id = '$id'";
         mysqli_query($conn, $query);
     }
+    public static function activateaccount($id)
+    {
+
+        include "../controller/config.php";
+        $query = "UPDATE users SET deactivated = '0' WHERE  id = $id ";
+        mysqli_query($conn, $query);
+    }
 }

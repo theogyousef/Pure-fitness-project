@@ -128,3 +128,9 @@ function makeuser()
     header("Location: adminDashboard");
 
 }
+
+function reactivateaccount($id)
+{
+    adminModel::activateaccount($id);
+    // Move header() function to the end
+}

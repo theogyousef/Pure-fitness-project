@@ -24,13 +24,14 @@ class Routere
         //  echo "id = " .$id;
         require "config.php";
         session_start();
+
+
         if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
             $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
             $row = mysqli_fetch_assoc($result);
             $_SESSION["login"] = true;
             $_SESSION["id"] = $row["id"];
         }
-
         if ($path === $root) {
             require '../views/index.php';
             exit();
@@ -77,6 +78,21 @@ class Routere
         } elseif ($path === '/SWE/views/addproduct') {
             require '../views/addproduct.php';
             exit();
+        } elseif ($path === '/SWE/views/forgetpass') {
+            require '../views/forgetpass.php';
+            exit();
+
+        } elseif ($path === '/SWE/views/otp') {
+            require '../views/otp.php';
+            exit();
+
+        } elseif ($path === '/SWE/views/newpassword') {
+            require '../views/resetpassword.php';
+            exit();
+
+        } elseif ($path === '/SWE/views/deactivated') {
+            require '../views/deactivated.php';
+            exit();
         } elseif ($path === '/SWE/views/editproduct?id=' . $id) {
             require '../views/editproduct.php';
             exit();
@@ -105,22 +121,7 @@ class Routere
             require '../views/makeadmin.php';
             exit();
 
-        }
-        elseif ($path === '/SWE/views/forgetpass') {
-            require '../views/forgetpass.php';
-            exit();
-
-        }
-        elseif ($path === '/SWE/views/otp') {
-            require '../views/otp.php';
-            exit();
-
-        } 
-        elseif ($path === '/SWE/views/newpassword') {
-            require '../views/resetpassword.php';
-            exit();
-
-        }  else {
+        } else {
 
             require '../views/404.php';
             exit();

@@ -5,9 +5,9 @@ include "../model/userModel.php";
 
 function uploadpic()
 {
-    
 
-    
+
+
     $file = $_FILES["file"];
     $uploadDirectory = '../public/photos/userPhotos/'; // Directory where you save the uploaded files
 
@@ -18,8 +18,8 @@ function uploadpic()
         // echo "<script>alert('The URL is: " . $fileUrl . "'); </script>";
 
         $id = $_SESSION["id"];
-        UserModel::uploadpic($fileUrl,$id);
-        
+        UserModel::uploadpic($fileUrl, $id);
+
 
 
     } else {
@@ -32,7 +32,7 @@ function uploadpic()
 // Account details 
 function editdetails()
 {
-    
+
     // echo "<script> alert('changes saved'); </script>";
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
@@ -44,8 +44,8 @@ function editdetails()
     //$row = mysqli_fetch_assoc($result);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    UserModel::editdetails($firstname,$lastname,$username,$email,$phone,$id);
-    
+    UserModel::editdetails($firstname, $lastname, $username, $email, $phone, $id);
+
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
@@ -53,7 +53,8 @@ function editdetails()
 
 }
 
-function updateaddress(){
+function updateaddress()
+{
 
     $governorates = $_POST["governorates"];
     $city = $_POST["city"];
@@ -62,11 +63,11 @@ function updateaddress(){
     $postalcode = $_POST["postalcode"];
 
     $id = $_SESSION["id"];
-   $row = $row = UserModel::selectUser($id);
+    $row = $row = UserModel::selectUser($id);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
-    
-    UserModel::updateaddress($governorates,$city,$street,$house,$postalcode,$id);
+
+    UserModel::updateaddress($governorates, $city, $street, $house, $postalcode, $id);
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
@@ -84,8 +85,8 @@ function updatesocials()
     $id = $_SESSION["id"];
     $row = $row = UserModel::selectUser($id);
 
-    
-    UserModel::updatesocials($github,$instagram,$id);
+
+    UserModel::updatesocials($github, $instagram, $id);
     // echo "<script> alert('Updatesd successfuly');</script> ";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
 
@@ -102,15 +103,15 @@ function updatepasswords()
     $conpassword = $_POST["conpassword"];
 
     $id = $_SESSION["id"];
-   
+
     $row = UserModel::selectUser($id);
 
     if ($newpassword == $conpassword) {
         if ($newpassword != $oldpassowrd) {
             if (password_verify($oldpassowrd, $row['password'])) {
                 $hashedPassword = password_hash($newpassword, PASSWORD_DEFAULT);
-               
-                UserModel:: UpdatePassword($hashedPassword,$id);
+
+                UserModel::UpdatePassword($hashedPassword, $id);
                 // echo "<script> alert('Updatesd successfuly');</script> ";
             } else {
                 echo "<script> alert('old passes do not match ');</script> ";
@@ -130,13 +131,27 @@ function updatepasswords()
 
 }
 
+function deactivateaccount()
+{
 
+    $password = $_POST["password"];
+    $id = $_SESSION["id"];
+
+    $row = UserModel::selectUser($id);
+    if (password_verify($password, $row['password'])) {
+        UserModel::deactivateaccount($id);
+
+    } else {
+        echo "<script> alert('wrong password ');</script> ";
+    }
+
+}
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $row = UserModel::selectUser($id);
 } else {
-    header("Location: registeration.php");
+    header("Location: registeration");
 }
 
 

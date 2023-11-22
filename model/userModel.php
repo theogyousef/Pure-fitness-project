@@ -42,4 +42,10 @@ class UserModel {
         mysqli_query($conn, $query);
     }
 
+    public static function deactivateaccount($id)
+    {
+        include "../controller/config.php";
+        $query = "UPDATE users SET deactivated = '1' WHERE  id = $id ";
+        mysqli_query($conn, $query);
+    }
 }

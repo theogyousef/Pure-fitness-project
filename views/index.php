@@ -1,13 +1,20 @@
 <?php
 // require '../controller/config.php';
 include '../model/productModle.php';
+
+if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+  $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
+  $row = mysqli_fetch_assoc($result);
+  $_SESSION["login"] = true;
+  $_SESSION["id"] = $row["id"];
+}
 if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
   $row = mysqli_fetch_assoc($result);
 
 } else {
-  header("Location: registeration.php");
+  header("Location: registeration");
 }
 
 // $j = $row['id'];
