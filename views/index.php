@@ -1,5 +1,6 @@
 <?php
 // require '../controller/config.php';
+include '../model/productModle.php';
 if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
@@ -272,8 +273,7 @@ include "header.php";
           // Assuming you have already connected to the database ($conn)
           
           // Fetch products from the database
-          $sql = "SELECT * FROM products";
-          $result = mysqli_query($conn, $sql);
+          $result = ProductModle::allproducts();
 
           // Check if there are any products
           if (mysqli_num_rows($result) > 0) {
