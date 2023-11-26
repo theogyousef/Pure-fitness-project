@@ -411,3 +411,15 @@ body {
     right: 5%;
     z-index: 1;
 }
+#formedactivate{
+    position: absolute;
+    top : 0 ;
+    right : -80 ;
+}
+#deactivatebutton {
+    border: none;
+    background: none;
+    color: white; /* Set text color */
+    cursor: pointer;
+    text-decoration: underline; /* Add underline to text for a link-like appearance */
+}

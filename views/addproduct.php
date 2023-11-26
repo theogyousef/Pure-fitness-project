@@ -25,7 +25,7 @@ if ($row["admin"] != 1) {
 
 }
 
-if ($row["id"] == 1) {
+if ($row["guest"] == 1) {
     header("Location: index.php");
 
 }

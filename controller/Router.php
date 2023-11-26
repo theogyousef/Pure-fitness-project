@@ -32,6 +32,8 @@ class Routere
             $_SESSION["login"] = true;
             $_SESSION["id"] = $row["id"];
         }
+     
+      
         if ($path === $root) {
             require '../views/index.php';
             exit();
@@ -46,11 +48,9 @@ class Routere
         } elseif ($path === '/SWE/views/profilesettings') {
             require '../views/profilesettings.php';
             exit();
-
         } elseif ($path === '/SWE/views/logout') {
             require '../views/logout.php';
             exit();
-
         } elseif ($path === '/SWE/views/registeration') {
             require '../views/registeration.php';
             exit();

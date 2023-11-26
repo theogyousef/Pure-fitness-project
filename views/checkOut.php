@@ -11,7 +11,10 @@ $row = mysqli_fetch_assoc($result);
 else {
     header("Location: registeration.php");
 }
+if ($row["deactivated"] == 1) {
+  header("Location: deactivated");
 
+}
     include "header.php"
 ?>
 <!DOCTYPE html>

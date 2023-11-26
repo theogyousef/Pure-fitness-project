@@ -132,5 +132,5 @@ function makeuser()
 function reactivateaccount($id)
 {
     adminModel::activateaccount($id);
-    // Move header() function to the end
+    
 }

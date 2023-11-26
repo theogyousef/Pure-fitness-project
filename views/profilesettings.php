@@ -38,7 +38,10 @@ if ($row["guest"] == 1) {
     header("Location: index");
 
 }
-
+if ($row["deactivated"] == 1) {
+    header("Location: deactivated");
+  
+  }
 
 $instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
 $instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);

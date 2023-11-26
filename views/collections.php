@@ -9,7 +9,10 @@ if (!empty($_SESSION["id"])) {
 } else {
     header("Location: registeration.php");
 }
-
+if ($row["deactivated"] == 1) {
+    header("Location: deactivated");
+  
+  }
 include "header.php"
     ?>
 

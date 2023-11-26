@@ -17,6 +17,12 @@ if (!empty($_SESSION["id"])) {
   header("Location: registeration");
 }
 
+if ($row["deactivated"] == 1) {
+  header("Location: deactivated");
+
+}
+
+
 // $j = $row['id'];
 // $idt= $row['guest'];
 // echo "<script>alert('the id = $j and guest is $idt '); </script>";

@@ -28,7 +28,6 @@ include "header.php";
 if (isset($_POST["activate"])) {
     //echo "<script> alert(' wasal ');</script> ";
      reactivateaccount($id);
-
 }
 
 ?>
@@ -99,8 +98,8 @@ if (isset($_POST["activate"])) {
 
         <div class="rod1"></div>
         <div class="top-left-sentence">
-    <p>Your account is deactivated, do you want to reactivate it again?  <form method="POST" action="" enctype="multipart/form-data">
-    <input type="submit" name="activate" value="click here">
+    <p>Your account is deactivated, do you want to reactivate it again?  <form method="POST" action="" enctype="multipart/form-data" id="formedactivate">
+    <input type="submit" name="activate" value="click here" id="deactivatebutton">
  </form>
     </p>
 </div>
