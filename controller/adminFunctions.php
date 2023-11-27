@@ -37,9 +37,16 @@ function updateproduct()
     $price = $_POST["price"];
     $type = $_POST["type"];
     $description = $_POST["description"];
-
+    $outofstock = $_POST["stock"];
+    echo $outofstock ;
+    $stock = 3;
+    if ($outofstock == "1") {
+        $stock = 1;
+    } else if ($outofstock == 0) {
+        $stock = 0;
+    }
     /// apply th query to db by pass to the handler func
-    adminModel::updateproduct($id, $name, $price, $type, $description);
+    adminModel::updateproduct($id, $name, $price, $type, $description, $stock);
     header("Location: adminDashboard");
 
 
@@ -132,5 +139,5 @@ function makeuser()
 function reactivateaccount($id)
 {
     adminModel::activateaccount($id);
-    
+
 }
