@@ -78,7 +78,7 @@ if (isset($_POST["activate"])) {
 
                 </div>
             </div>
-            <div class="arm"></div>
+            <!-- <div class="arm"></div> -->
             <div class="nose">
                 <div></div>
                 <div></div>

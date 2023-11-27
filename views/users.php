@@ -94,6 +94,7 @@ include "adminnav.php";
         <th>name</th>
         <th>email</th>
         <th>Admin</th>
+        <th>Deactivated</th>
         <th>Edit</th>
         <th>Delete</th>
         <th>make user</th>
@@ -107,17 +108,27 @@ include "adminnav.php";
     $resultusers = mysqli_query($conn, $sql2);
 
     while ($row = mysqli_fetch_assoc($resultusers)) {
+       
         if ($row["admin"] == 1) {
             $admin = "Admin";
         } elseif ($row["admin"] == 0) {
             $admin = " ";
         }
+
+        if ($row["deactivated"] == 1) {
+            $deactivated = "deactivated";
+        } elseif ($row["deactivated"] == 0) {
+            $deactivated = " ";
+        }
+     
+
         if ($row["guest"] != 1) {
             echo " <tr>
 <td>" . $row["id"] . "</td>
 <td>" . $row["firstname"] . $row["lastname"] . "</td>
 <td>" . $row["email"] . "</td>
 <td> " . $admin . "</td>
+<td> " . $deactivated . "</td>
 <td>  <a href='edituser?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
 <td> <a href='deleteuser?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
 <td>  <a href='makeuser?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
