@@ -38,10 +38,11 @@
       <div class="row align-items-center">
         <div class="col-md-2">
           <div class="input-group border-0">
-            <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search"/>
-            <span class="input-group-text bg-dark border-0" id="search-addon">
-              <i class="bi bi-search text-white"></i>
-            </span>
+          <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search"/>
+<button class="btn btn-dark border-0" type="button" id="search-addon">
+  <i class="bi bi-search text-white"></i>
+</button>
+
           </div>
         </div>
         <div id="logo" class="col-md-8 text-center">

@@ -104,6 +104,17 @@ include "header.php"
             <h1><?php echo $productDetails['name']; ?></h1>
             <h3 class="price"><?php echo $productDetails['price'] . " EGP"; ?></h3>
             <p class="description"><?php echo $productDetails['description']; ?></p>
+            <p class="detailsinfo">
+                      <?php
+                      if ($productDetails["outofstock"] == 1) {
+                        $outofstock = "Out of stock";
+                        echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
+                      } else if ($productDetails["outofstock"] == 0) {
+                        $outofstock = "In stock";
+                        echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                      }
+                      ?>
+                    </p>
             <!-- Quantity input -->
             <div class="input-group mb-2" id="input-group">
                 <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>

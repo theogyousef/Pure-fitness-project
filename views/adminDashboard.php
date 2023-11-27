@@ -136,12 +136,13 @@ include "adminnav.php";
                             <th>Name</th>
                             <th>Type</th>
                             <th>Price</th>
+                            <th>Stock</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                    <?php
                         $sql = "SELECT * FROM products";
                         $resultproduct = mysqli_query($conn, $sql);
 
@@ -150,8 +151,18 @@ include "adminnav.php";
                     <td>" . $row["id"] . "</td>
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["type"] . "</td>
-                    <td>" . $row["price"] . "</td>
-                    <td>
+                    <td>" . $row["price"] . "</td>" ?>
+                            <?php
+                            if ($row["outofstock"] == 1) {
+                                $outofstock = "Out of stock";
+                                echo '<td><span style="color: red;  font-size: 16px;">' . $outofstock . '</span> </td>';
+                            } else if ($row["outofstock"] == 0) {
+                                $outofstock = "In stock";
+                                echo '<td><span style="color: green; font-size: 16px;">' . $outofstock . '</span> </td>';
+                            }
+                            ?>
+                            <?php
+                            echo "<td>
                         <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
                         </a>

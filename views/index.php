@@ -328,7 +328,17 @@ include "header.php";
                       <span class="typetrip">
                         <?php echo $product['type']; ?>
                       </span>
-
+                    </p>
+            <p class="detailsinfo">
+                      <?php
+                      if ($product["outofstock"] == 1) {
+                        $outofstock = "Out of stock";
+                        echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
+                      } else if ($product["outofstock"] == 0) {
+                        $outofstock = "In stock";
+                        echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                      }
+                      ?>
                     </p>
                     <div class="cost">
                       <p class="lower-price">
@@ -817,6 +827,17 @@ if (mysqli_num_rows($result) > 0) {
                         <?php echo $product['type']; ?>
                       </span>
 
+                    </p>
+                    <p class="detailsinfo">
+                      <?php
+                      if ($product["outofstock"] == 1) {
+                        $outofstock = "Out of stock";
+                        echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
+                      } else if ($product["outofstock"] == 0) {
+                        $outofstock = "In stock";
+                        echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                      }
+                      ?>
                     </p>
                     <div class="cost">
                       <p class="lower-price"> From <span class="price">

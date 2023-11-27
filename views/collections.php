@@ -119,80 +119,94 @@ include "header.php"
             <!-- ... -->
         </div>
         <div class="container grid-container">
-    <?php
-    // Assuming you have already connected to the database ($conn)
-    
-    // Fetch products from the database
-    $result = productModle::allproducts();
+            <?php
+            // Assuming you have already connected to the database ($conn)
+            
+            // Fetch products from the database
+            $result = productModle::allproducts();
 
-    // Check if there are any products
-    if (mysqli_num_rows($result) > 0) {
-        $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // Check if there are any products
+            if (mysqli_num_rows($result) > 0) {
+                $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        // Loop through products and generate HTML
-        $count = 0;
-        foreach ($products as $product) {
-            // Open a new row div for every 4 products
-            if ($count % 4 == 0) {
-                echo '<div class="row justify-content-start" id="row">';
+                // Loop through products and generate HTML
+                $count = 0;
+                foreach ($products as $product) {
+                    // Open a new row div for every 4 products
+                    if ($count % 4 == 0) {
+                        echo '<div class="row justify-content-start" id="row">';
+                    }
+                    ?>
+                    <div class="col-md-3">
+                        <a href="product?id=<?php echo $product['id']; ?>">
+                            <div class="products">
+                                <div class="product-image">
+                                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
+                                            class="pic img-fluid">
+                                    </a>
+                                    <div class="links">
+                                        <div class="Icon">
+                                            <a href="#"><i class="bi bi-cart3"></i></a>
+                                            <span class="tooltiptext">Add to cart</span>
+                                        </div>
+                                        <div class="Icon">
+                                            <a href="#"><i class="bi bi-heart"></i></a>
+                                            <span class="tooltiptext">Move to wishlist</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Content">
+                                    <h3 style="font-size: 25px;">
+                                        <?php echo $product['name']; ?>
+                                    </h3>
+                                    <p class="detailsinfo">
+                                        <span class="typetrip">
+                                            <?php echo $product['type']; ?>
+                                        </span>
+                                    </p>
+                                    <p class="detailsinfo">
+                                        <span class="typetrip">
+                                            <?php
+                                            if ($product["outofstock"] == 1) {
+                                                $outofstock = "Out of stock";
+                                                echo '<span style="color: red;  font-size: 16px;">' . $outofstock . '</span>';
+                                            } else if ($product["outofstock"] == 0) {
+                                                $outofstock = "In stock";
+                                                echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                                            }
+                                            ?>
+
+                                        </span>
+                                    </p>
+                                    <div class="cost">
+                                        <p class="lower-price">
+                                            From <span class="price">
+                                                <?php echo $product['price'] . " EGP"; ?>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <?php
+                    // Close the row div after every 4 products
+                    if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
+                        echo '</div>';
+                    }
+                    $count++;
+                }
+            } else {
+                echo "<p>No products found.</p>";
             }
             ?>
-            <div class="col-md-3">
-            <a href="product?id=<?php echo $product['id']; ?>">
-                <div class="products">
-                    <div class="product-image">
-                        <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                            <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
-                                class="pic img-fluid">
-                        </a>
-                        <div class="links">
-                            <div class="Icon">
-                                <a href="#"><i class="bi bi-cart3"></i></a>
-                                <span class="tooltiptext">Add to cart</span>
-                            </div>
-                            <div class="Icon">
-                                <a href="#"><i class="bi bi-heart"></i></a>
-                                <span class="tooltiptext">Move to wishlist</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Content">
-                        <h3 style="font-size: 25px;">
-                            <?php echo $product['name']; ?>
-                        </h3>
-                        <p class="detailsinfo">
-                            <span class="typetrip">
-                                <?php echo $product['type']; ?>
-                            </span>
-                        </p>
-                        <div class="cost">
-                            <p class="lower-price">
-                                From <span class="price">
-                                    <?php echo $product['price'] . " EGP"; ?>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-        </a>
-            </div>
-            <?php
-            // Close the row div after every 4 products
-            if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
-                echo '</div>';
-            }
-            $count++;
-        }
-    } else {
-        echo "<p>No products found.</p>";
-    }
-    ?>
-</div>
+        </div>
 
 
 
         <!-- The second container -->
-       <!-- <div class="container grid-container">
+        <!-- <div class="container grid-container">
             <div class="row">
                 <div class="col-md-2">
                     <div class="products">

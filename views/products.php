@@ -77,8 +77,8 @@ include "adminnav.php";
                         <div class="card-name">pieces of equipment</div>
                     </div>
                     <div class="icon-box">
-                    <i class="fas fa-dumbbell"></i>    
-                                </div>
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
                 </div>
 
 
@@ -86,13 +86,14 @@ include "adminnav.php";
             </div>
 
             <div class="container-fluid">
-            <table class="table custom-table">
+                <table class="table custom-table">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Price</th>
+                            <th>Stock</td>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -107,8 +108,18 @@ include "adminnav.php";
                     <td>" . $row["id"] . "</td>
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["type"] . "</td>
-                    <td>" . $row["price"] . "</td>
-                    <td>
+                    <td>" . $row["price"] . "</td>" ?>
+                            <?php
+                            if ($row["outofstock"] == 1) {
+                                $outofstock = "Out of stock";
+                                echo '<td><span style="color: red;  font-size: 16px;">' . $outofstock . '</span> </td>';
+                            } else if ($row["outofstock"] == 0) {
+                                $outofstock = "In stock";
+                                echo '<td><span style="color: green; font-size: 16px;">' . $outofstock . '</span> </td>';
+                            }
+                            ?>
+                            <?php
+                            echo "<td>
                         <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
                         </a>

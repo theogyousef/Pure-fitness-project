@@ -176,7 +176,7 @@
 }
 
 .Content .detailsinfo {
-  padding-top: 8px;
+  padding-top: 0px;
   color: #455873;
   font-size: 14px;
   line-height: 18px;
@@ -190,7 +190,7 @@
   display: inline-block;
   width: 1px;
   height: 8px;
-  margin: 0 8px;
+  margin: 0;
   background-color: #ced2d9;
 }
 
