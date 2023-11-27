@@ -9,10 +9,10 @@ class Routere
          echo $currentUri;*/
 
         $path = '/' . ltrim($path, '/');
-        $root = '/swe/views/index';
+        $root = '/SWE/views/index';
         $id = null; // Initialize $id here
 
-        $pattern = '/\/swe\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
+        $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
         if (preg_match($pattern, $path, $matches)) {
             // Extract the 'id' value from the matched URL
             $action = $matches[1];
@@ -37,87 +37,87 @@ class Routere
         if ($path === $root) {
             require '../views/index.php';
             exit();
-        } elseif ($path === '/swe/views/product') {
+        } elseif ($path === '/SWE/views/product') {
             require '../views/product.php';
             exit();
 
-        } elseif ($path === '/swe/views/collections') {
+        } elseif ($path === '/SWE/views/collections') {
             require '../views/collections.php';
             exit();
 
-        } elseif ($path === '/swe/views/profilesettings') {
+        } elseif ($path === '/SWE/views/profilesettings') {
             require '../views/profilesettings.php';
             exit();
-        } elseif ($path === '/swe/views/logout') {
+        } elseif ($path === '/SWE/views/logout') {
             require '../views/logout.php';
             exit();
-        } elseif ($path === '/swe/views/registeration') {
+        } elseif ($path === '/SWE/views/registeration') {
             require '../views/registeration.php';
             exit();
-        } elseif ($path === '/swe/views/adminDashboard') {
+        } elseif ($path === '/SWE/views/adminDashboard') {
             require '../views/adminDashboard.php';
             exit();
-        } elseif ($path === '/swe/views/wishlist') {
+        } elseif ($path === '/SWE/views/wishlist') {
             require '../views/wishlist.php';
             exit();
-        } elseif ($path === '/swe/views/checkOut') {
+        } elseif ($path === '/SWE/views/checkOut') {
             require '../views/checkOut.php';
             exit();
-        } elseif ($path === '/swe/views/about') {
+        } elseif ($path === '/SWE/views/about') {
             require '../views/about.php';
             exit();
-        } elseif ($path === '/swe/views/users') {
+        } elseif ($path === '/SWE/views/users') {
             require '../views/users.php';
             exit();
-        } elseif ($path === '/swe/views/adduser') {
+        } elseif ($path === '/SWE/views/adduser') {
             require '../views/adduser.php';
             exit();
-        } elseif ($path === '/swe/views/products') {
+        } elseif ($path === '/SWE/views/products') {
             require '../views/products.php';
             exit();
-        } elseif ($path === '/swe/views/addproduct') {
+        } elseif ($path === '/SWE/views/addproduct') {
             require '../views/addproduct.php';
             exit();
-        } elseif ($path === '/swe/views/forgetpass') {
+        } elseif ($path === '/SWE/views/forgetpass') {
             require '../views/forgetpass.php';
             exit();
 
-        } elseif ($path === '/swe/views/otp') {
+        } elseif ($path === '/SWE/views/otp') {
             require '../views/otp.php';
             exit();
 
-        } elseif ($path === '/swe/views/newpassword') {
+        } elseif ($path === '/SWE/views/newpassword') {
             require '../views/resetpassword.php';
             exit();
 
-        } elseif ($path === '/swe/views/deactivated') {
+        } elseif ($path === '/SWE/views/deactivated') {
             require '../views/deactivated.php';
             exit();
-        } elseif ($path === '/swe/views/editproduct?id=' . $id) {
+        } elseif ($path === '/SWE/views/editproduct?id=' . $id) {
             require '../views/editproduct.php';
             exit();
 
-        } elseif ($path === '/swe/views/product?id=' . $id) {
+        } elseif ($path === '/SWE/views/product?id=' . $id) {
             require '../views/product.php';
             exit();
 
-        } elseif ($path === '/swe/views/deleteproduct?id=' . $id) {
+        } elseif ($path === '/SWE/views/deleteproduct?id=' . $id) {
             require '../views/deleteproduct.php';
             exit();
 
-        } elseif ($path === '/swe/views/edituser?id=' . $id) {
+        } elseif ($path === '/SWE/views/edituser?id=' . $id) {
             require '../views/edituser.php';
             exit();
 
-        } elseif ($path === '/swe/views/deleteuser?id=' . $id) {
+        } elseif ($path === '/SWE/views/deleteuser?id=' . $id) {
             require '../views/deleteuser.php';
             exit();
 
-        } elseif ($path === '/swe/views/makeuser?id=' . $id) {
+        } elseif ($path === '/SWE/views/makeuser?id=' . $id) {
             require '../views/makeuser.php';
             exit();
 
-        } elseif ($path === '/swe/views/makeadmin?id=' . $id) {
+        } elseif ($path === '/SWE/views/makeadmin?id=' . $id) {
             require '../views/makeadmin.php';
             exit();
 

@@ -1473,7 +1473,7 @@ if (mysqli_num_rows($result) > 0) {
 </script>
 
   <script src="../public/JS/index.js"></script>
-  <script src="../public/JS/search.js"></script>
+  <script src="../public/JS/indexsearch.js"></script>
 
   <footer>
     <?php
