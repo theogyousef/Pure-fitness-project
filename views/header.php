@@ -42,6 +42,7 @@
 <button class="btn btn-dark border-0" type="button" id="search-addon">
   <i class="bi bi-search text-white"></i>
 </button>
+<div id="searchresult"></div>
 
           </div>
         </div>

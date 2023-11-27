@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="forgetpass.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/0b0cd0c012.js" crossorigin="anonymous"></script>
   <title>Registration</title>
   <style>
@@ -38,31 +39,31 @@
             <input type="email" class="input-field" placeholder="Email" />
             <i class="bx bx-user"></i>
           </div>
-          
+
           <div class="input-box">
             <input type="submit" class="submit" value="Continue" />
             <div class="forgotpass">
               <a href="../views/Registeration.php">Already have an account ?</a>
             </div>
-          </div>         
+          </div>
 
         </form>
       </div>
 
       <form name="myform" id="myform" onsubmit="validations(event)">
         <!-- code -->
-        <div class="register-container" id="register" >
+        <div class="register-container" id="register">
           <div class="top">
             <h3>please enter the code</h3>
-    
+
           </div>
           <div class="otp-input-container">
-            <input type="text" class="input-field"  name="digit1" onkeyup="clickEvent(this,'sec')" />
-            <input type="text"class="input-field"  id="sec"  maxlength="1" name="digit2" onkeyup="clickEvent(this,'third')" />
+            <input type="text" class="input-field" name="digit1" onkeyup="clickEvent(this,'sec')" />
+            <input type="text" class="input-field" id="sec" maxlength="1" name="digit2" onkeyup="clickEvent(this,'third')" />
             <input type="text" class="input-field" id="third" maxlength="1" name="digit3" onkeyup="clickEvent(this,'fourth')" />
             <input type="text" class="input-field" id="fourth" maxlength="1" name="digit4" onkeyup="clickEvent(this,'fifth')" />
             <input type="text" class="input-field" id="fifth" maxlength="1" name="digit5" onkeyup="clickEvent(this,'sixth')" />
-            <input type="text" class="input-field"  id="sixth" maxlength="1" name="digit6" />
+            <input type="text" class="input-field" id="sixth" maxlength="1" name="digit6" />
           </div>
           <!-- Add the span element for error messages -->
           <div style="height: 20px;">
@@ -74,47 +75,37 @@
         </div>
       </form>
 
-<form name="resetForm" id="resetForm" onsubmit="resetPasswordSubmit(event)">
-  <div class="reset-password-container" id="resetPassword" style="right:500px; opacity: 0;">
-    <div class="top">
-      <h3>Enter your new password</h3>
-    </div>
-    <div class="input-box">
-          <i  class="bx bx-hide eye-icon" id="toggleResetPassword" onclick="togglePasswordVisibility('reset-password')"></i>
+      <form name="resetForm" id="resetForm" onsubmit="resetPasswordSubmit(event)">
+        <div class="reset-password-container" id="resetPassword" style="right:500px; opacity: 0;">
+          <div class="top">
+            <h3>Enter your new password</h3>
+          </div>
+          <div class="input-box">
+            <i class="bx bx-hide eye-icon" id="toggleResetPassword" onclick="togglePasswordVisibility('reset-password')"></i>
 
-      <input
-        id="reset-password"
-        type="password"
-        class="input-field"
-        placeholder="Password"
-      /><i class="bx bx-lock-alt lock-icon"></i>  
-    </div>
-    <div class="input-box">
-     <i class="bx bx-hide eye-icon" id="toggleConfirmResetPassword" onclick="togglePasswordVisibility('confirm-reset-password')"></i>
+            <input id="reset-password" type="password" class="input-field" placeholder="Password" /><i class="bx bx-lock-alt lock-icon"></i>
+          </div>
+          <div class="input-box">
+            <i class="bx bx-hide eye-icon" id="toggleConfirmResetPassword" onclick="togglePasswordVisibility('confirm-reset-password')"></i>
 
-      <input
-        id="confirm-reset-password"
-        type="password"
-        class="input-field"
-        placeholder="Confirm Password"
-      />     <i class="bx bx-lock-alt lock-icon"></i>  
-    </div>
-    <div style="height: 20px;">
-      <span id="errorMessage" class="error-message"></span>
-    </div>
-    <div class="input-box">
-      <input type="submit" class="submit" value="Save" />
-    </div>
-  </div>
-</form>
+            <input id="confirm-reset-password" type="password" class="input-field" placeholder="Confirm Password" /> <i class="bx bx-lock-alt lock-icon"></i>
+          </div>
+          <div style="height: 20px;">
+            <span id="errorMessage" class="error-message"></span>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Save" />
+          </div>
+        </div>
+      </form>
 
 
     </div>
   </div>
-<!-- To move from otp input to next one on key up -->
+  <!-- To move from otp input to next one on key up -->
   <script>
-    function clickEvent(first,last){
-      if(first.value.length){
+    function clickEvent(first, last) {
+      if (first.value.length) {
         document.getElementById(last).focus();
       }
     }
@@ -169,7 +160,7 @@
 
       x.style.left = "-1000px";
       y.style.right = "5px";
-      z.style.right = "5px"; 
+      z.style.right = "5px";
       document.getElementById("loginBtn").classList.remove("white-btn");
       document.getElementById("registerBtn").classList.remove("white-btn");
       document.getElementById("resetPasswordBtn").classList.add("white-btn");
@@ -179,21 +170,21 @@
     }
 
     function togglePasswordVisibility(inputId) {
-  const input = document.getElementById(inputId);
-  const toggleIcon = document.getElementById("toggle" + inputId);
+      const input = document.getElementById(inputId);
+      const toggleIcon = document.getElementById("toggle" + inputId);
 
-  if (input.type === "password") {
-    input.type = "text";
-    toggleIcon.classList.remove("bx-hide");
-    toggleIcon.classList.add("bx-show");
-  } else {
-    input.type = "password";
-    toggleIcon.classList.remove("bx-show");
-    toggleIcon.classList.add("bx-hide");
-  }
-}
+      if (input.type === "password") {
+        input.type = "text";
+        toggleIcon.classList.remove("bx-hide");
+        toggleIcon.classList.add("bx-show");
+      } else {
+        input.type = "password";
+        toggleIcon.classList.remove("bx-show");
+        toggleIcon.classList.add("bx-hide");
+      }
+    }
 
-  
+
     function resetPasswordSubmit(event) {
       event.preventDefault();
       const resetPassword = document.getElementById("reset-password").value;
@@ -225,51 +216,52 @@
     document.getElementById("resetForm").addEventListener("submit", resetPasswordSubmit);
   </script>
 
-<script>
-  function focusNextInput(currentDigit) {
-    const input = document.getElementsByName("digit" + currentDigit)[0];
-    if (input.value.length === input.maxLength) {
-      const nextInput = document.getElementsByName("digit" + (currentDigit + 1))[0];
-      if (nextInput) {
-        nextInput.focus();
+  <script>
+    function focusNextInput(currentDigit) {
+      const input = document.getElementsByName("digit" + currentDigit)[0];
+      if (input.value.length === input.maxLength) {
+        const nextInput = document.getElementsByName("digit" + (currentDigit + 1))[0];
+        if (nextInput) {
+          nextInput.focus();
+        }
       }
     }
-  }
 
-  function validations(event) {
-    event.preventDefault();
-    let errorMessages = "";
-    let showError = false;
-    const otpInputs = document.getElementsByClassName("otp-input");
-    let otpValue = "";
+    function validations(event) {
+      event.preventDefault();
+      let errorMessages = "";
+      let showError = false;
+      const otpInputs = document.getElementsByClassName("otp-input");
+      let otpValue = "";
 
-    for (let i = 0; i < otpInputs.length; i++) {
-      if (otpInputs[i].value === "") {
+      for (let i = 0; i < otpInputs.length; i++) {
+        if (otpInputs[i].value === "") {
+          errorMessages = "Please fill all OTP fields<br>";
+          showError = true;
+          break;
+        } else {
+          otpValue += otpInputs[i].value;
+        }
+      }
+
+      if (otpValue.length !== 6) {
         errorMessages = "Please fill all OTP fields<br>";
         showError = true;
-        break;
+      }
+
+      const errorSpan = document.getElementById("errorMessages");
+      if (showError) {
+        errorSpan.innerHTML = errorMessages;
+        errorSpan.style.display = "block";
       } else {
-        otpValue += otpInputs[i].value;
+        errorSpan.style.display = "none";
       }
     }
 
-    if (otpValue.length !== 6) {
-      errorMessages = "Please fill all OTP fields<br>";
-      showError = true;
-    }
-
-    const errorSpan = document.getElementById("errorMessages");
-    if (showError) {
-      errorSpan.innerHTML = errorMessages;
-      errorSpan.style.display = "block";
-    } else {
-      errorSpan.style.display = "none";
-    }
-  }
-
-  document.getElementById("myform").addEventListener("submit", validations);
-</script>
+    document.getElementById("myform").addEventListener("submit", validations);
+  </script>
 
 
 </body>
+
 </html>
