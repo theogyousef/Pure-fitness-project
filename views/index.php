@@ -771,7 +771,68 @@ include "header.php";
 
       <div class="wrapper">
         <div class="slider">
-          <div class="col-md-3 ">
+
+        <?php
+
+$result = ProductModle::allproducts();
+
+if (mysqli_num_rows($result) > 0) {
+  $allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $products = array_slice($allProducts, 4); 
+}
+ ?>
+
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+              <div class="col-md-3">
+                <div class="products">
+                  <div class="product-image">
+                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                        width="500px">
+                    </a>
+                    <div class="links">
+                      <div class="Icon">
+                        <a href="#"><i class="bi bi-cart3"></i></i></a>
+                        <span class="tooltiptext">Add to cart</span>
+                      </div>
+                      <div class="Icon">
+                        <a href="#"><i class="bi bi-heart"></i></i></a>
+                        <span class="tooltiptext">Move to wishlist</span>
+                      </div>
+                      <div class="Icon">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <i class="bi bi-eye"></i>
+                        </a>
+                        <span class="tooltiptext">Quick view</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Content">
+                    <h3>
+                      <?php echo $product['name']; ?>
+                    </h3>
+                    <p class="detailsinfo">
+                      <span class="typetrip">
+                        <?php echo $product['type']; ?>
+                      </span>
+
+                    </p>
+                    <div class="cost">
+                      <p class="lower-price"> From <span class="price">
+                          <?php echo $product['price'] . " EGP"; ?>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No products found.</p>
+          <?php endif; ?>
+
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -812,10 +873,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Second Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -856,9 +917,9 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Third Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -899,9 +960,9 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Fourth Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -940,10 +1001,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Fifth Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -984,7 +1045,7 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
           <!-- 6 Product -->
@@ -1333,7 +1394,6 @@ include "header.php";
     </div>
   </div>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <!-- Add this script at the end of your HTML file -->
@@ -1368,7 +1428,7 @@ include "header.php";
       var bmi = weight / (height * height);
 
       // Display the result
-      bmiValueSpan.textContent = bmi.toFixed(2); // Display BMI with two decimal places
+      bmiValueSpan.textContent = bmi.toFixed(2); 
 
       // Determine BMI category
       var category = getCategory(bmi);

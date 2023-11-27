@@ -1,6 +1,6 @@
 <?php
 
-include "../controller/config.php";
+// include "../controller/config.php";
 class ProductModle
 {
 
@@ -8,7 +8,7 @@ class ProductModle
     {
         include "../controller/config.php";
         $query =  "SELECT * FROM products";
-         $result= mysqli_query($conn, $query);
+        $result= mysqli_query($conn, $query);
          return $result;
     }
 }
