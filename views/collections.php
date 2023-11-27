@@ -1,6 +1,7 @@
 <?php
+// require '../controller/config.php';
+require '../model/productModle.php';
 
-require '../controller/config.php';
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
@@ -11,8 +12,8 @@ if (!empty($_SESSION["id"])) {
 }
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
-  
-  }
+
+}
 include "header.php"
     ?>
 
@@ -118,148 +119,81 @@ include "header.php"
             <!-- ... -->
         </div>
         <div class="container grid-container">
-            <div class="row">
-                <!-- Product 1 -->
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ-Cable-Cross-Evost-Model-E1017C-e1689547675848.webp"
-                                    alt="ASSAULT AIRBIKE" class="pic img-fluid" style="margin-top: -28px;">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
+    <?php
+    // Assuming you have already connected to the database ($conn)
+    
+    // Fetch products from the database
+    $result = productModle::allproducts();
+
+    // Check if there are any products
+    if (mysqli_num_rows($result) > 0) {
+        $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        // Loop through products and generate HTML
+        $count = 0;
+        foreach ($products as $product) {
+            // Open a new row div for every 4 products
+            if ($count % 4 == 0) {
+                echo '<div class="row">';
+            }
+            ?>
+            <div class="col-md-3">
+            <a href="product?id=<?php echo $product['id']; ?>">
+                <div class="products">
+                    <div class="product-image">
+                        <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                            <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
+                                class="pic img-fluid">
+                        </a>
+                        <div class="links">
+                            <div class="Icon">
+                                <a href="#"><i class="bi bi-cart3"></i></a>
+                                <span class="tooltiptext">Add to cart</span>
                             </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">HZ Cable Cross (Evost Model) E1017C</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">58.500 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Second Product -->
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ5.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ-T-Bar (Evost Model) E3061</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span>
-                                <span class="separate"></span> <span class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">15.000 EGP</span>
-                                </p>
+                            <div class="Icon">
+                                <a href="#"><i class="bi bi-heart"></i></a>
+                                <span class="tooltiptext">Move to wishlist</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Third Product -->
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ3.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Abdominal Bench (Evost Model) E3037</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
+                    <div class="Content">
+                        <h3 style="font-size: 25px;">
+                            <?php echo $product['name']; ?>
+                        </h3>
+                        <p class="detailsinfo">
+                            <span class="typetrip">
+                                <?php echo $product['type']; ?>
+                            </span>
+                        </p>
+                        <div class="cost">
+                            <p class="lower-price">
+                                From <span class="price">
+                                    <?php echo $product['price'] . " EGP"; ?>
+                                </span>
                             </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">15.000 EGP</span>
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Fourth Product -->
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ4.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Adjustable Bench (Evost Model) E3039 </h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">13.500 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fifth Product -->
+        </a>
             </div>
-        </div>
+            <?php
+            // Close the row div after every 4 products
+            if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
+                echo '</div>';
+            }
+            $count++;
+        }
+    } else {
+        echo "<p>No products found.</p>";
+    }
+    ?>
+</div>
+
 
 
         <!-- The second container -->
-        <div class="container grid-container">
+       <!-- <div class="container grid-container">
             <div class="row">
-                <!-- Product 1 -->
                 <div class="col-md-2">
                     <div class="products">
                         <div class="product-image">
@@ -292,7 +226,6 @@ include "header.php"
                         </div>
                     </div>
                 </div>
-                <!-- Second Product -->
                 <div class="col-md-2">
                     <div class="products">
                         <div class="product-image">
@@ -325,7 +258,6 @@ include "header.php"
                         </div>
                     </div>
                 </div>
-                <!-- Third Product -->
                 <div class="col-md-2">
                     <div class="products">
                         <div class="product-image">
@@ -358,7 +290,6 @@ include "header.php"
                         </div>
                     </div>
                 </div>
-                <!-- Fourth Product -->
                 <div class="col-md-2">
                     <div class="products">
                         <div class="product-image">
@@ -391,9 +322,8 @@ include "header.php"
                         </div>
                     </div>
                 </div>
-                <!-- Fifth Product -->
             </div>
-        </div>
+        </div>  -->
     </main>
     <footer>
         <?php
