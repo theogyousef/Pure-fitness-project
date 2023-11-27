@@ -11,10 +11,10 @@ class adminModel
 
         mysqli_query($conn, $query);
     }
-    public static function updateproduct($id, $name, $price, $type, $description)
+    public static function updateproduct($id, $name, $price, $type, $description , $stock)
     {
         include "../controller/config.php";
-        $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description'  where id = '$id'";
+        $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description', outofstock = '$stock' where id = '$id'";
 
         mysqli_query($conn, $query);
     }

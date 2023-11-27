@@ -64,7 +64,7 @@ include "adminnav.php";
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-
+   
     <title>Admin panel</title>
     <style>
         <?php include "../public/CSS/adminDasboard.css" ?>
@@ -74,7 +74,7 @@ include "adminnav.php";
 
 
 <div class="container">
-    
+
 
 
     <div class="main" id="editproduct">
@@ -86,23 +86,42 @@ include "adminnav.php";
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label">ID</label>
-                            <input type="text" class="form-control" name="id" required value="<?php echo $productDetails['id'] ?>" >
+                            <input type="text" class="form-control" name="id" required
+                                value="<?php echo $productDetails['id'] ?>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name" required value="<?php echo $productDetails['name'] ?>">
+                            <input type="text" class="form-control" name="name" required
+                                value="<?php echo $productDetails['name'] ?>">
                         </div>
                         <div class="mb-3">
                             <label for="newProductSlug" class="form-label">Type</label>
-                            <input type="text" class="form-control" name="type" required value="<?php echo $productDetails['type'] ?>">
+                            <input type="text" class="form-control" name="type" required
+                                value="<?php echo $productDetails['type'] ?>">
                         </div>
                         <div class="mb-3">
+                            <label for="stock">Select a state:</label>
+                            <select class="form-control" id="stock" name="stock">
+<?php 
+if($productDetails["outofstock"] == 1){echo'
+                                <option value="0">In Stock</option>
+                                <option selected value="1">Out of Stock</option> ' ; }
+                                else if($productDetails["outofstock"] == 0){echo'
+                                    <option selected value="0">In Stock</option>
+                                    <option value="1">Out of Stock</option> ' ; }
+?>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="newProductSlug" class="form-label">Price</label>
-                            <input type="text" class="form-control" name="price" required value="<?php echo $productDetails['price'] ?>">
+                            <input type="text" class="form-control" name="price" required
+                                value="<?php echo $productDetails['price'] ?>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <input type="text" class="form-control" name="description" required value="<?php echo $productDetails['description'] ?>">
+                            <input type="text" class="form-control" name="description" required
+                                value="<?php echo $productDetails['description'] ?>">
                         </div>
                         <div class="mb-3">
                             <input type="submit" name="updateproduct" value="Update Product"
