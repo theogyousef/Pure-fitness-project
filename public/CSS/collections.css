@@ -12,7 +12,9 @@ h1 {
     font-size: 18px;
     margin-top: 10px;
 }
-
+#row{
+  margin : 20px;
+}
 #input-group{
   width: 100px;
 }

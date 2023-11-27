@@ -134,7 +134,7 @@ include "header.php"
         foreach ($products as $product) {
             // Open a new row div for every 4 products
             if ($count % 4 == 0) {
-                echo '<div class="row">';
+                echo '<div class="row justify-content-start" id="row">';
             }
             ?>
             <div class="col-md-3">
