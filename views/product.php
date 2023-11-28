@@ -1,7 +1,7 @@
 <?php
 
 
-// require '../controller/config.php';
+require '../controller/config.php';
 
 // Assuming you have already connected to the database ($conn)
 
@@ -15,6 +15,7 @@ if (isset($_GET['id'])) {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $productDetails = mysqli_fetch_assoc($result);
+        //var_dump($productDetails);
 
         // Display the product details on the page
         // ...

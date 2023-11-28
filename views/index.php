@@ -1,5 +1,5 @@
 <?php
-// require '../controller/config.php';
+ require '../controller/config.php';
 include '../model/productModle.php';
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
@@ -1417,6 +1417,7 @@ if (mysqli_num_rows($result) > 0) {
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 <!-- Add this script at the end of your HTML file -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1472,6 +1473,7 @@ if (mysqli_num_rows($result) > 0) {
 </script>
 
   <script src="../public/JS/index.js"></script>
+  <script src="../public/JS/indexsearch.js"></script>
 
   <footer>
     <?php
