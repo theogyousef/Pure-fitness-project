@@ -84,6 +84,11 @@ include "adminnav.php";
 
 
             </div>
+            <input type="search" class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
+            <button class="btn btn-dark border-0" type="button" id="search-addon">
+            <i class="bi bi-search text-white"></i>
+            </button>
+            
 
             <div class="container-fluid">
             <table class="table custom-table">
@@ -99,11 +104,20 @@ include "adminnav.php";
         <th>Delete</th>
         <th>make user</th>
         <th>make admin</th>
+        
     </tr>
+    
 </thead>
+
 <tbody>
+
+    
+
     <?php
 
+    echo "<tr>
+        <td colspan='9' style='padding: 0;'><div id='searchresult'></div></td>
+      </tr>";
     $sql2 = "SELECT * from users ";
     $resultusers = mysqli_query($conn, $sql2);
 
@@ -138,7 +152,9 @@ include "adminnav.php";
         }
     }
     ?>
+
 </tbody>
+
 </table>
             </div>
 
@@ -147,6 +163,8 @@ include "adminnav.php";
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../public/JS/adminSearch.js"></script>
     <script src="../public/JS/admindasboard.js"></script>
 
 

@@ -63,14 +63,14 @@ if ($row["id"] == 1) {
                     <?php echo $row["firstname"] . " (:" ?>
                 </h1>
             </div>
-            <div>
+            <!-- <div>
             <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search"/>
             <button class="btn btn-dark border-0" type="button" id="search-addon">
               <i class="bi bi-search text-white"></i>
             </button>
             <div id="searchresult"></div>
             </div>
-            
+             -->
             <div class="user">
                 <img src="<?php echo $row['profilepicture'] ?>" alt="">
             </div>

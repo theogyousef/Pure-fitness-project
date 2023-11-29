@@ -1,6 +1,7 @@
 <?php
 // Include your connfiguration file
 include("../model/searchModle.php");
+include("../controller/config.php");
 
 // Check if 'input' is set in the POST data
 if (isset($_POST['input'])) {
@@ -19,14 +20,73 @@ if (isset($_POST['input'])) {
         
             while ($row = mysqli_fetch_assoc($result)) {
        // Check if 'username' key exists in the $row array
-    if (isset($row['firstname'])) {
-        echo "<p>{$row['firstname']} {$row['lastname']}</p>";
-    }
+       if (isset($row['firstname'])) {
+        echo "<table class='table custom-table'>
+            
+            <tbody>";
+
+    $sql2 = "SELECT * from users ";
+    $resultusers = mysqli_query($conn, $sql2);
+
+   
+        if ($row["admin"] == 1) {
+            $admin = "Admin";
+        } elseif ($row["admin"] == 0) {
+            $admin = " ";
+        }
+        if ($row["deactivated"] == 1) {
+            $deactivated = "Deactivated";
+        } elseif ($row["deactivated"] == 0) {
+            $deactivated = " ";
+        }
+
+        echo "<tr>
+                <td>" . $row["id"] . "</td>
+                <td>" . $row["firstname"] . " " . $row["lastname"] . "</td>
+                <td>" . $row["email"] . "</td>
+                <td>" . $admin . "</td>
+                <td>" . $deactivated . "</td>
+                <td><a href='edituser?id=" . $row["id"] . "' style='color: orange;'><span class='fas fa-edit'></span></a></td>
+                <td><a href='deleteuser?id=" . $row["id"] . "' style='color: red;'><span class='fas fa-trash-alt'></span></a></td>
+                <td><a href='makeuser?id=" . $row["id"] . "' style='color: green;'><span class='fas fa-user'></span></a></td>
+                <td><a href='makeadmin?id=" . $row["id"] . "' style='color: black;'><span class='fas fa-user-shield'></span></a></td>
+            </tr>";
+    
+
+    echo "</tbody></table>";
+}
 
     // Check if 'name' key exists in the $row array
     if (isset($row['name'])) {
-        echo "<p>{$row['name']}</p>";
-    }// Adjust this to match your database structure
+    echo "<table class='table custom-table'>
+     
+        <tbody>";
+
+    echo "<tr>
+            <td>" . $row["id"] . "</td>
+            <td>" . $row["name"] . "</td>
+            <td>" . $row["type"] . "</td>
+            <td>" . $row["price"] . "</td>";
+
+    $outofstock = ($row["outofstock"] == 1) ? "Out of stock" : "In stock";
+    $color = ($row["outofstock"] == 1) ? "red" : "green";
+
+    echo '<td><span style="color: ' . $color . '; font-size: 16px;">' . $outofstock . '</span> </td>';
+    echo "<td>
+            <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
+                <span class='fas fa-edit'></span> 
+            </a>
+        </td>
+        <td>
+            <a href='deleteproduct?id=" . $row["id"] . "' style='color: red;'>
+                <span class='fas fa-trash-alt'></span> 
+            </a>
+        </td>
+    </tr>";
+
+    echo "</tbody></table>";
+}
+// Adjust this to match your database structure
             }
         } else {
             //echo "<h6 class='text-center mt-3'>No data found</h6>";
