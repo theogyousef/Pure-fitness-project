@@ -126,7 +126,8 @@ include "adminnav.php";
 
 
             </div>
-
+         
+            
 
             <div class="container-fluid">
                 <table class="table custom-table">
@@ -484,7 +485,7 @@ include "adminnav.php";
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <script src="../public/JS/adminSearch.js"></script>
+   
     <script src="../public/JS/admindasboard.js"></script>
     <script>
 
