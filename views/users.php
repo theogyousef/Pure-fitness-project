@@ -116,7 +116,7 @@ include "adminnav.php";
     <?php
 
     echo "<tr>
-        <td colspan='9' style='padding: 0; '><div  style='margin-left: -19px'id='searchresulte'></div></td>
+        <td colspan='9'style='padding-top: 0px ;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;'><div style='margin-left: -55px;'  id='searchresulte'></div></td>
       </tr>";
     $sql2 = "SELECT * from users ";
     $resultusers = mysqli_query($conn, $sql2);

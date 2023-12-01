@@ -4,7 +4,9 @@ include("../model/searchModle.php");
 include("../controller/config.php");
 
 
-    if (isset($_POST['input'])) {
+
+
+if (isset($_POST['input'])) {
     // Get the search input from the POST data
     
         $input=$_POST['input'];
@@ -26,12 +28,11 @@ include("../controller/config.php");
        if ($name=='usersearch'){
        
        if (isset($row['firstname'])) {
-        echo "<table class='table custom-table'>
+        echo "<table class='table custom-tables'>
             
             <tbody>";
 
-    $sql2 = "SELECT * from users ";
-    $resultusers = mysqli_query($conn, $sql2);
+   
 
    
         if ($row["admin"] == 1) {
@@ -111,7 +112,3 @@ include("../controller/config.php");
 }
 
 // Check if 'input' is set in the POST data
-
-
-
-?>
