@@ -1,5 +1,15 @@
 <?php
- require '../controller/config.php';
+
+//require "../controller/config.php";
+require "../controller/indexMail.php";
+
+// Check for form submissions and perform the corresponding action
+if (isset($_POST["submitmail"])) {
+  sendmail($email);
+}
+?>
+
+<?php
 include '../model/productModle.php';
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
@@ -1312,18 +1322,16 @@ if (mysqli_num_rows($result) > 0) {
               <h4 class="custom-about-us">NEWSLETTER SIGNUP</h4>
               <p class="custom-quote">Get product launch information, promotions, blogs, and Pure Fitness news.</p>
             </div>
-            <form action="" id="ContactFooter" class="footer-form">
-              <div class="d-flex">
-                <div class="form-floating me-2">
-                  <input type="email" class="form-control border-0" id="email" placeholder=" "
-                    style="background: transparent; color: #000;">
-                  <label for="email">Enter your email address</label>
-                </div>
-                <button type="button" class="btn-About-us btn-dark"><a href="registeration" style="color: white;   text-decoration: none;
-                "> Sign Up</a>
-                </button>
-              </div>
-            </form>
+            <form id="ContactFooter" class="footer-form">
+  <div class="d-flex">
+    <div class="form-floating me-2">
+      <input type="email" name="email" class="form-control border-0" id="email" placeholder=" " style="background: transparent; color: #000;">
+      <label for="email">Enter your email address</label>
+    </div>
+    <button type="button" id="submitMailButton" class="btn-About-us btn-dark">Sign Up</button>
+  </div>
+  <div id="message"></div> 
+</form>
           </div>
         </div>
       </div>
@@ -1472,6 +1480,27 @@ if (mysqli_num_rows($result) > 0) {
   });
 
   
+  
+
+// Function to the newsettler mail
+$(document).ready(function() {
+  $('#submitMailButton').click(function() {
+    $.ajax({
+      type: "POST",
+      url: "../controller/indexMail.php",
+      data: {
+        email: $('#email').val(),
+        submitemail: true 
+      },
+      success: function(response) {
+        $('#message').text(response);
+      },
+      error: function() {
+        $('#message').text('An error occurred while sending the email.');
+      }
+    });
+  });
+});
 </script>
 
   <script src="../public/JS/index.js"></script>

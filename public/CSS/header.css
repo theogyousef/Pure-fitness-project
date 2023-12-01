@@ -160,6 +160,7 @@ color: white !important;
     color: #000;
     text-decoration: none; 
     background-color: #eee;
+    width: 100%;
 }
 .search-item:hover {
     background-color: #eee;
