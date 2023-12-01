@@ -8,6 +8,7 @@
 
 //require "../controller/config.php";
 require "../controller/adminFunctions.php";
+require"../model/searchModle.php";
 
 
 
@@ -84,11 +85,11 @@ include "adminnav.php";
 
 
             </div>
-            <input type="search" class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
+            <input type="search" name="productsearch" class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
             <button class="btn btn-dark border-0" type="button" id="search-addon">
             <i class="bi bi-search text-white"></i>
             </button>
-            <div id="searchresult"></div>
+           
 
             <div class="container-fluid">
                 <table class="table custom-table">
@@ -105,9 +106,15 @@ include "adminnav.php";
                     </thead>
                     <tbody>
                         <?php
-                        echo "<tr>
-                                 <td colspan='7' style='padding: 0;'><div id='searchresult'></div></td>
-                         </tr>";
+                       
+
+                     
+                      
+                      echo "<tr>
+                        <td colspan='9' style='padding: 0; '><div  style='margin-left: -19px'id='searchresult'></div></td>
+                     </tr>";
+                        
+                    
                         
                         $sql = "SELECT * FROM products";
                         $resultproduct = mysqli_query($conn, $sql);

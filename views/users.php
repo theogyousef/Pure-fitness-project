@@ -84,7 +84,7 @@ include "adminnav.php";
 
 
             </div>
-            <input type="search" class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
+            <input type="search"  name="usersearch"class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
             <button class="btn btn-dark border-0" type="button" id="search-addon">
             <i class="bi bi-search text-white"></i>
             </button>
@@ -116,7 +116,7 @@ include "adminnav.php";
     <?php
 
     echo "<tr>
-        <td colspan='9' style='padding: 0;'><div id='searchresult'></div></td>
+        <td colspan='9' style='padding: 0; '><div  style='margin-left: -19px'id='searchresulte'></div></td>
       </tr>";
     $sql2 = "SELECT * from users ";
     $resultusers = mysqli_query($conn, $sql2);
