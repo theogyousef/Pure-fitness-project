@@ -3,11 +3,13 @@
 include("../model/searchModle.php");
 include("../controller/config.php");
 
-// Check if 'input' is set in the POST data
-if (isset($_POST['input'])) {
+
+    if (isset($_POST['input'])) {
     // Get the search input from the POST data
     
         $input=$_POST['input'];
+        $name=$_POST['name'];
+
     // Perform the search query
     //searchModle::indexsearch($input);
     $result = searchModle::adminsearch($input);
@@ -20,6 +22,9 @@ if (isset($_POST['input'])) {
         
             while ($row = mysqli_fetch_assoc($result)) {
        // Check if 'username' key exists in the $row array
+      
+       if ($name=='usersearch'){
+       
        if (isset($row['firstname'])) {
         echo "<table class='table custom-table'>
             
@@ -54,7 +59,7 @@ if (isset($_POST['input'])) {
     
 
     echo "</tbody></table>";
-}
+}}elseif ($name=='productsearch'){
 
     // Check if 'name' key exists in the $row array
     if (isset($row['name'])) {
@@ -88,7 +93,7 @@ if (isset($_POST['input'])) {
 }
 // Adjust this to match your database structure
             }
-        } else {
+        }} else {
             //echo "<h6 class='text-center mt-3'>No data found</h6>";
         }
     } else {
@@ -104,4 +109,9 @@ if (isset($_POST['input'])) {
     // Handle the case when 'input' is not set
     echo "No input received.";
 }
+
+// Check if 'input' is set in the POST data
+
+
+
 ?>
