@@ -1470,6 +1470,8 @@ if (mysqli_num_rows($result) > 0) {
       }
     }
   });
+
+  
 </script>
 
   <script src="../public/JS/index.js"></script>
