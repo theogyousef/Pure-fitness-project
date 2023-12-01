@@ -12,7 +12,6 @@
          include "../public/css/index.css";
         ?>
         
-   
     </style>
 </head>
 <body>
@@ -38,11 +37,12 @@
       <div class="row align-items-center">
         <div class="col-md-2">
           <div class="input-group border-0">
-          <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search"/>
+          <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search" onkeyup="liveSearch()">
 <button class="btn btn-dark border-0" type="button" id="search-addon">
   <i class="bi bi-search text-white"></i>
 </button>
-<div id="searchresult"></div>
+<div id="searchResults"></div>
+
 
           </div>
         </div>
@@ -231,6 +231,7 @@
   </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../public/JS/header.js"></script>
 
 </body>
 </html>
