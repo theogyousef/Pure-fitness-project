@@ -111,7 +111,7 @@ include "adminnav.php";
                      
                       
                       echo "<tr>
-                        <td colspan='9' style='padding: 0; '><div  style='margin-left: -19px'id='searchresult'></div></td>
+                        <td colspan='9' style='padding-top: 0px ;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;'><div  style='margin-left: -19px'id='searchresult'></div></td>
                      </tr>";
                         
                     
