@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 require '../controller/config.php';
 
 // Assuming you have already connected to the database ($conn)
@@ -123,7 +123,21 @@ include "header.php"
                 <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
             </div>
             <!-- Add to Cart button -->
-            <button class="btn btn-primary bg-dark add-to-cart-button">Add to Cart</button>
+<a href="index.php">
+<button class="btn btn-primary bg-dark add-to-cart-button">Add to Cart</button>
+
+</a>
+<?php 
+            $_SESSION['products']= [
+                ['name' => $productDetails['name'],
+                'price' => $productDetails['price'],
+                'image' => $productDetails['file'],
+                ]
+                
+            ];
+            
+            ?>
+            
         </div>
     </div>
 </section>
