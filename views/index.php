@@ -5,8 +5,8 @@ require "../controller/indexMail.php";
 
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submitmail"])) {
-  sendmail($email);
-}
+  sendmail($email, $firstName);
+  }
 ?>
 
 <?php
@@ -1325,7 +1325,7 @@ if (mysqli_num_rows($result) > 0) {
             <form id="ContactFooter" class="footer-form">
   <div class="d-flex">
     <div class="form-floating me-2">
-      <input type="email" name="email" class="form-control border-0" id="email" placeholder=" " style="background: transparent; color: #000;">
+      <input type="email" name="email" class="form-control border-0" id="email" placeholder=" " style="background:#F0F0F0		; color: #000;">
       <label for="email">Enter your email address</label>
     </div>
     <button type="button" id="submitMailButton" class="btn-About-us btn-dark">Sign Up</button>
@@ -1480,16 +1480,15 @@ if (mysqli_num_rows($result) > 0) {
   });
 
   
-  
 
-// Function to the newsettler mail
 $(document).ready(function() {
   $('#submitMailButton').click(function() {
     $.ajax({
       type: "POST",
-      url: "../controller/indexMail.php",
+      url: "../controller/indexMail.php", 
       data: {
         email: $('#email').val(),
+        firstname: 'Friend', 
         submitemail: true 
       },
       success: function(response) {
