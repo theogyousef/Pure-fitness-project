@@ -1,7 +1,7 @@
 <?php
 
-
 require '../controller/config.php';
+session_start();
 if(!empty($_SESSION["id"])){
 $id = $_SESSION["id"];
 $result = mysqli_query($conn , "SELECT * FROM users WHERE id = '$id'  ") ;
@@ -9,13 +9,13 @@ $row = mysqli_fetch_assoc($result);
 
 }
 else {
-    header("Location: registeration.php");
+  header("Location: registeration.php");
 }
 if ($row["deactivated"] == 1) {
   header("Location: deactivated");
-
+  
 }
-    include "header.php"
+include "header.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@ if ($row["deactivated"] == 1) {
 <body>
   <div class="containercheckout">
     <h1>Checkout Payment</h1>
-    <form>
+    <form action="index.php" method="post">
       <div class="form-group">
         <label for="name">Name on Card</label>
         <div class="input-icon-container">
@@ -64,7 +64,7 @@ if ($row["deactivated"] == 1) {
       <button type="submit">Pay Now</button>
     </form>
   </div>
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
   <footer>
     <?php
     include "footer.php"?>
