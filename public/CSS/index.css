@@ -613,16 +613,16 @@ label.radio input:checked + span {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+  z-index: -1;
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
-.backdrop.show {
-  display: block;
-  opacity: 1;
-}
+/* .backdrop.show {
+  display: none;
+  opacity: 0;
+} */
 
 /* side cart */
 .sidecart {

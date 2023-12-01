@@ -22,14 +22,12 @@ if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
   $row = mysqli_fetch_assoc($result);
-
 } else {
   header("Location: registeration");
 }
 
 if ($row["deactivated"] == 1) {
   header("Location: deactivated");
-
 }
 
 
@@ -51,8 +49,7 @@ include "header.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 
   <title>Home Page</title>
   <style>
@@ -71,8 +68,8 @@ include "header.php";
   <!-- backdrop -->
   <div class="backdrop">
 
-  </div>
   <!-- side cart -->
+
   <div class="sidecart">
     <div class="cart_content">
       <!-- cart header -->
@@ -155,12 +152,6 @@ include "header.php";
           </div>
         <?php } ?>
 
-        <div>
-          <address>
-
-
-          </address>
-        </div>
         <button>View Cart</button>
         <button type="button"><a href="checkOut" style="color: white;   text-decoration: none;
                 "> Check Out</a>
@@ -168,15 +159,14 @@ include "header.php";
       </div>
     </div>
   </div>
+
+  </div>
   <!-- The slider -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -215,13 +205,11 @@ include "header.php";
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -239,15 +227,12 @@ include "header.php";
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image"
-              class="img-fluid" style="height: 500px;">
+            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
             <div class="images p-3">
               <!-- Add a container for the magnifier -->
               <div class="thumbnail text-center">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp"
-                  width="70">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
-                  width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
                 <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp" width="70">
               </div>
 
@@ -294,7 +279,7 @@ include "header.php";
 
           <?php
           // Assuming you have already connected to the database ($conn)
-          
+
           // Fetch products from the database
           $result = ProductModle::allproducts();
 
@@ -304,14 +289,13 @@ include "header.php";
           }
           ?>
 
-          <?php if (!empty($products)): ?>
-            <?php foreach ($products as $product): ?>
+          <?php if (!empty($products)) : ?>
+            <?php foreach ($products as $product) : ?>
               <div class="col-md-3">
                 <div class="products">
                   <div class="product-image">
                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
-                        width="500px">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
                     </a>
                     <div class="links">
                       <div class="Icon">
@@ -339,7 +323,7 @@ include "header.php";
                         <?php echo $product['type']; ?>
                       </span>
                     </p>
-            <p class="detailsinfo">
+                    <p class="detailsinfo">
                       <?php
                       if ($product["outofstock"] == 1) {
                         $outofstock = "Out of stock";
@@ -361,7 +345,7 @@ include "header.php";
                 </div>
               </div>
             <?php endforeach; ?>
-          <?php else: ?>
+          <?php else : ?>
             <p>No products found.</p>
           <?php endif; ?>
 
@@ -781,8 +765,7 @@ include "header.php";
   <div class="viewproduct">
 
     <div class="row">
-      <div class="col-md text-center"
-        style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
+      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
         <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
       </div>
     </div>
@@ -792,24 +775,23 @@ include "header.php";
       <div class="wrapper">
         <div class="slider">
 
-        <?php
+          <?php
 
-$result = ProductModle::allproducts();
+          $result = ProductModle::allproducts();
 
-if (mysqli_num_rows($result) > 0) {
-  $allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-  $products = array_slice($allProducts, 4); 
-}
- ?>
+          if (mysqli_num_rows($result) > 0) {
+            $allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $products = array_slice($allProducts, 4);
+          }
+          ?>
 
-          <?php if (!empty($products)): ?>
-            <?php foreach ($products as $product): ?>
+          <?php if (!empty($products)) : ?>
+            <?php foreach ($products as $product) : ?>
               <div class="col-md-3">
                 <div class="products">
                   <div class="product-image">
                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
-                        width="500px">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
                     </a>
                     <div class="links">
                       <div class="Icon">
@@ -859,7 +841,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
               </div>
             <?php endforeach; ?>
-          <?php else: ?>
+          <?php else : ?>
             <p>No products found.</p>
           <?php endif; ?>
 
@@ -1127,13 +1109,9 @@ if (mysqli_num_rows($result) > 0) {
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
-                  <img
-                    src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp"
-                    alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
+                  <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-1" width="500px">
 
-                  <img
-                    src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp"
-                    alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
+                  <img src="../public/photos/productPhotos/life-fitness-cast-iron-kettlebell-red-72lb-1000x1000-data.webp" alt="ASSAULT AIRBIKE" class="pic-2" width="500px">
                 </a>
                 <div class="links">
                   <div class="Icon">
@@ -1156,8 +1134,7 @@ if (mysqli_num_rows($result) > 0) {
               <div class="Content">
                 <h3>Cast Iron Kettlebells</h3>
                 <p class="detailsinfo">
-                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span
-                    class="nofdays">KETTLEBELLS</span>
+                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">KETTLEBELLS</span>
                 </p>
                 <div class="cost">
                   <p class="lower-price">
@@ -1174,8 +1151,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
-                  <img src="../public/photos/productPhotos/dumbles.png" alt="ASSAULT AIRBIKE" class="pic-1"
-                    width="700px">
+                  <img src="../public/photos/productPhotos/dumbles.png" alt="ASSAULT AIRBIKE" class="pic-1" width="700px">
 
                   <img src="../public/photos/productPhotos/3-1365x2048.webp" alt="ASSAULT AIRBIKE" class="pic-2">
                 </a>
@@ -1200,8 +1176,7 @@ if (mysqli_num_rows($result) > 0) {
               <div class="Content">
                 <h3>Pure Fitness TPU Dumbbells</h3>
                 <p class="detailsinfo">
-                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span
-                    class="nofdays">DUMBBELLS</span>
+                  <span class="typetrip">FREE WEIGHTS</span> <span class="separate"></span> <span class="nofdays">DUMBBELLS</span>
                 </p>
                 <div class="cost">
                   <p class="lower-price">
@@ -1365,12 +1340,10 @@ if (mysqli_num_rows($result) > 0) {
             or accredited Health Professional in regards to specific health and nutrition advice.</p>
           <form id="bmiForm">
             <div class="mb-3">
-              <input type="number" class="form-control form-control-sm" id="weight" name="weight"
-                placeholder="Weight (kg)">
+              <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Weight (kg)">
             </div>
             <div class="mb-3">
-              <input type="number" class="form-control form-control-sm" id="height" name="height"
-                placeholder="Height (cm)">
+              <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Height (cm)">
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
@@ -1426,44 +1399,44 @@ if (mysqli_num_rows($result) > 0) {
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-<!-- Add this script at the end of your HTML file -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Get the form and result elements
-    var bmiForm = document.getElementById('bmiForm');
-    var weightInput = document.getElementById('weight');
-    var heightInput = document.getElementById('height');
-    var resultContainer = document.getElementById('result');
-    var bmiValueSpan = document.getElementById('bmiValue');
-    var bmiCategorySpan = document.getElementById('bmiCategory');
+  <!-- Add this script at the end of your HTML file -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the form and result elements
+      var bmiForm = document.getElementById('bmiForm');
+      var weightInput = document.getElementById('weight');
+      var heightInput = document.getElementById('height');
+      var resultContainer = document.getElementById('result');
+      var bmiValueSpan = document.getElementById('bmiValue');
+      var bmiCategorySpan = document.getElementById('bmiCategory');
 
-    // Event listener for form submission
-    bmiForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+      // Event listener for form submission
+      bmiForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-      // Get the values from the form
-      var weight = parseFloat(weightInput.value);
-      var height = parseFloat(heightInput.value);
+        // Get the values from the form
+        var weight = parseFloat(weightInput.value);
+        var height = parseFloat(heightInput.value);
 
-      // Check if the inputs are valid numbers
-      if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-        alert('Please enter valid values for weight and height.');
-        return;
-      }
+        // Check if the inputs are valid numbers
+        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+          alert('Please enter valid values for weight and height.');
+          return;
+        }
 
-      // Convert height to meters (from centimeters)
-      height = height / 100;
+        // Convert height to meters (from centimeters)
+        height = height / 100;
 
-      // Calculate BMI
-      var bmi = weight / (height * height);
+        // Calculate BMI
+        var bmi = weight / (height * height);
 
-      // Display the result
-      bmiValueSpan.textContent = bmi.toFixed(2); 
+        // Display the result
+        bmiValueSpan.textContent = bmi.toFixed(2);
 
-      // Determine BMI category
-      var category = getCategory(bmi);
-      bmiCategorySpan.textContent = category;
-    });
+        // Determine BMI category
+        var category = getCategory(bmi);
+        bmiCategorySpan.textContent = category;
+      });
 
     // Function to determine BMI category
     function getCategory(bmi) {
@@ -1508,11 +1481,11 @@ $(document).ready(function() {
 
   <footer>
     <?php
-    include "footer.php" ;
-   
+    include "footer.php";
+
     ?>
   </footer>
-  
+
 </body>
 
 </html>

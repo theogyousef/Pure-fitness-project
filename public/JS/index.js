@@ -11,22 +11,22 @@ function change_image(image) {
   const closeBtn = document.getElementById('close_btn');
   const backdrop = document.querySelector('.backdrop');
 
-  openBtn.addEventListener('click', openCart);
-  closeBtn.addEventListener('click', closeCart);
+  // openBtn.addEventListener('click', closeCart);
+  // closeBtn.addEventListener('click', closeCart);
 
   // open cart
-  function openCart() {
-    cart.classList.add('open');
-    backdrop.style.display = 'block';
-    backdrop.classList.add('show');
-  }
+  // function openCart() {
+  //   cart.classList.remove('open');
+  //   backdrop.style.display = 'none';
+  //   backdrop.classList.remove('open');
+  // }
 
   // close cart
-  function closeCart() {
-    cart.classList.remove('open');
-    backdrop.classList.remove('show');
-    backdrop.style.display = 'none';
-  }
+  // function closeCart() {
+  //   cart.classList.remove('open');
+  //   backdrop.classList.remove('show');
+  //   backdrop.style.display = 'none';
+  // }
 
   const decrementButton = document.getElementById("decrement");
   const incrementButton = document.getElementById("increment");
