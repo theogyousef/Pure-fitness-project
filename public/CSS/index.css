@@ -206,7 +206,6 @@
   border: none;
 }
 
-/* Product container styles */
 .product {
   background-color: #eee;
 }
@@ -214,33 +213,23 @@
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Brand text styles */
 .brand {
   font-size: 13px;
 }
 
-/* Actual price styles */
 .act-price {
-  color: red;
+  color: maroon;
   font-weight: 700;
 }
 
-/* Discounted price styles */
-.dis-price {
-  text-decoration: line-through;
-}
-
-/* Product description styles */
 .about {
   font-size: 14px;
 }
 
-/* Color label styles */
 .color {
   margin-bottom: 10px;
 }
 
-/* Radio button label styles */
 label.radio {
   cursor: pointer;
 }
@@ -270,8 +259,8 @@ label.radio input:checked + span {
 
 /* Button styles */
 .btn-danger {
-  background-color: #ff0000 !important;
-  border-color: #ff0000 !important;
+  background-color: maroon !important;
+  border-color:maroon !important;
 }
 
 .btn-danger:hover {
