@@ -64,7 +64,7 @@ include "adminnav.php";
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-   
+
     <title>Admin panel</title>
     <style>
         <?php include "../public/CSS/adminDasboard.css" ?>
@@ -95,21 +95,53 @@ include "adminnav.php";
                                 value="<?php echo $productDetails['name'] ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="newProductSlug" class="form-label">Type</label>
-                            <input type="text" class="form-control" name="type" required
-                                value="<?php echo $productDetails['type'] ?>">
+                        <label for="stock">Select a type:</label>
+                            <select class="form-control" id="type" name="type">
+                                <option value="<?php echo $productDetails['type'] ?>" selected>
+                                    <?php echo $productDetails['type'] ?>
+                                </option>
+                                <option value="Dumbell">Dumbell</option>
+                                <option value="Barbell">Barbell</option>
+                                <option value="Collars">Collars</option>
+                                <option value="Plates">Plates</option>
+                                <option value="Kettlebell ">Kettlebell </option>
+                                <option value="Benches">Benches</option>
+                                <option value="Bicycle">Bicycle</option>
+                                <option value="Cable Extensions">Cable Extensions</option>
+                                <option value="Racks">Racks</option>
+                                <option value="Machines">Machines</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Mat">Mat</option>
+                                <option value="Rope">Rope</option>
+                                <option value="Box">Box</option>
+                                <option value="Power Bag">Power Bag</option>
+                                <option value="Step">Step</option>
+                                <option value="Weighted balls">Weighted balls</option>
+                                <option value="Smith machine">Smith machine</option>
+                                <option value="Sandbag">Sandbag</option>
+
+
+
+
+                            </select>
+
                         </div>
+
+
                         <div class="mb-3">
                             <label for="stock">Select a state:</label>
                             <select class="form-control" id="stock" name="stock">
-<?php 
-if($productDetails["outofstock"] == 1){echo'
+                                <?php
+                                if ($productDetails["outofstock"] == 1) {
+                                    echo '
                                 <option value="0">In Stock</option>
-                                <option selected value="1">Out of Stock</option> ' ; }
-                                else if($productDetails["outofstock"] == 0){echo'
+                                <option selected value="1">Out of Stock</option> ';
+                                } else if ($productDetails["outofstock"] == 0) {
+                                    echo '
                                     <option selected value="0">In Stock</option>
-                                    <option value="1">Out of Stock</option> ' ; }
-?>
+                                    <option value="1">Out of Stock</option> ';
+                                }
+                                ?>
                             </select>
                         </div>
 

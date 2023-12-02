@@ -70,9 +70,37 @@ include "adminnav.php";
                                 <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Type</label>
-                                <input type="text" class="form-control" name="type" required>
-                            </div>
+                        <label for="stock">Select a type:</label>
+                            <select class="form-control" id="type" name="type">
+                                <option value=" " >
+                                    
+                                </option>
+                                <option value="Dumbell">Dumbell</option>
+                                <option value="Barbell">Barbell</option>
+                                <option value="Collars">Collars</option>
+                                <option value="Plates">Plates</option>
+                                <option value="Kettlebell ">Kettlebell </option>
+                                <option value="Benches">Benches</option>
+                                <option value="Bicycle">Bicycle</option>
+                                <option value="Cable Extensions">Cable Extensions</option>
+                                <option value="Racks">Racks</option>
+                                <option value="Machines">Machines</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Mat">Mat</option>
+                                <option value="Rope">Rope</option>
+                                <option value="Box">Box</option>
+                                <option value="Power Bag">Power Bag</option>
+                                <option value="Step">Step</option>
+                                <option value="Weighted balls">Weighted balls</option>
+                                <option value="Smith machine">Smith machine</option>
+                                <option value="Sandbag">Sandbag</option>
+
+
+
+
+                            </select>
+
+                        </div>
                             <div class="mb-3">
                                 <label class="form-label">Price</label>
                                 <input type="text" class="form-control" name="price" required>
@@ -80,7 +108,7 @@ include "adminnav.php";
                             <div class="mb-3">
                                 <label for="newProductImage" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="newProductImage"
-                                    accept="image/png, image/gif, image/jpeg" name="file" required>
+                                    accept="image/png, image/gif, image/jpeg , image/webp" name="file" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Description</label>

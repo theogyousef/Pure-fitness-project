@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 require '../controller/config.php';
 
 // Assuming you have already connected to the database ($conn)
