@@ -12,6 +12,10 @@ $(document).ready(function() {
                 success: function(response) {
                     var products = JSON.parse(response);
 
+                    if (products.length === 0) {
+                        // << If no users are found, display "product not found" >>
+                        $(".custom-table tbody").html('<tr><td colspan="9">product not found</td></tr>');
+                    } else {
                     var rowsHtml = '';
 
                     $.each(products, function(index, product) {
@@ -27,6 +31,7 @@ $(document).ready(function() {
                     });
 
                     $(".custom-table tbody").html(rowsHtml);
+                }
                 },
                 error: function(err) {
                     $(".custom-table tbody").html('<tr><td colspan="7">Error searching products</td></tr>'); 

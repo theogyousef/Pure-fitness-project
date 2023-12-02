@@ -243,7 +243,7 @@ include "header.php";
               <div class="d-flex justify-content-between align-items-center">
               </div>
               <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">CARDIO/BIKES</span>
-                <h5 class="text-uppercase">Concept 2 PM5 BikeErg</h5>
+                <h5 class="text-uppercase" id="prodname">Concept 2 PM5 BikeErg</h5>
                 <div class="price d-flex flex-row align-items-center"> <span class="act-price">72.000 EGP</span>
                   <!-- <div class="ml-2"> <small class="dis-price">82.000 EGP</small> <span>40% OFF</span> </div> -->
                 </div>
@@ -256,7 +256,7 @@ include "header.php";
                 This bike features heavy-duty construction, with a black powder coat aluminum frame.
                 The bike is suitable for athletes up to 300lbs</p>
               <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to
-                  cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                  cart</button> <i class="fa fa-heart text-muted"></i> </div>
             </div>
           </div>
         </div>
@@ -292,7 +292,7 @@ include "header.php";
           <?php if (!empty($products)) : ?>
             <?php foreach ($products as $product) : ?>
               <div class="col-md-3">
-                <div class="products">
+              <div class="products" data-product-id="<?php echo $product['id']; ?>">
                   <div class="product-image">
                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
                       <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
@@ -307,7 +307,7 @@ include "header.php";
                         <span class="tooltiptext">Move to wishlist</span>
                       </div>
                       <div class="Icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
                           <i class="bi bi-eye"></i>
                         </a>
                         <span class="tooltiptext">Quick view</span>
@@ -803,7 +803,7 @@ include "header.php";
                         <span class="tooltiptext">Move to wishlist</span>
                       </div>
                       <div class="Icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                      <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
                           <i class="bi bi-eye"></i>
                         </a>
                         <span class="tooltiptext">Quick view</span>
@@ -1105,7 +1105,7 @@ include "header.php";
       </div> -->
 
           <!-- 7 Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -1144,10 +1144,10 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- 8 Product -->
-          <div class="col-md-3 ">
+          <!-- <div class="col-md-3 ">
             <div class="products">
               <div class="product-image">
                 <a href="" class="images">
@@ -1165,11 +1165,11 @@ include "header.php";
                     <span class="tooltiptext">Move to wishlist</span>
                   </div>
                   <div class="Icon">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                      <i class="bi bi-eye"></i>
-                    </a>
-                    <span class="tooltiptext">Quick view</span>
-                  </div>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <i class="bi bi-eye"></i>
+                        </a>
+                        <span class="tooltiptext">Quick view</span>
+                      </div>
                 </div>
 
               </div>
@@ -1185,7 +1185,7 @@ include "header.php";
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- 9 Product -->
           <!-- <div class="col-md-3 ">
@@ -1399,84 +1399,11 @@ include "header.php";
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-  <!-- Add this script at the end of your HTML file -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get the form and result elements
-      var bmiForm = document.getElementById('bmiForm');
-      var weightInput = document.getElementById('weight');
-      var heightInput = document.getElementById('height');
-      var resultContainer = document.getElementById('result');
-      var bmiValueSpan = document.getElementById('bmiValue');
-      var bmiCategorySpan = document.getElementById('bmiCategory');
-
-      // Event listener for form submission
-      bmiForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        // Get the values from the form
-        var weight = parseFloat(weightInput.value);
-        var height = parseFloat(heightInput.value);
-
-        // Check if the inputs are valid numbers
-        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-          alert('Please enter valid values for weight and height.');
-          return;
-        }
-
-        // Convert height to meters (from centimeters)
-        height = height / 100;
-
-        // Calculate BMI
-        var bmi = weight / (height * height);
-
-        // Display the result
-        bmiValueSpan.textContent = bmi.toFixed(2);
-
-        // Determine BMI category
-        var category = getCategory(bmi);
-        bmiCategorySpan.textContent = category;
-      });
-
-    // Function to determine BMI category
-    function getCategory(bmi) {
-      if (bmi < 18.5) {
-        return 'Underweight';
-      } else if (bmi >= 18.5 && bmi <= 24.9) {
-        return 'Normal Weight';
-      } else if (bmi >= 25 && bmi <= 29.9) {
-        return 'Overweight';
-      } else {
-        return 'Obese';
-      }
-    }
-  });
-
-  
-
-$(document).ready(function() {
-  $('#submitMailButton').click(function() {
-    $.ajax({
-      type: "POST",
-      url: "../controller/indexMail.php", 
-      data: {
-        email: $('#email').val(),
-        firstname: 'Friend', 
-        submitemail: true 
-      },
-      success: function(response) {
-        $('#message').text(response);
-      },
-      error: function() {
-        $('#message').text('An error occurred while sending the email.');
-      }
-    });
-  });
-});
-</script>
-
   <script src="../public/JS/index.js"></script>
-  <script src="../public/JS/indexsearch.js"></script>
+  <script src="../public/JS/ajaxHandlers.js"></script>
+  <script src="../public/JS/bmi.js"></script>
+
+
 
   <footer>
     <?php
