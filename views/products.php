@@ -8,7 +8,6 @@
 
 //require "../controller/config.php";
 require "../controller/adminFunctions.php";
-require"../model/searchModle.php";
 
 
 
@@ -85,10 +84,13 @@ include "adminnav.php";
 
 
             </div>
-            <input type="search" name="productsearch" class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
-            <button class="btn btn-dark border-0" type="button" id="search-addon">
-            <i class="bi bi-search text-white"></i>
-            </button>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for users">
+                <button class="search-button" style="background-color: black;">Search</button>
+            </div>
+
+
+            <div id="searchResult"></div>
            
 
             <div class="container-fluid">
@@ -159,9 +161,8 @@ include "adminnav.php";
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../public/JS/adminSearch.js"></script>
+    <script src="../public/JS/productsearch.js"></script>
     <script src="../public/JS/admindasboard.js"></script>
-
 
 </body>
 

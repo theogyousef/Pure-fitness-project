@@ -21,12 +21,10 @@ if (!empty($_SESSION["id"])) {
 
 if ($row["admin"] != 1) {
     header("Location: index.php");
-
 }
 
 if ($row["id"] == 1) {
     header("Location: index.php");
-
 }
 
 include "adminnav.php";
@@ -40,8 +38,7 @@ include "adminnav.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 
@@ -49,7 +46,6 @@ include "adminnav.php";
     <style>
         <?php include "../public/CSS/adminDasboard.css" ?>
     </style>
-
 
 </head>
 
@@ -84,60 +80,65 @@ include "adminnav.php";
 
 
             </div>
-            <input type="search"  name="usersearch"class="form-control rounded-0 bg-dark border" style="height: 40px; width: 800px;" placeholder="Search" id="search"/>
-            <button class="btn btn-dark border-0" type="button" id="search-addon">
-            <i class="bi bi-search text-white"></i>
-            </button>
-            
+
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for users">
+                <button class="search-button" style="background-color: black;">Search</button>
+            </div>
+
+
+            <div id="searchResult"></div>
+
 
             <div class="container-fluid">
-            <table class="table custom-table">
+                <table class="table custom-table">
 
-<thead>
-    <tr>
-        <th>ID</th>
-        <th>name</th>
-        <th>email</th>
-        <th>Admin</th>
-        <th>Deactivated</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>make user</th>
-        <th>make admin</th>
-        
-    </tr>
-    
-</thead>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>Admin</th>
+                            <th>Deactivated</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>make user</th>
+                            <th>make admin</th>
 
-<tbody>
+                        </tr>
 
-    
+                    </thead>
 
-    <?php
+                    <tbody>
 
-    echo "<tr>
+
+
+                        <?php
+
+                        echo "<tr>
         <td colspan='9'style='padding-top: 0px ;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;'><div style='margin-left: -55px;'  id='searchresulte'></div></td>
       </tr>";
-    $sql2 = "SELECT * from users ";
-    $resultusers = mysqli_query($conn, $sql2);
+                        $sql2 = "SELECT * from users ";
+                        $resultusers = mysqli_query($conn, $sql2);
 
-    while ($row = mysqli_fetch_assoc($resultusers)) {
-       
-        if ($row["admin"] == 1) {
-            $admin = "Admin";
-        } elseif ($row["admin"] == 0) {
-            $admin = " ";
-        }
+                        while ($row = mysqli_fetch_assoc($resultusers)) {
 
-        if ($row["deactivated"] == 1) {
-            $deactivated = "deactivated";
-        } elseif ($row["deactivated"] == 0) {
-            $deactivated = " ";
-        }
-     
+                            if ($row["admin"] == 1) {
+                                $admin = "Admin";
+                            } elseif ($row["admin"] == 0) {
+                                $admin = " ";
+                            }
 
-        if ($row["guest"] != 1) {
-            echo " <tr>
+                            if ($row["deactivated"] == 1) {
+                                $deactivated = "deactivated";
+                            } elseif ($row["deactivated"] == 0) {
+                                $deactivated = " ";
+                            }
+
+
+                            if ($row["guest"] != 1) {
+                                echo " <tr>
 <td>" . $row["id"] . "</td>
 <td>" . $row["firstname"] . $row["lastname"] . "</td>
 <td>" . $row["email"] . "</td>
@@ -149,13 +150,13 @@ include "adminnav.php";
 <td>  <a href='makeadmin?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
 
 </tr>";
-        }
-    }
-    ?>
+                            }
+                        }
+                        ?>
 
-</tbody>
+                    </tbody>
 
-</table>
+                </table>
             </div>
 
 
@@ -164,9 +165,8 @@ include "adminnav.php";
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../public/JS/adminSearch.js"></script>
     <script src="../public/JS/admindasboard.js"></script>
-
+    <script src="../public/JS/adminSearch.js"></script>
 
 </body>
 
