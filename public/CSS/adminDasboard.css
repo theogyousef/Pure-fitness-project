@@ -368,9 +368,10 @@ form {
 /* styling the search input */
 .search-container {
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  justify-content: left;
+  align-items:first baseline;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 #searchInput {
