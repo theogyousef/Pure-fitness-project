@@ -29,3 +29,4 @@ if (isset($_GET['html']) && $_GET['html'] == 'true') {
 } else {
     echo json_encode($users);
 }
+?>
