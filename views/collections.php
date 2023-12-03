@@ -64,19 +64,19 @@ include "header.php"
                 <form id="filterCategory" method="post">
                     <select class="form-select filter-select" aria-label="Category"name="category" data-form-id="filterCategory">
                         <option selected disabled>Category</option>
-                        <option value="1">All Benches</option>
-                        <option value="2">All Bicycle</option>
-                        <option value="3">All Cardio</option>
-                        <option value="4">All Sleds</option>
-                        <option value="5">All Plates</option>
-                        <option value="6">All Collars</option>
-                        <option value="7">All Ropes</option>
-                        <option value="8">All Boxs</option>
-                        <option value="9">All Steps</option>
-                        <option value="10">All Weighted balls</option>
-                        <option value="11">All Racks</option>
-                        <option value="12">All Dumbells</option>
-                        <option value="13">All Cable Extensions</option>
+                        <option value="1"> Benches</option>
+                        <option value="2"> Bicycle</option>
+                        <option value="3"> Cardio</option>
+                        <option value="4"> Sleds</option>
+                        <option value="5"> Plates</option>
+                        <option value="6"> Collars</option>
+                        <option value="7"> Ropes</option>
+                        <option value="8"> Boxs</option>
+                        <option value="9"> Steps</option>
+                        <option value="10"> Weighted balls</option>
+                        <option value="11"> Racks</option>
+                        <option value="12"> Dumbells</option>
+                        <option value="13"> Cable Extensions</option>
                     </select>
                 </form>
                 </div>
