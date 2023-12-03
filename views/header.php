@@ -158,33 +158,63 @@
     <div class="row">
       <div class="col">
         <h6 class="dropdown-header">WEIGHTLIFTING</h6>
-        <a class="dropdown-item" href="#">Barbells</a>
-        <a class="dropdown-item" href="#">Plates</a>
-        <a class="dropdown-item" href="#">Collars</a>
+        <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="14">
+                    <button type="submit" class="dropdown-item">Barbells</button>
+           </form>
+           <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="5">
+                    <button type="submit" class="dropdown-item">Plates</button>
+           </form>
+           <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="6">
+                    <button type="submit" class="dropdown-item">Collars</button>
+           </form>
       </div>
       <div class="col">
         <h6 class="dropdown-header">CAGES & RACKS AND ATTACHMENTS</h6>
         <a class="dropdown-item" href="#">Weightlifting</a>
-                <a class="dropdown-item" href="#">Cages</a>	
-                <a class="dropdown-item" href="#">Racks</a>
-                <a class="dropdown-item" href="#">Attachments</a>
+                <!-- <a class="dropdown-item" href="#">Cages</a>	 -->
+                <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="11">
+                    <button type="submit" class="dropdown-item">Racks</button>
+           </form>
+                <!-- <a class="dropdown-item" href="#">Attachments</a>
                 <a class="dropdown-item" href="#">Pull Up Bars</a>
-                <a class="dropdown-item" href="#">Storages</a>
-                <a class="dropdown-item" href="#">Cable Cross Attachments</a>
+                <a class="dropdown-item" href="#">Storages</a> -->
+                <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="13">
+                    <button type="submit" class="dropdown-item">Cable Cross Attachments</button>
+           </form>
       </div>
       <div class="col">
         <h6 class="dropdown-header">GYM ESSENTIAL</h6>
-        <a class="dropdown-item" href="#">Benches</a>
-                <a class="dropdown-item" href="#">Boxes</a>	
-                <a class="dropdown-item" href="#">Rings</a>
-                <a class="dropdown-item" href="#">Sleds</a>
+        <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="1">
+                    <button type="submit" class="dropdown-item">Benches</button>
+           </form>
+           <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="8">
+                    <button type="submit" class="dropdown-item">Boxes</button>
+           </form>
+           <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="4">
+                    <button type="submit" class="dropdown-item">Sleds</button>
+           </form>
       </div>
 
       <div class="col">
         <h6 class="dropdown-header">FREE WEIGHTS</h6>
-        <a class="dropdown-item" href="#">Kettlebells</a>
-                <a class="dropdown-item" href="#">Dumbbells</a>	
-                <a class="dropdown-item" href="#">Medicine Balls</a>
+        <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="15">
+                    <button type="submit" class="dropdown-item">Kettlebells</button>
+           </form>
+        <form method="post" action="../views/collections">
+                    <input type="hidden" name="category" value="12">
+                    <button type="submit" class="dropdown-item">Dumbbells</button>
+           </form>
+             
+                <!-- <a class="dropdown-item" href="#">Medicine Balls</a> -->
       </div>
     </div>
   </div>
