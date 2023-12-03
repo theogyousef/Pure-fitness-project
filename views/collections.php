@@ -77,6 +77,8 @@ include "header.php"
                         <option value="11">All Racks</option>
                         <option value="12">All Dumbells</option>
                         <option value="13">All Cable Extensions</option>
+                        <option value="14">All Barbell</option>
+                        <option value="15">All Kettlebell</option>
                     </select>
                 </form>
                 </div>
