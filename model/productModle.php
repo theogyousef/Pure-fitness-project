@@ -38,6 +38,38 @@ class ProductModle
 
         return $result;
     }
+    public static function highesttolowest ()
+    {
+        include "../controller/config.php";
+
+        // Modify the query to fetch products within the specified price range
+        $query = "SELECT * FROM products ORDER BY price DESC";
+        $result = mysqli_query($conn, $query);
+
+        // Check for errors
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+       
+
+        return $result;
+    }
+    public static function lowesttohighest ()
+    {
+        include "../controller/config.php";
+
+        // Modify the query to fetch products within the specified price range
+        $query = "SELECT * FROM products ORDER BY price ASC";
+        $result = mysqli_query($conn, $query);
+
+        // Check for errors
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+       
+
+        return $result;
+    }
     public static function inStock()
     {
         include "../controller/config.php";
@@ -76,6 +108,38 @@ class ProductModle
 
         // Modify the query to fetch products within the specified price range
         $query = "SELECT * FROM products WHERE type ='Benches'";
+        $result = mysqli_query($conn, $query);
+
+        // Check for errors
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+       
+
+        return $result;
+    }
+    public static function  Barbell()
+    {
+        include "../controller/config.php";
+
+        // Modify the query to fetch products within the specified price range
+        $query = "SELECT * FROM products WHERE type ='Barbell'";
+        $result = mysqli_query($conn, $query);
+
+        // Check for errors
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+       
+
+        return $result;
+    }
+    public static function  Kettlebell ()
+    {
+        include "../controller/config.php";
+
+        // Modify the query to fetch products within the specified price range
+        $query = "SELECT * FROM products WHERE type ='Kettlebell '";
         $result = mysqli_query($conn, $query);
 
         // Check for errors

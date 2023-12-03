@@ -64,19 +64,21 @@ include "header.php"
                 <form id="filterCategory" method="post">
                     <select class="form-select filter-select" aria-label="Category"name="category" data-form-id="filterCategory">
                         <option selected disabled>Category</option>
-                        <option value="1"> Benches</option>
-                        <option value="2"> Bicycle</option>
-                        <option value="3"> Cardio</option>
-                        <option value="4"> Sleds</option>
-                        <option value="5"> Plates</option>
-                        <option value="6"> Collars</option>
-                        <option value="7"> Ropes</option>
-                        <option value="8"> Boxs</option>
-                        <option value="9"> Steps</option>
-                        <option value="10"> Weighted balls</option>
-                        <option value="11"> Racks</option>
-                        <option value="12"> Dumbells</option>
-                        <option value="13"> Cable Extensions</option>
+                        <option value="1">All Benches</option>
+                        <option value="2">All Bicycle</option>
+                        <option value="3">All Cardio</option>
+                        <option value="4">All Sleds</option>
+                        <option value="5">All Plates</option>
+                        <option value="6">All Collars</option>
+                        <option value="7">All Ropes</option>
+                        <option value="8">All Boxs</option>
+                        <option value="9">All Steps</option>
+                        <option value="10">All Weighted balls</option>
+                        <option value="11">All Racks</option>
+                        <option value="12">All Dumbells</option>
+                        <option value="13">All Cable Extensions</option>
+                        <option value="14">All Barbell</option>
+                        <option value="15">All Kettlebell</option>
                     </select>
                 </form>
                 </div>
@@ -85,6 +87,8 @@ include "header.php"
                     <form id="filterForm" method="post">
                         <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
                             <option selected disabled>Price</option>
+                            <option value="4">Highest To Lowest </option>
+                            <option value="5">Lowest To Highest</option>
                             <option value="1">Under 10000</option>
                             <option value="2">10000 to 40000</option>
                             <option value="3">40000 and above</option>
@@ -100,24 +104,14 @@ include "header.php"
                     </select>
                 </div>
 
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Rating">
-                        <option selected>Rating</option>
-                        <option value="1">1 Star</option>
-                        <option value="2">2 Stars</option>
-                        <option value="3">3 Stars</option>
-                        <option value="4">4 Stars</option>
-                        <option value="5">5 Stars</option>
-                    </select>
-                </div>
-
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Manual">
-                        <option selected>Manual</option>
-                        <option value="1">User Manual</option>
-                        <option value="2">Installation Guide</option>
-                    </select>
-                </div>
+           <div class="col-md-2">
+                <form method="post" action="">
+                    <div class="col-md-2">
+                    <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
+                    </div>
+                </form>
+            </div>
+                
             </div>
             
 
@@ -136,12 +130,10 @@ include "header.php"
         </div>
         <div class="container grid-container">
             <?php
-            $selectedPrice = null;
-            $instock =  null;
-            $cat = null;
+            
 
             
-           
+            $result = ProductModle::allProducts();
            
            
 
@@ -158,6 +150,12 @@ include "header.php"
                     break;
                 case 3:
                     $result = ProductModle::getProductsByPriceRange(40000, PHP_INT_MAX);
+                    break;
+                case 4:
+                    $result = ProductModle::highesttolowest();
+                    break;
+                case 5:
+                    $result = ProductModle::lowesttohighest();
                     break;
                 default:
                     // No price filter, fetch all products
@@ -225,12 +223,19 @@ include "header.php"
                 case 13:
                     $result = ProductModle::CableExtensions();
                     break;
+                 case 14:
+                    $result = ProductModle::Barbell();
+                    break;
+                 case 15:
+                    $result = ProductModle::Kettlebell ();
+                    break;
                 default:
                     // No price filter, fetch all products
                     $result = ProductModle::allProducts();
             }  
         }
-        else {
+        elseif(isset($_POST['reset'])) {
+            
             $result = ProductModle::allProducts();
             
         }
