@@ -51,30 +51,45 @@ include "header.php"
 
             <!-- Filters -->
             <div class="row mb-3">
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Availability">
-                        <option selected>Availability</option>
-                        <option value="1">In Stock</option>
-                        <option value="2">Out of Stock</option>
-                    </select>
+            <div class="col-md-2">
+                    <form id="filterF" method="post">
+                        <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
+                            <option selected disabled>Availability</option>
+                            <option value="1">In Stock</option>
+                            <option value="2">Out of Stock</option>
+                        </select>
+                    </form>
                 </div>
-
                 <div class="col-md-2">
-                    <select class="form-select" aria-label="Category">
-                        <option selected>Category</option>
+                <form id="filterCategory" method="post">
+                    <select class="form-select filter-select" aria-label="Category"name="category" data-form-id="filterCategory">
+                        <option selected disabled>Category</option>
                         <option value="1">All Benches</option>
-                        <option value="2">Flat Benches</option>
-                        <option value="3">Adjustable Benches</option>
+                        <option value="2">All Bicycle</option>
+                        <option value="3">All Cardio</option>
+                        <option value="4">All Sleds</option>
+                        <option value="5">All Plates</option>
+                        <option value="6">All Collars</option>
+                        <option value="7">All Ropes</option>
+                        <option value="8">All Boxs</option>
+                        <option value="9">All Steps</option>
+                        <option value="10">All Weighted balls</option>
+                        <option value="11">All Racks</option>
+                        <option value="12">All Dumbells</option>
+                        <option value="13">All Cable Extensions</option>
                     </select>
+                </form>
                 </div>
 
                 <div class="col-md-2">
-                    <select class="form-select" aria-label="Price">
-                        <option selected>Price</option>
-                        <option value="1">Under $300</option>
-                        <option value="2">$300 to $400</option>
-                        <option value="3">$400 and above</option>
-                    </select>
+                    <form id="filterForm" method="post">
+                        <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
+                            <option selected disabled>Price</option>
+                            <option value="1">Under 10000</option>
+                            <option value="2">10000 to 40000</option>
+                            <option value="3">40000 and above</option>
+                        </select>
+                    </form>
                 </div>
 
                 <div class="col-md-2">
@@ -104,6 +119,7 @@ include "header.php"
                     </select>
                 </div>
             </div>
+            
 
             <!-- grid and list buttons-->
             <div class="container mb-3 mt-3">
@@ -120,10 +136,104 @@ include "header.php"
         </div>
         <div class="container grid-container">
             <?php
-            // Assuming you have already connected to the database ($conn)
+            $selectedPrice = null;
+            $instock =  null;
+            $cat = null;
+
+            
+           
+           
+           
+
+// Fetch products from the database based on the selected price filter
+
+        if(isset($_POST['price'])){
+             $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
+            switch ($selectedPrice) {
+                case 1:
+                    $result = ProductModle::getProductsByPriceRange(0, 10000);
+                    break;
+                case 2:
+                    $result = ProductModle::getProductsByPriceRange(10000, 40000);
+                    break;
+                case 3:
+                    $result = ProductModle::getProductsByPriceRange(40000, PHP_INT_MAX);
+                    break;
+                default:
+                    // No price filter, fetch all products
+                    $result = ProductModle::allProducts();
+            }
+              }elseif(isset($_POST['availability']) ) { // Assuming you have already connected to the database ($conn)
             
             // Fetch products from the database
-            $result = productModle::allproducts();
+            $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
+          
+            switch ($instock) {
+                case 1:
+                    $result = ProductModle::inStock();
+                    break;
+                case 2:
+                    $result = ProductModle::OutOfStock();
+                    break;
+                default:
+                    // No price filter, fetch all products
+                    $result = ProductModle::allProducts();
+            }  
+        }elseif(isset($_POST['category']) ) { // Assuming you have already connected to the database ($conn)
+            
+            // Fetch products from the database
+            $cat = isset($_POST['category']) ? $_POST['category'] : null;
+            
+          
+            switch ($cat) {
+                case 1:
+                    $result = ProductModle::Benches();
+                    break;
+                case 2:
+                    $result = ProductModle::Bicycle();
+                    break;
+                case 3:
+                    $result = ProductModle::Cardio();
+                    break;
+                case 4:
+                    $result = ProductModle::Sleds();
+                    break;
+                case 5:
+                    $result = ProductModle::Plates();
+                    break;
+                 case 6:
+                    $result = ProductModle::Collars();
+                    break;
+                case 7:
+                    $result = ProductModle::Ropes();
+                    break;
+                case 8:
+                    $result = ProductModle::Boxs();
+                    break;
+                 case 9:
+                    $result = ProductModle::Steps();
+                    break;
+                case 10:
+                    $result = ProductModle::Weightedballs();
+                    break;
+                case 11:
+                    $result = ProductModle::Racks();
+                    break;
+                case 12:
+                    $result = ProductModle::Dumbells();
+                    break;
+                case 13:
+                    $result = ProductModle::CableExtensions();
+                    break;
+                default:
+                    // No price filter, fetch all products
+                    $result = ProductModle::allProducts();
+            }  
+        }
+        else {
+            $result = ProductModle::allProducts();
+            
+        }
 
             // Check if there are any products
             if (mysqli_num_rows($result) > 0) {
@@ -348,6 +458,16 @@ include "header.php"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="../public/JS/collections.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('.filter-select').change(function () {
+            var formId = $(this).data('form-id');
+            $('#' + formId).submit();
+        });
+    });
+</script>
+    
+
 
 
 </body>
