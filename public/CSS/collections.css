@@ -181,3 +181,8 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* pagination css */
+.page-link {
+  color: black !important;
+}
