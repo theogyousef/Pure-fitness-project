@@ -450,7 +450,7 @@ include "header.php"
         </div>  -->
 
         <!-- pagination front end -->
-        <div class="container mt-3 pagination_container">
+        <!-- <div class="container mt-3 pagination_container">
             <div class="d-flex justify-content-end"> 
                 <div class="me-2">
                     <label for="showItems" class="form-label">Show:</label>
@@ -480,7 +480,7 @@ include "header.php"
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div> -->
 
     </main>
     <footer>
@@ -491,7 +491,6 @@ include "header.php"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="../public/JS/collections.js"></script>
-    <script src="../public/JS/pagination.js"></script>
 
     <script>
         $(document).ready(function() {
