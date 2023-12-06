@@ -3,31 +3,47 @@ session_start();
 
 require '../controller/config.php';
 
-// Check if remove parameter is set in the URL
-if (isset($_GET['remove'])) {
-    $indexToRemove = $_GET['remove'];
+if(isset($_GET['remove'])) {
+    $productIdToRemove = $_GET['remove'];
 
-    // Check if the index exists in the session array
-    if (isset($_SESSION['products'][$indexToRemove])) {
-        // Unset the specified index
-        unset($_SESSION['products'][$indexToRemove]);
+    if(isset($_SESSION['products'])) {
+        foreach($_SESSION['products'] as $key => $product) {
+            if($product['id'] == $productIdToRemove) {
+                unset($_SESSION['products'][$key]);
+                header("Location: cart_display.php");
+                exit();
+            }
+        }
+
+        echo '<p>Product not found in the cart.</p>';
+    } else {
+        echo '<p>Cart is empty.</p>';
     }
-
-    // Redirect back to the cart page to avoid resubmission on refresh
-    header("Location: cart_display.php");
-    exit();
 }
 
-if (!empty($_SESSION["id"])) {
+
+
+if(!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
     $row = mysqli_fetch_assoc($result);
 } else {
     header("Location: registeration");
+} ?>
+<?php if(!empty($_SESSION['products'])) { ?>
+    <?php foreach($_SESSION['products'] as $product):
+        echo $product['id'];
+        echo $product['name'];
+        echo $product['price'];
+        echo "<br>";
+    endforeach;
+} else if(empty($_SESSION['products'])) {
+    echo "joe";
 }
 
 include "header.php";
 ?>
+
 
 
 <!DOCTYPE html>
@@ -41,59 +57,15 @@ include "header.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <title>My Cart</title>
-    <link rel="stylesheet" href="../public/CSS/cart_display.css">
     <style>
-        .checkout-button {
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: #e44d26;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .checkout-button {
-            background-color: #333333;
-        }
-
-        .checkout-button :hover {
-            color: red;
-        }
-
-        .add-button {
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: #e44d26;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .add-button {
-            background-color: #333333;
-        }
-
-        .add-button :hover {
-            color: red;
-        }
+        <?php
+        include "../public/css/cart_display.css"
+            ?>
     </style>
 </head>
 
@@ -119,48 +91,50 @@ include "header.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (!empty($_SESSION['products'])) : ?>
-                                    <?php for ($i = 0; $i < sizeof($_SESSION['products']); $i++) : ?>
-                                        <tr>
+                                <?php $total = 0 ;?>
+                                <?php if(!empty($_SESSION['products'])): ?>
+                                    <?php foreach($_SESSION['products'] as $product): ?>
+                                        <?php $total += $product['price']; ?>
                                         <tr>
                                             <td width="45%">
                                                 <div class="display-flex align-center">
                                                     <div class="img-product">
-                                                        <?php if (isset($_SESSION['products'][$i]['image'])) : ?>
-                                                            <img src="<?php echo $_SESSION['products'][$i]['image']; ?>" alt="" class="mCS_img_loaded">
+                                                        <?php if(isset($product['image'])): ?>
+                                                            <img src="<?php echo $product['image']; ?>" alt=""
+                                                                class="mCS_img_loaded">
                                                         <?php endif; ?>
                                                     </div>
                                                     <div class="name-product">
-                                                        <?php if (isset($_SESSION['products'][$i]['name'])) : ?>
-                                                            <?php echo $_SESSION['products'][$i]['name']; ?>
+                                                        <?php if(isset($product['name'])): ?>
+                                                            <?php echo $product['name']; ?>
                                                         <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td width="15%" class="price">
-                                                <?php if (isset($_SESSION['products'][$i]['price'])) : ?>
-                                                    <?php echo $_SESSION['products'][$i]['price']; ?> EGP
+                                                <?php if(isset($product['price'])): ?>
+                                                    <?php echo $product['price']; ?> EGP
                                                 <?php endif; ?>
                                             </td>
                                             <td width="10%" class="text-center">
-                                                <?php if (isset($_SESSION['products'][$i])) : ?>
-                                                    <a href="cart_display.php?remove=<?php echo $i; ?>" class="trash-icon"><i class="far fa-trash-alt"></i></a>
+                                                <?php if(isset($product)): ?>
+                                                    <a href="cart_display.php?remove=<?php echo $product['id']; ?>"
+                                                        class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                 <?php endif; ?>
                                             </td>
-
                                         </tr>
-
-                                    <?php endfor; ?>
-                                <?php else : ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
                                     <p>Your cart is empty.</p>
                                 <?php endif; ?>
                             </tbody>
 
                         </table>
-                        <?php if (empty($_SESSION['products'])) : ?>
+                        <h2 class="thetotal"> Total : <?php echo $total ;?></h2>
+                        <?php if(empty($_SESSION['products'])): ?>
                             <a href="index.php" class="add-button">Add Products</a>
                         <?php endif; ?>
-                        <?php if (!empty($_SESSION['products'])) : ?>
+                        <?php if(!empty($_SESSION['products'])): ?>
                             <a href="checkOut.php" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>

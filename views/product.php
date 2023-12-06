@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 require '../controller/config.php';
 // Assuming you have already connected to the database ($conn)
 if (!empty($_SESSION["id"])) {
@@ -24,6 +24,7 @@ if (isset($_GET['id'])) {
 
         // Append the new product to the cart
         $newProduct = [
+            'id' => $productDetails['id'],
             'name' => $productDetails['name'],
             'price' => $productDetails['price'],
             'image' => $productDetails['file'],
@@ -32,7 +33,7 @@ if (isset($_GET['id'])) {
         if (isset($_SESSION['products'])) {
             // If the products array is set, append the new product
             $_SESSION['products'][] = $newProduct;
-        } else {
+        } else  if (!isset($_SESSION['products'])){
             // If the products array is not set, create a new array with the current product
             $_SESSION['products'] = [$newProduct];
         }
