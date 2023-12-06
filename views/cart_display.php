@@ -3,12 +3,12 @@ session_start();
 
 require '../controller/config.php';
 
-if(isset($_GET['remove'])) {
+if (isset($_GET['remove'])) {
     $productIdToRemove = $_GET['remove'];
 
-    if(isset($_SESSION['products'])) {
-        foreach($_SESSION['products'] as $key => $product) {
-            if($product['id'] == $productIdToRemove) {
+    if (isset($_SESSION['products'])) {
+        foreach ($_SESSION['products'] as $key => $product) {
+            if ($product['id'] == $productIdToRemove) {
                 unset($_SESSION['products'][$key]);
                 header("Location: cart_display.php");
                 exit();
@@ -22,24 +22,30 @@ if(isset($_GET['remove'])) {
 }
 
 
-
-if(!empty($_SESSION["id"])) {
+require '../controller/config.php';
+if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
+
 } else {
     header("Location: registeration");
-} ?>
-<?php if(!empty($_SESSION['products'])) { ?>
-    <?php foreach($_SESSION['products'] as $product):
-        echo $product['id'];
-        echo $product['name'];
-        echo $product['price'];
-        echo "<br>";
-    endforeach;
-} else if(empty($_SESSION['products'])) {
-    echo "joe";
 }
+
+// if (!empty($_SESSION["id"])) {
+//     $id = $_SESSION["id"];
+//     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
+//     $row = mysqli_fetch_assoc($result);
+// } else {
+//     header("Location: registeration");
+// } 
+//  if (!empty($_SESSION['products'])) { 
+//     foreach ($_SESSION['products'] as $product):
+//         echo $product['id'] . " " . $product['name'] . " " . $product['price'] . " " . $product['quantity'] . "<br>";
+//     endforeach;
+// } else if (empty($_SESSION['products'])) {
+//     echo "joe";
+// }
 
 include "header.php";
 ?>
@@ -78,46 +84,53 @@ include "header.php";
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="main-heading mb-10">My Cart</div>
                     <div class="table-wishlist">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
                             <thead>
                                 <tr>
                                     <th width="45%">Product Name</th>
-                                    <th width="15%">Unit Price</th>
-
+                                    <th  width="15%">Unit Price</th>
+                                    <th class="quantity"width="15%">Quantity</th>
                                     <th width="15%"></th>
                                     <th width="10%"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $total = 0 ;?>
-                                <?php if(!empty($_SESSION['products'])): ?>
-                                    <?php foreach($_SESSION['products'] as $product): ?>
-                                        <?php $total += $product['price']; ?>
+                                <?php $total = 0; ?>
+                                <?php if (!empty($_SESSION['products'])): ?>
+                                    <?php foreach ($_SESSION['products'] as $product): ?>
+                                        <?php
+                                        $totalproduct =  $product['price'] *  $product['quantity']; ;
+                                        $total += $totalproduct;
+                                         ?>
                                         <tr>
                                             <td width="45%">
                                                 <div class="display-flex align-center">
                                                     <div class="img-product">
-                                                        <?php if(isset($product['image'])): ?>
+                                                        <?php if (isset($product['image'])): ?>
                                                             <img src="<?php echo $product['image']; ?>" alt=""
                                                                 class="mCS_img_loaded">
                                                         <?php endif; ?>
                                                     </div>
                                                     <div class="name-product">
-                                                        <?php if(isset($product['name'])): ?>
+                                                        <?php if (isset($product['name'])): ?>
                                                             <?php echo $product['name']; ?>
                                                         <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td width="15%" class="price">
-                                                <?php if(isset($product['price'])): ?>
+                                                <?php if (isset($product['price'])): ?>
                                                     <?php echo $product['price']; ?> EGP
                                                 <?php endif; ?>
                                             </td>
+                                            <td width="15%" class="quantity">
+                                                <?php if (isset($product['quantity'])): ?>
+                                                    <?php echo $product['quantity']; ?>
+                                                <?php endif; ?>
+                                            </td>
                                             <td width="10%" class="text-center">
-                                                <?php if(isset($product)): ?>
+                                                <?php if (isset($product)): ?>
                                                     <a href="cart_display.php?remove=<?php echo $product['id']; ?>"
                                                         class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                 <?php endif; ?>
@@ -130,12 +143,14 @@ include "header.php";
                             </tbody>
 
                         </table>
-                        <h2 class="thetotal"> Total : <?php echo $total ;?></h2>
-                        <?php if(empty($_SESSION['products'])): ?>
+                        <h3 class="thetotal"> Total :
+                            <?php echo $total; ?>
+                        </h3>
+                        <?php if (empty($_SESSION['products'])): ?>
                             <a href="index.php" class="add-button">Add Products</a>
                         <?php endif; ?>
-                        <?php if(!empty($_SESSION['products'])): ?>
-                            <a href="checkOut.php" class="checkout-button">Proceed to Checkout</a>
+                        <?php if (!empty($_SESSION['products'])): ?>
+                            <a href="checkout" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>
                 </div>

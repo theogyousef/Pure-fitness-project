@@ -48,6 +48,10 @@ class Routere
         } elseif ($path === '/SWE/views/profilesettings') {
             require '../views/profilesettings.php';
             exit();
+        } 
+        elseif ($path === '/SWE/views/checkout') {
+            require '../views/checkout.php';
+            exit();
         } elseif ($path === '/SWE/views/logout') {
             require '../views/logout.php';
             exit();
@@ -59,9 +63,6 @@ class Routere
             exit();
         } elseif ($path === '/SWE/views/wishlist') {
             require '../views/wishlist.php';
-            exit();
-        } elseif ($path === '/SWE/views/checkOut') {
-            require '../views/checkOut.php';
             exit();
         } elseif ($path === '/SWE/views/about') {
             require '../views/about.php';

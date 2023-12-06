@@ -228,3 +228,7 @@ header {
   position: absolute;
   right: 350px;
 }
+.quantity{
+  text-align: center;
+  font-weight: 500;
+}
