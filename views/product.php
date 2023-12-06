@@ -30,13 +30,13 @@ if (isset($_GET['id'])) {
             'image' => $productDetails['file'],
         ];
 
-        if (isset($_SESSION['products'])) {
+        if (isset($_POST['addtocart'])) {
             // If the products array is set, append the new product
-            $_SESSION['products'][] = $newProduct;
-        } else  if (!isset($_SESSION['products'])){
+          $_SESSION['products'][] = $newProduct;
+        }// else  if (!isset($_SESSION['products'])){
             // If the products array is not set, create a new array with the current product
-            $_SESSION['products'] = [$newProduct];
-        }
+         //   $_SESSION['products'] = [$newProduct];
+        //}
 
         // Display the product details on the page
         // ...
@@ -128,10 +128,12 @@ include "header.php";
                         <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
                     </div>
                     <!-- Add to Cart button -->
+                    <form action="" method="post">
                     <a href="add-to-cart.php">
-                        <button class="btn btn-primary bg-dark add-to-cart-button">Add to Cart</button>
+                        <button class="btn btn-primary bg-dark add-to-cart-button" name="addtocart">Add to Cart</button>
 
                     </a>
+                    </form>
                 </div>
             </div>
         </section>
