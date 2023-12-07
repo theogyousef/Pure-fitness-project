@@ -216,11 +216,6 @@ header {
   margin-top: 20px;
   transition: background-color 0.3s;
 }
-
-.add-button {
-  background-color: #333333;
-}
-
 .add-button :hover {
   color: red;
 }
@@ -231,4 +226,17 @@ header {
 .quantity{
   text-align: center;
   font-weight: 500;
+  background-color: white;
+}
+#quantityy {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#quantityy #input-group{
+  width: 100px;
+}
+#decrement , #increment {
+  border : none ;
+  font-size: 24px;
 }

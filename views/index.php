@@ -54,10 +54,16 @@ include "header.php";
   <title>Home Page</title>
   <style>
     <?php include "../public/CSS/index.css" ?>
+    <?php include "../public/CSS/back-to-top.css" ?>
+
   </style>
 </head>
 
 <body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+<i class="bi bi-chevron-double-up"></i>
+</button>
   <!-- open btn -->
   <!-- <button id="open_cart_btn">
     <a href="#" class="text-decoration-none">
@@ -1402,6 +1408,8 @@ include "header.php";
   <script src="../public/JS/index.js"></script>
   <script src="../public/JS/ajaxHandlers.js"></script>
   <script src="../public/JS/bmi.js"></script>
+  <script src="../public/JS/back-to-top.js"></script>
+
 
 
 
