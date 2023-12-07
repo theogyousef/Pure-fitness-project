@@ -1,14 +1,21 @@
 <?php
 
-// session_start();
+// session_start(); // Add this line to start the session
+
 require '../controller/config.php';
+
 // Assuming you have already connected to the database ($conn)
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
     $row = mysqli_fetch_assoc($result);
 } else {
     header("Location: registeration.php");
+}
+
+// Initialize the 'products' array in the session if not set
+if (!isset($_SESSION['products'])) {
+    $_SESSION['products'] = array();
 }
 
 // Check if the product ID is provided in the URL
@@ -58,8 +65,6 @@ if (isset($_GET['id'])) {
 } else {
     echo '<p>Product ID is not provided.</p>';
 }
-
-
 
 include "header.php";
 ?>
