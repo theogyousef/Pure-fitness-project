@@ -64,7 +64,8 @@ include "header.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <title>My Cart</title>
@@ -97,56 +98,75 @@ include "header.php";
                             </thead>
                             <tbody>
                                 <?php $total = 0; ?>
-                                <?php if (!empty($_SESSION['products'])) : ?>
-                                    <?php foreach ($_SESSION['products'] as $product) : ?>
+                                <?php if (!empty($_SESSION['products'])): ?>
+                                    <?php foreach ($_SESSION['products'] as $product): ?>
                                         <?php
-                                        $totalproduct =  $product['price'] *  $product['quantity'];;
+                                        $totalproduct = $product['price'] * $product['quantity'];
+                                        ;
                                         $total += $totalproduct;
                                         ?>
+
                                         <tr>
                                             <td width="45%">
                                                 <div class="display-flex align-center">
                                                     <div class="img-product">
-                                                        <?php if (isset($product['image'])) : ?>
-                                                            <img src="<?php echo $product['image']; ?>" alt="" class="mCS_img_loaded">
+                                                        <?php if (isset($product['image'])): ?>
+                                                            <a href="product?id=<?php echo $product['id']; ?>">
+
+                                                            <img src="<?php echo $product['image']; ?>" alt=""
+                                                                class="mCS_img_loaded">
+                                                            </a>
                                                         <?php endif; ?>
                                                     </div>
                                                     <div class="name-product">
-                                                        <?php if (isset($product['name'])) : ?>
-                                                            <?php echo $product['name']; ?>
+
+                                                        <?php if (isset($product['name'])): ?>
+                                                            <a href="product?id=<?php echo $product['id']; ?>">
+
+                                                                <?php echo $product['name']; ?>
+                                                            </a>
                                                         <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td width="15%" class="price">
-                                                <?php if (isset($product['price'])) : ?>
+                                                <?php if (isset($product['price'])): ?>
+                                                    <a href="product?id=<?php echo $product['id']; ?>">
+
                                                     <?php echo $product['price']; ?> EGP
+                                                    </a>
                                                 <?php endif; ?>
                                             </td>
                                             <td width="15%" class="quantity">
                                                 <form action="" method="post" id="quantityy">
                                                     <div class="input-group mb-2 quantity-selector" id="input-group">
-                                                        <button class="btn btn-outline-secondary decrement" type="button" id="decrement">-</button>
-                                                        <input type="text" name="quantity" id="quantity" class="form-control text-center small quantity-input" style="background-color: transparent; border : none ;" value="<?php echo $product['quantity']; ?>" >
-                                                        <button class="btn btn-outline-secondary increment" type="button" id="increment">+</button>
+                                                        <button class="btn btn-outline-secondary decrement" type="button"
+                                                            id="decrement">-</button>
+                                                        <input type="text" name="quantity" id="quantity"
+                                                            class="form-control text-center small quantity-input"
+                                                            style="background-color: transparent; border : none ;"
+                                                            value="<?php echo $product['quantity']; ?>">
+                                                        <button class="btn btn-outline-secondary increment" type="button"
+                                                            id="increment">+</button>
                                                     </div>
-                                                
+
                                                 </form>
                                             </td>
 
                                             <!-- <td width="15%" class="quantity">
                                                 <?php #if (isset($product['quantity'])) :
-                                                     #echo $product['quantity']; 
-                                                 #endif; ?>
+                                                        #echo $product['quantity']; 
+                                                        #endif; ?>
                                             </td> -->
                                             <td width="10%" class="text-center">
-                                                <?php if (isset($product)) : ?>
-                                                    <a href="cart_display.php?remove=<?php echo $product['id']; ?>" class="trash-icon"><i class="far fa-trash-alt"></i></a>
+                                                <?php if (isset($product)): ?>
+                                                    <a href="cart_display.php?remove=<?php echo $product['id']; ?>"
+                                                        class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-                                <?php else : ?>
+                                <?php else: ?>
                                     <p>Your cart is empty.</p>
                                 <?php endif; ?>
                             </tbody>
@@ -155,10 +175,10 @@ include "header.php";
                         <h3 class="thetotal"> Total :
                             <?php echo $total; ?>
                         </h3>
-                        <?php if (empty($_SESSION['products'])) : ?>
+                        <?php if (empty($_SESSION['products'])): ?>
                             <a href="index.php" class="add-button">Add Products</a>
                         <?php endif; ?>
-                        <?php if (!empty($_SESSION['products'])) : ?>
+                        <?php if (!empty($_SESSION['products'])): ?>
                             <a href="checkout" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>
