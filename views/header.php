@@ -42,7 +42,8 @@
       <div class="row align-items-center">
         <div class="col-md-2">
           <div class="input-group border-0">
-            <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search" onkeyup="liveSearch()">
+            <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search"
+              onkeyup="liveSearch()">
             <button class="btn btn-dark border-0" type="button" id="search-addon">
               <i class="bi bi-search text-white"></i>
             </button>
@@ -54,7 +55,9 @@
         <div id="logo" class="col-md-8 text-center">
           <!-- Header logo -->
           <a href="index" rel="home">
-            <img src="https://purefitness-eg.com/wp-content/uploads/2023/07/IMG_%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A7%D9%A2%D9%A3_%D9%A1%D9%A9%D9%A1%D9%A0%D9%A4%D9%A0-1400x623.png" alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
+            <img
+              src="https://purefitness-eg.com/wp-content/uploads/2023/07/IMG_%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A7%D9%A2%D9%A3_%D9%A1%D9%A9%D9%A1%D9%A0%D9%A4%D9%A0-1400x623.png"
+              alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
           </a>
         </div>
         <div id="left_elements" class="col-md-2 d-flex justify-content-end">
@@ -76,6 +79,8 @@
             <?php if (isset($row) && isset($row["guest"]) && $row["guest"] != 1) { ?>
               <div class="dropdown-menu" id="loginSignupDropdown">
                 <a class="dropdown-item" href="profilesettings">Profile Settings</a>
+                <a class="dropdown-item" href="orders">My orders</a>
+
                 <?php
                 if ($row["admin"] == 1) {
                   echo "<a class='dropdown-item' href='adminDashboard'>Admin dashboard</a>";
@@ -102,7 +107,8 @@
         <ul class="navbar-nav text-white text-center">
           <!-- Example for one dropdown -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               SHOP
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -126,7 +132,8 @@
           </li>
           <!-- Repeat for each dropdown -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGymTools" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGymTools" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               GYM TOOLS
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownGymTools">
@@ -149,7 +156,8 @@
 
           <!-- Continue repeating this pattern for CARDIO and GYM MACHINES -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               CROSSFIT EQUIPMENT
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownCrossfitEquipment">
@@ -220,7 +228,8 @@
 
           <!-- Cardio Nav -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               CARDIO
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownCrossfitEquipment">
@@ -238,7 +247,8 @@
           </li>
           <!-- Gym machine nav -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               GYM MACHINES
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownCrossfitEquipment">
