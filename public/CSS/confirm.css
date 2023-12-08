@@ -1,96 +1,134 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.container-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+    /* margin-top: 20px; */
+    background-color: transparent;
+    color: #69707a;
+  }
+  .img-account-profile {
+    height: 10rem;
+  }
+  .rounded-circle {
+    border-radius: 50% !important;
+  }
+  .card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+  }
+  .card .card-header {
+    font-weight: 500;
+  }
+  .card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+  }
+  .card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+  }
+  .form-control,
+  .dataTable-input {
+    display: block;
     width: 100%;
-    margin: 30px auto;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    background-color: black;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 70%;
-    margin: 0 auto;
-    color: #333333;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-label {
-    width: 100%;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: red;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #262626;
-}
-
-.error-message {
-    color: red;
-    margin-top: -8px;
-    margin-bottom: 16px;
-}
-
-#successMessage {
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+  }
+  .nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .photoselect {
+    width: 45%;
+    text-align: center;
+    padding: 3%;
+    border: thin solid black;
+  }
+  
+  input[type="file"] {
     display: none;
+  }
+  
+  label {
+    cursor: pointer;
+  }
+  
+  #imageName {
     color: green;
-    text-align: center;
-    margin-top: 16px;
+  }
+  #homenav {
+    /* margin-left: auto; */
+    color: red;
+    border-bottom-color: red;
+  }
+  
+  .errormessage{
+    color: red;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+  
+  }
+  
+  
+  #phonenumberdiv {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) of the container */
+  }
+  
+  .phone-input-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .phone-input-container select {
+    width: 80px; /* Set the width to 80px */
+    margin-right: 5px; /* Adjust spacing between select and input */
+  }
+  
+  .phone-input-container input {
+    flex: 1; /* Distribute remaining space equally */
+  }
+  
+  /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+} */
+
+.container-address {
+    margin-top: 30px;
+    width: 100%;
 }
 
-header {
-    background-color: #262626;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-
-.column {
-    flex-basis: 48%;
+#Address {
+    width: 100%;
+    max-width: 800px; 
+    margin: auto; /* Auto margin to center the container within the body */
 }

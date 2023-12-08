@@ -1,105 +1,164 @@
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
+<?php
+
+//require "../controller/config.php";
+require "../controller/profilesettingsfun.php";
+
+// Check for form submissions and perform the corresponding action
+if (isset($_POST["fileupload"])) {
+    uploadpic();
+} else if (isset($_POST["accountdetails"])) {
+    editdetails();
+} else if (isset($_POST["socialsave"])) {
+    updatesocials();
+} else if (isset($_POST["updatesecurity"])) {
+    updatepasswords();
+} else if (isset($_POST["addressdetails"])) {
+    updateaddress();
+} else if (isset($_POST["deactivateaccount"])){
+    deactivateaccount();
+}
+
+if (!empty($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $row = mysqli_fetch_assoc($result);
+} else {
+    header("Location: registeration");
+}
+
+
+if ($row["guest"] == 1) {
+    header("Location: index");
+
+}
+if ($row["deactivated"] == 1) {
+    header("Location: deactivated");
+  
+  }
+
+$instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
+$instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
+
+$githubUsername = trim($row["github"]); // Remove leading/trailing whitespace
+$githubURL = "https://github.com/" . rawurlencode($githubUsername);
+
+include "header.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/CSS/confirm.css">
-    <title>Address Confirmation</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <title>Confirm address</title>
+    <style>
+        <?php
+        include "../public/CSS/confirm.css";
+        ?>
+    </style>
+        <script src="../public/JS/profilesettings.js"></script>
+
 </head>
 
 <body>
-    <header>
-        <h1>Address Confirmation</h1>
-    </header>
+    <div class="container-address">
+    <div class="col-xl-8" id="Address" >
+        <div class="card mb-4">
+            <div class="card-header">Address Details</div>
+            <div class="card-body">
 
-    <div class="container-wrapper">
-        <div class="container">
-            <form id="addressForm" onsubmit="validateForm(event)">
-                <div class="row">
-                    <div class="column">
-                        <label for="fullName">Full Name:</label>
-                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
-                        <div class="error-message" id="fullname-error"></div>
+                <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)">
+                    <div class="col-md-6">
 
-                        <label for="address">Street:</label>
-                        <input type="text" id="address" name="address" placeholder="123 Main St" required>
-                        <div class="error-message" id="address-error"></div>
+                        <h4 for="inputUsername" style="color : black ;">Egypt</h4>
+                        <label for="governorates">Select a state:</label>
+                        <select class="form-control" id="governorates" name="governorates">
+                            <option value="<?php echo $row['governorates'] ?>" selected>
+                                <?php echo $row['governorates'] ?>
+                            </option>
+                            <option value="Al Daqahliyah">Al Daqahliyah</option>
+                            <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
+                            <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
+                            <option value="Al Fayyum">Al Fayyum</option>
+                            <option value="Al Gharbiyah">Al Gharbiyah (Gharbia)</option>
+                            <option value="Al Iskandariyah">Al Iskandariyah (Alexandria)</option>
+                            <option value="Al Isma'iliyah">Al Isma'iliyah (Ismailia)</option>
+                            <option value="Al Jizah">Al Jizah (Giza)</option>
+                            <option value="Al Minufiyah">Al Minufiyah (Menufia)</option>
+                            <option value="Al Minya">Al Minya</option>
+                            <option value="Al Qahirah">Al Qahirah (Cairo)</option>
+                            <option value="Al Qalyubiyah">Al Qalyubiyah (Qalyubia)</option>
+                            <option value="Al Wadi al Jadid">Al Wadi al Jadid (New Valley)</option>
+                            <option value="As Suways">As Suways (Suez)</option>
+                            <option value="Ash Sharqiyah">Ash Sharqiyah (Eastern)</option>
+                            <option value="Aswan">Aswan</option>
+                            <option value="Asyut">Asyut</option>
+                            <option value="Bur Sa'id">Bur Sa'id (Port Said)</option>
+                            <option value="Dumyat">Dumyat (Damietta)</option>
+                            <option value="Janub Sina'">Janub Sina' (South Sinai)</option>
+                            <option value="Kafr ash Shaykh">Kafr ash Shaykh</option>
+                            <option value="Matruh">Matruh</option>
+                            <option value="Qina">Qina (Qena)</option>
+                            <option value="Shamal Sina'">Shamal Sina' (North Sinai)</option>
+                            <option value="Suhaj">Suhaj (Sohag)</option>
+                            <option value="The 6th of October">The 6th of October</option>
+                            <option value="Luxor">Luxor</option>
+                        </select>
+                    </div>
+                    <div class="row gx-3 mb-3">
 
-                        <label for="apartmentno">Apartment No.:</label>
-                        <input type="text" id="apartmentno" name="apartment" placeholder="Apt 4B" required>
-                        <div class="error-message" id="apartment-error"></div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputcity">Town/city</label>
+                            <input name="city" class="form-control" id="inputcity" type="text"
+                                placeholder="Enter your city" value="<?php echo $row['city'] ?>">
+                        </div>
 
-                        <label for="floorno">Floor No:</label>
-                        <input type="text" id="floorno" name="floor" placeholder="5th Floor" required>
-                        <div class="error-message" id="floor-error"></div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputstreet">Street address</label>
+                            <input name="street" class="form-control" id="inputstreet" type="text"
+                                placeholder="Enter your street name / number" value="<?php echo $row['street'] ?>">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
+                        <input name="house" class="form-control" id="inputhouse" type="text"
+                            placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
+                        <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
+                            placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
                     </div>
 
-                    <div class="column">
-                        <label for="buildingno">Building No:</label>
-                        <input type="text" id="buildingno" name="building" placeholder="Building 123" required>
-                        <div class="error-message" id="building-error"></div>
-
-                        <label for="country">Country:</label>
-                        <input type="text" id="country" name="country" placeholder="Egypt" required>
-                        <div class="error-message" id="country-error"></div>
-
-                        <label for="city">City:</label>
-                        <input type="text" id="city" name="city" placeholder="Cairo" required>
-                        <div class="error-message" id="city-error"></div>
-
-                        <label for="zipcode">Zip Code:</label>
-                        <input type="text" id="zipCode" name="zipCode" pattern="\d{5}" title="ZIP code must be 5 digits" placeholder="12345" required>
-                        <div class="error-message" id="zipCode-error"></div>
+                    <div style="height: 20px;">
+                        <span id="AddresserrorMessages" class="errormessage" style="display: none;"></span>
                     </div>
-
-                    <button type="submit">Confirm Address</button>
-                    <div id="successMessage">
-                        Address confirmed successfully!
-                    </div>
-                </div>
-            </form>
+                    <br>
+                    <input name="addressdetails" type="submit" class="btn btn-primary" value="Next Step" style="background-color: black;">
+                </form>
+            </div>
         </div>
     </div>
-
-
-
-    <script>
-        function validateForm(event) {
-            event.preventDefault();
-
-            const inputs = document.querySelectorAll('#addressForm input');
-
-            let isValid = true;
-            inputs.forEach(input => {
-                const errorElement = document.getElementById(`${input.id}-error`);
-                if (!input.value.trim()) {
-                    isValid = false;
-                    errorElement.textContent = 'This field is required';
-                }
-            });
-
-            const zipCodeRegex = /^\d{5}$/;
-            const zipCodeInput = document.getElementById('zipCode');
-            const zipCodeErrorElement = document.getElementById('zipCode-error');
-            if (!zipCodeRegex.test(zipCodeInput.value)) {
-                zipCodeErrorElement.textContent = 'Please enter a valid 5-digit ZIP code.';
-                isValid = false;
-            }
-
-            const successMessage = document.getElementById('successMessage');
-            if (isValid) {
-                console.log('tmmmaaaaammmm');
-                successMessage.textContent = 'Address confirmed successfully!';
-                window.location.href = "checkOut.php";
-            }
-        }
-    </script>
+    </div>
     <footer>
         <?php
-        include 'footer.php'
+        include "footer.php";
         ?>
     </footer>
 </body>
-
-</html>
