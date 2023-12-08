@@ -7,3 +7,4 @@ composer.lock
 vendor
 venv/
 __pycache__/
+chatbot_python/data.pth
