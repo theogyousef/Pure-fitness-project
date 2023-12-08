@@ -1,0 +1,127 @@
+.divider-or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #6c757d;
+    margin-right: 50px;
+}
+
+.divider-or::before,
+.divider-or::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #6c757d;
+}
+
+.divider-or::before {
+    margin-right: .4rem;
+}
+
+.divider-or::after {
+    margin-left: .4em;
+}
+
+.form-floating>label {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+.social-button {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    color: #495057;
+    background-color: #fff;
+    text-align: left;
+    border-radius: .25rem;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    font-size: .875rem;
+}
+
+.social-button:hover {
+    color: #495057;
+    text-decoration: none;
+}
+
+.center-btn {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 25px;
+}
+
+.form-control {
+    border-color: rgb(106, 102, 102);
+}
+
+.form-floating>.form-control:hover {
+    border-color: transparent;
+}
+
+.form-floating>.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.form-control {
+    width: 90%;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    height: auto;
+}
+
+.form-floating>label {
+    font-size: .875rem;
+}
+
+.form-floating {
+    margin-bottom: .5rem;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-right: 40px;
+}
+
+.social-icon {
+    width: 30px;
+    height: auto;
+}
+
+.social-button {
+    width: 90%;
+    max-width: 500px;
+}
+
+#submit-button {
+    font-size: 16px;
+
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    color: #495057;
+    background-color: #fff;
+    border-radius: .25rem;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    font-size: .875rem;
+}
+
+.text-muted {
+    margin-right: 20px;
+}
+
+#loginErrorMessages,
+#errorMessages {
+    color: red;
+    margin-bottom: 5px;
+}
