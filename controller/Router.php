@@ -32,37 +32,32 @@ class Routere
             $_SESSION["login"] = true;
             $_SESSION["id"] = $row["id"];
         }
-     
-      
+
+
+
         if ($path === $root) {
             require '../views/index.php';
             exit();
         } elseif ($path === '/SWE/views/product') {
             require '../views/product.php';
             exit();
-
         } elseif ($path === '/SWE/views/collections') {
             require '../views/collections.php';
             exit();
-
         } elseif ($path === '/SWE/views/profilesettings') {
             require '../views/profilesettings.php';
             exit();
-        } 
-        elseif ($path === '/SWE/views/checkout') {
+        } elseif ($path === '/SWE/views/checkout') {
             require '../views/checkout.php';
             exit();
         } elseif ($path === '/SWE/views/orders') {
             require '../views/orders.php';
             exit();
-        }elseif ($path === '/SWE/views/confirm') {
+        } elseif ($path === '/SWE/views/confirm') {
             require '../views/confirm.php';
             exit();
         } elseif ($path === '/SWE/views/logout') {
             require '../views/logout.php';
-            exit();
-        } elseif ($path === '/SWE/views/registeration') {
-            require '../views/registeration.php';
             exit();
         } elseif ($path === '/SWE/views/adminDashboard') {
             require '../views/adminDashboard.php';
@@ -72,6 +67,15 @@ class Routere
             exit();
         } elseif ($path === '/SWE/views/about') {
             require '../views/about.php';
+            exit();
+        } elseif ($path === '/SWE/views/signup') {
+            require '../views/signup.php';
+            exit();
+        } elseif ($path === '/SWE/views/login') {
+            require '../views/login.php';
+            exit();
+        } elseif ($path === '/SWE/views/forgetpassword') {
+            require '../views/forgetpassword.php';
             exit();
         } elseif ($path === '/SWE/views/users') {
             require '../views/users.php';
@@ -88,46 +92,36 @@ class Routere
         } elseif ($path === '/SWE/views/forgetpass') {
             require '../views/forgetpass.php';
             exit();
-
         } elseif ($path === '/SWE/views/otp') {
             require '../views/otp.php';
             exit();
-
         } elseif ($path === '/SWE/views/newpassword') {
             require '../views/resetpassword.php';
             exit();
-
         } elseif ($path === '/SWE/views/deactivated') {
             require '../views/deactivated.php';
             exit();
         } elseif ($path === '/SWE/views/editproduct?id=' . $id) {
             require '../views/editproduct.php';
             exit();
-
         } elseif ($path === '/SWE/views/product?id=' . $id) {
             require '../views/product.php';
             exit();
-
         } elseif ($path === '/SWE/views/deleteproduct?id=' . $id) {
             require '../views/deleteproduct.php';
             exit();
-
         } elseif ($path === '/SWE/views/edituser?id=' . $id) {
             require '../views/edituser.php';
             exit();
-
         } elseif ($path === '/SWE/views/deleteuser?id=' . $id) {
             require '../views/deleteuser.php';
             exit();
-
         } elseif ($path === '/SWE/views/makeuser?id=' . $id) {
             require '../views/makeuser.php';
             exit();
-
         } elseif ($path === '/SWE/views/makeadmin?id=' . $id) {
             require '../views/makeadmin.php';
             exit();
-
         } else {
 
             require '../views/404.php';
