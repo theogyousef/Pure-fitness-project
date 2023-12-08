@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 require '../controller/config.php';
 if (!empty($_SESSION["id"])) {
