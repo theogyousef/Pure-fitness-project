@@ -184,10 +184,9 @@ include "header.php";
             while ($relatedProduct = mysqli_fetch_assoc($relatedProductsResult)) {
                 ?>
                 <div class="col-md-3 col-sm-6">
-                <a href="product?id=<?php echo $product['id']; ?>">
+                <a href="product?id=<?php echo $relatedProduct['id']; ?>">
                     <div class="products">
                         <div class="product-image">
-                            <a href="#" class="images">
                                 <img src="<?php echo $relatedProduct['file']; ?>" alt="<?php echo $relatedProduct['name']; ?>"
                                     class="pic img-fluid">
                            

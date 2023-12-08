@@ -3,8 +3,8 @@
 //require "../controller/config.php";
 require "../controller/forgetpassword.php";
 
-if (isset($_POST["submitpass"])) {
-  newpassword($conn);
+if (isset($_POST["submit"])) {
+  forgetpassword($conn);
 }
 
 include "header.php";
@@ -21,43 +21,40 @@ include "header.php";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <title>New Password</title>
+  <title>Forgot Password</title>
+
   <style>
     <?php include "../public/CSS/forgetpassword.css" ?>
   </style>
-
 </head>
 
 <body>
-<div class="container mx-auto forgetpassword">
+  <div class="container mx-auto forgetpassword">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="text-center mt-5">
-          <h3>NEW PASSWORD</h3>
+          <h3 class="forgetpassword">FORGOT PASSWORD</h3>
           <hr class="thin-line">
-          <p>Please enter your new password.</p>
+          <p>Please enter your email address.<br>We will send you a link to reset your password.</p>
         </div>
         <div class="mt-3">
-        <form method="post" onsubmit="return validatePassword();">
+          <form method="post" onsubmit="return validateForm();">
             <div class="form-floating mb-3">
-              <input type="password" name="password" class="form-control" id="newPasswordInput" placeholder="Enter New Password">
-              <label for="newPasswordInput">Enter New Password</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" name="confirmpassword" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password">
-              <label for="confirmPasswordInput">Confirm Password</label>
+              <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
             </div>
             <div class="text-center">
-            <button type="submit" name="submitpass" class="btn btn-dark w-30" id="submitnewpassword" style="font-size: 15px;">SUBMIT</button>
+              <button type="submit" name="submit" class="btn btn-dark w-30">SUBMIT</button>
             </div>
-            <div id="error-message" class="text-danger mt-2"></div>
+            <div id="error-message" class="text-danger mt-2"></div> <!-- Error message container -->
           </form>
         </div>
       </div>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../public/JS/resetpassword.js"></script>
+  <script src="../public/JS/forgetpassword.js"></script>
 
   <footer>
     <?php
