@@ -1,0 +1,164 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hey",
+          "How are you",
+          "Is anyone there?",
+          "Hello",
+          "Good day"
+        ],
+        "responses": [
+          "Hey",
+          "Hello, thanks for visiting",
+          "Hi there, what can I do for you?",
+          "Hi there, how can I help?"
+        ]
+      },
+      {
+        "tag": "best_selling",
+        "patterns": [ 
+          "What is your best selling product?",
+          "Which product is most popular?",
+          "What's the top-selling item?",
+          "Tell me about your best sellers"
+        ],
+        "responses": [
+          "Trademail"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": [
+          "See you later, thanks for visiting",
+          "Have a nice day",
+          "Bye! Come back again soon."
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "items",
+        "patterns": [
+          "Which items do you have?",
+          "What kinds of items are there?",
+          "What do you buy?"
+        ],
+        "responses": [
+          "We sell gym equipements",
+          "We sell gym equipements"
+        ]
+      },
+      {
+        "tag": "payments",
+        "patterns": [
+          "Do you take credit cards?",
+          "Do you accept Mastercard?",
+          "Can I pay with Paypal?",
+          "Are you cash only?"
+        ],
+        "responses": [
+          "We accept VISA, Mastercard and Paypal",
+          "We accept most major credit cards, and Paypal"
+        ]
+      },
+      {
+        "tag": "delivery",
+        "patterns": [
+          "How long does delivery take?",
+          "How long does shipping take?",
+          "When do I get my delivery?"
+        ],
+        "responses": [
+          "Delivery takes 2-4 days",
+          "Shipping takes 2-4 days"
+        ]
+      },
+      {
+        "tag": "gym_equipment",
+        "patterns": [
+          "What types of gym equipment do you offer?",
+          "Tell me about your gym machines",
+          "Do you have weightlifting equipment?",
+          "What brands of fitness equipment do you sell?"
+        ],
+        "responses": [
+          "We offer a wide range of gym equipment, including treadmills, elliptical machines, weight benches, and more.",
+          "Our gym machines include cardio equipment like treadmills and ellipticals, as well as strength training equipment like weight benches and dumbbells.",
+          "Yes, we have a variety of weightlifting equipment, including barbells, dumbbells, and weight plates.",
+          "We sell top brands of fitness equipment, including brands like Life Fitness, Precor, and Bowflex."
+        ]
+      },
+      {
+        "tag": "fitness_goals",
+        "patterns": [
+          "How can I choose the right fitness equipment for my goals?",
+          "Can you recommend equipment for weight loss?",
+          "What should I buy for muscle building?"
+        ],
+        "responses": [
+          "Choosing the right fitness equipment depends on your fitness goals. For weight loss, cardio equipment like treadmills or stationary bikes is a great choice. For muscle building, consider weightlifting equipment like barbells and dumbbells.",
+          "We can help you find the right equipment based on your specific fitness goals. Please tell us more about what you're looking to achieve."
+        ]
+      },
+      {
+        "tag": "delivery_time",
+        "patterns": [
+          "How long does delivery take for gym equipment?",
+          "When can I expect my fitness equipment to arrive?"
+        ],
+        "responses": [
+          "Our standard delivery time for gym equipment is 5-7 business days. Please note that delivery times may vary depending on your location and product availability."
+        ]
+      },
+      {
+        "tag": "chat_info",
+        "patterns": [
+          "What is the name of this chatbot?",
+          "Who am I speaking with?"
+        ],
+        "responses": [
+          "You are speaking with Mariam, our chat support assistant."
+        ]
+      },
+      {
+        "tag": "chat_Date",
+        "patterns": [
+          "When was this service created?"
+        ],
+        "responses": [
+          "This service was created in November 2023."
+        ]
+      },
+      {
+        "tag": "project_outcome",
+        "patterns": [
+          "Will we get the best project grade?",
+          "Do you think our project is the best?",
+          "Is our project going to win?"
+        ],
+        "responses": [
+          "Your team has put in great effort, and I believe you have a strong chance of getting the best project grade, specially mariam samy!"
+        ]
+      },
+      {
+        "tag": "weight_gain_product",
+        "patterns": [
+          "What product can help me gain weight?",
+          "Can you recommend a supplement for weight gain?",
+          "I need to increase my weight, what should I use?"
+        ],
+        "responses": [
+          "To assist with weight gain, it's important to combine a healthy diet with the right supplements. I can recommend products that are high in protein and calories, designed to complement a balanced eating plan. Remember to consult with a healthcare professional before starting any new supplement regimen."
+        ]
+      }
+      
+    ]
+  }
+  
