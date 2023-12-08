@@ -179,7 +179,7 @@ include "header.php";
                             <a href="index.php" class="add-button">Add Products</a>
                         <?php endif; ?>
                         <?php if (!empty($_SESSION['products'])): ?>
-                            <a href="checkout" class="checkout-button">Proceed to Checkout</a>
+                            <a href="confirm.php" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>
                 </div>

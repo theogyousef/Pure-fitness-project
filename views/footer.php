@@ -5,7 +5,7 @@
 
 <footer class="footer">
   <hr />
-  <div class="container">
+  <div class="container-footer">
     <div class="footerDetail">
       <div class="socialMedia">
         
