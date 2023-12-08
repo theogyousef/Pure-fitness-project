@@ -186,3 +186,10 @@ h1 {
 .page-link {
   color: black !important;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+a :hover{
+  color: black;
+}

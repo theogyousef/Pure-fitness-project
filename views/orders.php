@@ -67,14 +67,7 @@ include "header.php";
                 </div>
                 <hr>
 
-                <!-- <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://i.imgur.com/Bd56jKH.png" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">ACER Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$650 </span>
-                        </figcaption>
-                    </figure>
-                </li> -->
+
                 <?php
                 $result = ProductModle::allProducts();
                 if (mysqli_num_rows($result) > 0) {
@@ -84,24 +77,29 @@ include "header.php";
                     for ($i = 0; $i < min(4, count($products)); $i++) {
                         $product = $products[$i];
                         ?>
-                        <ul class="row">
-                            <li class="col-md-3 ">
-                                <figure class="itemside mb-3">
-                                    <div class="aside"><img src="<?php echo $product['file']; ?>" class="img-sm border"></div>
-                                    <figcaption class="info align-self-center">
-                                        <p class="title">
-                                            <?php echo $product['name']; ?>
-                                        </p>
-                                        <span class="text-muted">
-                                            <?php echo $product['price'] . " EGP"; ?>
-                                        </span><br>
-                                        <span class="text-muted">
-                                            <?php echo "2" . " pieces"; ?>
-                                        </span>
-                                    </figcaption>
-                                </figure>
-                            </li>  </ul>
-                            <?php
+                        <a href="product?id=<?php echo $product['id']; ?>">
+
+                            <ul class="row">
+                                <li class="col-md-3 ">
+                                    <figure class="itemside mb-3">
+                                        <div class="aside"><img src="<?php echo $product['file']; ?>" class="img-sm border">
+                                        </div>
+                                        <figcaption class="info align-self-center">
+                                            <p class="title">
+                                                <?php echo $product['name']; ?>
+                                            </p>
+                                            <span class="text-muted">
+                                                <?php echo $product['price'] . " EGP"; ?>
+                                            </span><br>
+                                            <span class="text-muted">
+                                                <?php echo "2" . " pieces"; ?>
+                                            </span>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </a>
+                        <?php
                     }
                 } else {
                     echo "<p>No products found.</p>";
@@ -109,7 +107,7 @@ include "header.php";
                 ?>
 
 
-              
+
                 <hr>
                 <a href="#" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to
                     orders</a>

@@ -13,7 +13,7 @@ if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 }
 include "header.php"
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ include "header.php"
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -52,7 +52,8 @@ include "header.php"
             <div class="row mb-3">
                 <div class="col-md-2">
                     <form id="filterF" method="post">
-                        <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
+                        <select class="form-select filter-select" aria-label="Availability" name="availability"
+                            data-form-id="filterF">
                             <option selected disabled>Availability</option>
                             <option value="1">In Stock</option>
                             <option value="2">Out of Stock</option>
@@ -61,7 +62,8 @@ include "header.php"
                 </div>
                 <div class="col-md-2">
                     <form id="filterCategory" method="post">
-                        <select class="form-select filter-select" aria-label="Category" name="category" data-form-id="filterCategory">
+                        <select class="form-select filter-select" aria-label="Category" name="category"
+                            data-form-id="filterCategory">
                             <option selected disabled>Category</option>
                             <option value="1">All Benches</option>
                             <option value="2">All Bicycle</option>
@@ -84,7 +86,8 @@ include "header.php"
 
                 <div class="col-md-2">
                     <form id="filterForm" method="post">
-                        <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
+                        <select class="form-select filter-select" aria-label="Price" name="price"
+                            data-form-id="filterForm">
                             <option selected disabled>Price</option>
                             <option value="4">Highest To Lowest </option>
                             <option value="5">Lowest To Highest</option>
@@ -106,7 +109,8 @@ include "header.php"
                 <div class="col-md-2">
                     <form method="post" action="">
                         <div class="col-md-2">
-                            <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
+                            <button name="reset" style="background-color: black;" type="submit"
+                                class="btn btn-primary">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -137,7 +141,7 @@ include "header.php"
 
 
             // Fetch products from the database based on the selected price filter
-
+            
             if (isset($_POST['price'])) {
                 $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
                 switch ($selectedPrice) {
@@ -161,7 +165,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['availability'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
 
@@ -177,7 +181,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['category'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $cat = isset($_POST['category']) ? $_POST['category'] : null;
 
@@ -248,21 +252,22 @@ include "header.php"
                     if ($count % 4 == 0) {
                         echo '<div class="row justify-content-start" id="row">';
                     }
-            ?>
+                    ?>
                     <div class="col-md-3">
                         <a href="product?id=<?php echo $product['id']; ?>">
                             <div class="products">
                                 <div class="product-image">
-                                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
-                                    </a>
+                                    <!-- <a href="product?id=<?php echo $product['id']; ?>" class="images"> -->
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
+                                            class="pic img-fluid">
+                                    <!-- </a> -->
                                     <div class="links">
                                         <div class="Icon">
-                                            <a href="#"><i class="bi bi-cart3"></i></a>
+                                            <i class="bi bi-cart3"></i>
                                             <span class="tooltiptext">Add to cart</span>
                                         </div>
                                         <div class="Icon">
-                                            <a href="#"><i class="bi bi-heart"></i></a>
+                                           <i class="bi bi-heart"></i>
                                             <span class="tooltiptext">Move to wishlist</span>
                                         </div>
                                     </div>
@@ -301,7 +306,7 @@ include "header.php"
                             </div>
                         </a>
                     </div>
-            <?php
+                    <?php
                     // Close the row div after every 4 products
                     if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
                         echo '</div>';
@@ -494,8 +499,8 @@ include "header.php"
     <script src="../public/JS/collections.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.filter-select').change(function() {
+        $(document).ready(function () {
+            $('.filter-select').change(function () {
                 var formId = $(this).data('form-id');
                 $('#' + formId).submit();
             });

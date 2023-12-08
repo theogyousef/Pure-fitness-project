@@ -171,147 +171,60 @@ include "header.php";
         </section>
 
         <!-- You may also like section -->
-        <section class="you-may-also-like">
-            <h2>You May Also Like</h2>
-            <div class="row">
-                <!-- Product 1 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png"
-                                    alt="Concept 2 PM5 BikeErg" class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3>Concept 2 PM5 BikeErg</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span
-                                    class="nofdays">BIKES</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">72.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Second Product -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/Flat-Bench.webp" alt="Flat-Bench"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3>Flat Bench</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">CROSSFIT EQUIPMENT</span>
-                                <span class="separate"></span> <span class="nofdays">BENCHES</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">5.850 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Third Product -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/Concept 2 SkiErg.png" alt="Concept 2 SkiErg"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3>Concept 2 SkiErg</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span
-                                    class="nofdays">SKIERGS</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">72.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fourth Product -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3>ASSAULT AIRBIKE</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">CARDIO</span> <span class="separate"></span> <span
-                                    class="nofdays">BIKES</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">72.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fifth Product -->
-            </div>
+   <!-- You may also like section -->
+<section class="you-may-also-like">
+    <h2>Similar products</h2>
+    <div class="row">
+        <?php
+        // Fetch related products based on the type of the main product
+        $relatedProductsQuery = "SELECT * FROM products WHERE type = '{$productDetails['type']}' AND id != {$productDetails['id']} LIMIT 4";
+        $relatedProductsResult = mysqli_query($conn, $relatedProductsQuery);
 
-            <!-- Product image with magnifier lens -->
+        if ($relatedProductsResult && mysqli_num_rows($relatedProductsResult) > 0) {
+            while ($relatedProduct = mysqli_fetch_assoc($relatedProductsResult)) {
+                ?>
+                <div class="col-md-3 col-sm-6">
+                <a href="product?id=<?php echo $product['id']; ?>">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="#" class="images">
+                                <img src="<?php echo $relatedProduct['file']; ?>" alt="<?php echo $relatedProduct['name']; ?>"
+                                    class="pic img-fluid">
+                           
+                            <div class="links">
+                                <div class="Icon">
+                                   <i class="bi bi-cart3"></i>
+                                    <span class="tooltiptext">Add to cart</span>
+                                </div>
+                                <div class="Icon">
+                                    <i class="bi bi-heart"></i>
+                                    <span class="tooltiptext">Move to wishlist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Content">
+                            <h3><?php echo $relatedProduct['name']; ?></h3>
+                            <p class="detailsinfo">
+                                <span class="typetrip"><?php echo $relatedProduct['type']; ?></span>
+                            </p>
+                            <div class="cost">
+                                <p class="lower-price">
+                                    From <span class="price"><?php echo $relatedProduct['price'] . " EGP"; ?></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <?php
+            }
+        } else {
+            echo '<p>No related products found.</p>';
+        }
+        ?>
+    </div>
+</section>
 
-        </section>
     </main>
 
     <footer>
