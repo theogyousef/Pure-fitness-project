@@ -28,6 +28,7 @@ function signup(){
         // we pass the connection of the database and the quarey 
         mysqli_query($conn, $query);
         // echo "<script> alert('Regsitered successfully');</script> ";
+        header("Location: login");
   
       } else {
         // echo "<script> alert('Passwords do not match');</script> ";

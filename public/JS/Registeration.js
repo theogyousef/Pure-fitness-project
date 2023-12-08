@@ -1,42 +1,3 @@
-
-// Toggle between login and signup
-var a = document.getElementById("loginBtn");
-var b = document.getElementById("registerBtn");
-var x = document.getElementById("login");
-var y = document.getElementById("register");
-
-function toggleForms(xOffset, yRight, aClass, bClass, xOpacity, yOpacity) {
-  x.style.left = xOffset;
-  y.style.right = yRight;
-  a.className = aClass;
-  b.className = bClass;
-  x.style.opacity = xOpacity;
-  y.style.opacity = yOpacity;
-}
-
-function login() {
-  toggleForms("4px", "-520px", "btn white-btn", "btn", 1, 0);
-}
-
-function register() {
-  toggleForms("-510px", "5px", "btn", "btn white-btn", 0, 1);
-}
-
-// Toggle password visibility
-function togglePasswordVisibility(toggleId, passwordId) {
-  const toggle = document.querySelector(toggleId);
-  const password = document.querySelector(passwordId);
-  toggle.addEventListener("click", function () {
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    this.classList.toggle("fa-eye");
-  });
-}
-
-togglePasswordVisibility("#togglePassword", "#id_password");
-togglePasswordVisibility("#togglePassword2", "#reg-password");
-togglePasswordVisibility("#togglePassword3", "#conpassword");
-
 // Validation for registration form
 function validateRegistration(event) {
   let errorMessages = "";
@@ -167,4 +128,3 @@ passwordInput.addEventListener("input", (event) => {
     }
   });
 });
-

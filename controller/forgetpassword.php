@@ -1,13 +1,10 @@
 <?php
 include "config.php";
 require '../phpmailer/vendor/autoload.php';
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
-// session_start();
 
 function forgetpassword($conn)
 {
@@ -16,33 +13,27 @@ function forgetpassword($conn)
     if (isset($_REQUEST['submit'])) {
 
         $email = $_REQUEST['email'];
-        $_SESSION['email'] = $email; // Store email in session
+        $_SESSION['email'] = $email; 
 
         $check_query = mysqli_query($conn, "SELECT * FROM users where email ='$email'");
         $rowCount = mysqli_num_rows($check_query);
         if ($rowCount > 0) {
-            //Load Composer's autoloader
             $data =  mysqli_fetch_assoc($check_query);
             $otp = rand(100000, 999999);
-            //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
 
             try {
-                //Server settings
 
-                $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'purefitness.equipments@gmail.com';                     //SMTP username
-                $mail->Password   = 'kbuq sdsx dlpc ceig';                               //SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                $mail->isSMTP();                                            
+                $mail->Host       = 'smtp.gmail.com';                    
+                $mail->SMTPAuth   = true;                                   
+                $mail->Username   = 'purefitness.equipments@gmail.com';                    
+                $mail->Password   = 'kbuq sdsx dlpc ceig';                              
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
+                $mail->Port       = 465;                                   
 
-                //Recipients
                 $mail->setFrom('purefitness.equipments@gmail.com', 'Pure Fitness');
-                $mail->addAddress($email, 'user');     //Add a recipient
-                // $mail->addReplyTo('info@example.com', 'Information');
-
+                $mail->addAddress($email, 'user');     
 
                 //Attachments
                 // $mail->addAttachment('/var/tmp/file.tar.gz');         
@@ -62,7 +53,6 @@ function forgetpassword($conn)
                     $query = "UPDATE users SET otp = '$otp' WHERE email = '$email'";
                     mysqli_query($conn, $query);
                     header("Location: otp");
-                    echo "elhumdallah tam bengah";
                 }
                 echo 'Message has been sent';
             } catch (Exception $e) {
@@ -104,14 +94,9 @@ function newpassword($conn)
         $password = $_POST["password"];
         $confirmpassword = $_POST["confirmpassword"];
         
-        // $email = $_REQUEST['email'];
-        $email = $_SESSION['email']; // Retrieve email from session
+        $email = $_SESSION['email']; 
 
-
-        // Check if the passwords match
         if ($password == $confirmpassword) {
-            // Retrieve the email from the global variable
-            // Check if a user with the provided email exists
 
             $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
             $row = mysqli_fetch_assoc($result);
@@ -119,11 +104,10 @@ function newpassword($conn)
             if ($result) {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                // Update the password for the user with the provided email
                 $update_query = mysqli_query($conn, "UPDATE users SET password = '$hashedPassword' WHERE email = '$email'");
 
                 if ($update_query) {
-                    echo "Password updated successfully.";
+                    header("Location: login");
                     unset($_SESSION['email']);
                 } else {
                     echo "Error updating password: " . mysqli_error($conn);
@@ -136,43 +120,3 @@ function newpassword($conn)
         }
     }
 }
-
-
-
-// function newpassword(){
-//     global $conn;
-
-
-//     if (isset($_POST['submit'])) {
-//         $password = $_POST["password"];
-//         $confirmpassword = $_POST["confirmpassword"];
-
-//         // Check if the passwords match
-//         if ($password == $confirmpassword) {
-//             // Get the email associated with the OTP from the previous step
-
-//             $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$otp'");
-//             $row = mysqli_fetch_assoc($result);
-//             $email=$row['email'];
-//             echo "<script> alert('Email is $email ');</script> ";
-
-//             // Check if a user with the provided OTP exists
-//             if ($row) {
-//                 // Update the password for the user associated with the OTP
-//                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-//                 $email = $row["email"];
-//                 $update_query = mysqli_query($conn, "UPDATE users SET password = '$hashedPassword' WHERE email = '$email'");
-
-//                 if ($update_query) {
-//                     echo "Password updated successfully.";
-//                 } else {
-//                     echo "Error updating password: " . mysqli_error($conn);
-//                 }
-//             } else {
-//                 echo "Invalid OTP. Please try again.";
-//             }
-//         } else {
-//             echo "Passwords do not match. Please try again.";
-//         }
-//     }
-// }
