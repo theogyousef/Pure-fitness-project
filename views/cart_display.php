@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require '../controller/config.php';
 
@@ -192,10 +192,10 @@ include "header.php";
                             <?php echo $total; ?>
                         </h3>
                         <?php if (empty($_SESSION['products'])) : ?>
-                            <a href="index.php" class="add-button">Add Products</a>
+                            <a href="index" class="add-button">Add Products</a>
                         <?php endif; ?>
                         <?php if (!empty($_SESSION['products'])) : ?>
-                            <a href="confirm.php" class="checkout-button">Proceed to Checkout</a>
+                            <a href="confirm" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>
                 </div>
