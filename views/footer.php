@@ -7,6 +7,7 @@
   <hr />
   <div class="container-footer">
     <div class="footerDetail">
+      <div class="row">
       <div class="socialMedia">
         
         <h3>We make it easy for you</h3>
@@ -22,7 +23,7 @@
         <ul>
           <li><a href="about">About us</a></li>
         </ul>
-      </div>
+      </div></div>
       <div class="contactUs">
         <h4>Contact Us</h4>
         <ul>
