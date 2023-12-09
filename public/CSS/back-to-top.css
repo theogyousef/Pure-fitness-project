@@ -23,3 +23,8 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 576px) {
+  #myBtn {
+    margin-right : 0px;}
+}

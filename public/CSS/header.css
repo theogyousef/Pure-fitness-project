@@ -166,3 +166,160 @@ color: white !important;
     background-color: #eee;
     text-decoration: none; 
 }
+/* Add this at the end of your CSS file */
+
+/* Responsive styles for small screens (e.g., iPhones) */
+@media only screen and (max-width: 768px) {
+  /* Adjust the font size and padding for navigation items */
+  .nav-item {
+    font-size: 16px;
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* Adjust the font size for the dropdown items */
+  .dropdown-menu .dropdown-items-horizontal a {
+    font-size: 14px;
+  }
+
+  /* Reduce the margin-right for the dropdown menu */
+  .navbar .dropdown-menu {
+    min-width: 250px;
+    margin-right: 250px;
+  }
+  .navbar .dropdown-menu .col {
+    min-width: 100%; /* Set the width to 100% to stack columns vertically */
+    margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
+  }
+  
+  /* Additional adjustment to space out the dropdown items */
+  .dropdown-menu .row {
+    margin-bottom: 10px; /* Add some bottom margin to separate items */
+  }
+  /* Add padding to the search input */
+  .input-group {
+    padding: 0.25rem;
+  }
+
+  /* Adjust the font size for the search input */
+  #search {
+    font-size: 14px;
+  }
+
+  /* Adjust the font size for the search results */
+  .search-result-item {
+    padding: 8px;
+  }
+
+  .search-item-image img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .search-item-name {
+    font-size: 14px;
+  }
+
+  .search-item-type,
+  .search-item-price {
+    font-size: 0.7em;
+  }
+
+  .navbar .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    width: 400px;
+    top: 100%;
+    left: 0;
+  }
+  .dropdown-menu {
+    width: 100px;
+  }
+  /* Adjust the font size for the dropdown items */
+  .dropdown-menu .dropdown-items-horizontal a {
+    font-size: 14px;
+    width: 400px;
+  }
+}
+
+/* Additional styles for even smaller screens (e.g., iPhone SE) */
+@media only screen and (max-width: 576px) {
+  /* Adjust font size for the main logo */
+  #logo img {
+    max-width: 80px;
+  }
+
+  /* Adjust font size for small top container text */
+  .announcement-container span {
+    font-size: 12px;
+  }
+  .nav-item {
+    font-size: 16px;
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* Adjust the font size for the dropdown items */
+  .dropdown-menu .dropdown-items-horizontal a {
+    font-size: 14px;
+  }
+
+  /* Reduce the margin-right for the dropdown menu */
+  .navbar .dropdown-menu {
+    min-width: 250px;
+    margin-right: 250px;
+  }
+  .navbar .dropdown-menu .col {
+    min-width: 100%; /* Set the width to 100% to stack columns vertically */
+    margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
+  }
+  
+  /* Additional adjustment to space out the dropdown items */
+  .dropdown-menu .row {
+    margin-bottom: 10px; /* Add some bottom margin to separate items */
+  }
+  /* Add padding to the search input */
+  .input-group {
+    padding: 0.25rem;
+  }
+
+  /* Adjust the font size for the search input */
+  #search {
+    font-size: 14px;
+  }
+
+  /* Adjust the font size for the search results */
+  .search-result-item {
+    padding: 8px;
+  }
+
+  .search-item-image img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .search-item-name {
+    font-size: 14px;
+  }
+
+  .search-item-type,
+  .search-item-price {
+    font-size: 0.7em;
+  }
+
+  .navbar .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 100%;
+    left: 0;
+  }
+  .dropdown-menu {
+    width: 100px;
+  }
+  /* Adjust the font size for the dropdown items */
+  .dropdown-menu .dropdown-items-horizontal a {
+    font-size: 14px;
+    width: 400px;
+  }
+}
