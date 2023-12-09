@@ -22,7 +22,7 @@ class Routere
             $action = $matches[1];
             $id = $matches[2];
 
-            echo "id = " . $id;
+           // echo "id = " . $id;
         }
         //  echo $path;
         //  echo "id = " .$id;
