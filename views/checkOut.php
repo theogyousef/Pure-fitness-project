@@ -6,7 +6,6 @@ if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
-
 } else {
     header("Location: registeration");
 }
@@ -37,38 +36,39 @@ include "header.php";
 <body>
     <div class="containercheckout">
         <h1>Checkout Payment</h1>
-        <form action="index.php" method="post">
+        <form action="checkOut.php" method="post">
             <div class="form-group">
-                <label for="name">Name on Card</label>
+                <label for="name" style="color: black;">Name on Card</label>
                 <div class="input-icon-container">
-                    <input type="text" id="name" placeholder="John Doe">
+                    <input type="text" id="name" placeholder="John Doe" class="form-control" value="<?php echo $row['name_on_card'] ?>">
                 </div>
             </div>
             <div class="form-group">
-                <label for="card">Card Number</label>
+                <label for="card" style="color: black;">Card Number</label>
                 <div class="input-icon-container">
-                    <input type="text" id="card" placeholder="1234 5678 9012 3456">
+                    <input type="text" id="card" placeholder="1234 5678 9012 3456" class="form-control" value="<?php echo $row['card_no'] ?>">
                 </div>
             </div>
             <div class="form-group">
                 <div class="expiry-cvv-container">
                     <div class="expiry-group">
-                        <label for="expiry">Expiration Date</label>
+                        <label for="expiry" style="color: black;">Expiration Date</label>
                         <div class="input-icon-container">
-                            <input type="text" id="expiry" placeholder="MM/YY">
+                            <input type="text" id="expiry" placeholder="MM/YY" class="form-control" value="<?php echo $row['Expiration_date'] ?>">
                         </div>
                     </div>
                     <div class="cvv-group">
-                        <label for="cvv">CVV</label>
+                        <label for="cvv" style="color: black;">CVV</label>
                         <div class="input-icon-container">
-                            <input type="text" id="cvv" placeholder="123">
+                            <input type="text" id="cvv" placeholder="123" class="form-control">
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit">Pay Now</button>
+            <button type="submit" class="btn btn-primary" style="background-color: black;">Pay Now</button>
         </form>
     </div>
+
     <footer>
         <?php include "footer.php"; ?>
     </footer>
