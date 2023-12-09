@@ -5,8 +5,9 @@
 </script>
 
 <?php
+session_start();
 
-//require "../controller/config.php";
+require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
 // Check for form submissions and perform the corresponding action
@@ -83,7 +84,7 @@ include "header.php";
             <div class="card-header">Address Details</div>
             <div class="card-body">
 
-                <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)">
+                <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)" action="checkOut.php">
                     <div class="col-md-6">
 
                         <h4 for="inputUsername" style="color : black ;">Egypt</h4>

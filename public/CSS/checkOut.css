@@ -1,21 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: transparent;
+  color: #69707a;
 }
 
 .containercheckout {
   width: 700px;
-  margin: 30px auto; /* Set top and bottom margin to 30px and left-right margin to auto */
+  margin: 30px auto;
   padding: 20px;
-  background-color: black;
+  background-color: transparent; /* Updated to match the second set */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #fff;
+  color:black; /* Updated to match the second set */
 }
 
 .form-group {
@@ -26,7 +27,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: white;
+  color: red; /* Updated to match the second set */
 }
 
 .input-icon-container {
@@ -43,8 +44,8 @@ label {
 input[type="text"] {
   width: 100%;
   padding: 10px 10px 10px 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #c5ccd6; /* Updated to match the second set */
+  border-radius: 0.35rem; /* Updated to match the second set */
 }
 
 .expiry-cvv-container {
@@ -72,3 +73,13 @@ button:hover {
   background-color: #333333;
 }
 
+.container-address {
+  margin-top: 30px;
+  width: 100%;
+}
+
+#Address {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
