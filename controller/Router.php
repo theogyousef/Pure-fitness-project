@@ -12,13 +12,17 @@ class Routere
         $root = '/swe/views/index';
         $id = null; // Initialize $id here
 
-        $pattern = '/\/swe\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
+        if (strpos($path, '/swe/views/cart_display?remove=') !== false) {
+            $pattern = '/\/swe\/views\/(cart_display(?:\?remove=)?)(\d*)/';
+        } else {
+            $pattern = '/\/swe\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin)\?id=(\d+)/';
+        }
         if (preg_match($pattern, $path, $matches)) {
             // Extract the 'id' value from the matched URL
             $action = $matches[1];
             $id = $matches[2];
 
-            //  echo "id = " . $id;
+            echo "id = " . $id;
         }
         //  echo $path;
         //  echo "id = " .$id;
@@ -104,10 +108,13 @@ class Routere
         } elseif ($path === '/swe/views/confirm') {
             require '../views/confirm.php';
             exit();
-        }  elseif ($path === '/swe/views/cart_display') {
+        } elseif ($path === '/swe/views/cart_display') {
             require '../views/cart_display.php';
             exit();
-        }elseif ($path === '/swe/views/editproduct?id=' . $id) {
+        } elseif ($path === '/swe/views/cart_display?remove=' . $id) {
+            require '../views/cart_display.php';
+            exit();
+        } elseif ($path === '/swe/views/editproduct?id=' . $id) {
             require '../views/editproduct.php';
             exit();
         } elseif ($path === '/swe/views/product?id=' . $id) {

@@ -10,7 +10,7 @@ if (isset($_GET['remove'])) {
         foreach ($_SESSION['products'] as $key => $product) {
             if ($product['id'] == $productIdToRemove) {
                 unset($_SESSION['products'][$key]);
-                header("Location: cart_display.php");
+                header("Location: cart_display");
                 exit();
             }
         }
@@ -33,7 +33,7 @@ if (isset($_POST['updatecart'])) {
         }
     }
     // Redirect back to cart display page or handle success as needed
-    header("Location: cart_display.php");
+    header("Location: cart_display");
     exit();
 }
 
@@ -177,7 +177,7 @@ include "header.php";
                                             </td> -->
                                             <td width="10%" class="text-center">
                                                 <?php if (isset($product)) : ?>
-                                                    <a href="cart_display.php?remove=<?php echo $product['id']; ?>" class="trash-icon"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="cart_display?remove=<?php echo $product['id']; ?>" class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
