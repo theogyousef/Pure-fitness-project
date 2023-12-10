@@ -18,7 +18,7 @@ class UserModel {
     public static function updateaddress($governorates,$city,$street,$house,$postalcode,$id)
     {
         include "../controller/config.php";
-        $query = "UPDATE users SET governorates = '$governorates' , city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  id = $id ";
+        $query = "UPDATE addresses SET governorates = '$governorates' , city = '$city' , street = '$street' ,house = '$house' , postalcode = '$postalcode'  WHERE  user_id = $id ";
     mysqli_query($conn, $query);
 
     }
@@ -32,6 +32,14 @@ class UserModel {
     {
         include "../controller/config.php";
         $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    public static function selectAddress($id)
+    {
+        include "../controller/config.php";
+        $result = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
         $row = mysqli_fetch_assoc($result);
         return $row;
     }

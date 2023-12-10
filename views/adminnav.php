@@ -15,7 +15,7 @@ if (!empty($_SESSION["id"])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } else {
-    header("Location: registeration");
+    header("Location: login");
 }
 
 if ($row["admin"] != 1) {
@@ -79,7 +79,7 @@ if ($row["id"] == 1) {
         <div class="sidebar">
             <ul>
                 <li class="active" id="dashboard">
-                    <a href="adminDashboard" >
+                    <a href="adminDashboard">
                         <i class="fas fa-th-large"></i>
                         <div>Dashboard</div>
                     </a>
@@ -92,8 +92,8 @@ if ($row["id"] == 1) {
                     </a>
                     <div class="dropdown-content">
 
-                        <a href="adduser" >Add user</a>
-                       
+                        <a href="adduser">Add user</a>
+
 
 
                         <!-- Add more links as needed -->
@@ -105,7 +105,7 @@ if ($row["id"] == 1) {
                         <div>products</div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="addproduct" >Add product</a>
+                        <a href="addproduct">Add product</a>
                         <!-- Add more links as needed -->
                     </div>
                 </li>
@@ -126,11 +126,11 @@ if ($row["id"] == 1) {
             </ul>
         </div>
         <!-- Dashboard -->
-       
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <script src="../public/JS/admindasboard.js"></script>
 
-      
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+        <script src="../public/JS/admindasboard.js"></script>
+
+
 
 </body>
 

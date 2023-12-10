@@ -20,7 +20,7 @@ if (isset($_POST["fileupload"])) {
     updatepasswords();
 } else if (isset($_POST["addressdetails"])) {
     updateaddress();
-} else if (isset($_POST["deactivateaccount"])){
+} else if (isset($_POST["deactivateaccount"])) {
     deactivateaccount();
 }
 
@@ -28,8 +28,11 @@ if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
+
+    $resultaddress = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
+    $rowaddress = mysqli_fetch_assoc($resultaddress);
 } else {
-    header("Location: registeration");
+    header("Location: login");
 }
 
 
@@ -39,8 +42,8 @@ if ($row["guest"] == 1) {
 }
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
-  
-  }
+
+}
 
 $instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
 $instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
@@ -229,8 +232,8 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <h2 class="small mb-1" for="inputUsername">Egypt</h2>
                                 <label for="governorates">Select a state:</label>
                                 <select class="form-control" id="governorates" name="governorates">
-                                    <option value="<?php echo $row['governorates'] ?>" selected>
-                                        <?php echo $row['governorates'] ?>
+                                    <option value="<?php echo $rowaddress['governorates'] ?>" selected>
+                                        <?php echo $rowaddress['governorates'] ?>
                                     </option>
                                     <option value="Al Daqahliyah">Al Daqahliyah</option>
                                     <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
@@ -266,25 +269,26 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputcity">Town/city</label>
                                     <input name="city" class="form-control" id="inputcity" type="text"
-                                        placeholder="Enter your city" value="<?php echo $row['city'] ?>">
+                                        placeholder="Enter your city" value="<?php echo $rowaddress['city'] ?>">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputstreet">Street address</label>
                                     <input name="street" class="form-control" id="inputstreet" type="text"
                                         placeholder="Enter your street name / number"
-                                        value="<?php echo $row['street'] ?>">
+                                        value="<?php echo $rowaddress['street'] ?>">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
                                 <input name="house" class="form-control" id="inputhouse" type="text"
-                                    placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
+                                    placeholder="Enter your house number" value="<?php echo $rowaddress['house'] ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
                                 <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
-                                    placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
+                                    placeholder="Enter your house number"
+                                    value="<?php echo $rowaddress['postalcode'] ?>">
                             </div>
 
                             <div style="height: 20px;">
@@ -428,7 +432,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         var social = document.getElementById("social");
         var notifications = document.getElementById("notifications");
         var address = document.getElementById("Address");
-        var deactivate =document.getElementById("deactivate");
+        var deactivate = document.getElementById("deactivate");
 
         function detailsa() {
             detailsnav.classList.add("active");
