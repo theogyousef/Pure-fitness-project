@@ -13,7 +13,7 @@ if (!empty($_SESSION["id"])) {
     $row = mysqli_fetch_assoc($result);
 
 } else {
-    header("Location: registeration");
+    header("Location: login");
 }
 
 if ($row["deactivated"] != 1) {
@@ -27,7 +27,7 @@ include "header.php";
 
 if (isset($_POST["activate"])) {
     //echo "<script> alert(' wasal ');</script> ";
-     reactivateaccount($id);
+    reactivateaccount($id);
 }
 
 ?>
@@ -98,13 +98,14 @@ if (isset($_POST["activate"])) {
 
         <div class="rod1"></div>
         <div class="top-left-sentence">
-    <p>Your account is deactivated, do you want to reactivate it again?  <form method="POST" action="" enctype="multipart/form-data" id="formedactivate">
-    <input type="submit" name="activate" value="click here" id="deactivatebutton">
- </form>
-    </p>
-</div>
+            <p>Your account is deactivated, do you want to reactivate it again?
+            <form method="POST" action="" enctype="multipart/form-data" id="formedactivate">
+                <input type="submit" name="activate" value="click here" id="deactivatebutton">
+            </form>
+            </p>
+        </div>
 
-</div>
+    </div>
 
 
 

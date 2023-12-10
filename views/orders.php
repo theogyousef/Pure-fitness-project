@@ -8,7 +8,7 @@ if (!empty($_SESSION["id"])) {
     $row = mysqli_fetch_assoc($result);
 
 } else {
-    header("Location: registeration");
+    header("Location: login");
 }
 if ($row["guest"] == 1) {
     header("Location: index");

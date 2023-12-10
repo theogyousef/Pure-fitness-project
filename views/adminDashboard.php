@@ -34,7 +34,7 @@ if (!empty($_SESSION["id"])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } else {
-    header("Location: registeration");
+    header("Location: login");
 }
 
 if ($row["admin"] != 1) {
@@ -126,8 +126,8 @@ include "adminnav.php";
 
 
             </div>
-         
-            
+
+
 
             <div class="container-fluid">
                 <table class="table custom-table">
@@ -143,7 +143,7 @@ include "adminnav.php";
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         $sql = "SELECT * FROM products";
                         $resultproduct = mysqli_query($conn, $sql);
 
@@ -211,7 +211,7 @@ include "adminnav.php";
                             } elseif ($row["deactivated"] == 0) {
                                 $deactivated = " ";
                             }
-                         
+
                             echo " <tr>
         <td>" . $row["id"] . "</td>
         <td>" . $row["firstname"] . $row["lastname"] . "</td>
@@ -224,7 +224,7 @@ include "adminnav.php";
         <td>  <a href='makeadmin?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
 
 </tr>";
-                            
+
                         }
                         ?>
                     </tbody>
@@ -485,7 +485,7 @@ include "adminnav.php";
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-   
+
     <script src="../public/JS/admindasboard.js"></script>
     <script>
 
