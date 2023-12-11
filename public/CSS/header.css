@@ -1,55 +1,52 @@
 .announcement-container {
-    background: #000000;
-  }
+  background: #000000;
+}
 
-  .header-middle {
-    background: #080808;
-    position: relative; 
+.header-middle {
+  background: #080808;
+  position: relative;
 
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
-    border-color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  border-color: rgba(255, 255, 255, 0.25);
+}
 
-  }
+.navbar {
+  background: #080808;
+}
 
-  .navbar {
-    background: #080808;
-
-  }
-
-  .nav-item {
-    color: white;
-    border-right: 1px solid white;
-    font-family: URW DIN SemiCond, sans-serif;
-    font-size: 20px;  
-    font-weight: 600;
-    
-  }
+.nav-item {
+  color: white;
+  border-right: 1px solid white;
+  font-family: URW DIN SemiCond, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
 
 /* The line of the last item in nav bar */
-  .nav-item:last-child {
-    border-right: none;
-  }
-
-  .nav-link {
-    color: white;
-    font-size: 18px;
-    margin: 0 20px;
-    padding: 0.5rem 0;
-    line-height: 1.5;
-  }
-.navbar .nav-link {
-    color: white;
+.nav-item:last-child {
+  border-right: none;
 }
-  .nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  }
-  .search-input {
-    color: black;
-  }
 
-  .search-input:focus {
-color: white !important;
+.nav-link {
+  color: white;
+  font-size: 18px;
+  margin: 0 20px;
+  padding: 0.5rem 0;
+  line-height: 1.5;
+}
+.navbar .nav-link {
+  color: white;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.search-input {
+  color: black;
+}
+
+.search-input:focus {
+  color: white !important;
 }
 .dropdown-item {
   border-bottom: 1px solid white;
@@ -60,7 +57,7 @@ color: white !important;
 }
 
 .dropdown-header {
-  color: maroon!important;
+  color: maroon !important;
   font-weight: bold;
   font-size: 20px;
 }
@@ -69,7 +66,6 @@ color: white !important;
   font-size: 16px;
 }
 #loginSignupDropdown:hover + .dropdown-menu {
-
   margin-right: -60px !important;
 }
 /* #loginSignupDropdown{
@@ -77,31 +73,39 @@ color: white !important;
   left: 300px;
 } */
 .dropdown-menu::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: -10px; 
+  top: -10px;
   left: 9%;
   transform: translateX(-50%);
   border-width: 0 10px 10px;
   border-style: solid;
-  border-color: transparent transparent #ffffff transparent; 
+  border-color: transparent transparent #ffffff transparent;
 }
+/* #loginSignupDropdown::before{ signup dropdown ya mariam
+  content: '';
+    position: absolute;
+    top: -10px; 
+    left: 50%;
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent; 
+} */
 
 .navbar .dropdown-menu {
   min-width: 575px;
   margin-right: 250px;
+  padding: 10px;
 }
-
 
 .navbar .dropdown-menu .col {
   max-width: 300px;
 }
 
-
 .navbar .dropdown-header {
   margin-left: -13px;
 }
-#search{
+#search {
   color: white;
 }
 
@@ -114,18 +118,17 @@ color: white !important;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 0.25rem;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .search-result-item {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd; 
-  background-color: #fff; 
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
   padding: 10px;
   margin: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-item-image img {
@@ -135,36 +138,35 @@ color: white !important;
 }
 
 .search-item-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-item-name {
   font-weight: bold;
   margin-bottom: 5px;
   text-decoration: none;
-  
 }
 
 .search-item-type,
 .search-item-price {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .search-item {
-    padding: 10px;
-    margin: 0;
-    display: block; 
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    color: #000;
-    text-decoration: none; 
-    background-color: #eee;
-    width: 100%;
+  padding: 10px;
+  margin: 0;
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #000;
+  text-decoration: none;
+  background-color: #eee;
+  width: 100%;
 }
 .search-item:hover {
-    background-color: #eee;
-    text-decoration: none; 
+  background-color: #eee;
+  text-decoration: none;
 }
 /* Add this at the end of your CSS file */
 
@@ -190,7 +192,7 @@ color: white !important;
     min-width: 100%; /* Set the width to 100% to stack columns vertically */
     margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
   }
-  
+
   /* Additional adjustment to space out the dropdown items */
   .dropdown-menu .row {
     margin-bottom: 10px; /* Add some bottom margin to separate items */
@@ -272,7 +274,7 @@ color: white !important;
     min-width: 100%; /* Set the width to 100% to stack columns vertically */
     margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
   }
-  
+
   /* Additional adjustment to space out the dropdown items */
   .dropdown-menu .row {
     margin-bottom: 10px; /* Add some bottom margin to separate items */
@@ -317,9 +319,34 @@ color: white !important;
   .dropdown-menu {
     width: 100px;
   }
+  .navbar .dropdown-menu {
+    /* min-width: 575px; */
+    margin: 0 80px; 
+  padding: 10px; }
+  
   /* Adjust the font size for the dropdown items */
   .dropdown-menu .dropdown-items-horizontal a {
     font-size: 14px;
     width: 400px;
+  }
+  .nav-item {
+    border-right: none;
+    border-bottom: 1px solid white;
+  }
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  #navbarNav ul {
+    width: 100%;
+  }
+  .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    /* transform: translateX(-50%); */
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
   }
 }

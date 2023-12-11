@@ -20,7 +20,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-#plates{
+#plates {
   height: 400px;
 }
 .products {
@@ -207,7 +207,7 @@
 .card {
   border: none;
 }
-a{
+a {
   text-decoration: none;
   color: #000;
 }
@@ -265,7 +265,7 @@ label.radio input:checked + span {
 /* Button styles */
 .btn-danger {
   background-color: maroon !important;
-  border-color:maroon !important;
+  border-color: maroon !important;
 }
 
 .btn-danger:hover {
@@ -445,8 +445,6 @@ label.radio input:checked + span {
 }
 
 /* footer */
-
-
 
 /* open cart btn */
 #open_cart_btn {
@@ -848,7 +846,7 @@ h2::after {
   .viewproduct .row {
     margin: 30px 0; /* Adjust margin for smaller screens */
   }
-  .viewproduct{
+  .viewproduct {
     height: 800px;
   }
   .viewproduct .col-md-3 {
@@ -886,8 +884,8 @@ h2::after {
   /* Add more styles as needed for smaller screens */
 }
 @media only screen and (max-width: 576px) {
-  .carousel-item{
-height: 400px;
+  .carousel-item {
+    height: 400px;
   }
   .viewproduct .row {
     margin: 30px 0; /* Adjust margin for smaller screens */
@@ -904,17 +902,17 @@ height: 400px;
     margin-bottom: 20px; /* Add space between products for smaller screens */
     margin-left: 20px;
   }
-#centered-anchor{
-  height: 300px;
-}
-#plates{
-  height: 200px;
-}
+  #centered-anchor {
+    height: 300px;
+  }
+  #plates {
+    height: 200px;
+  }
   .products .links {
     bottom: -50%; /* Adjust the position for smaller screens */
   }
-  .slider .slick-arrow.slick-prev{
-    left :30px;
+  .slider .slick-arrow.slick-prev {
+    left: 30px;
   }
   .slider-controls {
     text-align: center;
@@ -925,20 +923,24 @@ height: 400px;
     text-align: center;
     padding-top: 0;
   }
-#blogs{
-  margin-bottom: 20px;
-}
+  #blogs {
+    margin-bottom: 20px;
+  }
   .Content .detailsinfo {
     padding-top: 10px;
   }
-  #bmiForm input[type="number"]{  width: 300px;
-}
+  #bmiForm input[type="number"] {
+    width: 300px;
+  }
   .cart_items .cart_item .productcontainer {
     width: 100%;
   }
 
   .slider-controls {
-    display: none; /* Hide slider controls for smaller screens if needed */
+    display: block; /* Hide slider controls for smaller screens if needed */
+  }
+  .feedback-review .white-box {
+    height: 100%;
   }
 
 }

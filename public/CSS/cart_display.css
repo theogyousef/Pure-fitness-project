@@ -194,7 +194,9 @@ header {
   transition: background-color 0.3s;
 }
 
-
+.btn-primary{
+  border-color: white;
+  }
 
 .checkout-button :hover {
   color: red;

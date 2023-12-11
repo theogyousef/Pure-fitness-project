@@ -49,7 +49,7 @@ include "header.php"
             <h1 style="font-size: 40px; font-family: Belleza,Frunchy Sage,Glacial Indifference,serif;">Home Gym</h1>
 
             <!-- Filters -->
-            <div class="row mb-3">
+            <div class="row mb-3" id="filters">
                 <div class="col-md-2">
                     <form id="filterF" method="post">
                         <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
@@ -95,15 +95,8 @@ include "header.php"
                     </form>
                 </div>
 
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Bench Type">
-                        <option selected>Bike Type</option>
-                        <option value="1">Olympic Benches</option>
-                        <option value="2">Standard Benches</option>
-                    </select>
-                </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2" id="reset">
                     <form method="post" action="">
                         <div class="col-md-2">
                             <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
@@ -247,8 +240,8 @@ include "header.php"
                         echo '<div class="row justify-content-start" id="row">';
                     }
             ?>
-                    <div class="col-md-3">
-                        <form a method="post"> 
+                <div class="col-md-3">
+                    <form a method="post"> 
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
 
                             <div class="products">
@@ -485,9 +478,10 @@ include "header.php"
             </div>
         </div> -->
         <?php
+        
         if (isset($_POST['addtocart'])) {
             $productId = $_POST["product_id"];
-            var_dump($productId);
+            
 
             // Fetch product details based on the product ID
             $sql = "SELECT * FROM products WHERE id = $productId";

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require '../controller/config.php';
 
@@ -10,7 +10,7 @@ if (isset($_GET['remove'])) {
         foreach ($_SESSION['products'] as $key => $product) {
             if ($product['id'] == $productIdToRemove) {
                 unset($_SESSION['products'][$key]);
-                header("Location: cart_display.php");
+                header("Location: cart_display");
                 exit();
             }
         }
@@ -40,7 +40,7 @@ if (isset($_POST['updatecart'])) {
         // Update the total price or perform other necessary calculations
 
         // Redirect back to cart display page or handle success as needed
-        header("Location: cart_display.php");
+        header("Location: cart_display");
         exit();
     } else {
         echo "Invalid data submitted.";
@@ -175,7 +175,7 @@ include "header.php";
                                                 </td>
                                                 <td width="10%" class="text-center">
                                                     <?php if (isset($product)): ?>
-                                                        <a href="cart_display.php?remove=<?php echo $product['id']; ?>"
+                                                        <a href="cart_display?remove=<?php echo $product['id']; ?>"
                                                             class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                     <?php endif; ?>
                                                 </td>
@@ -195,7 +195,7 @@ include "header.php";
                             <?php endif; ?>
                         </form>
                         <?php if (empty($_SESSION['products'])): ?>
-                            <a href="index.php" class="add-button">Add Products</a>
+                            <a href="index" class="add-button">Add Products</a>
                         <?php endif; ?>
                         <?php if (!empty($_SESSION['products'])): ?>
                             <a href="confirm" class="checkout-button">Proceed to Checkout</a>

@@ -353,7 +353,7 @@ include "header.php";
           <?php else : ?>
             <p>No products found.</p>
           <?php endif; ?>
-        </div>
+
       </div>
 
 
@@ -463,6 +463,7 @@ include "header.php";
           <?php else : ?>
             <p>No products found.</p>
           <?php endif; ?>
+
 
       </div>
     </div>
@@ -629,6 +630,7 @@ include "header.php";
     </div>
   </div>
   <?php
+
   if (isset($_POST['addtocart'])) {
     $productId = $_POST["product_id"];
     var_dump($productId);
