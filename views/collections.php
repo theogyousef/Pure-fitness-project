@@ -248,7 +248,7 @@ include "header.php"
                     }
             ?>
                     <div class="col-md-3">
-                        <form a method="post"> <!-- Replace "add_to_cart.php" with your actual server-side script handling the add to cart logic -->
+                        <form a method="post"> 
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
 
                             <div class="products">
@@ -485,7 +485,7 @@ include "header.php"
             </div>
         </div> -->
         <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (isset($_POST['addtocart'])) {
             $productId = $_POST["product_id"];
             var_dump($productId);
 
