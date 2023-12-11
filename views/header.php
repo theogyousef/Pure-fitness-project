@@ -62,7 +62,7 @@
         </div>
         <div id="left_elements" class="col-md-2 d-flex justify-content-end">
           <!-- Cart -->
-          <a href="cart_display" class="text-decoration-none" id="open_cart_btnn">
+          <a href="cart_display.php" class="text-decoration-none" id="open_cart_btnn">
             <i class="bi bi-cart3 text-white fs-4 me-3"></i>
           </a>
           <!-- wishlist -->

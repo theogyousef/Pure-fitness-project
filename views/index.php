@@ -49,11 +49,13 @@ include "header.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 
   <title>Home Page</title>
   <style>
-    <?php include "../public/CSS/index.css" ?><?php include "../public/CSS/back-to-top.css" ?>
+    <?php include "../public/CSS/index.css" ?>
+    <?php include "../public/CSS/back-to-top.css" ?>
   </style>
 </head>
 
@@ -91,7 +93,8 @@ include "header.php";
             <div class="productcontainer">
               <button class="remove-item">X</button> <!-- Move this X button to the top right -->
               <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="100px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                  class="pic-1" width="100px">
               </div>
               <div class="Content">
                 <h6>Concept 2 PM5 BikeErg</h6>
@@ -118,7 +121,8 @@ include "header.php";
             <div class="productcontainer">
               <button class="remove-item">X</button> <!-- Move this X button to the top right -->
               <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="100px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                  class="pic-1" width="100px">
               </div>
               <div class="Content">
                 <h6>Concept 2 SkiErg</h6>
@@ -166,9 +170,12 @@ include "header.php";
   <!-- The slider -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -207,11 +214,13 @@ include "header.php";
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -229,12 +238,15 @@ include "header.php";
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
+            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image"
+              class="img-fluid" style="height: 500px;">
             <div class="images p-3">
               <!-- Add a container for the magnifier -->
               <div class="thumbnail text-center">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp"
+                  width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
+                  width="70">
                 <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp" width="70">
               </div>
 
@@ -257,7 +269,7 @@ include "header.php";
                 and handlebars, if you want). Secure your phone in the attached device holder.
                 This bike features heavy-duty construction, with a black powder coat aluminum frame.
                 The bike is suitable for athletes up to 300lbs</p>
-              <div class="cart mt-4 align-items-center"> <button btn btn-danger text-uppercase mr-2 px-4">Add to
+              <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to
                   cart</button> <i class="fa fa-heart text-muted"></i> </div>
             </div>
           </div>
@@ -281,7 +293,7 @@ include "header.php";
 
           <?php
           // Assuming you have already connected to the database ($conn)
-
+          
           // Fetch products from the database
           $result = ProductModle::allproducts();
 
@@ -291,8 +303,8 @@ include "header.php";
           }
           ?>
 
-          <?php if (!empty($products)) : ?>
-            <?php foreach ($products as $product) : ?>
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
               <div class="col-md-3">
                 <form a method="post">
                   <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
@@ -301,23 +313,26 @@ include "header.php";
                       <a href="product?id=<?php echo $product['id']; ?>" class="images">
                         <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
                       </a>
-                      <div class="links">
-                        <div class="Icon">
-                          <i class="bi bi-cart3"></i></i>
-                          <button name="addtocart" class="tooltiptext">Add to cart</button>
-                        </div>
-                        <div class="Icon">
-                          <a href="#"><i class="bi bi-heart"></i></i></a>
-                          <span class="tooltiptext">Move to wishlist</span>
-                        </div>
-                        <div class="Icon">
-                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <span class="tooltiptext">Quick view</span>
-                        </div>
+                      <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                        <div class="links">
+                          <div class="Icon">
+                            <i class="bi bi-cart3"></i>
+                            <button name="addtocart" class="tooltiptext">Add to cart</button>
+                          </div>
+                          <div class="Icon">
+                            <a href="#"><i class="bi bi-heart"></i></i></a>
+                            <span class="tooltiptext">Move to wishlist</span>
+                          </div>
+                      </a>
+                      <div class="Icon">
+                        <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <i class="bi bi-eye"></i>
+                        </a>
+                        <span class="tooltiptext">Quick view</span>
                       </div>
                     </div>
+                  </div>
+                  <a href="product?id=<?php echo $product['id']; ?>" class="images">
                     <div class="Content">
                       <h3>
                         <?php echo $product['name']; ?>
@@ -346,15 +361,17 @@ include "header.php";
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </form>
               </div>
-            <?php endforeach; ?>
-          <?php else : ?>
-            <p>No products found.</p>
-          <?php endif; ?>
         </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <p>No products found.</p>
+    <?php endif; ?>
+
       </div>
+    </div>
 
 
     </div>
@@ -364,15 +381,15 @@ include "header.php";
 
   <!-- sixth Product -->
 
-  <!-- image -->
+  <!-- image --> 
   <div class="position-relative text-center" style="height : 300;">
-    <a href="product?id=61" id="centered-anchor" class="d-block" style="height : 300;">
-      <img src="../public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
-      <button class="btn btn-dark btn-lg position-absolute bottom-0 start-50 translate-middle-x" style="bottom: -20px;" id="shopnow">
-        Shop Now
-      </button>
-    </a>
-  </div>
+  <a href="product?id=61" id="centered-anchor" class="d-block" style="height : 300;" >
+    <img src="../public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
+    <button class="btn btn-dark btn-lg position-absolute bottom-0 start-50 translate-middle-x" style="bottom: -20px;" id="shopnow">
+      Shop Now
+    </button>
+  </a>
+</div>
 
 
 
@@ -381,7 +398,8 @@ include "header.php";
   <div class="viewproduct">
 
     <div class="row">
-      <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
+      <div class="col-md text-center"
+        style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
         <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
       </div>
     </div>
@@ -401,16 +419,15 @@ include "header.php";
           }
           ?>
 
-          <?php if (!empty($products)) : ?>
-            <?php foreach ($products as $product) : ?>
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
               <div class="col-md-3">
-                <form a method="post">
-                  <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                  <div class="products" data-product-id="<?php echo $product['id']; ?>">
-                    <div class="product-image">
-                      <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
-                      </a>
+                <div class="products">
+                  <div class="product-image">
+                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
+                    </a>
+                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
                       <div class="links">
                         <div class="Icon">
                           <i class="bi bi-cart3"></i></i>
@@ -420,49 +437,51 @@ include "header.php";
                           <a href="#"><i class="bi bi-heart"></i></i></a>
                           <span class="tooltiptext">Move to wishlist</span>
                         </div>
-                        <div class="Icon">
-                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <span class="tooltiptext">Quick view</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="Content">
-                      <h3>
-                        <?php echo $product['name']; ?>
-                      </h3>
-                      <p class="detailsinfo">
-                        <span class="typetrip">
-                          <?php echo $product['type']; ?>
-                        </span>
-                      </p>
-                      <p class="detailsinfo">
-                        <?php
-                        if ($product["outofstock"] == 1) {
-                          $outofstock = "Out of stock";
-                          echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                        } else if ($product["outofstock"] == 0) {
-                          $outofstock = "In stock";
-                          echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                        }
-                        ?>
-                      </p>
-                      <div class="cost">
-                        <p class="lower-price">
-                          From <span class="price">
-                            <?php echo $product['price'] . " EGP"; ?>
-                          </span>
-                        </p>
-                      </div>
+                    </a>
+                    <div class="Icon">
+                      <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <span class="tooltiptext">Quick view</span>
                     </div>
                   </div>
-                </form>
+                </div>
+                <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                  <div class="Content">
+                    <h3>
+                      <?php echo $product['name']; ?>
+                    </h3>
+                    <p class="detailsinfo">
+                      <span class="typetrip">
+                        <?php echo $product['type']; ?>
+                      </span>
+
+                    </p>
+                    <p class="detailsinfo">
+                      <?php
+                      if ($product["outofstock"] == 1) {
+                        $outofstock = "Out of stock";
+                        echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
+                      } else if ($product["outofstock"] == 0) {
+                        $outofstock = "In stock";
+                        echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                      }
+                      ?>
+                    </p>
+                    <div class="cost">
+                      <p class="lower-price"> From <span class="price">
+                          <?php echo $product['price'] . " EGP"; ?>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
               </div>
-            <?php endforeach; ?>
-          <?php else : ?>
-            <p>No products found.</p>
-          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <p>No products found.</p>
+    <?php endif; ?>
 
       </div>
     </div>
@@ -474,7 +493,7 @@ include "header.php";
   <!-- image -->
   <div class="position-relative text-center" id="plates">
     <a href="product?id=39" id="centered-anchor" class="d-block">
-      <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
+    <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
     </a>
   </div>
 
@@ -533,7 +552,8 @@ include "header.php";
             <form id="ContactFooter" class="footer-form">
               <div class="d-flex">
                 <div class="form-floating me-2">
-                  <input type="email" name="email" class="form-control border-0" id="email" placeholder=" " style="background:#F0F0F0		; color: #000;">
+                  <input type="email" name="email" class="form-control border-0" id="email" placeholder=" "
+                    style="background:#F0F0F0		; color: #000;">
                   <label for="email">Enter your email address</label>
                 </div>
                 <button type="button" id="submitMailButton" class="btn-About-us btn-dark">Sign Up</button>
@@ -573,10 +593,12 @@ include "header.php";
             or accredited Health Professional in regards to specific health and nutrition advice.</p>
           <form id="bmiForm">
             <div class="mb-3">
-              <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Weight (kg)">
+              <input type="number" class="form-control form-control-sm" id="weight" name="weight"
+                placeholder="Weight (kg)">
             </div>
             <div class="mb-3">
-              <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Height (cm)">
+              <input type="number" class="form-control form-control-sm" id="height" name="height"
+                placeholder="Height (cm)">
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
@@ -629,7 +651,7 @@ include "header.php";
     </div>
   </div>
   <?php
-  if (isset($_POST['addtocart'])) {
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $productId = $_POST["product_id"];
     var_dump($productId);
 
