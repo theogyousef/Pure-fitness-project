@@ -59,7 +59,7 @@ include "header.php"
             <!-- Filters -->
             <div class="row mb-3" id="filters">
                 <div class="col-md-2">
-                    <form id="filterF" method="post">
+                    <form class="filter" id="filterF" method="post" >
                         <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
                             <option selected disabled>Availability</option>
                             <option value="1">In Stock</option>
@@ -68,7 +68,7 @@ include "header.php"
                     </form>
                 </div>
                 <div class="col-md-2">
-                    <form id="filterCategory" method="post">
+                    <form class="filter" id="filterCategory" method="post">
                         <select class="form-select filter-select" aria-label="Category" name="category" data-form-id="filterCategory">
                             <option selected disabled>Category</option>
                             <option value="1">All Benches</option>
@@ -91,7 +91,7 @@ include "header.php"
                 </div>
 
                 <div class="col-md-2">
-                    <form id="filterForm" method="post">
+                    <form class="filter" id="filterForm" method="post">
                         <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
                             <option selected disabled>Price</option>
                             <option value="4">Highest To Lowest </option>
@@ -248,15 +248,15 @@ include "header.php"
                         echo '<div class="row justify-content-start" id="row">';
                     }
             ?>
-                <div class="col-md-3">
+                <div class="col-md-3" id="product">   
                     <form a method="post"> 
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
 
                             <div class="products">
                                 <div class="product-image">
-                                    <!-- <a href="product?id=<?php echo $product['id']; ?>" class="images"> -->
+                                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
                                     <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
-                                    <!-- </a> -->
+                                    </a>
                                     <div class="links">
                                         <div class="Icon">
                                             <i class="bi bi-cart3"></i>

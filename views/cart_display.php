@@ -187,9 +187,10 @@ include "header.php";
                                     <?php endif; ?>
                                 </tbody>
                             </table>
-                            <h3 class="thetotal"> Total :
+                            <div class="thetotal">
+                            <h3 class=""> Total :
                                 <?php echo $total; ?>
-                            </h3>
+                            </h3></div>
                             <?php if (!empty($_SESSION['products'])): ?>
                                 <button class="btn btn-primary bg-dark update-cart-button" name="updatecart"
                                     type="submit">Update Cart</button>
