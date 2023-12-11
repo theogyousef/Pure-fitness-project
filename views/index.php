@@ -12,15 +12,16 @@ if (isset($_POST["submitmail"])) {
 <?php
 include '../model/productModle.php';
 
+
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-  $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
+  $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
   $row = mysqli_fetch_assoc($result);
   $_SESSION["login"] = true;
   $_SESSION["id"] = $row["id"];
-}
-if (!empty($_SESSION["id"])) {
+} 
+else if (!empty($_SESSION["id"])) {
   $id = $_SESSION["id"];
-  $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+  $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
   $row = mysqli_fetch_assoc($result);
 } else {
   header("Location: login");

@@ -11,10 +11,12 @@ require "../controller/registerationsystem.php";
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $result = mysqli_query($conn," SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE u.id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
-}
-
+  } else {
+    header("Location: login");
+  }
+  
 
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {

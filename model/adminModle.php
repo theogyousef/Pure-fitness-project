@@ -30,7 +30,16 @@ class adminModel
         echo "wasal";
         include "../controller/config.php";
         $query = "insert into users (firstname, lastname , email , password ) values ('$firstname' , '$lastname', '$email','$hashedPassword')";
-        mysqli_query($conn, $query);
+         mysqli_query($conn, $query);
+        $result = mysqli_query($conn, "SELECT * FROM users where email = '$email'");
+        $row = mysqli_fetch_assoc($result);
+        $id = $row['id']; 
+        $query2 = "INSERT INTO addresses (user_id) VALUES ('$id')";
+        $query3 = "INSERT INTO permissions (user_id) VALUES ('$id')";
+  
+        mysqli_query($conn, $query2);
+        mysqli_query($conn, $query3);
+       
     }
     public static function checkduplicate($email)
     {
@@ -55,14 +64,14 @@ class adminModel
     public static function makeadmin($id)
     {
         include "../controller/config.php";
-        $query = "UPDATE users  set admin = '1' WHERE id = '$id'";
+        $query = "UPDATE permissions set admin = '1' WHERE user_id = '$id'";
         mysqli_query($conn, $query);
     }
     public static function makeuser($id)
     {
 
         include "../controller/config.php";
-        $query = "UPDATE users  set admin = '0' WHERE id = '$id'";
+        $query = "UPDATE permissions set admin = '0' WHERE user_id = '$id'";
         mysqli_query($conn, $query);
     }
     public static function activateaccount($id)

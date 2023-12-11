@@ -7,11 +7,12 @@ require '../controller/config.php';
 // Assuming you have already connected to the database ($conn)
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
+    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
     $row = mysqli_fetch_assoc($result);
-} else {
-    header("Location: registeration.php");
-}
+  } else {
+    header("Location: login");
+  }
+
 
 // Initialize the 'products' array in the session if not set
 if (!isset($_SESSION['products'])) {

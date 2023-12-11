@@ -15,7 +15,10 @@ require "../controller/registerationsystem.php";
     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
 } 
+else{
+    header("Location: index");
 
+}
 
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
