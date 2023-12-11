@@ -38,7 +38,9 @@ h1::after {
     font-size: 18px;
     margin-top: 10px;
 }
-
+.btn-primary{
+  border-color: white;
+  }
 #input-group{
   width: 110px;
   display: flex;

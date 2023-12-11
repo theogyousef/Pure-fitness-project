@@ -26,15 +26,11 @@ if (isset($_POST["fileupload"])) {
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $result = mysqli_query($conn," SELECT a.*, u.* FROM addresses a JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id' ");
     $row = mysqli_fetch_assoc($result);
-
-    $resultaddress = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
-    $rowaddress = mysqli_fetch_assoc($resultaddress);
 } else {
     header("Location: login");
 }
-
 
 if ($row["guest"] == 1) {
     header("Location: index");
@@ -232,8 +228,8 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <h2 class="small mb-1" for="inputUsername">Egypt</h2>
                                 <label for="governorates">Select a state:</label>
                                 <select class="form-control" id="governorates" name="governorates">
-                                    <option value="<?php echo $rowaddress['governorates'] ?>" selected>
-                                        <?php echo $rowaddress['governorates'] ?>
+                                    <option value="<?php echo $row['governorates'] ?>" selected>
+                                        <?php echo $row['governorates'] ?>
                                     </option>
                                     <option value="Al Daqahliyah">Al Daqahliyah</option>
                                     <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
@@ -269,26 +265,26 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputcity">Town/city</label>
                                     <input name="city" class="form-control" id="inputcity" type="text"
-                                        placeholder="Enter your city" value="<?php echo $rowaddress['city'] ?>">
+                                        placeholder="Enter your city" value="<?php echo $row['city'] ?>">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputstreet">Street address</label>
                                     <input name="street" class="form-control" id="inputstreet" type="text"
                                         placeholder="Enter your street name / number"
-                                        value="<?php echo $rowaddress['street'] ?>">
+                                        value="<?php echo $row['street'] ?>">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
                                 <input name="house" class="form-control" id="inputhouse" type="text"
-                                    placeholder="Enter your house number" value="<?php echo $rowaddress['house'] ?>">
+                                    placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
                                 <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
                                     placeholder="Enter your house number"
-                                    value="<?php echo $rowaddress['postalcode'] ?>">
+                                    value="<?php echo $row['postalcode'] ?>">
                             </div>
 
                             <div style="height: 20px;">

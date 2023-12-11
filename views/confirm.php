@@ -9,47 +9,25 @@
 //require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
-// Check for form submissions and perform the corresponding action
-if (isset($_POST["fileupload"])) {
-    uploadpic();
-} else if (isset($_POST["accountdetails"])) {
-    editdetails();
-} else if (isset($_POST["socialsave"])) {
-    updatesocials();
-} else if (isset($_POST["updatesecurity"])) {
-    updatepasswords();
-} else if (isset($_POST["addressdetails"])) {
+ if (isset($_POST["addressdetails"])) {
     updateaddress();
-} else if (isset($_POST["deactivateaccount"])) {
-    deactivateaccount();
+        // header("Location: ");
 }
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $result = mysqli_query($conn," SELECT a.*, u.* FROM addresses a JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id' ");
     $row = mysqli_fetch_assoc($result);
-
-    $resultaddress = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
-    $rowaddress = mysqli_fetch_assoc($resultaddress);
 } else {
     header("Location: login");
 }
 
 
-if ($row["guest"] == 1) {
-    header("Location: index");
 
-}
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 
 }
-
-$instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
-$instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
-
-$githubUsername = trim($row["github"]); // Remove leading/trailing whitespace
-$githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 include "header.php";
 ?>
@@ -92,8 +70,8 @@ include "header.php";
                             <h4 for="inputUsername" style="color : black ;">Egypt</h4>
                             <label for="governorates">Select a state:</label>
                             <select class="form-control" id="governorates" name="governorates">
-                                <option value="<?php echo $rowaddress['governorates'] ?>" selected>
-                                    <?php echo $rowaddress['governorates'] ?>
+                                <option value="<?php echo $row['governorates'] ?>" selected>
+                                    <?php echo $row['governorates'] ?>
                                 </option>
                                 <option value="Al Daqahliyah">Al Daqahliyah</option>
                                 <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
@@ -129,25 +107,25 @@ include "header.php";
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputcity">Town/city</label>
                                 <input name="city" class="form-control" id="inputcity" type="text"
-                                    placeholder="Enter your city" value="<?php echo $rowaddress['city'] ?>">
+                                    placeholder="Enter your city" value="<?php echo $row['city'] ?>">
                             </div>
 
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputstreet">Street address</label>
                                 <input name="street" class="form-control" id="inputstreet" type="text"
                                     placeholder="Enter your street name / number"
-                                    value="<?php echo $rowaddress['street'] ?>">
+                                    value="<?php echo $row['street'] ?>">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
                             <input name="house" class="form-control" id="inputhouse" type="text"
-                                placeholder="Enter your house number" value="<?php echo $rowaddress['house'] ?>">
+                                placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
                             <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
-                                placeholder="Enter your house number" value="<?php echo $rowaddress['postalcode'] ?>">
+                                placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
                         </div>
 
                         <div style="height: 20px;">
