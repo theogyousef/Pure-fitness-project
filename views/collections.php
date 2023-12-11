@@ -499,7 +499,7 @@ include "header.php"
                     'quantity' => '1',
                 ];
 
-                if (isset($_POST['addtocart'])) {
+               
                     $quantity = $_POST['quantity'];
                     $newProduct['quantity'] = $quantity;
 
@@ -518,7 +518,7 @@ include "header.php"
                     if (!$productExists) {
                         $_SESSION['products'][] = $newProduct;
                     }
-                }
+                
             }
         }
 
