@@ -183,7 +183,7 @@ include "header.php";
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <p>Your cart is empty.</p>
+                                        <p class="p-cart">Your cart is empty.</p>
                                     <?php endif; ?>
                                 </tbody>
                             </table>
