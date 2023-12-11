@@ -240,15 +240,15 @@ include "header.php"
                         echo '<div class="row justify-content-start" id="row">';
                     }
             ?>
-                    <div class="col-md-3">
-                        <form a method="post"> <!-- Replace "add_to_cart.php" with your actual server-side script handling the add to cart logic -->
+                <div class="col-md-3">
+                    <form a method="post"> 
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
 
                             <div class="products">
                                 <div class="product-image">
-                                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                                    <!-- <a href="product?id=<?php echo $product['id']; ?>" class="images"> -->
                                     <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
-                                    </a>
+                                    <!-- </a> -->
                                     <div class="links">
                                         <div class="Icon">
                                             <i class="bi bi-cart3"></i>
@@ -478,9 +478,10 @@ include "header.php"
             </div>
         </div> -->
         <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        
+        if (isset($_POST['addtocart'])) {
             $productId = $_POST["product_id"];
-            var_dump($productId);
+            
 
             // Fetch product details based on the product ID
             $sql = "SELECT * FROM products WHERE id = $productId";
@@ -498,7 +499,7 @@ include "header.php"
                     'quantity' => '1',
                 ];
 
-                if (isset($_POST['addtocart'])) {
+               
                     $quantity = $_POST['quantity'];
                     $newProduct['quantity'] = $quantity;
 
@@ -517,7 +518,7 @@ include "header.php"
                     if (!$productExists) {
                         $_SESSION['products'][] = $newProduct;
                     }
-                }
+                
             }
         }
 

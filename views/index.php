@@ -301,26 +301,23 @@ include "header.php";
                       <a href="product?id=<?php echo $product['id']; ?>" class="images">
                         <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
                       </a>
-                      <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                        <div class="links">
-                          <div class="Icon">
-                            <i class="bi bi-cart3"></i>
-                            <button name="addtocart" class="tooltiptext">Add to cart</button>
-                          </div>
-                          <div class="Icon">
-                            <a href="#"><i class="bi bi-heart"></i></i></a>
-                            <span class="tooltiptext">Move to wishlist</span>
-                          </div>
-                      </a>
-                      <div class="Icon">
-                        <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                          <i class="bi bi-eye"></i>
-                        </a>
-                        <span class="tooltiptext">Quick view</span>
+                      <div class="links">
+                        <div class="Icon">
+                          <i class="bi bi-cart3"></i></i>
+                          <button name="addtocart" class="tooltiptext">Add to cart</button>
+                        </div>
+                        <div class="Icon">
+                          <a href="#"><i class="bi bi-heart"></i></i></a>
+                          <span class="tooltiptext">Move to wishlist</span>
+                        </div>
+                        <div class="Icon">
+                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                            <i class="bi bi-eye"></i>
+                          </a>
+                          <span class="tooltiptext">Quick view</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <a href="product?id=<?php echo $product['id']; ?>" class="images">
                     <div class="Content">
                       <h3>
                         <?php echo $product['name']; ?>
@@ -349,20 +346,18 @@ include "header.php";
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </form>
               </div>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p>No products found.</p>
-    <?php endif; ?>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <p>No products found.</p>
+          <?php endif; ?>
 
       </div>
+
+
     </div>
-
-
-  </div>
 
   </div>
   <!-- product -->
@@ -409,66 +404,66 @@ include "header.php";
           <?php if (!empty($products)) : ?>
             <?php foreach ($products as $product) : ?>
               <div class="col-md-3">
-                <div class="products">
-                  <div class="product-image">
-                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                      <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
-                    </a>
-                    <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                <form a method="post">
+                  <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                  <div class="products" data-product-id="<?php echo $product['id']; ?>">
+                    <div class="product-image">
+                      <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
+                      </a>
                       <div class="links">
                         <div class="Icon">
-                          <i class="bi bi-cart3"></i>
-                          <span class="tooltiptext">Add to cart</span>
+                          <i class="bi bi-cart3"></i></i>
+                          <button name="addtocart" class="tooltiptext">Add to cart</button>
                         </div>
                         <div class="Icon">
-                          <i class="bi bi-heart"></i>
+                          <a href="#"><i class="bi bi-heart"></i></i></a>
                           <span class="tooltiptext">Move to wishlist</span>
                         </div>
-                    </a>
-                    <div class="Icon">
-                      <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <span class="tooltiptext">Quick view</span>
+                        <div class="Icon">
+                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                            <i class="bi bi-eye"></i>
+                          </a>
+                          <span class="tooltiptext">Quick view</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                  <div class="Content">
-                    <h3>
-                      <?php echo $product['name']; ?>
-                    </h3>
-                    <p class="detailsinfo">
-                      <span class="typetrip">
-                        <?php echo $product['type']; ?>
-                      </span>
-
-                    </p>
-                    <p class="detailsinfo">
-                      <?php
-                      if ($product["outofstock"] == 1) {
-                        $outofstock = "Out of stock";
-                        echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                      } else if ($product["outofstock"] == 0) {
-                        $outofstock = "In stock";
-                        echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                      }
-                      ?>
-                    </p>
-                    <div class="cost">
-                      <p class="lower-price"> From <span class="price">
-                          <?php echo $product['price'] . " EGP"; ?>
+                    <div class="Content">
+                      <h3>
+                        <?php echo $product['name']; ?>
+                      </h3>
+                      <p class="detailsinfo">
+                        <span class="typetrip">
+                          <?php echo $product['type']; ?>
                         </span>
                       </p>
+                      <p class="detailsinfo">
+                        <?php
+                        if ($product["outofstock"] == 1) {
+                          $outofstock = "Out of stock";
+                          echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
+                        } else if ($product["outofstock"] == 0) {
+                          $outofstock = "In stock";
+                          echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                        }
+                        ?>
+                      </p>
+                      <div class="cost">
+                        <p class="lower-price">
+                          From <span class="price">
+                            <?php echo $product['price'] . " EGP"; ?>
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </a>
+                </form>
               </div>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p>No products found.</p>
-    <?php endif; ?>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <p>No products found.</p>
+          <?php endif; ?>
+
 
       </div>
     </div>
@@ -635,7 +630,8 @@ include "header.php";
     </div>
   </div>
   <?php
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+  if (isset($_POST['addtocart'])) {
     $productId = $_POST["product_id"];
     var_dump($productId);
 
@@ -655,7 +651,7 @@ include "header.php";
         'quantity' => '1',
       ];
 
-      if (isset($_POST['addtocart'])) {
+    
         $quantity = $_POST['quantity'];
         $newProduct['quantity'] = $quantity;
 
@@ -674,7 +670,7 @@ include "header.php";
         if (!$productExists) {
           $_SESSION['products'][] = $newProduct;
         }
-      }
+      
     }
   }
 
