@@ -13,7 +13,7 @@ if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 }
 include "header.php"
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +52,8 @@ include "header.php"
             <div class="row mb-3">
                 <div class="col-md-2">
                     <form id="filterF" method="post">
-                        <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
+                        <select class="form-select filter-select" aria-label="Availability" name="availability"
+                            data-form-id="filterF">
                             <option selected disabled>Availability</option>
                             <option value="1">In Stock</option>
                             <option value="2">Out of Stock</option>
@@ -61,7 +62,8 @@ include "header.php"
                 </div>
                 <div class="col-md-2">
                     <form id="filterCategory" method="post">
-                        <select class="form-select filter-select" aria-label="Category" name="category" data-form-id="filterCategory">
+                        <select class="form-select filter-select" aria-label="Category" name="category"
+                            data-form-id="filterCategory">
                             <option selected disabled>Category</option>
                             <option value="1">All Benches</option>
                             <option value="2">All Bicycle</option>
@@ -84,7 +86,8 @@ include "header.php"
 
                 <div class="col-md-2">
                     <form id="filterForm" method="post">
-                        <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
+                        <select class="form-select filter-select" aria-label="Price" name="price"
+                            data-form-id="filterForm">
                             <option selected disabled>Price</option>
                             <option value="4">Highest To Lowest </option>
                             <option value="5">Lowest To Highest</option>
@@ -106,7 +109,8 @@ include "header.php"
                 <div class="col-md-2">
                     <form method="post" action="">
                         <div class="col-md-2">
-                            <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
+                            <button name="reset" style="background-color: black;" type="submit"
+                                class="btn btn-primary">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -130,12 +134,14 @@ include "header.php"
         <div class="container grid-container">
             <?php
 
+
+
             $result = ProductModle::allProducts();
 
 
 
             // Fetch products from the database based on the selected price filter
-
+            
             if (isset($_POST['price'])) {
                 $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
                 switch ($selectedPrice) {
@@ -159,7 +165,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['availability'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
 
@@ -175,7 +181,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['category'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $cat = isset($_POST['category']) ? $_POST['category'] : null;
 
@@ -246,64 +252,61 @@ include "header.php"
                     if ($count % 4 == 0) {
                         echo '<div class="row justify-content-start" id="row">';
                     }
-            ?>
+                    ?>
                     <div class="col-md-3">
-                        <form a method="post"> <!-- Replace "add_to_cart.php" with your actual server-side script handling the add to cart logic -->
-                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-
+                        <a href="product?id=<?php echo $product['id']; ?>">
                             <div class="products">
                                 <div class="product-image">
                                     <!-- <a href="product?id=<?php echo $product['id']; ?>" class="images"> -->
-                                    <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
+                                            class="pic img-fluid">
                                     <!-- </a> -->
                                     <div class="links">
                                         <div class="Icon">
                                             <i class="bi bi-cart3"></i>
-                                            <button name="addtocart" class="tooltiptext">Add to cart</button>
+                                            <span class="tooltiptext">Add to cart</span>
                                         </div>
                                         <div class="Icon">
-                                            <i class="bi bi-heart"></i>
+                                           <i class="bi bi-heart"></i>
                                             <span class="tooltiptext">Move to wishlist</span>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                                    <div class="Content">
-                                        <h3 style="font-size: 25px;">
-                                            <?php echo $product['name']; ?>
-                                        </h3>
-                                        <p class="detailsinfo">
-                                            <span class="typetrip">
-                                                <?php echo $product['type']; ?>
-                                            </span>
-                                        </p>
-                                        <p class="detailsinfo">
-                                            <span class="typetrip">
-                                                <?php
-                                                if ($product["outofstock"] == 1) {
-                                                    $outofstock = "Out of stock";
-                                                    echo '<span style="color: red;  font-size: 16px;">' . $outofstock . '</span>';
-                                                } else if ($product["outofstock"] == 0) {
-                                                    $outofstock = "In stock";
-                                                    echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                                                }
-                                                ?>
+                                <div class="Content">
+                                    <h3 style="font-size: 25px;">
+                                        <?php echo $product['name']; ?>
+                                    </h3>
+                                    <p class="detailsinfo">
+                                        <span class="typetrip">
+                                            <?php echo $product['type']; ?>
+                                        </span>
+                                    </p>
+                                    <p class="detailsinfo">
+                                        <span class="typetrip">
+                                            <?php
+                                            if ($product["outofstock"] == 1) {
+                                                $outofstock = "Out of stock";
+                                                echo '<span style="color: red;  font-size: 16px;">' . $outofstock . '</span>';
+                                            } else if ($product["outofstock"] == 0) {
+                                                $outofstock = "In stock";
+                                                echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                                            }
+                                            ?>
 
+                                        </span>
+                                    </p>
+                                    <div class="cost">
+                                        <p class="lower-price">
+                                            From <span class="price">
+                                                <?php echo $product['price'] . " EGP"; ?>
                                             </span>
                                         </p>
-                                        <div class="cost">
-                                            <p class="lower-price">
-                                                From <span class="price">
-                                                    <?php echo $product['price'] . " EGP"; ?>
-                                                </span>
-                                            </p>
-                                        </div>
                                     </div>
+                                </div>
                             </div>
-                            </a>
-                        </form>
+                        </a>
                     </div>
-            <?php
+                    <?php
                     // Close the row div after every 4 products
                     if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
                         echo '</div>';
@@ -484,51 +487,7 @@ include "header.php"
                 </nav>
             </div>
         </div> -->
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $productId = $_POST["product_id"];
-            var_dump($productId);
 
-            // Fetch product details based on the product ID
-            $sql = "SELECT * FROM products WHERE id = $productId";
-            $result = mysqli_query($conn, $sql);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-                $productDetails = mysqli_fetch_assoc($result);
-
-                // Append the new product to the cart
-                $newProduct = [
-                    'id' => $productDetails['id'],
-                    'name' => $productDetails['name'],
-                    'price' => $productDetails['price'],
-                    'image' => $productDetails['file'],
-                    'quantity' => '1',
-                ];
-
-                if (isset($_POST['addtocart'])) {
-                    $quantity = $_POST['quantity'];
-                    $newProduct['quantity'] = $quantity;
-
-                    // If the products array is set, check if the product already exists
-                    $productExists = false;
-                    foreach ($_SESSION['products'] as $key => $product) {
-                        if ($newProduct['id'] == $product['id']) {
-                            // If the product exists, update the quantity
-                            $_SESSION['products'][$key]['quantity'] += $quantity;
-                            $productExists = true;
-                            break; // Stop the loop since the product is found
-                        }
-                    }
-
-                    // If the product does not exist, add it to the session['products']
-                    if (!$productExists) {
-                        $_SESSION['products'][] = $newProduct;
-                    }
-                }
-            }
-        }
-
-        ?>
     </main>
     <footer>
         <?php
@@ -540,8 +499,8 @@ include "header.php"
     <script src="../public/JS/collections.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.filter-select').change(function() {
+        $(document).ready(function () {
+            $('.filter-select').change(function () {
                 var formId = $(this).data('form-id');
                 $('#' + formId).submit();
             });
