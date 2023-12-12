@@ -62,7 +62,6 @@ function signin()
   $row = mysqli_fetch_assoc($result);
   //if the user was found 
   if (mysqli_num_rows($result) > 0) {
-    echo "<script> alert('email found');</script> ";
     if (password_verify($password, $row["password"])) {
       $_SESSION["login"] = true;
 
