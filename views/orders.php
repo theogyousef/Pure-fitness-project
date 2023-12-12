@@ -2,14 +2,19 @@
 
 
 require '../model/productModle.php';
-if (!empty($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+    $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
     $row = mysqli_fetch_assoc($result);
-
-} else {
+    $_SESSION["login"] = true;
+    $_SESSION["id"] = $row["id"];
+  } 
+  else if (!empty($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+    $result = mysqli_query($conn," SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE u.id = '$id'  ");
+    $row = mysqli_fetch_assoc($result);
+  } else {
     header("Location: login");
-}
+  }
 if ($row["guest"] == 1) {
     header("Location: index");
 

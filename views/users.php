@@ -13,11 +13,12 @@ require "../controller/adminFunctions.php";
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'  ");
+    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
     $row = mysqli_fetch_assoc($result);
-} else {
-    header("Location: registeration.php");
-}
+  } else {
+    header("Location: login");
+  }
+
 
 if ($row["admin"] != 1) {
     header("Location: index.php");
@@ -61,7 +62,7 @@ include "adminnav.php";
                     <div class="card-content">
                         <div class="number">
                             <?php
-                            $sql = "SELECT * from users ";
+                            $sql = "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id ";
                             $resultuser = mysqli_query($conn, $sql);
 
                             $counteruser = -1;
@@ -119,7 +120,7 @@ include "adminnav.php";
                         echo "<tr>
         <td colspan='9'style='padding-top: 0px ;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;'><div style='margin-left: -55px;'  id='searchresulte'></div></td>
       </tr>";
-                        $sql2 = "SELECT * from users ";
+                        $sql2 = "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id  ";
                         $resultusers = mysqli_query($conn, $sql2);
 
                         while ($row = mysqli_fetch_assoc($resultusers)) {

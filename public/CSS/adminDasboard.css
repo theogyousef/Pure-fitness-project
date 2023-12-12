@@ -460,3 +460,36 @@ form {
     height: 40px;
   }
 }
+
+@media (max-width: 576px) {
+  .topbar {
+    grid-template-columns: 1fr 5fr 0.4fr 1fr;
+  }
+  .logo h2 {
+    font-size: 20px;
+  }
+  .search {
+    width: 100%;
+    max-width: none;
+  }
+  .search input {
+    padding: 0 20px;
+  }
+  .fa-bell {
+    margin-right: 5px;
+  }
+  .cards,
+  .formcards {
+    grid-template-columns: 1fr;
+  }
+  .charts {
+    grid-template-columns: 1fr;
+  }
+  .user {
+    width: 40px;
+    height: 40px;
+  }
+  .search-container{
+    width: 800px;
+  }
+}

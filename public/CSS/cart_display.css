@@ -220,9 +220,10 @@ header {
   color: red;
 }
 .thetotal {
-  position: absolute;
-  right: 350px;
+    display: flex;
+    justify-content: flex-end;
 }
+
 .quantity{
   text-align: center;
   font-weight: 500;
@@ -243,4 +244,17 @@ header {
 a{
   text-decoration: none;
   color: black;
+}
+
+.p-cart{
+  color: #ff0000;
+}
+
+@media (max-width: 576px) {
+
+  #input-group{
+    width: 110px;
+    display: flex;
+    flex-direction: row; 
+  }
 }

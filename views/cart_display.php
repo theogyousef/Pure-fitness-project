@@ -48,13 +48,14 @@ if (isset($_POST['updatecart'])) {
 }
 
 // Fetch user information
-if (!empty($_SESSION["id"])) {
+
+  else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
+    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
     $row = mysqli_fetch_assoc($result);
-} else {
+  } else {
     header("Location: login");
-}
+  }
 
 
 // if (!empty($_SESSION["id"])) {
@@ -182,15 +183,14 @@ include "header.php";
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <p>Your cart is empty.</p>
+                                        <p class="p-cart">Your cart is empty.</p>
                                     <?php endif; ?>
                                 </tbody>
                             </table>
-                            <div id="totalcost">
-                            <h3 class="thetotal"> Total :
+                            <div class="thetotal">
+                            <h3 class=""> Total :
                                 <?php echo $total; ?>
-                            </h3>
-                            </div>
+                            </h3></div>
                             <?php if (!empty($_SESSION['products'])): ?>
                                 <button class="btn btn-primary bg-dark update-cart-button" name="updatecart"
                                     type="submit">Update Cart</button>

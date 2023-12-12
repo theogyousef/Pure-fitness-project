@@ -1,10 +1,9 @@
 h1 {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   font-size: 30px !important;
   font-weight: bold;
   position: relative;
   text-transform: uppercase;
-
 }
 
 .price {
@@ -55,7 +54,7 @@ h1 {
   border-color: inherit;
   box-shadow: none;
 }
-#filters{
+#filters {
   /* padding: 20px; */
 }
 
@@ -86,7 +85,7 @@ h1 {
   padding: 5px 0;
 }
 
-.Icon>a {
+.Icon > a {
   color: white;
   font-size: 20px;
 }
@@ -125,17 +124,40 @@ h1 {
   visibility: visible;
 }
 
-.list-view .row>[class*='col-'] {
+.list-view .row > [class*="col-"] {
   max-width: 400px;
   flex: 0 0 100%;
-
 }
 
 .list-view .row {
   flex-direction: column;
 }
 
-@media (min-width: 576px) {
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#reset {
+  /* position: absolute; */
+  right: 100px;
+}
+.btn-primary {
+  border-color: white;
+}
+
+/* pagination css */
+.page-link {
+  color: black !important;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a :hover {
+  color: black;
+}
+@media (max-width: 576px) {
   .list-view .card {
     flex-direction: row;
   }
@@ -171,35 +193,33 @@ h1 {
     padding-left: 2%;
   }
 
-  @media (max-width: 768px) {
-    .products {
-      width: 100%;
-      margin-right: 0;
-    }
+  .filter {
+    width: 280px;
   }
-}
+  #row {
+    width: 100%;
+    margin: 0;
+  }
+  #product {
+    width: 175px;
+    margin-right :10px;
+  }
+  #product form {
+    width: 120%;
+  }
+  .products{
+    width: 100%;
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-#reset{
-  position: absolute;
-  right: 0;
-}
-.btn-primary{
-border-color: white;
-}
-
-/* pagination css */
-.page-link {
-  color: black !important;
-}
-a{
-  text-decoration: none;
-  color: black;
-}
-a :hover{
-  color: black;
+  }
+  .container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .list-view #product {
+    width: 200px;
+  }
+ 
 }

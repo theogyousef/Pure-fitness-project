@@ -30,12 +30,12 @@ class Routere
         session_start();
 
 
-        if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-            $result = mysqli_query($conn, "SELECT * FROM users where guest = '1' ");
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION["login"] = true;
-            $_SESSION["id"] = $row["id"];
-        }
+     if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+  $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
+  $row = mysqli_fetch_assoc($result);
+  $_SESSION["login"] = true;
+  $_SESSION["id"] = $row["id"];
+}
 
 
 
