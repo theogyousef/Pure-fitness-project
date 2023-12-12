@@ -48,14 +48,13 @@ if (isset($_POST['updatecart'])) {
 }
 
 // Fetch user information
-
-  else if (!empty($_SESSION["id"])) {
+else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
+    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
+}
 
 
 // if (!empty($_SESSION["id"])) {
@@ -188,9 +187,12 @@ include "header.php";
                                 </tbody>
                             </table>
                             <div class="thetotal">
-                            <h3 class=""> Total :
-                                <?php echo $total; ?>
-                            </h3></div>
+                                <h3 class=""> Total :
+                                    <?php echo $total;
+                                    $_SESSION['total'] = $total;
+                                    ?>
+                                </h3>
+                            </div>
                             <?php if (!empty($_SESSION['products'])): ?>
                                 <button class="btn btn-primary bg-dark update-cart-button" name="updatecart"
                                     type="submit">Update Cart</button>
@@ -200,7 +202,7 @@ include "header.php";
                             <a href="index" class="add-button">Add Products</a>
                         <?php endif; ?>
                         <?php if (!empty($_SESSION['products'])): ?>
-                            <a href="confirm" class="checkout-button">Proceed to Checkout</a>
+                            <a href="confirmaddress" class="checkout-button">Proceed to Checkout</a>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -57,10 +57,15 @@ class Routere
         } elseif ($path === '/swe/views/orders') {
             require '../views/orders.php';
             exit();
-        } elseif ($path === '/swe/views/confirm') {
-            require '../views/confirm.php';
+
+        } elseif ($path === '/SWE/views/confirmaddress') {
+            require '../views/confirmaddress.php';
             exit();
-        } elseif ($path === '/swe/views/logout') {
+        } elseif ($path === '/SWE/views/confirmorder') {
+            require '../views/confirmorder.php';
+            exit();
+        }elseif ($path === '/SWE/views/logout') {
+
             require '../views/logout.php';
             exit();
         } elseif ($path === '/swe/views/adminDashboard') {
@@ -105,10 +110,8 @@ class Routere
         } elseif ($path === '/swe/views/deactivated') {
             require '../views/deactivated.php';
             exit();
-        } elseif ($path === '/swe/views/confirm') {
-            require '../views/confirm.php';
-            exit();
-        } elseif ($path === '/swe/views/cart_display') {
+        } elseif ($path === '/SWE/views/cart_display') {
+
             require '../views/cart_display.php';
             exit();
         } elseif ($path === '/swe/views/cart_display?remove=' . $id) {
