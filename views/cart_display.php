@@ -186,9 +186,11 @@ include "header.php";
                                     <?php endif; ?>
                                 </tbody>
                             </table>
+                            <div id="totalcost">
                             <h3 class="thetotal"> Total :
                                 <?php echo $total; ?>
                             </h3>
+                            </div>
                             <?php if (!empty($_SESSION['products'])): ?>
                                 <button class="btn btn-primary bg-dark update-cart-button" name="updatecart"
                                     type="submit">Update Cart</button>
@@ -211,8 +213,7 @@ include "header.php";
         include "footer.php";
         ?>
     </footer>
-    <script src="../public/JS/cart_display.js">
-        src = "https://code.jquery.com/jquery-3.6.0.min.js"
-    </script>
-
+    <script src="../public/JS/cart_display.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
 </body>
