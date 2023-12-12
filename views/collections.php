@@ -8,14 +8,13 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     $row = mysqli_fetch_assoc($result);
     $_SESSION["login"] = true;
     $_SESSION["id"] = $row["id"];
-  } 
-  else if (!empty($_SESSION["id"])) {
+} else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
+    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
+}
 
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
@@ -59,7 +58,7 @@ include "header.php"
             <!-- Filters -->
             <div class="row mb-3" id="filters">
                 <div class="col-md-2">
-                    <form class="filter" id="filterF" method="post" >
+                    <form class="filter" id="filterF" method="post">
                         <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
                             <option selected disabled>Availability</option>
                             <option value="1">In Stock</option>
@@ -248,14 +247,14 @@ include "header.php"
                         echo '<div class="row justify-content-start" id="row">';
                     }
             ?>
-                <div class="col-md-3" id="product">   
-                    <form a method="post"> 
+                    <div class="col-md-3" id="product">
+                        <form a method="post">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
 
                             <div class="products">
                                 <div class="product-image">
                                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                                    <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
                                     </a>
                                     <div class="links">
                                         <div class="Icon">
@@ -264,7 +263,7 @@ include "header.php"
                                         </div>
                                         <div class="Icon">
                                             <i class="bi bi-heart"></i>
-                                            <span class="tooltiptext">Move to wishlist</span>
+                                            <button name="addtowishlist" class="tooltiptext">Add to wishlist</button>
                                         </div>
                                     </div>
                                 </div>
@@ -486,10 +485,10 @@ include "header.php"
             </div>
         </div> -->
         <?php
-        
+
         if (isset($_POST['addtocart'])) {
             $productId = $_POST["product_id"];
-            
+
 
             // Fetch product details based on the product ID
             $sql = "SELECT * FROM products WHERE id = $productId";
@@ -507,28 +506,68 @@ include "header.php"
                     'quantity' => '1',
                 ];
 
-               
-                    $quantity = $_POST['quantity'];
-                    $newProduct['quantity'] = $quantity;
 
-                    // If the products array is set, check if the product already exists
-                    $productExists = false;
-                    foreach ($_SESSION['products'] as $key => $product) {
-                        if ($newProduct['id'] == $product['id']) {
-                            // If the product exists, update the quantity
-                            $_SESSION['products'][$key]['quantity'] += $quantity;
-                            $productExists = true;
-                            break; // Stop the loop since the product is found
-                        }
-                    }
+                $quantity = $_POST['quantity'];
+                $newProduct['quantity'] = $quantity;
 
-                    // If the product does not exist, add it to the session['products']
-                    if (!$productExists) {
-                        $_SESSION['products'][] = $newProduct;
+                // If the products array is set, check if the product already exists
+                $productExists = false;
+                foreach ($_SESSION['products'] as $key => $product) {
+                    if ($newProduct['id'] == $product['id']) {
+                        // If the product exists, update the quantity
+                        $_SESSION['products'][$key]['quantity'] += $quantity;
+                        $productExists = true;
+                        break; // Stop the loop since the product is found
                     }
-                
+                }
+
+                // If the product does not exist, add it to the session['products']
+                if (!$productExists) {
+                    $_SESSION['products'][] = $newProduct;
+                }
             }
         }
+
+        if (isset($_POST['addtowishlist'])) {
+            $productId = $_POST["product_id"];
+
+
+            // Fetch product details based on the product ID
+            $sql = "SELECT * FROM products WHERE id = $productId";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                $productDetails = mysqli_fetch_assoc($result);
+
+                // Append the new product to the cart
+                $newProduct = [
+                    'id' => $productDetails['id'],
+                    'name' => $productDetails['name'],
+                    'price' => $productDetails['price'],
+                    'image' => $productDetails['file'],
+                    'quantity' => '1',
+                ];
+
+
+                $quantity = $_POST['quantity'];
+                $newProduct['quantity'] = $quantity;
+
+                // If the products array is set, check if the product already exists
+                $productExists = false;
+                foreach ($_SESSION['wishlist'] as $key => $product) {
+                    if ($newProduct['id'] == $product['id']) {
+                        $productExists = true;
+                        break; // Stop the loop since the product is found
+                    }
+                }
+
+                // If the product does not exist, add it to the session['wishlist']
+                if (!$productExists) {
+                    $_SESSION['wishlist'][] = $newProduct;
+                }
+            }
+        }
+
 
         ?>
     </main>
