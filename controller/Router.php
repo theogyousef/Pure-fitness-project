@@ -62,16 +62,16 @@ class Routere
             require '../views/confirmaddress.php';
             exit();
 
-        }  elseif ($path === '/SWE/views/confirmation') {
+        }  elseif ($path === '/swe/views/confirmation') {
             require '../views/confirmation.php';
             exit();
-        } elseif ($path === '/SWE/views/payment') {
+        } elseif ($path === '/swe/views/payment') {
             require '../views/payment.php';
             exit();
-        } elseif ($path === '/SWE/views/confirmorder') {
+        } elseif ($path === '/swe/views/confirmorder') {
             require '../views/confirmorder.php';
             exit();
-        } elseif ($path === '/SWE/views/logout') {
+        } elseif ($path === '/swe/views/logout') {
             require '../views/logout.php';
             exit();
         } elseif ($path === '/swe/views/adminDashboard') {

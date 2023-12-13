@@ -6,7 +6,7 @@
 
 <?php
 require '../controller/config.php';
-
+require "../controller/payment.php";
 //require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
@@ -15,13 +15,7 @@ if (isset($_POST["addressdetails"])) {
     // header("Location: ");
 }
 
-if (!empty($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
-    $row = mysqli_fetch_assoc($result);
-} else {
-    header("Location: login");
-}
+$row = Payment::permissions();
 
 
 
@@ -31,37 +25,7 @@ if ($row["deactivated"] == 1) {
 
 
 
-if (isset($_POST["confirm"])) {
-	require '../controller/config.php';
-	$order_id = rand(1000, 9999);
-	echo "order id " . $order_id . " <br>";
-    $_SESSION['order_id'] = $order_id ;
-	$user_id = $id;
-	echo "user id = " . $user_id;
-	//insert into orders 
-	mysqli_query($conn, "INSERT into orders (order_id , user_id ) VALUES ('$order_id' , '$user_id')");
-	$total = $_SESSION['total'];
-	echo "Total from session: " . $total . "<br>";
-	//insert into orders_details 
-	mysqli_query($conn, "INSERT into orders_details (order_id , status , total ) VALUES ('$order_id' , 'pending' , '$total' )");
-	$totalquantity = 0;
-	foreach ($_SESSION['products'] as $product) :
-		$totalquantity += $product['quantity'];
-		echo $product['id'] . " " . $product['quantity'] . "<br>";
-		$product_id = $product['id'];
-		$quantity = $product['quantity'];
-		echo "product id " . $product_id . "and quantity = " . $quantity . "<br>";
-		//insert into orders_product_details 
-		mysqli_query($conn, "INSERT into  order_product_details  (order_id , product_id , quantity ) VALUES ('$order_id' , '$product_id' , '$quantity' )");
-
-	endforeach;
-    $_SESSION['confirmedorder'] = $_SESSION['products'] ;
-	echo $totalquantity;
-
-
-	echo "success";
-	header("Location: confirmation");
-}
+Payment::makeorder();
 include "header.php";
 ?>
 
@@ -91,7 +55,7 @@ include "header.php";
 
 <body>
     <div class="container">
-    <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb">
             <ol class="breadcrumb-navigation">
                 <li class="breadcrumb-item cart" style="color: maroon;"><a href="cart_display">Cart</a></li>
                 <li class="breadcrumb-item separator"><i class="bi bi-chevron-right"></i></li>
@@ -155,20 +119,20 @@ include "header.php";
 
                         <div id="cashOnDeliveryCollapse" class="collapse" data-bs-parent="#paymentAccordion">
                             <div>
-                            <br>
+                                <br>
 
-                            <form method="post">
-		<input class="btn btn-primary" type="submit" name="confirm" value="confrim order" style="background-color: black;">
-	</form>
-                    <!-- <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" > -->
+                                <form method="post">
+                                    <input class="btn btn-primary" type="submit" name="confirm" value="confrim order" style="background-color: black;">
+                                </form>
+                                <!-- <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" > -->
                             </div>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
 
-            
+
             <div class="col-md-4 order-md-2 mb-4" id="cart">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted" style="margin-left: 130px;">Your cart</span>
