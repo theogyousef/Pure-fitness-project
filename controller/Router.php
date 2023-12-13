@@ -58,13 +58,13 @@ class Routere
             require '../views/orders.php';
             exit();
 
-        } elseif ($path === '/SWE/views/confirmaddress') {
+        } elseif ($path === '/swe/views/confirmaddress') {
             require '../views/confirmaddress.php';
             exit();
-        } elseif ($path === '/SWE/views/confirmorder') {
+        } elseif ($path === '/swe/views/confirmorder') {
             require '../views/confirmorder.php';
             exit();
-        }elseif ($path === '/SWE/views/logout') {
+        }elseif ($path === '/swe/views/logout') {
 
             require '../views/logout.php';
             exit();
@@ -110,7 +110,7 @@ class Routere
         } elseif ($path === '/swe/views/deactivated') {
             require '../views/deactivated.php';
             exit();
-        } elseif ($path === '/SWE/views/cart_display') {
+        } elseif ($path === '/swe/views/cart_display') {
 
             require '../views/cart_display.php';
             exit();
