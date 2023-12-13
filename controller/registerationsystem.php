@@ -32,7 +32,7 @@ function signup()
       $result = mysqli_query($conn, "SELECT * FROM users where email = '$email'");
       $row = mysqli_fetch_assoc($result);
       $id = $row['id']; 
-      $query2 = "INSERT INTO addresses (user_id) VALUES ('$id')";
+      $query2 = "INSERT INTO addresses (user_id , governorates , city , street , house , postalcode) VALUES ('$id' , ' ' , ' ' , ' ' , ' ' , ' ')";
       $query3 = "INSERT INTO permissions (user_id) VALUES ('$id')";
 
       mysqli_query($conn, $query2);

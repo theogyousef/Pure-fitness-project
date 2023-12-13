@@ -36,13 +36,13 @@ class UserModel {
         return $row;
     }
 
-    public static function selectAddress($id)
-    {
-        include "../controller/config.php";
-        $result = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
-        $row = mysqli_fetch_assoc($result);
-        return $row;
-    }
+    // public static function selectAddress($id)
+    // {
+    //     include "../controller/config.php";
+    //     $result = mysqli_query($conn, "SELECT * FROM addresses WHERE user_id = '$id'  ");
+    //     $row = mysqli_fetch_assoc($result);
+    //     return $row;
+    // }
     public static function UpdatePassword($hashedPassword,$id)
     {
         include "../controller/config.php";

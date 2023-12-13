@@ -22,7 +22,7 @@ class Routere
             $action = $matches[1];
             $id = $matches[2];
 
-           // echo "id = " . $id;
+            // echo "id = " . $id;
         }
         //  echo $path;
         //  echo "id = " .$id;
@@ -30,12 +30,12 @@ class Routere
         session_start();
 
 
-     if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-  $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
-  $row = mysqli_fetch_assoc($result);
-  $_SESSION["login"] = true;
-  $_SESSION["id"] = $row["id"];
-}
+        if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+            $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION["login"] = true;
+            $_SESSION["id"] = $row["id"];
+        }
 
 
 
@@ -61,11 +61,17 @@ class Routere
         } elseif ($path === '/swe/views/confirmaddress') {
             require '../views/confirmaddress.php';
             exit();
-        } elseif ($path === '/swe/views/confirmorder') {
+
+        }  elseif ($path === '/SWE/views/confirmation') {
+            require '../views/confirmation.php';
+            exit();
+        } elseif ($path === '/SWE/views/payment') {
+            require '../views/payment.php';
+            exit();
+        } elseif ($path === '/SWE/views/confirmorder') {
             require '../views/confirmorder.php';
             exit();
-        }elseif ($path === '/swe/views/logout') {
-
+        } elseif ($path === '/SWE/views/logout') {
             require '../views/logout.php';
             exit();
         } elseif ($path === '/swe/views/adminDashboard') {

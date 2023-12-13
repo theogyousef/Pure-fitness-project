@@ -63,7 +63,7 @@ function updateaddress()
     $postalcode = $_POST["postalcode"];
 
     $id = $_SESSION["id"];
-    $row = $row = UserModel::selectAddress($id);
+    // $row = $row = UserModel::selectAddress($id);
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
 
