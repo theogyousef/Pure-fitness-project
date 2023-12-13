@@ -132,3 +132,141 @@ body {
     max-width: 800px; 
     margin: auto; /* Auto margin to center the container within the body */
 }
+
+
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.row-divider {
+  display: flex;
+  position: relative;
+}
+
+.vertical-divider {
+  border-left: 1px solid #ccc;
+  position: absolute;
+  left: calc(58% + 15px);
+  top: 0;
+  height: 100%;
+}
+
+.billing-col {
+  flex: 0 0 58%;
+  max-width: 58%;
+  margin-right: 35px;
+}
+
+.cart-col {
+  flex: 0 0 42%;
+  max-width: 42%;
+  padding-left: 30px;
+}
+
+.equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row-divider {
+  min-height: 400px;
+}
+
+.breadcrumb-navigation {
+  padding: 0.75rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-item {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  content: none;
+}
+
+.breadcrumb-item .bi-chevron-right {
+  font-size: 10px;
+  margin: 0 0.5rem;
+}
+
+#cart {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cart .list-group-item {
+  border: none;
+  padding: 10px 0;
+}
+
+#cart .list-group-item:not(:last-child) {
+  border-bottom: 1px solid #eaeaea;
+}
+
+#cart .badge {
+  color: white;
+}
+
+#cart .input-group {
+  margin-top: 15px;
+}
+
+#cart .btn-secondary {
+  color: #333;
+  background-color: #e2e6ea;
+  border: none;
+}
+
+#cart .btn-secondary:hover {
+  background-color: #dae0e5;
+}
+
+#cart .input-group input {
+  border: 1px solid #ced4da;
+}
+
+#cart h4 {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
+}
+
+#cart .list-group-item:last-child {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.payment-details {
+  display: none;
+  margin-top: 10px;
+}
+.btn-primary{
+  border:white;
+}
