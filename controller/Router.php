@@ -60,6 +60,9 @@ class Routere
         } elseif ($path === '/SWE/views/confirmaddress') {
             require '../views/confirmaddress.php';
             exit();
+        }  elseif ($path === '/SWE/views/confirmation') {
+            require '../views/confirmation.php';
+            exit();
         } elseif ($path === '/SWE/views/payment') {
             require '../views/payment.php';
             exit();
