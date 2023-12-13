@@ -215,8 +215,7 @@ include "header.php";
         include "footer.php";
         ?>
     </footer>
-    <script src="../public/JS/cart_display.js">
-        src = "https://code.jquery.com/jquery-3.6.0.min.js"
-    </script>
-
+    <script src="../public/JS/cart_display.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
 </body>

@@ -61,8 +61,10 @@ class Routere
             require '../views/Adminorders.php';
             exit();
         } elseif ($path === '/SWE/views/confirmaddress') {
+
             require '../views/confirmaddress.php';
             exit();
+
         }  elseif ($path === '/SWE/views/confirmation') {
             require '../views/confirmation.php';
             exit();
@@ -118,6 +120,7 @@ class Routere
             require '../views/deactivated.php';
             exit();
         } elseif ($path === '/SWE/views/cart_display') {
+
             require '../views/cart_display.php';
             exit();
         } elseif ($path === '/SWE/views/cart_display?remove=' . $id) {
