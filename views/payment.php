@@ -29,6 +29,39 @@ if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 }
 
+
+
+if (isset($_POST["confirm"])) {
+	require '../controller/config.php';
+	$order_id = rand(1000, 9999);
+	echo "order id " . $order_id . " <br>";
+    $_SESSION['order_id'] = $order_id ;
+	$user_id = $id;
+	echo "user id = " . $user_id;
+	//insert into orders 
+	mysqli_query($conn, "INSERT into orders (order_id , user_id ) VALUES ('$order_id' , '$user_id')");
+	$total = $_SESSION['total'];
+	echo "Total from session: " . $total . "<br>";
+	//insert into orders_details 
+	mysqli_query($conn, "INSERT into orders_details (order_id , status , total ) VALUES ('$order_id' , 'pending' , '$total' )");
+	$totalquantity = 0;
+	foreach ($_SESSION['products'] as $product) :
+		$totalquantity += $product['quantity'];
+		echo $product['id'] . " " . $product['quantity'] . "<br>";
+		$product_id = $product['id'];
+		$quantity = $product['quantity'];
+		echo "product id " . $product_id . "and quantity = " . $quantity . "<br>";
+		//insert into orders_product_details 
+		mysqli_query($conn, "INSERT into  order_product_details  (order_id , product_id , quantity ) VALUES ('$order_id' , '$product_id' , '$quantity' )");
+
+	endforeach;
+    $_SESSION['confirmedorder'] = $_SESSION['products'] ;
+	echo $totalquantity;
+
+
+	echo "success";
+	header("Location: confirmation");
+}
 include "header.php";
 ?>
 
@@ -69,7 +102,7 @@ include "header.php";
                 <li class="breadcrumb-item payment"><a href="payment">Payment</a></li>
                 <li class="breadcrumb-item separator"><i class="bi bi-chevron-right"></i></li>
 
-                <li class="breadcrumb-item confirmation"><a href="/payment">Confirmation</a></li>
+                <li class="breadcrumb-item confirmation"><a href="confirmation">Confirmation</a></li>
             </ol>
         </nav>
         <div class="py-3 text-center">
@@ -123,7 +156,11 @@ include "header.php";
                         <div id="cashOnDeliveryCollapse" class="collapse" data-bs-parent="#paymentAccordion">
                             <div>
                             <br>
-                    <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" style="background-color: black;">
+
+                            <form method="post">
+		<input class="btn btn-primary" type="submit" name="confirm" value="confrim order" style="background-color: black;">
+	</form>
+                    <!-- <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" > -->
                             </div>
                         </div>
                     </div>
