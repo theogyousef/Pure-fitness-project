@@ -7,35 +7,15 @@
 <?php
 
 //require "../controller/config.php";
-require "../controller/adminFunctions.php";
-
-if (isset($_POST["addproduct"])) {
-    addproduct();
-} else if (isset($_POST["updateproduct"])) {
-    updateproduct();
-} else if (isset($_POST["deleteproduct"])) {
-    deleteproduct();
-} else if (isset($_POST["adduserb"])) {
-    adduser();
-} else if (isset($_POST["updateuser"])) {
-    updateuser();
-} else if (isset($_POST["deleteuser"])) {
-    deleteuser();
-} else if (isset($_POST["makeadminn"])) {
-    makeadmin();
-} else if (isset($_POST["makeuserr"])) {
-    makeuser();
-}
-
 
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
+    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
+}
 
 if ($row["admin"] != 1) {
     header("Location: login");
@@ -79,6 +59,32 @@ include "adminnav.php";
         <div class="main" id="mainpart">
             <div class="cards">
 
+
+
+
+
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">
+                            <?php
+                            $sql = "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id";
+                            $resultuser = mysqli_query($conn, $sql);
+
+                            $counteruser = -1;
+                            while ($row = mysqli_fetch_assoc($resultuser)) {
+                                $counteruser++;
+                            }
+                            echo $counteruser ?>
+                        </div>
+                        <div class="card-name">Total users :</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+
+
                 <div class="card">
                     <div class="card-content">
                         <div class="number">
@@ -100,538 +106,37 @@ include "adminnav.php";
                 </div>
 
 
-
-
-
                 <div class="card">
                     <div class="card-content">
                         <div class="number">
                             <?php
-                            $sql = "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id" ;
-                            $resultuser = mysqli_query($conn, $sql);
+                            $sql = "SELECT * from orders  ";
+                            $resultproduct = mysqli_query($conn, $sql);
 
-                            $counteruser = -1;
-                            while ($row = mysqli_fetch_assoc($resultuser)) {
-                                $counteruser++;
+                            $counterproducts = 0;
+                            while ($row = mysqli_fetch_assoc($resultproduct)) {
+                                $counterproducts++;
                             }
-                            echo $counteruser ?>
+                            echo $counterproducts ?>
                         </div>
-                        <div class="card-name">Total users :</div>
+                        <div class="card-name"> Orders</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-box-open"></i>
                     </div>
                 </div>
 
 
-
             </div>
 
-
-
-            <div class="container-fluid">
-                <table class="table custom-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql = "SELECT * FROM products";
-                        $resultproduct = mysqli_query($conn, $sql);
-
-                        while ($row = mysqli_fetch_assoc($resultproduct)) {
-                            echo "<tr>
-                    <td>" . $row["id"] . "</td>
-                    <td>" . $row["name"] . "</td>
-                    <td>" . $row["type"] . "</td>
-                    <td>" . $row["price"] . "</td>" ?>
-                            <?php
-                            if ($row["outofstock"] == 1) {
-                                $outofstock = "Out of stock";
-                                echo '<td><span style="color: red;  font-size: 16px;">' . $outofstock . '</span> </td>';
-                            } else if ($row["outofstock"] == 0) {
-                                $outofstock = "In stock";
-                                echo '<td><span style="color: green; font-size: 16px;">' . $outofstock . '</span> </td>';
-                            }
-                            ?>
-                            <?php
-                            echo "<td>
-                        <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
-                            <span class='fas fa-edit'></span> 
-                        </a>
-                    </td>
-                    <td>
-                        <a href='deleteproduct?id=" . $row["id"] . "' style='color: red;'>
-                            <span class='fas fa-trash-alt'></span> 
-                        </a>
-                    </td>
-                </tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-
-                <table class="table custom-table">
-
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>Admin</th>
-                            <th>Deactivated</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            <th>make user</th>
-                            <th>make admin</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-
-                        $sql2 = "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id ";
-                        $resultusers = mysqli_query($conn, $sql2);
-
-                        while ($row = mysqli_fetch_assoc($resultusers)) {
-                            if ($row["admin"] == 1) {
-                                $admin = "Admin";
-                            } elseif ($row["admin"] == 0) {
-                                $admin = " ";
-                            }
-                            if ($row["deactivated"] == 1) {
-                                $deactivated = "deactivated";
-                            } elseif ($row["deactivated"] == 0) {
-                                $deactivated = " ";
-                            }
-
-                            echo " <tr>
-        <td>" . $row["id"] . "</td>
-        <td>" . $row["firstname"] . $row["lastname"] . "</td>
-        <td>" . $row["email"] . "</td>
-        <td> " . $admin . "</td>
-        <td> " . $deactivated . "</td>
-        <td>  <a href='edituser?id=" . $row["id"] . "' style='color: orange;'> <span class='fas fa-edit'></span> </a> </td>
-        <td> <a href='deleteuser?id=" . $row["id"] . "' style='color: red;'> <span class='fas fa-trash-alt'></span> </a>  </td>
-        <td>  <a href='makeuser?id=" . $row["id"] . "' style='color: green;'> <span class='fas fa-user'></span> </a> </td>
-        <td>  <a href='makeadmin?id=" . $row["id"] . "' style='color: black;'> <span class='fas fa-user-shield'></span> </a> </td>
-
-</tr>";
-
-                        }
-                        ?>
-                    </tbody>
-                </table>
-
-
-            </div>
 
 
         </div>
-    </div>
-    <!-- Add product  -->
-    <!-- <div class="main" id="addproduct">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
-                        <h1>ADD Product</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Type</label>
-                                <input type="text" class="form-control" name="type" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Price</label>
-                                <input type="text" class="form-control" name="price" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="newProductImage" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="newProductImage"
-                                    accept="image/png, image/gif, image/jpeg" name="file" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="addproduct" value="ADD Product"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
+        <script src="../public/JS/admindasboard.js"></script>
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- Edit product  -->
-    <!-- <div class="main" id="editproduct">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Update product</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="newProductSlug" class="form-label">Type</label>
-                                <input type="text" class="form-control" name="type" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="newProductSlug" class="form-label">Price</label>
-                                <input type="text" class="form-control" name="price" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="updateproduct" value="Update Product"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- delete product  -->
-    <!-- <div class="main" id="deleteproduct">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Delete product</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="deleteproduct" value="Delete Product"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
- -->
-
-
-
-    <!-- Add user -->
-
-    <!-- <div class="main" id="adduser">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="form-container">
-
-                        <h1>ADD User</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="two-forms">
-                                <div class="input-box">
-                                    <input type="text" class="input-field" placeholder="First name" name="fname">
-                                    <i class="bx bx-user"></i>
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" class="input-field" placeholder="Last name" name="lname">
-                                    <i class="bx bx-user"></i>
-                                </div>
-                            </div>
-                            <div class="input-box">
-                                <input type="email" class="input-field" placeholder="Email" name="email">
-                                <i class="bx bx-envelope"></i>
-                            </div>
-                            <div class="input-box">
-                                <input id="reg-password" type="password" class="input-field" placeholder="Password"
-                                    name="password">
-                            </div>
-                            <div class="input-box">
-                                <input id="conpassword" type="password" class="input-field"
-                                    placeholder="Confirm password" name="confirmpassword">
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="adduserb" value="add user"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- Edit user  -->
-    <!-- <div class="main" id="edituser">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Update user</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="two-forms">
-                                <div class="input-box">
-                                    <input type="text" class="input-field" placeholder="First name" name="fname">
-                                    <i class="bx bx-user"></i>
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" class="input-field" placeholder="Last name" name="lname">
-                                    <i class="bx bx-user"></i>
-                                </div>
-                            </div>
-                            <div class="input-box">
-                                <input type="email" class="input-field" placeholder="Email" name="email">
-                                <i class="bx bx-envelope"></i>
-                            </div>
-                            <div class="input-box">
-                                <input id="reg-password" type="password" class="input-field" placeholder="Password"
-                                    name="password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="updateuser" value="Update Product"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- delete user  -->
-    <!-- <div class="main" id="deleteuser">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Delete user</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="deleteuser" value="Delete Product"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-    <!-- make admin  -->
-    <!-- <div class="main" id="makeadmin">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Make admin</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="makeadminn" value="Update"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-    <!-- make user  -->
-    <!-- <div class="main" id="makeuser">
-            <div class="formcards">
-                <div class="formcard">
-                    <div class="card-content form-container">
-
-                        <h1>Make user</h1>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" name="id" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="makeuserr" value="Update"
-                                    style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-
-    <script src="../public/JS/admindasboard.js"></script>
-    <script>
-
-        // var dashboard = document.getElementById("dashboard");
-        // var users = document.getElementById("users");
-        // var products = document.getElementById("products");
-
-        var mainpart = document.getElementById("mainpart");
-        // product forms 
-        var addproduct = document.getElementById("addproduct");
-        var edirproduct = document.getElementById("editproduct");
-        var deleteproduct = document.getElementById("deleteproduct");
-        //user forms 
-        var adduser = document.getElementById("adduser");
-        var edituser = document.getElementById("edituser");
-        var deleteuser = document.getElementById("deleteuser");
-        var makeadmin = document.getElementById("makeadmin");
-        var makeuser = document.getElementById("makeuser");
-
-
-        function dasboardside() {
-            addproduct.style.display = "none";
-            edirproduct.style.display = "none";
-            deleteproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            mainpart.style.display = "block";
-        }
-        function addproductside() {
-            mainpart.style.display = "none";
-            edirproduct.style.display = "none";
-            deleteproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            addproduct.style.display = "block";
-        }
-        function editproductside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            deleteproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            edirproduct.style.display = "block";
-        }
-        function deleteproductside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            edirproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            deleteproduct.style.display = "block";
-        }
-
-        function adduserside() {
-            mainpart.style.display = "none";
-            edirproduct.style.display = "none";
-            deleteproduct.style.display = "none";
-
-            adduser.style.display = "block";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            addproduct.style.display = "none";
-        }
-        function edituserside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            deleteproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "block";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            edirproduct.style.display = "none";
-        }
-        function deleteuserside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            edirproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "block";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "none";
-
-            deleteproduct.style.display = "none";
-        }
-
-        function makeadminside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            edirproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "block";
-            makeuser.style.display = "none";
-
-
-            deleteproduct.style.display = "none";
-        }
-        function makeuserside() {
-            mainpart.style.display = "none";
-            addproduct.style.display = "none";
-            edirproduct.style.display = "none";
-
-            adduser.style.display = "none";
-            edituser.style.display = "none";
-            deleteuser.style.display = "none";
-            makeadmin.style.display = "none";
-            makeuser.style.display = "block";
-
-
-            deleteproduct.style.display = "none";
-        }
-
-
-
-        dasboardside();
-    </script>
 
 </body>
 
