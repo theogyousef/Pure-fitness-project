@@ -110,7 +110,15 @@ if ($row["id"] == 1) {
                     </div>
                 </li>
 
-
+                <li class="dropdown" id="orders">
+                    <a href="Adminorders">
+                    <i class="fas fa-box-open"></i>                                            <div>orders</div>
+                    </a>
+                    <div class="dropdown-content">
+                        <!-- <a href="addproduct">Add order</a> -->
+                        <!-- Add more links as needed -->
+                    </div>
+                </li>
                 <li>
                     <a href="profilesettings">
                         <i class="fas fa-cog"></i>

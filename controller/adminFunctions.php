@@ -141,3 +141,9 @@ function reactivateaccount($id)
     adminModel::activateaccount($id);
 
 }
+function updateorder(){
+    global $conn;
+    $id = $_POST["id"];
+    $status = $_POST["status"];
+    adminModel::updateorder($id , $status);
+}

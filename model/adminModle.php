@@ -81,4 +81,12 @@ class adminModel
         $query = "UPDATE users SET deactivated = '0' WHERE  id = $id ";
         mysqli_query($conn, $query);
     }
+
+    public static function updateorder($id , $status)
+    {
+
+        include "../controller/config.php";
+        $query = "UPDATE orders_details SET status = '$status' WHERE order_id = $id ";
+        mysqli_query($conn, $query);
+    }
 }
