@@ -68,11 +68,11 @@ include "header.php";
     $result = mysqli_query($conn, $query);
     $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
-   
+
     <div class="container-joe">
- <div class="container" style="margin: 0 42% ;">
-        <h1>My orders</h1>
-    </div>
+        <div class="container" style="margin: 0 42% ;">
+            <h1>My orders</h1>
+        </div>
         <?php if (!empty($orders)) { ?>
             <?php foreach ($orders as $order):
                 // echo "<br>";
@@ -92,16 +92,65 @@ include "header.php";
                             <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
                         </div>
                     </article> -->
-                        <div class="track">
-                            <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
-                                    class="text">Order confirmed</span> </div>
-                            <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
-                                    Picked by courier</span> </div>
-                            <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On
-                                    the way </span> </div>
-                            <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Ready
-                                    for pickup</span> </div>
-                        </div>
+                        <?php
+
+                        // echo "#" . $order['status'];
+                        $status = $order['status'];
+                        switch ($status) {
+                            case 'Cancelled':
+                                echo '<div class="track">
+                            <div class="step Cancelled"> </span> </div>
+                            <div class="step Cancelled"> <span class="icon"> <i class="fas fa-times"></i>
+                                    </i></span> <span class="text">
+                                    Order Cancelled</span> </div>
+                            <div class="step Cancelled"> </span> </div>
+
+                        </div>';
+                                break;
+                            case 'Pending':
+                                echo '  <div class="track">
+                            <div class="step "> <span class="icon"> <i class="fas fa-question"></i> </span> <span
+                            class="text">Order Pending</span> </div>
+                    <div class="step  "> <span class="icon"> <i class="fa fa-user"></i> </span> <span
+                            class="text">
+                            Out for delivery </span> </div>
+                    <div class="step  "> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                            class="text">Delivered</span> </div>
+                </div>';
+                                break;
+                            case 'Confirmed':
+                                echo '<div class="track">
+                                <div class="step active Confirmed"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                                        class="text">Order confirmed</span> </div>
+                                <div class="step "> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
+                                        Out for delivery </span> </div>
+                                <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                                        class="text">Delivered</span> </div>
+                            </div>';
+                                break;
+                            case 'Out for delivery':
+                                echo '  <div class="track">
+                                <div class="step active Confirmed"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                                        class="text">Order confirmed</span> </div>
+                                <div class="step active Confirmed"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
+                                        Out for delivery </span> </div>
+                                <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                                        class="text">Delivered</span> </div>
+                            </div>';
+                                break;
+                            case 'Delivered':
+                                echo '  <div class="track">
+                                <div class="step active Delivered"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                                        class="text">Order confirmed</span> </div>
+                                <div class="step active Delivered "> <span class="icon"> <i class="fa fa-user"></i> </span> <span
+                                        class="text">
+                                        Out for delivery </span> </div>
+                                <div class="step active Delivered"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                                        class="text">Delivered</span> </div>
+                            </div>';
+                                break;
+                        } ?>
+
                     </div>
 
                     <?php

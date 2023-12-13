@@ -5,7 +5,6 @@ body {
 }
 .container-joe {
   margin: 50px 150px;
-  
 }
 .card {
   position: relative;
@@ -43,7 +42,7 @@ body {
   margin-top: 50px;
 }
 .row {
-  margin:0 20px ;
+  margin: 0 20px;
   /* border : solid black 1px; */
 }
 .track .step {
@@ -134,16 +133,29 @@ p {
   border-color: #000000;
   border-radius: 1px;
 }
-a{
+a {
   text-decoration: none;
+}
+.track .step.Confirmed::before,
+.track .step.Confirmed .icon {
+  background: green;
+}
+
+.track .step.Cancelled::before,
+.track .step.Cancelled .icon {
+  background: red;
+}
+
+.track .step.Delivered::before,
+.track .step.Delivered .icon {
+  background:black;
 }
 
 @media (max-width: 576px) {
-  .container-joe{
+  .container-joe {
     margin: 0;
   }
-  .card{
+  .card {
     width: 100%;
   }
-
 }

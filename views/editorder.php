@@ -11,6 +11,8 @@ require "../controller/adminFunctions.php";
 
 if (isset($_POST["updateorder"])) {
     updateorder();
+    header("Location: Adminorders");
+
 }
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
@@ -22,12 +24,12 @@ if (!empty($_SESSION["id"])) {
 
 
 if ($row["admin"] != 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 
 if ($row["id"] == 1) {
-    header("Location: index.php");
+    header("Location: index");
 
 }
 

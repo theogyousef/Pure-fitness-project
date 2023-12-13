@@ -12,7 +12,7 @@ class PaymentModle
     {
         require '../controller/config.php';
         mysqli_query($conn, "INSERT into orders (order_id , user_id ) VALUES ('$order_id' , '$user_id')");
-        mysqli_query($conn, "INSERT into orders_details (order_id , status , total ) VALUES ('$order_id' , 'pending' , '$total' )");
+        mysqli_query($conn, "INSERT into orders_details (order_id , status , total ) VALUES ('$order_id' , 'Pending' , '$total' )");
     }
     public static function  insertorders_details($order_id,$product_id,$quantity)
     {
