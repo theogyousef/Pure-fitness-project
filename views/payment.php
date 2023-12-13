@@ -7,11 +7,12 @@
 <?php
 require '../controller/config.php';
 
+//require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
 if (isset($_POST["addressdetails"])) {
     updateaddress();
-    header("Location: payment ");
+    // header("Location: ");
 }
 
 if (!empty($_SESSION["id"])) {
@@ -57,7 +58,7 @@ include "header.php";
 
 <body>
     <div class="container">
-        <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
             <ol class="breadcrumb-navigation">
                 <li class="breadcrumb-item cart" style="color: maroon;"><a href="cart_display">Cart</a></li>
                 <li class="breadcrumb-item separator"><i class="bi bi-chevron-right"></i></li>
@@ -72,76 +73,62 @@ include "header.php";
             </ol>
         </nav>
         <div class="py-3 text-center">
-            <h3>Shipping address</h3>
+            <h3>Payment</h3>
         </div>
 
         <div class="row row-divider equal-height">
             <div class="col-md-7 billing-col">
-                <form method="post" id="Addresss" name="Address" onsubmit="validateaddress(event)">
-                    <div class="col-md-6">
+                <div class="accordion" id="paymentAccordion">
+                    <div>
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" data-bs-toggle="collapse" data-bs-target="#creditCardCollapse">
+                        <label class="form-check-label" for="creditCard">Visa/Mastercard</label>
 
-                        <h4 for="inputUsername" style="color : black ;">Egypt</h4>
-                        <label for="governorates">Select a state:</label>
-                        <select class="form-control" id="governorates" name="governorates">
-                            <option value="<?php echo $row['governorates'] ?>" selected>
-                                <?php echo $row['governorates'] ?>
-                            </option>
-                            <option value="Al Daqahliyah">Al Daqahliyah</option>
-                            <option value="Al Bahr al Ahmar">Al Bahr al Ahmar (Red Sea)</option>
-                            <option value="Al Buhayrah">Al Buhayrah (Beheira)</option>
-                            <option value="Al Fayyum">Al Fayyum</option>
-                            <option value="Al Gharbiyah">Al Gharbiyah (Gharbia)</option>
-                            <option value="Al Iskandariyah">Al Iskandariyah (Alexandria)</option>
-                            <option value="Al Isma'iliyah">Al Isma'iliyah (Ismailia)</option>
-                            <option value="Al Jizah">Al Jizah (Giza)</option>
-                            <option value="Al Minufiyah">Al Minufiyah (Menufia)</option>
-                            <option value="Al Minya">Al Minya</option>
-                            <option value="Al Qahirah">Al Qahirah (Cairo)</option>
-                            <option value="Al Qalyubiyah">Al Qalyubiyah (Qalyubia)</option>
-                            <option value="Al Wadi al Jadid">Al Wadi al Jadid (New Valley)</option>
-                            <option value="As Suways">As Suways (Suez)</option>
-                            <option value="Ash Sharqiyah">Ash Sharqiyah (Eastern)</option>
-                            <option value="Aswan">Aswan</option>
-                            <option value="Asyut">Asyut</option>
-                            <option value="Bur Sa'id">Bur Sa'id (Port Said)</option>
-                            <option value="Dumyat">Dumyat (Damietta)</option>
-                            <option value="Janub Sina'">Janub Sina' (South Sinai)</option>
-                            <option value="Kafr ash Shaykh">Kafr ash Shaykh</option>
-                            <option value="Matruh">Matruh</option>
-                            <option value="Qina">Qina (Qena)</option>
-                            <option value="Shamal Sina'">Shamal Sina' (North Sinai)</option>
-                            <option value="Suhaj">Suhaj (Sohag)</option>
-                            <option value="The 6th of October">The 6th of October</option>
-                            <option value="Luxor">Luxor</option>
-                        </select>
-                    </div>
-                    <div class="row gx-3 mb-3">
+                        <div id="creditCardCollapse" class="collapse show" data-bs-parent="#paymentAccordion">
+                            <div class="card card-body">
+                                <div class="mb-3">
+                                    <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa" />
+                                    <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="MasterCard" />
+                                </div>
 
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputcity">Town/city</label>
-                            <input name="city" class="form-control" id="inputcity" type="text" placeholder="Enter your city" value="<?php echo $row['city'] ?>">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="Card Number">
+                                    <label for="cardNumber">Card Number</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nameOnCard" placeholder="Name on Card">
+                                    <label for="nameOnCard">Name on Card</label>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-sm-6 form-floating mb-3">
+                                        <input type="date" class="form-control" id="expiryDate" placeholder="Expiry Date">
+                                        <label for="expiryDate">Expiry Date</label>
+                                    </div>
+                                    <div class="col-sm-6 form-floating mb-3">
+                                        <input type="password" class="form-control" id="cvv" placeholder="CVV">
+                                        <label for="cvv">CVV</label>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputstreet">Street address</label>
-                            <input name="street" class="form-control" id="inputstreet" type="text" placeholder="Enter your street name / number" value="<?php echo $row['street'] ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
-                        <input name="house" class="form-control" id="inputhouse" type="text" placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
-                        <input name="postalcode" class="form-control" id="inputpostalcode" type="text" placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
                     </div>
 
-                    <div style="height: 20px;">
-                        <span id="AddresserrorMessages" class="errormessage" style="display: none;"></span>
+                    <div>
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" data-bs-toggle="collapse" data-bs-target="#cashOnDeliveryCollapse">
+                        <label class="form-check-label" for="cashOnDelivery">Cash on Delivery</label>
+
+                        <div id="cashOnDeliveryCollapse" class="collapse" data-bs-parent="#paymentAccordion">
+                            <div>
+                            <br>
+                    <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" style="background-color: black;">
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                    <input name="addressdetails" type="submit" class="btn btn-primary" value="Next Step" style="background-color: black;">
-                </form>
+                </div>
+               
             </div>
 
             
