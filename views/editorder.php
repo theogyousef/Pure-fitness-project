@@ -83,7 +83,7 @@ include "adminnav.php";
             <div class="formcard">
                 <div class="card-content form-container">
 
-                    <h1>Update product</h1>
+                    <h1>Update Order</h1>
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label">ID</label>

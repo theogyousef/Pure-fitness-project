@@ -101,6 +101,8 @@ include "adminnav.php";
                             <th>Date and time</th>
                             <th>Total</th>
                             <th>Edit</th>
+                            <th>View order</th>
+
 
                         </tr>
                     </thead>
@@ -122,21 +124,26 @@ include "adminnav.php";
                         while ($row = mysqli_fetch_assoc($resultproduct)) {
 
                             echo "<tr>
-        <td>" . $row["order_id"] . "</td> 
-        <td class='" . $row["status"] . "'>" . $row["status"] . "</td>
-        <td>" . $row["Date"] . ' at ' . $row["time"] . "</td>
-        <td>" . $row["total"] . "</td>";
+                                  <td>" . $row["order_id"] . "</td> 
+                                  <td class='" . $row["status"] . "'>" . $row["status"] . "</td>
+                                  <td>" . $row["Date"] . ' at ' . $row["time"] . "</td>
+                                  <td>" . $row["total"] . "</td>";
                             ?>
-                            <?php echo "
-<td>
+                            <?php echo "<td>
                         <a href='editorder?id=" . $row["order_id"] . "' style='color: orange; '>
                             <span class='fas fa-edit'></span> 
                         </a>
-                    </td>
-                  
-                </tr>
-                        ";
+                                 </td>";
+                            echo " <td>
+                        <a href='vieworder?id=" . $row["order_id"] . "' style='color: green; '>
+                            <span class='fas fa-list-ol'></span> 
+                        </a>
+                                 </td>
+                                 </tr>  ";
                         }
+
+                        // editorder?id=9926
+                        // vieworder?id=9926
                         ?>
                     </tbody>
                 </table>
