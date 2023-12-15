@@ -218,7 +218,6 @@ include "header.php";
         </section>
 
         <!-- You may also like section -->
-        <!-- You may also like section -->
         <section class="you-may-also-like">
             <h2>Similar products</h2>
             <div class="row">
