@@ -380,7 +380,7 @@
 #loginSignupDropdown {
   position: absolute !important;
   top: 100% !important;
-  left: 30% !important; 
+  left: 10% !important; 
   transform: none !important; 
 }
 
@@ -394,7 +394,7 @@
   right: 0; 
   left: auto; 
   transform: none !important; 
-  min-width: 160px; 
+  min-width: 135px; 
 }
 
 @media only screen and (max-width: 992px) {
