@@ -56,4 +56,10 @@ class UserModel {
         $query = "UPDATE users SET deactivated = '1' WHERE  id = $id ";
         mysqli_query($conn, $query);
     }
+    public static function cancelorder($id)
+    {
+        include "../controller/config.php";
+        $query = "UPDATE orders_details SET status = 'Cancelled' WHERE  order_id = $id ";
+        mysqli_query($conn, $query);
+    }
 }

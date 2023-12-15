@@ -61,7 +61,7 @@ include "header.php";
 
                             <p>the page you are looking for not avaible!</p>
 
-                            <a href="index.php" class="link_404">Go to Home</a>
+                            <a href="index" class="link_404">Go to Home</a>
                         </div>
                     </div>
                 </div>
