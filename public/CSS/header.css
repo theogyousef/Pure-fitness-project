@@ -68,10 +68,6 @@
 #loginSignupDropdown:hover + .dropdown-menu {
   margin-right: -60px !important;
 }
-/* #loginSignupDropdown{
-  position: absolute;
-  left: 300px;
-} */
 .dropdown-menu::before {
   content: "";
   position: absolute;
@@ -168,7 +164,39 @@
   background-color: #eee;
   text-decoration: none;
 }
-/* Add this at the end of your CSS file */
+/* Cart icon with counter */
+.cart-icon-with-count {
+  position: relative;
+  display: inline-block;
+}
+
+/* Counter badge */
+.cart-count {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+  position: absolute;
+  top: 10px; /* Adjust if necessary */
+  right: 40px; /* Adjust if necessary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px; /* Ensures a round shape for single digits */
+  height: 20px; /* Fixed height for the badge */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  visibility: hidden; /* Hide by default */
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear; /* Smooth transition for the hover effect */
+}
+
+/* Show the counter badge when the cart icon is hovered */
+.cart-icon-with-count:hover .cart-count {
+  visibility: visible; /* Show on hover */
+  opacity: 1;
+}
+
 
 /* Responsive styles for small screens (e.g., iPhones) */
 @media only screen and (max-width: 768px) {
@@ -320,11 +348,9 @@
     width: 100px;
   }
   .navbar .dropdown-menu {
-    /* min-width: 575px; */
     margin: 0 80px; 
   padding: 10px; }
   
-  /* Adjust the font size for the dropdown items */
   .dropdown-menu .dropdown-items-horizontal a {
     font-size: 14px;
     width: 400px;
@@ -348,5 +374,43 @@
     border-width: 0 10px 10px;
     border-style: solid;
     border-color: transparent transparent #ffffff transparent;
+  }
+}
+
+#loginSignupDropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 10% !important; 
+  transform: none !important; 
+}
+
+#left_elements {
+  position: relative;
+}
+
+#loginSignupDropdown {
+  position: absolute;
+  top: 100%; 
+  right: 0; 
+  left: auto; 
+  transform: none !important; 
+  min-width: 135px; 
+}
+
+@media only screen and (max-width: 992px) {
+  #loginSignupDropdown {
+    right: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #loginSignupDropdown {
+    right: 0; 
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #loginSignupDropdown {
+    right: 0; 
   }
 }
