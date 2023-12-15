@@ -10,10 +10,6 @@ require "../controller/payment.php";
 //require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
-if (isset($_POST["addressdetails"])) {
-    updateaddress();
-    // header("Location: ");
-}
 
 $row = Payment::permissions();
 

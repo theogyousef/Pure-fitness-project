@@ -98,6 +98,7 @@ include "adminnav.php";
                         <tr>
                             <th>Order ID</th>
                             <th>Status</th>
+                            <th>Date and time</th>
                             <th>Total</th>
                             <th>Edit</th>
 
@@ -123,6 +124,7 @@ include "adminnav.php";
                             echo "<tr>
                     <td>" . $row["order_id"] . "</td>
                     <td>" . $row["status"] . "</td>
+                    <td>" . $row["Date"] . '      at    ' . $row["time"] . "</td>
                     <td>" . $row["total"] . "</td>" ?>
                             <?php echo "
 <td>

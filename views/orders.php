@@ -81,7 +81,10 @@ include "header.php";
                 <article class="card" style="margin: 20px;">
                     <div class="card-body">
                         <h6>Order ID:
-                            <?php echo "#" . $order['order_id']; ?>
+                            <?php echo "#" . $order['order_id'] . "<br>"; ?>
+                            <?php echo $order['Date'] . " at " . $order['time'];  ?>
+                          
+
                         </h6>
                         <!-- <article class="card">
                         <div class="card-body row">
