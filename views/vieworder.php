@@ -32,7 +32,6 @@ if ($row["id"] == 1) {
 
 // echo "order id " . $_SESSION['order_id'] . "<br>";
 // echo "user id = " . $row['id'] . "<br>";
-$total = $_SESSION['total'];
 // echo "Total from session: " . $total . "<br>";
 $totalquantity = 0;
 // foreach ($_SESSION['confirmedorder'] as $product) :
