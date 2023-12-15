@@ -1,5 +1,5 @@
 <?php
-// require '../controller/config.php';
+require '../controller/config.php';
 require '../model/productModle.php';
 
 
@@ -254,7 +254,9 @@ include "header.php"
                     <div class="col-md-3" id="product">
                         <form a method="post">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-
+                            <div class="input-group mb-2" id="input-group">
+                                <input type="hidden" name="quantity" id="quantity" class="form-control text-center small" value="1" readonly>
+                            </div>
                             <div class="products">
                                 <div class="product-image">
                                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
