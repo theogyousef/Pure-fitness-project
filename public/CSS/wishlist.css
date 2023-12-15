@@ -150,3 +150,21 @@ header {
 .p-wishlist{
     color: #ff0000;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100% of the viewport height */
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Grow and take up remaining space */
+}
+
+footer {
+   
+    /* Uncomment the following line if you want the footer to stick to the bottom even when the content is short */
+    position: fixed; 
+    bottom : 0;
+    width: 100%;
+}
