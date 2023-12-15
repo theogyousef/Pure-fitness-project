@@ -21,31 +21,6 @@ if (isset($_GET['remove'])) {
     }
 }
 
-// // Handle the update if the form is submitted
-// if (isset($_POST['updatecart'])) {
-//     // Check if the posted data is valid
-//     if (isset($_POST['quantity']) && is_array($_POST['quantity']) && isset($_POST['product_ids']) && is_array($_POST['product_ids'])) {
-//         foreach ($_POST['quantity'] as $productId => $newQuantity) {
-//             // Validate $productId and $newQuantity as needed
-
-//             // Loop through the products in the session and update the quantity based on the product ID
-//             foreach ($_SESSION['products'] as $key => $product) {
-//                 if ($product['id'] == $productId) {
-//                     $_SESSION['products'][$key]['quantity'] = $newQuantity;
-//                     break; // Stop the loop once the product is found
-//                 }
-//             }
-//         }
-
-//         // Update the total price or perform other necessary calculations
-
-//         // Redirect back to cart display page or handle success as needed
-//         header("Location: cart_display");
-//         exit();
-//     } else {
-//         echo "Invalid data submitted.";
-//     }
-// }
 
 // Fetch user information
 else if (!empty($_SESSION["id"])) {
