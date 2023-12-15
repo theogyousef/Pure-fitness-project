@@ -329,12 +329,10 @@ include "header.php";
                       </p>
                       <p class="detailsinfo">
                         <?php
-                        if ($product["outofstock"] == 1) {
-                          $outofstock = "Out of stock";
-                          echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                        } else if ($product["outofstock"] == 0) {
-                          $outofstock = "In stock";
-                          echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                        if ($product["stock"] < 1) {
+                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                        } else if ($product["stock"] > 0) {
+                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
                         }
                         ?>
                       </p>
@@ -438,16 +436,14 @@ include "header.php";
                           </span>
                         </p>
                         <p class="detailsinfo">
-                          <?php
-                          if ($product["outofstock"] == 1) {
-                            $outofstock = "Out of stock";
-                            echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                          } else if ($product["outofstock"] == 0) {
-                            $outofstock = "In stock";
-                            echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                          }
-                          ?>
-                        </p>
+                        <?php
+                        if ($product["stock"] < 1) {
+                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                        } else if ($product["stock"] > 0) {
+                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
+                        }
+                        ?>
+                      </p>
                         <div class="cost">
                           <p class="lower-price">
                             From <span class="price">

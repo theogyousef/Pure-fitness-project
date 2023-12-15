@@ -122,10 +122,11 @@ include "adminnav.php";
                         while ($row = mysqli_fetch_assoc($resultproduct)) {
 
                             echo "<tr>
-                    <td>" . $row["order_id"] . "</td>
-                    <td>" . $row["status"] . "</td>
-                    <td>" . $row["Date"] . '      at    ' . $row["time"] . "</td>
-                    <td>" . $row["total"] . "</td>" ?>
+        <td>" . $row["order_id"] . "</td> 
+        <td class='" . $row["status"] . "'>" . $row["status"] . "</td>
+        <td>" . $row["Date"] . ' at ' . $row["time"] . "</td>
+        <td>" . $row["total"] . "</td>";
+                            ?>
                             <?php echo "
 <td>
                         <a href='editorder?id=" . $row["order_id"] . "' style='color: orange; '>

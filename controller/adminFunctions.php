@@ -7,6 +7,7 @@ function addproduct()
     $name = $_POST["name"];
     $price = $_POST["price"];
     $type = $_POST["type"];
+    $stock = $_POST["stock"];
     $description = $_POST["description"];
     $file = $_FILES["file"];
 
@@ -23,9 +24,9 @@ function addproduct()
     }
 
     /// apply th query to db by pass to the handler func
-    adminModel::addproduct($name, $type, $price, $description, $fileUrl);
+    adminModel::addproduct($name, $type, $stock , $price, $description, $fileUrl);
 
-    header("Location: adminDashboard");
+    header("Location: products");
 
 
 }
@@ -37,17 +38,12 @@ function updateproduct()
     $price = $_POST["price"];
     $type = $_POST["type"];
     $description = $_POST["description"];
-    $outofstock = $_POST["stock"];
-    echo $outofstock ;
-    $stock = 3;
-    if ($outofstock == "1") {
-        $stock = 1;
-    } else if ($outofstock == 0) {
-        $stock = 0;
-    }
+    $stock = $_POST["stock"];
+   
+   
     /// apply th query to db by pass to the handler func
     adminModel::updateproduct($id, $name, $price, $type, $description, $stock);
-    header("Location: adminDashboard");
+    header("Location: products");
 
 
 }
@@ -57,7 +53,7 @@ function deleteproduct()
 
     $id = $_POST["id"];
     adminModel::deleteproduct($id);
-    header("Location: adminDashboard");
+    header("Location: products");
 
 }
 
@@ -85,7 +81,7 @@ function adduser()
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             adminModel::adduser($firstname, $lastname, $email, $hashedPassword);
             // echo "<script> alert('Regsitered successfully');</script> ";
-            header("Location: adminDashboard");
+            header("Location: users");
 
         } else {
             echo "<script> alert('Passwords do not match');</script> ";
@@ -104,7 +100,7 @@ function updateuser()
 
     adminModel::updateuser($firstname, $lastname, $email, $id);
 
-    header("Location: adminDashboard");
+    header("Location: users");
 
 }
 
@@ -114,7 +110,7 @@ function deleteuser()
     global $conn;
     $id = $_POST["id"];
     adminModel::deleteuser($id);
-    header("Location: adminDashboard");
+    header("Location: users");
 
 }
 
@@ -123,7 +119,7 @@ function makeadmin()
     global $conn;
     $id = $_POST["id"];
     adminModel::makeadmin($id);
-    header("Location: adminDashboard");
+    header("Location: users");
 
 }
 
@@ -132,7 +128,7 @@ function makeuser()
     global $conn;
     $id = $_POST["id"];
     adminModel::makeuser($id);
-    header("Location: adminDashboard");
+    header("Location: users");
 
 }
 

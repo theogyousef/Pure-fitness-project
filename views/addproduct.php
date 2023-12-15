@@ -108,6 +108,10 @@ include "adminnav.php";
                                 <input type="text" class="form-control" name="price" required>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Stock</label>
+                                <input type="text" class="form-control" name="stock" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="newProductImage" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="newProductImage"
                                     accept="image/png, image/gif, image/jpeg , image/webp" name="file" required>
