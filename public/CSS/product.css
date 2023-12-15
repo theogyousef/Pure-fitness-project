@@ -63,3 +63,18 @@ a{
   a :hover{
 	color: black;
   }
+
+  .button-container {
+    display: flex;
+    align-items: end;
+  }
+
+  .wishlist-button,
+  .add-to-cart-button {
+    margin-right: 10px; /* Add margin between buttons if needed */
+  }
+
+  .wishlist-button{
+font-size: 25px;
+font-weight: 400;
+  }
