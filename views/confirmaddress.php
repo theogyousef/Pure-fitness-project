@@ -183,7 +183,11 @@ include "header.php";
                         <span>Shipping</span>
                         <span>Free</span>
                     </li>
-
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>All taxes included</span>
+                       
+                    </li>
+                    
                     <li class="list-group-item d-flex justify-content-between">
                         <span>TOTAL</span>
                         <strong><?php echo number_format($total, 2); ?> LE</strong>

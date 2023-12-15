@@ -153,7 +153,8 @@ include "header.php";
                         <?php echo $productDetails['name']; ?>
                     </h1>
                     <h3 class="price">
-                        <?php echo $productDetails['price'] . " EGP"; ?>
+                    
+                        <?php echo  number_format($productDetails['price'], 2); " EGP"; ?>
                     </h3>
                     <p class="description">
                         <?php echo $productDetails['description']; ?>

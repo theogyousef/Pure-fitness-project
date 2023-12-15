@@ -296,7 +296,9 @@ include "header.php"
                                         <div class="cost">
                                             <p class="lower-price">
                                                 From <span class="price">
-                                                    <?php echo $product['price'] . " EGP"; ?>
+                                                    <?php 
+                                                   
+                                                    echo number_format( $product['price'], 2) . " EGP"; ?>
                                                 </span>
                                             </p>
                                         </div>
