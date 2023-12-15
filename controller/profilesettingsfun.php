@@ -147,21 +147,10 @@ function deactivateaccount()
 
 }
 
-if (!empty($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $row = UserModel::selectUser($id);
-} else {
-    header("Location: login");
+function cancelorder($id){
+    UserModel::cancelorder($id);
+    header("Location: orders");
 }
-
-
-
-$instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
-$instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
-
-$githubUsername = trim($row["github"]); // Remove leading/trailing whitespace
-$githubURL = "https://github.com/" . rawurlencode($githubUsername);
-
 
 
 ?>
