@@ -394,7 +394,19 @@ form {
   font-size: 16px;
   outline: none; 
 }
+.Cancelled {
+  background-color: red;
+}
+.Pending {
+  background-color: grey;
+}
+.Confirmed {
+  background-color: green;
+}
 
+.Delivered {
+  background-color: rgb(17, 0, 255);
+}
 @media (max-width: 1115px) {
   .sidebar {
     width: 60px;

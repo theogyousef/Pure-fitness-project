@@ -130,20 +130,9 @@ include "adminnav.php";
 
 
                         <div class="mb-3">
-                            <label for="stock">Select a state:</label>
-                            <select class="form-control" id="stock" name="stock">
-                                <?php
-                                if ($productDetails["outofstock"] == 1) {
-                                    echo '
-                                <option value="0">In Stock</option>
-                                <option selected value="1">Out of Stock</option> ';
-                                } else if ($productDetails["outofstock"] == 0) {
-                                    echo '
-                                    <option selected value="0">In Stock</option>
-                                    <option value="1">Out of Stock</option> ';
-                                }
-                                ?>
-                            </select>
+                            <label for="newProductSlug" class="form-label">Stock</label>
+                            <input type="text" class="form-control" name="stock" required
+                                value="<?php echo $productDetails['stock'] ?>">
                         </div>
 
                         <div class="mb-3">

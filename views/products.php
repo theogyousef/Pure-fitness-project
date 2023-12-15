@@ -128,16 +128,15 @@ include "adminnav.php";
                     <td>" . $row["id"] . "</td>
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["type"] . "</td>
-                    <td>" . $row["price"] . "</td>" ?>
-                            <?php
-                            if ($row["outofstock"] == 1) {
-                                $outofstock = "Out of stock";
-                                echo '<td><span style="color: red;  font-size: 16px;">' . $outofstock . '</span> </td>';
-                            } else if ($row["outofstock"] == 0) {
-                                $outofstock = "In stock";
-                                echo '<td><span style="color: green; font-size: 16px;">' . $outofstock . '</span> </td>';
-                            }
-                            ?>
+                    <td>" . $row["price"] . "</td>
+                    <td>" . $row["stock"] . "</td>
+
+                    
+                    " 
+                    
+                    
+                    ?>
+                         
                             <?php
                             echo "<td>
                         <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>

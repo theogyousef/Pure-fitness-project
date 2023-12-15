@@ -160,21 +160,13 @@ include "header.php";
                     </p>
                     <p class="detailsinfo">
                         <?php
-                        if ($productDetails["outofstock"] == 1) {
-                            $outofstock = "Out of stock"; ?>
-                        <p style="color: red;  font-size: 16px;"> The
-                            <?php echo $productDetails['name']; ?> will be avilable soon
-                        </p>
-
-
-
-                        <?php
-                        } else if ($productDetails["outofstock"] == 0) {
-                            $outofstock = "In stock";
-                            echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                        if ($productDetails["stock"] < 1) {
+                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                        } else if ($productDetails["stock"] > 0) {
+                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
                         }
                         ?>
-                    </p>
+                      </p>
                     <!-- Quantity input -->
 
                     <!-- Add to wishlist button -->
@@ -183,7 +175,7 @@ include "header.php";
                       
 
                         <!-- Add to Cart button -->
-                        <?php if ($productDetails["outofstock"] != 1) { ?>
+                        <?php if ($productDetails["stock"] > 0) { ?>
                             <form action="" method="post">
                                 <div class="input-group mb-2" id="input-group">
                                     <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
@@ -195,7 +187,7 @@ include "header.php";
                                 <button class="btn btn-primary bg-dark add-to-cart-button" name="addtocart">Add to
                                     Cart</button>
                             </form>
-                        <?php } else if ($productDetails["outofstock"] == 1) { ?>
+                        <?php } else if ($productDetails["stock"] < 1) { ?>
                                 <form action="" method="post">
                                     <button class="btn btn-primary bg-dark add-to-cart-button" name="addtocart"
                                         style="border: black;" disabled>
