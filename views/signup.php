@@ -8,6 +8,7 @@
 
 //require "../controller/config.php";
 require "../controller/registerationsystem.php";
+require "../controller/registerationMail.php";
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
@@ -21,6 +22,8 @@ if (!empty($_SESSION["id"])) {
 // Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
     signup();
+    registeration($conn);
+
 } else if (isset($_POST["login"])) {
     signin();
 }
