@@ -1,5 +1,5 @@
 <?php
-// require '../controller/config.php';
+require '../controller/config.php';
 require '../model/productModle.php';
 
 
@@ -20,7 +20,7 @@ if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 }
 include "header.php"
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,8 @@ include "header.php"
             <div class="row mb-3" id="filters">
                 <div class="col-md-2">
                     <form class="filter" id="filterF" method="post">
-                        <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
+                        <select class="form-select filter-select" aria-label="Availability" name="availability"
+                            data-form-id="filterF">
                             <option selected disabled>Availability</option>
                             <option value="1">In Stock</option>
                             <option value="2">Out of Stock</option>
@@ -68,7 +69,8 @@ include "header.php"
                 </div>
                 <div class="col-md-2">
                     <form class="filter" id="filterCategory" method="post">
-                        <select class="form-select filter-select" aria-label="Category" name="category" data-form-id="filterCategory">
+                        <select class="form-select filter-select" aria-label="Category" name="category"
+                            data-form-id="filterCategory">
                             <option selected disabled>Category</option>
                             <option value="1">All Benches</option>
                             <option value="2">All Bicycle</option>
@@ -91,7 +93,8 @@ include "header.php"
 
                 <div class="col-md-2">
                     <form class="filter" id="filterForm" method="post">
-                        <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
+                        <select class="form-select filter-select" aria-label="Price" name="price"
+                            data-form-id="filterForm">
                             <option selected disabled>Price</option>
                             <option value="4">Highest To Lowest </option>
                             <option value="5">Lowest To Highest</option>
@@ -106,7 +109,8 @@ include "header.php"
                 <div class="col-md-2" id="reset">
                     <form method="post" action="">
                         <div class="col-md-2">
-                            <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
+                            <button name="reset" style="background-color: black;" type="submit"
+                                class="btn btn-primary">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -135,7 +139,7 @@ include "header.php"
 
 
             // Fetch products from the database based on the selected price filter
-
+            
             if (isset($_POST['price'])) {
                 $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
                 switch ($selectedPrice) {
@@ -159,7 +163,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['availability'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
 
@@ -175,7 +179,7 @@ include "header.php"
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['category'])) { // Assuming you have already connected to the database ($conn)
-
+            
                 // Fetch products from the database
                 $cat = isset($_POST['category']) ? $_POST['category'] : null;
 
@@ -246,15 +250,18 @@ include "header.php"
                     if ($count % 4 == 0) {
                         echo '<div class="row justify-content-start" id="row">';
                     }
-            ?>
+                    ?>
                     <div class="col-md-3" id="product">
                         <form a method="post">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-
+                            <div class="input-group mb-2" id="input-group">
+                                <input type="hidden" name="quantity" id="quantity" class="form-control text-center small" value="1" readonly>
+                            </div>
                             <div class="products">
                                 <div class="product-image">
                                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid">
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
+                                            class="pic img-fluid">
                                     </a>
                                     <div class="links">
                                         <div class="Icon">
@@ -278,23 +285,20 @@ include "header.php"
                                             </span>
                                         </p>
                                         <p class="detailsinfo">
-                                            <span class="typetrip">
-                                                <?php
-                                                if ($product["outofstock"] == 1) {
-                                                    $outofstock = "Out of stock";
-                                                    echo '<span style="color: red;  font-size: 16px;">' . $outofstock . '</span>';
-                                                } else if ($product["outofstock"] == 0) {
-                                                    $outofstock = "In stock";
-                                                    echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                                                }
-                                                ?>
-
-                                            </span>
+                                            <?php
+                                            if ($product["stock"] < 1) {
+                                                echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                                            } else if ($product["stock"] > 0) {
+                                                echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
+                                            }
+                                            ?>
                                         </p>
                                         <div class="cost">
                                             <p class="lower-price">
                                                 From <span class="price">
-                                                    <?php echo $product['price'] . " EGP"; ?>
+                                                    <?php 
+                                                   
+                                                    echo number_format( $product['price'], 2) . " EGP"; ?>
                                                 </span>
                                             </p>
                                         </div>
@@ -303,7 +307,7 @@ include "header.php"
                             </a>
                         </form>
                     </div>
-            <?php
+                    <?php
                     // Close the row div after every 4 products
                     if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
                         echo '</div>';
@@ -317,173 +321,6 @@ include "header.php"
         </div>
 
 
-
-        <!-- The second container -->
-        <!-- <div class="container grid-container">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="../views/product.php" class="images">
-                                <img src="../public/photos/productPhotos/DHZ6.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid" style="margin-top: -28px;">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Smith (Evost Model) E3063</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">538.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ7.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Calf Bench (Evost Model) E3062</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span>
-                                <span class="separate"></span> <span class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">13.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ8.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Olympic Incline Bench (Evost Model) E3042</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">19.500 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="#" class="images">
-                                <img src="../public/photos/productPhotos/DHZ10.webp" alt="ASSAULT AIRBIKE"
-                                    class="pic img-fluid">
-                            </a>
-                            <div class="links">
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-cart3"></i></a>
-                                    <span class="tooltiptext">Add to cart</span>
-                                </div>
-                                <div class="Icon">
-                                    <a href="#"><i class="bi bi-heart"></i></a>
-                                    <span class="tooltiptext">Move to wishlist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Content">
-                            <h3 style="font-size: 25px;">DHZ Dumbbells Rack (Evost Model) E3077</h3>
-                            <p class="detailsinfo">
-                                <span class="typetrip">SHOP</span> <span class="separate"></span> <span
-                                    class="nofdays">HOME GYM</span>
-                            </p>
-                            <div class="cost">
-                                <p class="lower-price">
-                                    From <span class="price">17.000 EGP</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  -->
-
-        <!-- pagination front end -->
-        <!-- <div class="container mt-3 pagination_container">
-            <div class="d-flex justify-content-end"> 
-                <div class="me-2">
-                    <label for="showItems" class="form-label">Show:</label>
-                    <select class="form-select" id="showItems" style="width: auto;">
-                        <option selected value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" data-page="1" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#" data-page="2">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#" data-page="3">3</a></li> 
-                        <li class="page-item"><a class="page-link" href="#" data-page="4">4</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" data-page="2" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div> -->
         <?php
 
         if (isset($_POST['addtocart'])) {
@@ -581,8 +418,8 @@ include "header.php"
     <script src="../public/JS/collections.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.filter-select').change(function() {
+        $(document).ready(function () {
+            $('.filter-select').change(function () {
                 var formId = $(this).data('form-id');
                 $('#' + formId).submit();
             });

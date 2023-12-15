@@ -81,7 +81,27 @@ include "header.php";
                 <article class="card" style="margin: 20px;">
                     <div class="card-body">
                         <h6>Order ID:
-                            <?php echo "#" . $order['order_id']; ?>
+                            <?php
+                            echo "<h6>Order ID: " . "#" . $order['order_id'] . "<br>";
+                            echo $order['Date'] . " at " . $order['time'] . "<br>";
+                            $orderid = $order['order_id'];
+                            // echo $order['status'];
+                            // if ($order['status'] =)
+                    
+                            if ($order['status'] == 'Pending' || $order['status'] == 'Confirmed') {
+                                echo "<a href='cancelorder?id=" . $orderid . "' class='cancelorder'>Cancel order?</a></h6>";
+                                echo "Order is Pending or Confirmed";
+                            } elseif ($order['status'] == 'Out for delivery' || $order['status'] == 'Delivered') {
+                                // Code to execute if status is 'Cancelled', 'Out for delivery', or 'Delivered'
+                                echo " <p style='color : black ; text-decoration :underline ;'>Order can not be cancelled ";
+                            }
+                            elseif ($order['status'] == 'Cancelled'){
+                                echo " <p style='color : black ; text-decoration :underline ;'>Order alreday cancelled";
+                            }
+                            // echo "<a href='cancelorder?id=" . $orderid . "' class='cancelorder'>Cancel order?</a></h6>";
+                            ?>
+
+
                         </h6>
                         <!-- <article class="card">
                         <div class="card-body row">
@@ -217,4 +237,5 @@ include "header.php";
         include "footer.php";
         ?>
     </footer>
+
 </body>

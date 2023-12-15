@@ -296,6 +296,9 @@ include "header.php";
               <div class="col-md-3">
                 <form a method="post">
                   <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                  <div class="input-group mb-2" id="input-group">
+                    <input type="hidden" name="quantity" id="quantity" class="form-control text-center small" value="1" readonly>
+                  </div>
                   <div class="products" data-product-id="<?php echo $product['id']; ?>">
                     <div class="product-image">
                       <a href="product?id=<?php echo $product['id']; ?>" class="images">
@@ -329,19 +332,17 @@ include "header.php";
                       </p>
                       <p class="detailsinfo">
                         <?php
-                        if ($product["outofstock"] == 1) {
-                          $outofstock = "Out of stock";
-                          echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                        } else if ($product["outofstock"] == 0) {
-                          $outofstock = "In stock";
-                          echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
+                        if ($product["stock"] < 1) {
+                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                        } else if ($product["stock"] > 0) {
+                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
                         }
                         ?>
                       </p>
                       <div class="cost">
                         <p class="lower-price">
                           From <span class="price">
-                            <?php echo $product['price'] . " EGP"; ?>
+                            <?php echo  number_format( $product['price'], 2) . " EGP"; ?>
                           </span>
                         </p>
                       </div>
@@ -438,20 +439,18 @@ include "header.php";
                           </span>
                         </p>
                         <p class="detailsinfo">
-                          <?php
-                          if ($product["outofstock"] == 1) {
-                            $outofstock = "Out of stock";
-                            echo '<span style="color: red;  font-size: 16px; ">' . $outofstock . '</span>';
-                          } else if ($product["outofstock"] == 0) {
-                            $outofstock = "In stock";
-                            echo '<span style="color: green; font-size: 16px;">' . $outofstock . '</span>';
-                          }
-                          ?>
-                        </p>
+                        <?php
+                        if ($product["stock"] < 1) {
+                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                        } else if ($product["stock"] > 0) {
+                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
+                        }
+                        ?>
+                      </p>
                         <div class="cost">
                           <p class="lower-price">
                             From <span class="price">
-                              <?php echo $product['price'] . " EGP"; ?>
+                              <?php  echo number_format( $product['price'], 2) . " EGP"; ?>
                             </span>
                           </p>
                         </div>
@@ -682,36 +681,36 @@ include "header.php";
       $result = mysqli_query($conn, $sql);
 
       if ($result && mysqli_num_rows($result) > 0) {
-          $productDetails = mysqli_fetch_assoc($result);
+        $productDetails = mysqli_fetch_assoc($result);
 
-          // Append the new product to the cart
-          $newProduct = [
-              'id' => $productDetails['id'],
-              'name' => $productDetails['name'],
-              'price' => $productDetails['price'],
-              'image' => $productDetails['file'],
-              'quantity' => '1',
-          ];
+        // Append the new product to the cart
+        $newProduct = [
+          'id' => $productDetails['id'],
+          'name' => $productDetails['name'],
+          'price' => $productDetails['price'],
+          'image' => $productDetails['file'],
+          'quantity' => '1',
+        ];
 
 
-          $quantity = $_POST['quantity'];
-          $newProduct['quantity'] = $quantity;
+        $quantity = $_POST['quantity'];
+        $newProduct['quantity'] = $quantity;
 
-          // If the products array is set, check if the product already exists
-          $productExists = false;
-          foreach ($_SESSION['wishlist'] as $key => $product) {
-              if ($newProduct['id'] == $product['id']) {
-                  $productExists = true;
-                  break; // Stop the loop since the product is found
-              }
+        // If the products array is set, check if the product already exists
+        $productExists = false;
+        foreach ($_SESSION['wishlist'] as $key => $product) {
+          if ($newProduct['id'] == $product['id']) {
+            $productExists = true;
+            break; // Stop the loop since the product is found
           }
+        }
 
-          // If the product does not exist, add it to the session['wishlist']
-          if (!$productExists) {
-              $_SESSION['wishlist'][] = $newProduct;
-          }
+        // If the product does not exist, add it to the session['wishlist']
+        if (!$productExists) {
+          $_SESSION['wishlist'][] = $newProduct;
+        }
       }
-  }
+    }
 
     ?>
 

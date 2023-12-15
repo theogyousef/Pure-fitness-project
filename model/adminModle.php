@@ -4,17 +4,17 @@ include "../controller/config.php";
 class adminModel
 {
 
-    public static function addproduct($name, $type, $price, $description, $fileUrl)
+    public static function addproduct($name, $type, $stock, $price, $description, $fileUrl)
     {
         include "../controller/config.php";
-        $query = "insert into products (name,type,price,description,file) values (' $name','$type','$price','$description','$fileUrl')";
+        $query = "insert into products (name,type,stock,price,description,file) values (' $name','$type', '$stock ' ,'$price','$description','$fileUrl')";
 
         mysqli_query($conn, $query);
     }
     public static function updateproduct($id, $name, $price, $type, $description , $stock)
     {
         include "../controller/config.php";
-        $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description', outofstock = '$stock' where id = '$id'";
+        $query = "update products set name ='$name',type ='$type',price ='$price',description ='$description', stock = '$stock' where id = '$id'";
 
         mysqli_query($conn, $query);
     }

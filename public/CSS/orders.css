@@ -150,7 +150,13 @@ a {
 .track .step.Delivered .icon {
   background:black;
 }
-
+.cancelorder{
+  text-decoration: underline;
+  color: #333333;
+}
+.cancelorder:hover{
+  color: #333333;
+}
 @media (max-width: 576px) {
   .container-joe {
     margin: 0;

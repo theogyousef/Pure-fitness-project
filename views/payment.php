@@ -10,10 +10,6 @@ require "../controller/payment.php";
 //require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
-if (isset($_POST["addressdetails"])) {
-    updateaddress();
-    // header("Location: ");
-}
 
 $row = Payment::permissions();
 
@@ -171,7 +167,11 @@ include "header.php";
                         <span>Shipping</span>
                         <span>Free</span>
                     </li>
-
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>All taxes included</span>
+                       
+                    </li>
+                    
                     <li class="list-group-item d-flex justify-content-between">
                         <span>TOTAL</span>
                         <strong><?php echo number_format($total, 2); ?> LE</strong>
@@ -179,6 +179,7 @@ include "header.php";
                 </ul>
 
             </div>
+
 
             <div class="vertical-divider"></div>
         </div>
