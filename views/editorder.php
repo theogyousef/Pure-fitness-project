@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["updateorder"])) {
@@ -37,7 +36,6 @@ if ($row["id"] == 1) {
 if (isset($_GET['id'])) {
     $orderid = $_GET['id'];
 
-    // Fetch product details based on the product ID
     $sql = "SELECT * FROM orders o join orders_details od ON o.order_id = od.order_id where o.order_id = $orderid";
     $result = mysqli_query($conn, $sql);
 

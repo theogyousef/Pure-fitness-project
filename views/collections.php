@@ -1,3 +1,9 @@
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
 <?php
 require '../controller/config.php';
 require '../model/productModle.php';
@@ -118,7 +124,7 @@ include "header.php"
             </div>
 
 
-            <!-- grid and list buttons-->
+      
             <div class="container mb-3 mt-3">
                 <button class="btn btn-light btn-grid">
                     <i class="bi bi-grid-3x3-gap"></i>
@@ -128,8 +134,7 @@ include "header.php"
                     <i class="bi bi-list"></i>
                 </button>
             </div>
-            <!-- Product cards -->
-            <!-- ... -->
+        
         </div>
         <div class="container grid-container">
             <?php
@@ -138,7 +143,6 @@ include "header.php"
 
 
 
-            // Fetch products from the database based on the selected price filter
             
             if (isset($_POST['price'])) {
                 $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
@@ -159,12 +163,10 @@ include "header.php"
                         $result = ProductModle::lowesttohighest();
                         break;
                     default:
-                        // No price filter, fetch all products
                         $result = ProductModle::allProducts();
                 }
-            } elseif (isset($_POST['availability'])) { // Assuming you have already connected to the database ($conn)
+            } elseif (isset($_POST['availability'])) { 
             
-                // Fetch products from the database
                 $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
 
                 switch ($instock) {
@@ -175,12 +177,10 @@ include "header.php"
                         $result = ProductModle::OutOfStock();
                         break;
                     default:
-                        // No price filter, fetch all products
                         $result = ProductModle::allProducts();
                 }
-            } elseif (isset($_POST['category'])) { // Assuming you have already connected to the database ($conn)
+            } elseif (isset($_POST['category'])) { 
             
-                // Fetch products from the database
                 $cat = isset($_POST['category']) ? $_POST['category'] : null;
 
 
@@ -231,7 +231,6 @@ include "header.php"
                         $result = ProductModle::Kettlebell();
                         break;
                     default:
-                        // No price filter, fetch all products
                         $result = ProductModle::allProducts();
                 }
             } elseif (isset($_POST['reset'])) {
@@ -239,14 +238,11 @@ include "header.php"
                 $result = ProductModle::allProducts();
             }
 
-            // Check if there are any products
             if (mysqli_num_rows($result) > 0) {
                 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                // Loop through products and generate HTML
                 $count = 0;
                 foreach ($products as $product) {
-                    // Open a new row div for every 4 products
                     if ($count % 4 == 0) {
                         echo '<div class="row justify-content-start" id="row">';
                     }
@@ -308,7 +304,6 @@ include "header.php"
                         </form>
                     </div>
                     <?php
-                    // Close the row div after every 4 products
                     if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
                         echo '</div>';
                     }

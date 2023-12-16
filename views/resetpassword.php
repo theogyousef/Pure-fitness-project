@@ -1,6 +1,5 @@
 <?php
 
-//require "../controller/config.php";
 require "../controller/forgetpassword.php";
 
 if (isset($_POST["submitpass"])) {

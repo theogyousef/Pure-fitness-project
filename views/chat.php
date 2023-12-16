@@ -106,14 +106,14 @@
 
 
 
-        /* Clear float */
+      
         .clearfix::after {
             content: "";
             clear: both;
             display: table;
         }
 
-        /* Chat message styling */
+
         .chat-message {
             margin: 5px 0;
             padding: 10px;
@@ -122,23 +122,23 @@
             word-wrap: break-word;
         }
 
-        /* User message styling */
+
         .user-message {
             background-color: black;
             color: white;
             border-bottom-right-radius: 0;
-            /* Remove rounded corner for tail effect */
+     
             margin-left: 20%;
-            /* Adjust based on your design */
+     
             text-align: left;
         }
 
-        /* Bot message styling */
+
         .bot-message {
             background-color: #ECEAEA;
             color: black;
             border-bottom-left-radius: 0;
-            /* Remove rounded corner for tail effect */
+   
             text-align: left;
         }
 
@@ -156,38 +156,37 @@
             margin-right: 200px;
             font-family:sans-serif;
         }
-        /* Input and Button Container */
+  
 #input-container {
     display: flex;
     padding: 10px;
-    background-color: #f1f1f1; /* Light grey background */
+    background-color: #f1f1f1; 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
 #user_input {
-    flex: 1; /* Makes input take up the available space */
+    flex: 1; 
     padding: 10px 15px;
     border: 1px solid #ddd;
-    border-radius: 20px 0 0 20px; /* Rounded corners on the left side */
+    border-radius: 20px 0 0 20px; 
     margin: 0;
-    border-right: none; /* Hide the right border where the button will be */
-    font-size: 16px; /* Larger font size for better readability */
+    border-right: none; 
+    font-size: 16px; 
 }
 
 #send-button {
     padding: 10px 20px;
-    background-color: black; /* Bootstrap primary blue */
+    background-color: black;
     border: none;
-    border-radius: 0 20px 20px 0; /* Rounded corners on the right side */
+    border-radius: 0 20px 20px 0; 
     margin: 0;
-    font-size: 16px; /* Match input font size */
-    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    font-size: 16px; 
+    transition: background-color 0.3s ease; 
 }
 
 
-/* Chat message styling */
-/* General chat message styling */
+
 .chat-message {
     padding: 10px;
     border-radius: 20px;
@@ -196,27 +195,27 @@
     word-wrap: break-word;
 }
 
-/* User message styling */
+
 .user-message {
     background-color: #000;
     color: white;
-    float: right; /* Align user message to the right */
-    clear: both; /* Ensure that the message appears on a new line */
+    float: right; 
+    clear: both; 
     border-bottom-right-radius: 0;
     margin-right: 10px;
 }
 
-/* Bot message styling */
+
 .bot-message {
     background-color: #f1f1f1;
     color: black;
-    float: left; /* Align bot message to the left */
-    clear: both; /* Ensure that the message appears on a new line */
+    float: left;
+    clear: both; 
     border-bottom-left-radius: 0;
     margin-left: 10px;
 }
 
-/* Clear fix for floated elements */
+
 .clearfix::after {
     content: "";
     clear: both;

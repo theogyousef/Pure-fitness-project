@@ -252,7 +252,7 @@ include "header.php";
                                         <div class="cost">
                                             <p class="lower-price">
                                                 From <span class="price">
-                                                    <?php echo $relatedProduct['price'] . " EGP"; ?>
+                                                    <?php echo number_format($relatedProduct['price'] , 2); " EGP"; ?>
                                                 </span>
                                             </p>
                                         </div>

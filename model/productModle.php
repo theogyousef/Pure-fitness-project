@@ -75,7 +75,7 @@ class ProductModle
         include "../controller/config.php";
 
         // Modify the query to fetch products within the specified price range
-        $query = "SELECT * FROM products WHERE outofstock ='0'";
+        $query = "SELECT * FROM products WHERE stock > '0'";
         $result = mysqli_query($conn, $query);
 
         // Check for errors
@@ -91,7 +91,7 @@ class ProductModle
         include "../controller/config.php";
 
         // Modify the query to fetch products within the specified price range
-        $query = "SELECT * FROM products WHERE outofstock ='1'";
+        $query = "SELECT * FROM products WHERE stock < '1'";
         $result = mysqli_query($conn, $query);
 
         // Check for errors

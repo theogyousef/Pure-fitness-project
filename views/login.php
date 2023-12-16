@@ -20,7 +20,6 @@ else{
 
 }
 
-// Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
   signup();
 } else if (isset($_POST["login"])) {

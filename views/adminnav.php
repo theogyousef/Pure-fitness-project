@@ -11,11 +11,11 @@
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
+    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
+}
 
 if ($row["admin"] != 1) {
     header("Location: index");
@@ -66,14 +66,7 @@ if ($row["id"] == 1) {
                     <?php echo $row["firstname"] . " (:" ?>
                 </h1>
             </div>
-            <!-- <div>
-            <input type="search" class="form-control rounded-0 bg-dark border-0" placeholder="Search" id="search"/>
-            <button class="btn btn-dark border-0" type="button" id="search-addon">
-              <i class="bi bi-search text-white"></i>
-            </button>
-            <div id="searchresult"></div>
-            </div>
-             -->
+
             <div class="user">
                 <img src="<?php echo $row['profilepicture'] ?>" alt="">
             </div>
@@ -107,7 +100,6 @@ if ($row["id"] == 1) {
 
 
 
-                        <!-- Add more links as needed -->
                     </div>
                 </li>
                 <li class="dropdown" id="products">
@@ -117,18 +109,15 @@ if ($row["id"] == 1) {
                     </a>
                     <div class="dropdown-content">
                         <a href="addproduct">Add product</a>
-                        <!-- Add more links as needed -->
                     </div>
                 </li>
 
                 <li class="dropdown" id="orders">
                     <a href="Adminorders">
-                    <i class="fas fa-box-open"></i>                                            <div>orders</div>
+                        <i class="fas fa-box-open"></i>
+                        <div>orders</div>
                     </a>
-                    <div class="dropdown-content">
-                        <!-- <a href="addproduct">Add order</a> -->
-                        <!-- Add more links as needed -->
-                    </div>
+
                 </li>
                 <li>
                     <a href="profilesettings">
@@ -159,7 +148,6 @@ if ($row["id"] == 1) {
                 </li>
             </ul>
         </div>
-        <!-- Dashboard -->
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
         <script src="../public/JS/admindasboard.js"></script>

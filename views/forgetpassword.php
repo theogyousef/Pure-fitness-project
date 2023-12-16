@@ -1,6 +1,5 @@
 <?php
 
-//require "../controller/config.php";
 require "../controller/forgetpassword.php";
 
 if (isset($_POST["submit"])) {
@@ -46,7 +45,7 @@ include "header.php";
             <div class="text-center">
               <button type="submit" name="submit" class="btn btn-dark w-30">SUBMIT</button>
             </div>
-            <div id="error-message" class="text-danger mt-2"></div> <!-- Error message container -->
+            <div id="error-message" class="text-danger mt-2"></div>
           </form>
         </div>
       </div>

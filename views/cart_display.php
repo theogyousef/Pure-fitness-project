@@ -21,33 +21,6 @@ if (isset($_GET['remove'])) {
     }
 }
 
-// Handle the update if the form is submitted
-if (isset($_POST['updatecart'])) {
-    // Check if the posted data is valid
-    if (isset($_POST['quantity']) && is_array($_POST['quantity']) && isset($_POST['product_ids']) && is_array($_POST['product_ids'])) {
-        foreach ($_POST['quantity'] as $productId => $newQuantity) {
-            // Validate $productId and $newQuantity as needed
-
-            // Loop through the products in the session and update the quantity based on the product ID
-            foreach ($_SESSION['products'] as $key => $product) {
-                if ($product['id'] == $productId) {
-                    $_SESSION['products'][$key]['quantity'] = $newQuantity;
-                    break; // Stop the loop once the product is found
-                }
-            }
-        }
-
-        // Update the total price or perform other necessary calculations
-
-        // Redirect back to cart display page or handle success as needed
-        header("Location: cart_display");
-        exit();
-    } else {
-        echo "Invalid data submitted.";
-    }
-}
-
-// Fetch user information
 else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
@@ -55,24 +28,6 @@ else if (!empty($_SESSION["id"])) {
 } else {
     header("Location: login");
 }
-
-
-// if (!empty($_SESSION["id"])) {
-//     $id = $_SESSION["id"];
-//     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
-//     $row = mysqli_fetch_assoc($result);
-// } else {
-//     header("Location: login");
-// } 
-//  if (!empty($_SESSION['products'])) { 
-//     foreach ($_SESSION['products'] as $product):
-//         echo $product['id'] . " " . $product['name'] . " " . $product['price'] . " " . $product['quantity'] . "<br>";
-//     endforeach;
-// } else if (empty($_SESSION['products'])) {
-//     echo "joe";
-// }
-
-//add the update product and an foreach that updates the session['products'] to update the quantity of each product (using id )
 
 include "header.php";
 ?>
@@ -158,11 +113,10 @@ include "header.php";
                                                     <?php endif; ?>
                                                 </td>
                                                 <td width="15%" class="quantity">
-                                                    <div class="input-group mb-2 quantity-selector" id="input-group">
-                                                        <button class="btn btn-outline-secondary decrement" type="button">-</button>
-                                                        <input type="text" name="quantity[<?php echo $product['id']; ?>]" class="form-control text-center small quantity-input" style="background-color: transparent; border: none;" value="<?php echo isset($product['quantity']) ? $product['quantity'] : 1; ?>">
-                                                        <button class="btn btn-outline-secondary increment" type="button">+</button>
-                                                        <input type="hidden" name="product_ids[]" value="<?php echo $product['id']; ?>">
+                                                    <div class="input-group mb-2 quantity-selector">
+                                                        <button type="button" class="btn btn-outline-secondary decrement" data-product-id="<?php echo $product['id']; ?>">-</button>
+                                                        <input type="text" name="quantity[<?php echo $product['id']; ?>]" data-product-id="<?php echo $product['id']; ?>" class="form-control text-center small quantity-input" style="background-color: transparent; border: none;" value="<?php echo $product['quantity']; ?>" readonly>
+                                                        <button type="button" class="btn btn-outline-secondary increment" data-product-id="<?php echo $product['id']; ?>">+</button>
                                                     </div>
                                                 </td>
                                                 <td width="10%" class="text-center">
@@ -184,9 +138,6 @@ include "header.php";
                                     ?>
                                 </h3>
                             </div>
-                            <?php if (!empty($_SESSION['products'])) : ?>
-                                <button class="btn btn-primary bg-dark update-cart-button" name="updatecart" type="submit">Update Cart</button>
-                            <?php endif; ?>
                         </form>
                         <?php if (empty($_SESSION['products'])) : ?>
                             <a href="index" class="add-button">Add Products</a>
@@ -205,7 +156,8 @@ include "header.php";
         include "footer.php";
         ?>
     </footer>
-    <script src="../public/JS/cart_display.js"> </script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../public/JS/cart_display.js">
+        src = "https://code.jquery.com/jquery-3.6.0.min.js"
+    </script>
 
 </body>

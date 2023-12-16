@@ -185,8 +185,8 @@ h1 {
   justify-content: flex-start;
 }
 #reset{
-  position: absolute;
-  right: 0;
+  position: relative;
+  left: 10px;
 }
 .btn-primary{
 border-color: white;

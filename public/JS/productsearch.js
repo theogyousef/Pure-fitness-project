@@ -24,7 +24,7 @@ $(document).ready(function() {
                         rowsHtml += '<td>' + product.name + '</td>';
                         rowsHtml += '<td>' + product.type + '</td>';
                         rowsHtml += '<td>' + product.price + '</td>';
-                        rowsHtml += '<td>' + (product.outofstock == '1' ? 'Out of stock' : 'In stock') + '</td>';
+                        rowsHtml += '<td>' + product.stock + '</td>';
                         rowsHtml += '<td><a href="editproduct?id=' + product.id + '" style="color: orange;"><span class="fas fa-edit"></span></a></td>';
                         rowsHtml += '<td><a href="deleteproduct?id=' + product.id + '" style="color: red;"><span class="fas fa-trash-alt"></span></a></td>';
                         rowsHtml += '</tr>';

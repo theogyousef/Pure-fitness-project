@@ -21,7 +21,7 @@ if (isset($_GET['html']) && $_GET['html'] == 'true') {
                 <td>{$product['name']}</td>
                 <td>{$product['type']}</td>
                 <td>{$product['price']}</td>
-                <td>" . ($product['outofstock'] == 1 ? 'Out of stock' : 'In stock') . "</td>
+                <td>{$product['stock']}</td>
                 <td><a href='editproduct?id={$product['id']}' style='color: orange;'><span class='fas fa-edit'></span></a></td>
                 <td><a href='deleteproduct?id={$product['id']}' style='color: red;'><span class='fas fa-trash-alt'></span></a></td>
               </tr>";

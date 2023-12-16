@@ -24,26 +24,21 @@ if (isset($_GET['remove'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'add') {
-	// Check if the required fields are set
 	if (isset($_POST['id'])) {
 		$productIdToAdd = $_POST['id'];
 
-		// Check if the product exists in the wishlist
 		$productInWishlist = false;
 		foreach ($_SESSION['wishlist'] as $key => $wishlistProduct) {
 			if ($wishlistProduct['id'] == $productIdToAdd) {
-				// Add the product to the cart
 				$_SESSION['products'][] = $wishlistProduct;
 				$productInWishlist = true;
 
-				// Remove the product from the wishlist
 				unset($_SESSION['wishlist'][$key]);
-				header("Location: wishlist.php"); // Redirect to wishlist page after processing
+				header("Location: wishlist.php");
 				exit();
 			}
 		}
 
-		// Redirect to wishlist page if the product was not found in the wishlist
 		header("Location: wishlist.php");
 		exit();
 	}

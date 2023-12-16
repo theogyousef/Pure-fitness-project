@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["deleteproduct"])) {
@@ -34,15 +33,12 @@ if ($row["id"] == 1) {
 if (isset($_GET['id'])) {
     $productId = $_GET['id'];
 
-    // Fetch product details based on the product ID
     $sql = "SELECT * FROM products WHERE id = $productId";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $productDetails = mysqli_fetch_assoc($result);
 
-        // Display the product details on the page
-        // ...
 
     } else {
         echo '<p>No product details found.</p>';
