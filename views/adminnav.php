@@ -6,9 +6,8 @@
 
 <?php
 
-//require "../controller/config.php";
 
-
+//ob_end_clean(); //
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
@@ -41,6 +40,8 @@ if ($row["id"] == 1) {
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 
     <title>Admin panel</title>
@@ -52,7 +53,9 @@ if ($row["id"] == 1) {
 
 
 <body>
+
     <div class="container">
+    
         <div class="topbar">
             <div class="logo">
                 <h2>Pure Fitness</h2>
@@ -74,8 +77,16 @@ if ($row["id"] == 1) {
             <div class="user">
                 <img src="<?php echo $row['profilepicture'] ?>" alt="">
             </div>
+    
         </div>
         <!-- Sidebar -->
+    
+    <div class="d-grid gap-2 col-6">
+        <form method="post">
+        <button name="tsales" class="btn btn-primary" type="submit"> Sales Report</button>
+        </form>
+    </div>
+    
         <div class="sidebar">
             <ul>
                 <li class="active" id="dashboard">
@@ -125,6 +136,21 @@ if ($row["id"] == 1) {
                         <div>Profile Settings</div>
                     </a>
                 </li>
+                <li class="dropdown" id="products">
+                    <a href="products">
+                        <i class="fas fa-dumbbell"></i>
+                        <div>Reports</div>
+                    </a>
+                    <div class="dropdown-content">
+                    <form method="post">
+                        <a href="tsales" >Total Sales</a>
+                    </form>
+                        <a href="msales">Monthly Sales</a>
+                        <a href="qsales">Quarterly Sales</a>
+                        <a href="ysales">Yearly Sales</a>
+                        <!-- Add more links as needed -->
+                    </div>
+                </li>
                 <li>
                     <a href="index">
                         <i class="fas fa-home"></i>
@@ -138,7 +164,9 @@ if ($row["id"] == 1) {
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
         <script src="../public/JS/admindasboard.js"></script>
 
-
+    </div>
+    
+</div>
 
 </body>
 
