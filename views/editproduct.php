@@ -146,6 +146,8 @@ include "adminnav.php";
                                 style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
                         </div>
                     </form>
+                    
+                    <a style="color: black; font-weight: 500; font-size: 20px; " href='changepictures?id=<?php echo $productDetails['id'] ?>'>change photos?</a>
                 </div>
             </div>
         </div>

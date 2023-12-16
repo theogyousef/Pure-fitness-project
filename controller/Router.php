@@ -15,7 +15,7 @@ class Routere
         if (strpos($path, '/SWE/views/cart_display?remove=') !== false) {
             $pattern = '/\/SWE\/views\/(cart_display(?:\?remove=)?)(\d*)/';
         } else {
-            $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin|editorder|vieworder|cancelorder)\?id=(\d+)/';
+            $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin|editorder|vieworder|cancelorder|changepictures)\?id=(\d+)/';
         }
         if (preg_match($pattern, $path, $matches)) {
             // Extract the 'id' value from the matched URL
@@ -138,7 +138,10 @@ class Routere
         } elseif ($path === '/SWE/views/editproduct?id=' . $id) {
             require '../views/editproduct.php';
             exit();
-        } elseif ($path === '/SWE/views/product?id=' . $id) {
+        } elseif ($path === '/SWE/views/changepictures?id=' . $id) {
+            require '../views/changepictures.php';
+            exit();
+        }  elseif ($path === '/SWE/views/product?id=' . $id) {
             require '../views/product.php';
             exit();
         } elseif ($path === '/SWE/views/deleteproduct?id=' . $id) {
