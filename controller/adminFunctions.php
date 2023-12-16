@@ -143,3 +143,40 @@ function updateorder(){
     $status = $_POST["status"];
     adminModel::updateorder($id , $status);
 }
+function updatephotos(){
+    global $conn;
+
+    // Retrieve each file
+    $id = $_POST["id"];
+    $file = $_FILES["file"];
+    $file1 = $_FILES["file1"];
+    $file2 = $_FILES["file2"];
+    $file3 = $_FILES["file3"];
+
+    $uploadDirectory = '../public/photos/productPhotos/'; // Directory where you save the uploaded files
+
+    // Check if each file was uploaded successfully
+    if (move_uploaded_file($file["tmp_name"], $uploadDirectory . $file["name"]) &&
+        move_uploaded_file($file1["tmp_name"], $uploadDirectory . $file1["name"]) &&
+        move_uploaded_file($file2["tmp_name"], $uploadDirectory . $file2["name"]) &&
+        move_uploaded_file($file3["tmp_name"], $uploadDirectory . $file3["name"])) {
+
+        $uploadedFileName = $file["name"];
+        $uploadedFileName1 = $file1["name"];
+        $uploadedFileName2 = $file2["name"];
+        $uploadedFileName3 = $file3["name"];
+
+        $fileUrl = $uploadDirectory . $uploadedFileName;
+        $fileUrl1 = $uploadDirectory . $uploadedFileName1;
+        $fileUrl2 = $uploadDirectory . $uploadedFileName2;
+        $fileUrl3 = $uploadDirectory . $uploadedFileName3;
+
+        echo "<script>alert('The URLs are: " . $fileUrl . ", " . $fileUrl1 . ", " . $fileUrl2 . ", " . $fileUrl3 . "'); </script>";
+
+    } else {
+        echo "<script>alert('File upload failed.'); </script>";
+    }
+
+    adminModel::updatephotos($id, $fileUrl, $fileUrl1 , $fileUrl2, $fileUrl3);
+
+}
