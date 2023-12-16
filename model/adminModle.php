@@ -89,4 +89,20 @@ class adminModel
         $query = "UPDATE orders_details SET status = '$status' WHERE order_id = $id ";
         mysqli_query($conn, $query);
     }
+
+    public static function updatephotos($id, $fileUrl, $fileUrl1, $fileUrl2, $fileUrl3)
+    {
+        include "../controller/config.php";
+    
+        $query = "UPDATE products SET file = '$fileUrl' WHERE id = $id ";
+        mysqli_query($conn, $query);
+            $query2 = "INSERT INTO product_photos (product_id, file1, file2, file3)
+                   VALUES ($id, '$fileUrl1', '$fileUrl2', '$fileUrl3')
+                   ON DUPLICATE KEY UPDATE
+                   file1 = '$fileUrl1', file2 = '$fileUrl2', file3 = '$fileUrl3'";
+        mysqli_query($conn, $query2);
+    }
+    
+
+
 }
