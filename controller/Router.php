@@ -15,9 +15,7 @@ class Routere
         if (strpos($path, '/SWE/views/cart_display?remove=') !== false) {
             $pattern = '/\/SWE\/views\/(cart_display(?:\?remove=)?)(\d*)/';
         } else {
-
             $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin|editorder|vieworder|cancelorder|changepictures)\?id=(\d+)/';
-
         }
         if (preg_match($pattern, $path, $matches)) {
             // Extract the 'id' value from the matched URL
@@ -88,22 +86,10 @@ class Routere
         } elseif ($path === '/SWE/views/about') {
             require '../views/about.php';
             exit();
-        }elseif ($path === '/SWE/views/signup') {
+        } elseif ($path === '/SWE/views/signup') {
             require '../views/signup.php';
             exit();
-        }   elseif ($path === '/SWE/views/tsales') {
-            require '../views/tsales.php';
-            exit();
-        } elseif ($path === '/SWE/views/msales') {
-            require '../views/msales.php';
-            exit();
-        }elseif ($path === '/SWE/views/qsales') {
-            require '../views/qsales.php';
-            exit();
-        } elseif ($path === '/SWE/views/ysales') {
-            require '../views/ysales.php';
-            exit();
-        }elseif ($path === '/SWE/views/login') {
+        } elseif ($path === '/SWE/views/login') {
             require '../views/login.php';
             exit();
         } elseif ($path === '/SWE/views/forgetpassword') {
