@@ -2,7 +2,7 @@
 /phpmailer/vendor/autoload.php
 /phpmailer/vendor/composer/*
 /phpmailer/
-/library/
+/library/*
 composer.json
 composer.lock
 vendor
