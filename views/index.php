@@ -1,9 +1,7 @@
 <?php
 
-//require "../controller/config.php";
 require "../controller/indexMail.php";
 
-// Check for form submissions and perform the corresponding action
 if (isset($_POST["submitmail"])) {
   sendmail($email, $firstName);
 }
@@ -30,10 +28,6 @@ if ($row["deactivated"] == 1) {
   header("Location: deactivated");
 }
 
-
-// $j = $row['id'];
-// $idt= $row['guest'];
-// echo "<script>alert('the id = $j and guest is $idt '); </script>";
 
 include "header.php";
 ?>
@@ -62,21 +56,13 @@ include "header.php";
   <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i class="bi bi-chevron-double-up"></i>
   </button>
-  <!-- open btn -->
-  <!-- <button id="open_cart_btn">
-    <a href="#" class="text-decoration-none">
-      <i class="bi bi-cart3 text-white fs-4 me-3"></i>
-    </a>
-  </button> -->
 
-  <!-- backdrop -->
+
   <div class="backdrop">
 
-    <!-- side cart -->
 
     <div class="sidecart">
       <div class="cart_content">
-        <!-- cart header -->
         <div class="cart_header">
 
           <div class="header_title">
@@ -187,7 +173,6 @@ include "header.php";
         <video width="1900" autoplay loop muted>
           <source src="../public/photos/slidervideos/vid2.mp4" type="video/mp4">
         </video>
-        <!-- <img src="../public/photos/productPhotos/slider2.png" class="d-block w-100" alt="..."> -->
         <div class="carousel-caption1">
           <h1>PURE FITNESS EQUIPMENT:</h1>
           <h1>WHERE STRENGTH MEETS ENDURANCE.</h1>
@@ -198,7 +183,6 @@ include "header.php";
         <video width="1900" autoplay loop muted>
           <source src="../public/photos/slidervideos/vid3.mp4" type="video/mp4">
         </video>
-        <!-- <img src="../public/photos/productPhotos/slider3.png" class="d-block w-100" alt="..."> -->
         <div class="carousel-caption1">
           <h1>PURE FITNESS EQUIPMENT:</h1>
           <h1>THE PERFECT PARTNER FOR YOUR</h1>
@@ -217,9 +201,6 @@ include "header.php";
     </button>
   </div>
 
-  <!-- The Products -->
-
-  <!-- Quick View button-->
   <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -231,7 +212,6 @@ include "header.php";
           <div class="col-md-6">
             <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
             <div class="images p-3">
-              <!-- Add a container for the magnifier -->
               <div class="thumbnail text-center">
                 <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
                 <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
@@ -247,7 +227,6 @@ include "header.php";
               <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">CARDIO/BIKES</span>
                 <h5 class="text-uppercase" id="prodname">Concept 2 PM5 BikeErg</h5>
                 <div class="price d-flex flex-row align-items-center"> <span class="act-price">72.000 EGP</span>
-                  <!-- <div class="ml-2"> <small class="dis-price">82.000 EGP</small> <span>40% OFF</span> </div> -->
                 </div>
               </div>
               <p class="about">The bike features a clutch that keeps the flywheel spinning when you stop pedaling,
@@ -280,12 +259,10 @@ include "header.php";
         <div class="slider">
 
           <?php
-          // Assuming you have already connected to the database ($conn)
 
-          // Fetch products from the database
           $result = ProductModle::allproducts();
 
-          // Check if there are any products
+    
           if (mysqli_num_rows($result) > 0) {
             $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
           }
@@ -361,11 +338,7 @@ include "header.php";
       </div>
 
     </div>
-    <!-- product -->
 
-    <!-- sixth Product -->
-
-    <!-- image -->
     <div class="position-relative text-center" style="height : 300;">
       <a href="product?id=61" id="centered-anchor" class="d-block" style="height : 300;">
         <img src="../public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
@@ -377,8 +350,6 @@ include "header.php";
 
 
 
-    <!-- benches product -->
-    <!-- First product -->
     <div class="viewproduct">
 
       <div class="row">
@@ -471,7 +442,6 @@ include "header.php";
 
     </div>
 
-    <!-- image -->
     <div class="position-relative text-center" id="plates">
       <a href="product?id=39" id="centered-anchor" class="d-block">
         <img src="../public/photos/productPhotos/pure1.png" alt="Clickable Image" class="img-fluid mx-auto">
@@ -479,7 +449,6 @@ include "header.php";
     </div>
 
 
-    <!-- what our customers have to say -->
     <h2>What Our Customers Have To Say</h2>
     <section class="feedback-section">
 
@@ -506,7 +475,6 @@ include "header.php";
               <p class="feedback-name"> -Moaz </p>
             </div>
           </div>
-          <!-- Add more review elements as needed -->
         </div>
         <div class="slider-controls">
           <button class="prev-button">
@@ -519,7 +487,6 @@ include "header.php";
 
       </div>
     </section>
-    <!-- About us and signup containers -->
     <div class="container">
       <div class="row">
         <div class="col-md-6" id="blogs">
@@ -561,7 +528,6 @@ include "header.php";
       </div>
     </div>
 
-    <!-- BMI Calculator and Chart -->
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">

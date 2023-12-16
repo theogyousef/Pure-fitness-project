@@ -72,12 +72,8 @@ if (isset($_POST['input'])) {
             <td>" . $row["id"] . "</td>
             <td>" . $row["name"] . "</td>
             <td>" . $row["type"] . "</td>
-            <td>" . $row["price"] . "</td>";
-
-    $outofstock = ($row["outofstock"] == 1) ? "Out of stock" : "In stock";
-    $color = ($row["outofstock"] == 1) ? "red" : "green";
-
-    echo '<td><span style="color: ' . $color . '; font-size: 16px;">' . $outofstock . '</span> </td>';
+            <td>" . $row["price"] . "</td>
+            <td>" . $row["stock"] . "</td>";
     echo "<td>
             <a href='editproduct?id=" . $row["id"] . "' style='color: orange; '>
                 <span class='fas fa-edit'></span> 

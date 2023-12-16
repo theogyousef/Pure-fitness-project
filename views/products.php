@@ -86,7 +86,7 @@ include "adminnav.php";
 
             </div>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for users">
+                <input type="text" id="searchInput" placeholder="Search for products">
                 <button class="search-button" style="background-color: black;">Search</button>
             </div>
 

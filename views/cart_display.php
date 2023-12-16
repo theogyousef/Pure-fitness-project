@@ -21,8 +21,6 @@ if (isset($_GET['remove'])) {
     }
 }
 
-
-// Fetch user information
 else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
@@ -30,24 +28,6 @@ else if (!empty($_SESSION["id"])) {
 } else {
     header("Location: login");
 }
-
-
-// if (!empty($_SESSION["id"])) {
-//     $id = $_SESSION["id"];
-//     $result = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
-//     $row = mysqli_fetch_assoc($result);
-// } else {
-//     header("Location: login");
-// } 
-//  if (!empty($_SESSION['products'])) { 
-//     foreach ($_SESSION['products'] as $product):
-//         echo $product['id'] . " " . $product['name'] . " " . $product['price'] . " " . $product['quantity'] . "<br>";
-//     endforeach;
-// } else if (empty($_SESSION['products'])) {
-//     echo "joe";
-// }
-
-//add the update product and an foreach that updates the session['products'] to update the quantity of each product (using id )
 
 include "header.php";
 ?>

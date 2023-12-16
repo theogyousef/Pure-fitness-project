@@ -28,7 +28,6 @@ if (!empty($_SESSION['products'])) {
 </head>
 
 <body>
-  <!-- The small top container -->
   <div class="announcement-container text-white">
     <div class="container">
       <div class="row align-items-center">
@@ -44,7 +43,6 @@ if (!empty($_SESSION['products'])) {
     </div>
   </div>
 
-  <!-- The middle Header -->
   <header class="header-middle text-white">
     <div class="container my-1">
       <div class="row align-items-center">
@@ -60,7 +58,6 @@ if (!empty($_SESSION['products'])) {
           </div>
         </div>
         <div id="logo" class="col-md-8 text-center">
-          <!-- Header logo -->
           <a href="index" rel="home">
             <img src="https://purefitness-eg.com/wp-content/uploads/2023/07/IMG_%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A7%D9%A2%D9%A3_%D9%A1%D9%A9%D9%A1%D9%A0%D9%A4%D9%A0-1400x623.png" alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
           </a>
@@ -74,7 +71,6 @@ if (!empty($_SESSION['products'])) {
             <?php endif; ?>
           </a>
         </div>
-          <!-- wishlist -->
           <a href="wishlist" class="text-decoration-none">
             <i class="bi bi-heart text-white fs-4 me-3"></i>
           </a>
@@ -112,20 +108,16 @@ if (!empty($_SESSION['products'])) {
     </div>
   </header>
 
-  <!-- The Nav bar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
         <ul class="navbar-nav text-white text-center">
-          <!-- Example for one dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               SHOP
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <!-- Use the row class to contain your columns -->
               <div class="row">
-                <!-- Each div with col class is a column -->
                 <div class="col">
                   <h6 class="dropdown-header">GYM Tools</h6>
                   <a class="dropdown-item" href="#">Personal Gear</a>
@@ -135,13 +127,10 @@ if (!empty($_SESSION['products'])) {
                   <h6 class="dropdown-header">CROSSFIT EQUIPMENT</h6>
                   <a class="dropdown-item" href="#">Weightlifting</a>
                   <a class="dropdown-item" href="#">Cages & Racks and Attachments</a>
-                  <!-- ... more items ... -->
                 </div>
-                <!-- Add more columns as needed -->
               </div>
             </div>
           </li>
-          <!-- Repeat for each dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGymTools" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               GYM TOOLS
@@ -164,7 +153,6 @@ if (!empty($_SESSION['products'])) {
             </div>
           </li>
 
-          <!-- Continue repeating this pattern for CARDIO and GYM MACHINES -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               CROSSFIT EQUIPMENT
@@ -189,14 +177,11 @@ if (!empty($_SESSION['products'])) {
                 <div class="col">
                   <h6 class="dropdown-header">CAGES & RACKS AND ATTACHMENTS</h6>
                   <a class="dropdown-item" href="#">Weightlifting</a>
-                  <!-- <a class="dropdown-item" href="#">Cages</a>	 -->
                   <form method="post" action="../views/collections">
                     <input type="hidden" name="category" value="11">
                     <button type="submit" class="dropdown-item">Racks</button>
                   </form>
-                  <!-- <a class="dropdown-item" href="#">Attachments</a>
-                <a class="dropdown-item" href="#">Pull Up Bars</a>
-                <a class="dropdown-item" href="#">Storages</a> -->
+              
                   <form method="post" action="../views/collections">
                     <input type="hidden" name="category" value="13">
                     <button type="submit" class="dropdown-item">Cable Cross Attachments</button>
@@ -229,13 +214,11 @@ if (!empty($_SESSION['products'])) {
                     <button type="submit" class="dropdown-item">Dumbbells</button>
                   </form>
 
-                  <!-- <a class="dropdown-item" href="#">Medicine Balls</a> -->
                 </div>
               </div>
             </div>
           </li>
 
-          <!-- Cardio Nav -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               CARDIO
@@ -253,7 +236,6 @@ if (!empty($_SESSION['products'])) {
               </div>
             </div>
           </li>
-          <!-- Gym machine nav -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCrossfitEquipment" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               GYM MACHINES
@@ -270,7 +252,6 @@ if (!empty($_SESSION['products'])) {
               </div>
             </div>
           </li>
-          <!-- Home Gym Nav -->
           <li class="nav-item dropdown">
             <a class="nav-link" href="collections" id="navbarDropdownShop" aria-haspopup="true" aria-expanded="false">
               HOME GYM </a>

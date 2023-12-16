@@ -18,24 +18,6 @@ if (!empty($_SESSION["id"])) {
 	header("Location: login");
 }
 
-
-// echo "order id " . $_SESSION['order_id'] . "<br>";
-// echo "user id = " . $row['id'] . "<br>";
-$total = $_SESSION['total'];
-// echo "Total from session: " . $total . "<br>";
-$totalquantity = 0;
-// foreach ($_SESSION['confirmedorder'] as $product) :
-// 	$totalquantity += $product['quantity'];
-// 	echo $product['id'] . " " . $product['quantity'] . "<br>";
-// 	$product_id = $product['id'];
-// 	$quantity = $product['quantity'];
-// 	echo "product id " . $product_id . "and quantity = " . $quantity . "<br>";
-
-// endforeach;
-// echo $totalquantity;
-
-
-// echo "success";
 $_SESSION['products'] = array();
 include 'header.php';
 ?>
@@ -64,11 +46,10 @@ include 'header.php';
 
 	<div class="col-md-4 order-md-2 mb-4" id="cart" >
 		<h3>Order id : #<?php echo $_SESSION['order_id']; ?></h3>
-		<!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
-			<span class="badge badge-secondary badge-pill"><?php #echo count($_SESSION['products']); ?></span>
-		</h4> -->
+		
 		<ul class="list-group mb-3">
 			<?php
+			$totalquantity = 0;
 			$total = 0;
 			if (!empty($_SESSION['confirmedorder'])) {
 				foreach ($_SESSION['confirmedorder'] as $product) {

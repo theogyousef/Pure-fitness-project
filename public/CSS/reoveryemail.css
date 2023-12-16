@@ -1,0 +1,28 @@
+.thin-line {
+    height: 0.5px;
+    background-color: #2b2a2a; 
+    border: none;
+    margin: 0.5rem 0;
+}
+.content-text {
+    color: #4A4A4A; 
+    font-size: smaller; 
+}
+.logo-container img {
+    width: 200px; 
+    height: auto; 
+    margin-bottom: 1rem;
+    margin-left: 60px;
+}
+.greeting {
+    color: #4A4A4A;
+    margin-bottom: 0;
+}
+.centered-container {
+    max-width: 600px; 
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

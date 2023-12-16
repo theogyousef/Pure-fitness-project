@@ -30,22 +30,6 @@ if ($row["id"] == 1) {
 }
 
 
-// echo "order id " . $_SESSION['order_id'] . "<br>";
-// echo "user id = " . $row['id'] . "<br>";
-// echo "Total from session: " . $total . "<br>";
-$totalquantity = 0;
-// foreach ($_SESSION['confirmedorder'] as $product) :
-// 	$totalquantity += $product['quantity'];
-// 	echo $product['id'] . " " . $product['quantity'] . "<br>";
-// 	$product_id = $product['id'];
-// 	$quantity = $product['quantity'];
-// 	echo "product id " . $product_id . "and quantity = " . $quantity . "<br>";
-
-// endforeach;
-// echo $totalquantity;
-
-
-// echo "success";
 $_SESSION['products'] = array();
 include 'header.php';
 ?>
@@ -74,17 +58,16 @@ include 'header.php';
 
 <div class="col-md-4 order-md-2 mb-4" id="cart">
     <?php
+    $totalquantity = 0;
     if (isset($_GET['id'])) {
         $orderid = $_GET['id'];
 
-        // Fetch order details based on the order ID
         $sql = "SELECT * FROM orders o JOIN orders_details od ON o.order_id = od.order_id WHERE o.order_id = $orderid";
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {
             $orderDetails = mysqli_fetch_assoc($result);
 
-            // Fetch order products
             $sqlProducts = "SELECT opd.*, p.* FROM order_product_details opd JOIN products p ON opd.product_id = p.id WHERE opd.order_id = $orderid";
             $resultProducts = mysqli_query($conn, $sqlProducts);
             $orderProducts = mysqli_fetch_all($resultProducts, MYSQLI_ASSOC);

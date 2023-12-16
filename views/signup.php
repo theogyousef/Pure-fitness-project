@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/registerationsystem.php";
 require "../controller/registerationMail.php";
 
@@ -19,7 +18,6 @@ if (!empty($_SESSION["id"])) {
   }
   
 
-// Check for form submissions and perform the corresponding action
 if (isset($_POST["submit"])) {
     signup();
     registeration($conn);
@@ -103,9 +101,7 @@ include "header.php";
                 <a href="#" class="social-button">
                     <img src="https://eg.hm.com/themes/custom/transac/alshaya_white_label/imgs/social-icons/google-login-logo.svg" alt="Google" class="social-icon"> Continue with Google
                 </a>
-                <!-- <a href="#" class="social-button">
-        <img src="logo-apple-48.png" alt="Apple" class="social-icon"> Continue with Apple
-      </a> -->
+             
                 <a href="#" class="social-button">
                     <img src="https://eg.hm.com/themes/custom/transac/alshaya_white_label/imgs/social-icons/facebook-login-logo.svg" alt="Facebook" class="social-icon"> Continue with Facebook
                 </a>

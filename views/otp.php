@@ -1,6 +1,5 @@
 <?php
 
-//require "../controller/config.php";
 require "../controller/forgetpassword.php";
 
 if (isset($_POST["submitOTP"])) {
@@ -41,7 +40,7 @@ include "header.php";
           <p>Please enter the OTP sent to your email address.</p>
         </div>
         <div class="mt-3">
-        <form method="post" onsubmit="return validateOTP();"> <!-- Add onsubmit attribute -->
+        <form method="post" onsubmit="return validateOTP();"> 
             <div class="form-floating mb-3">
               <input type="text" name="otp" class="form-control" id="otpInput" placeholder="Enter OTP">
               <label for="otpInput">Enter OTP</label>

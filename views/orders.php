@@ -75,8 +75,7 @@ include "header.php";
         </div>
         <?php if (!empty($orders)) { ?>
             <?php foreach ($orders as $order):
-                // echo "<br>";
-                // echo "order id : " . $order['order_id'] . "<br>";
+             
                 ?>
                 <article class="card" style="margin: 20px;">
                     <div class="card-body">
@@ -85,36 +84,25 @@ include "header.php";
                             echo "<h6>Order ID: " . "#" . $order['order_id'] . "<br>";
                             echo $order['Date'] . " at " . $order['time'] . "<br>";
                             $orderid = $order['order_id'];
-                            // echo $order['status'];
-                            // if ($order['status'] =)
+                         
                     
                             if ($order['status'] == 'Pending' || $order['status'] == 'Confirmed') {
                                 echo "<a href='cancelorder?id=" . $orderid . "' class='cancelorder'>Cancel order?</a></h6>";
                                 echo "Order is Pending or Confirmed";
                             } elseif ($order['status'] == 'Out for delivery' || $order['status'] == 'Delivered') {
-                                // Code to execute if status is 'Cancelled', 'Out for delivery', or 'Delivered'
                                 echo " <p style='color : black ; text-decoration :underline ;'>Order can not be cancelled ";
                             }
                             elseif ($order['status'] == 'Cancelled'){
                                 echo " <p style='color : black ; text-decoration :underline ;'>Order alreday cancelled";
                             }
-                            // echo "<a href='cancelorder?id=" . $orderid . "' class='cancelorder'>Cancel order?</a></h6>";
                             ?>
 
 
                         </h6>
-                        <!-- <article class="card">
-                        <div class="card-body row">
-                            <div class="col"> <strong>Estimated Delivery time:</strong> <br>1 jan 2024 </div>
-                            <div class="col"> <strong>Shipping BY:</strong> <br> DHL, | <i class="fa fa-phone"></i>
-                                +0123456789 </div>
-                            <div class="col"> <strong>Status:</strong> <br> Picked by the courier </div>
-                            <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
-                        </div>
-                    </article> -->
+                     
                         <?php
 
-                        // echo "#" . $order['status'];
+                      
                         $status = $order['status'];
                         switch ($status) {
                             case 'Cancelled':
@@ -183,9 +171,8 @@ include "header.php";
                         $query3 = "SELECT * FROM products WHERE id = '$productid'";
                         $result3 = mysqli_query($conn, $query3);
                         $productdetails = mysqli_fetch_assoc($result3);
-                        // Fetch a single row, not all rows
             
-                        if ($productdetails) {  // Check if the query returned a result
+                        if ($productdetails) { 
                             ?>
                             <a href="product?id=<?php echo $productid; ?>">
                                 <ul class="row">

@@ -31,7 +31,6 @@ if ($row["deactivated"] != 1) {
 include "header.php";
 
 if (isset($_POST["activate"])) {
-    //echo "<script> alert(' wasal ');</script> ";
     reactivateaccount($id);
 }
 
@@ -83,7 +82,6 @@ if (isset($_POST["activate"])) {
 
                 </div>
             </div>
-            <!-- <div class="arm"></div> -->
             <div class="nose">
                 <div></div>
                 <div></div>

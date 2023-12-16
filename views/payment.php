@@ -7,7 +7,6 @@
 <?php
 require '../controller/config.php';
 require "../controller/payment.php";
-//require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
 
@@ -120,7 +119,6 @@ include "header.php";
                                 <form method="post">
                                     <input class="btn btn-primary" type="submit" name="confirm" value="confrim order" style="background-color: black;">
                                 </form>
-                                <!-- <input name="addressdetails" type="submit" class="btn btn-primary" value="Confirm order" > -->
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/adminFunctions.php";
 
 
@@ -142,8 +141,7 @@ include "adminnav.php";
                                  </tr>  ";
                         }
 
-                        // editorder?id=9926
-                        // vieworder?id=9926
+
                         ?>
                     </tbody>
                 </table>

@@ -6,8 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
-
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];

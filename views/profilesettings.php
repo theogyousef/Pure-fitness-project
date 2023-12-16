@@ -6,10 +6,8 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/profilesettingsfun.php";
 
-// Check for form submissions and perform the corresponding action
 if (isset($_POST["fileupload"])) {
     uploadpic();
 } else if (isset($_POST["accountdetails"])) {
@@ -49,10 +47,10 @@ if ($row["deactivated"] == 1) {
 
 }
 
-$instagramUsername = trim($row["instagram"]); // Remove leading/trailing whitespace
+$instagramUsername = trim($row["instagram"]); 
 $instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
 
-$githubUsername = trim($row["github"]); // Remove leading/trailing whitespace
+$githubUsername = trim($row["github"]); 
 $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
@@ -64,7 +62,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../CSS/prfilesettings.css" /> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
@@ -78,7 +75,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 <body>
     <div class="container-md px-10 mt-2">
 
-        <!-- prfile settings nav bar -->
         <nav class="nav nav-borders">
             <a class="nav-link active ms-0" id="detailsnav" href="" onClick="detailsa()">Profile</a>
             <a class="nav-link" id="adresssnav" href="#" onClick="addressa()">Address</a>
@@ -98,7 +94,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
-            <!-- personal card -->
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
@@ -150,7 +145,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
 
-            <!--    Account details -->
             <div class="col-xl-8" id="details">
                 <div class="card mb-4">
                     <div class="card-header">Account Details</div>
@@ -224,7 +218,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
-            <!--    Address details -->
             <div class="col-xl-8" id="Address" style="display: none;">
                 <div class="card mb-4">
                     <div class="card-header">Address Details</div>
@@ -305,7 +298,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
-            <!-- Social -->
             <div class="col-xl-8" style="display: none;" id="social">
                 <div class="card mb-4">
                     <div class="card-header">Social</div>
@@ -326,14 +318,12 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
 
-                            <!-- // Save changes button -->
                             <button name="socialsave" class="btn btn-primary" type="submit">Update my socials</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Security -->
             <div class="col-xl-8" style="display: none;" id="security">
                 <div class="card mb-4">
                     <div class="card-header">Security</div>
@@ -358,7 +348,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <span id="SecurityerrorMessages" class="errormessage" style="display: none;"></span>
                             </div><br>
 
-                            <!-- // Save changes button -->
                             <input name="updatesecurity" type="submit" class="btn btn-primary" value="Update password">
 
                         </form>
@@ -367,7 +356,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
             </div>
 
 
-            <!-- Notifications -->
             <div class="col-xl-8" style="display: none;" id="notifications">
                 <div class="card mb-4">
                     <div class="card-header">Notifications</div>
@@ -386,14 +374,12 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <input class="form-check-input" id="#" type="checkbox">
                             </div>
 
-                            <!-- // Save changes button -->
                             <button class="btn btn-primary" type="button">Save updates</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Deactiavte account -->
             <div class="col-xl-8" style="display: none;" id="deactivate">
                 <div class="card mb-4">
                     <div class="card-header">Deactiavte account</div>

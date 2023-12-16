@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["updateuser"])) {
@@ -35,15 +34,12 @@ if ($row["id"] == 1) {
 if (isset($_GET['id'])) {
     $userId = $_GET['id'];
 
-    // Fetch product details based on the product ID
     $sql = "SELECT * FROM users WHERE id = $userId";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $userDetails = mysqli_fetch_assoc($result);
 
-        // Display the product details on the page
-        // ...
 
     } else {
         echo '<p>No user details found.</p>';
@@ -76,7 +72,6 @@ include "adminnav.php";
 
 <div class="container">
     
-  <!-- Edit user  -->
   <div class="main" id="edituser">
             <div class="formcards">
                 <div class="formcard">

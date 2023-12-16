@@ -6,7 +6,6 @@
 
 <?php
 
-//require "../controller/config.php";
 require "../controller/adminFunctions.php";
 
 
@@ -53,8 +52,6 @@ include "adminnav.php";
 
 <body>
     <div class="container">
-
-        <!-- Dashboard -->
         <div class="main" id="users">
             <div class="cards">
 
