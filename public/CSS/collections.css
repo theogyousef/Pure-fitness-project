@@ -55,9 +55,6 @@ h1 {
   border-color: inherit;
   box-shadow: none;
 }
-#filters{
-  /* padding: 20px; */
-}
 
 @media (max-width: 768px) {
   .filter-container {
@@ -192,7 +189,6 @@ h1 {
 border-color: white;
 }
 
-/* pagination css */
 .page-link {
   color: black !important;
 }
