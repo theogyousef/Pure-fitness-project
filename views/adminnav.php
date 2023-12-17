@@ -106,6 +106,8 @@ if ($row["id"] == 1) {
                     </a>
                     <div class="dropdown-content">
                         <a href="addproduct">Add product</a>
+                        <a href="addoption">Add Product Option</a>
+                        <a href="addvaluetoOP"> Add Value Option</a>
                     </div>
                 </li>
 
@@ -116,30 +118,14 @@ if ($row["id"] == 1) {
                     </a>
 
                 </li>
-                <li class="dropdown" id="orders">
-                    <a href="addoption">
-                        <i class="fas fa-box-open"></i>
-                        <div>Add Product Option</div>
-                    </a>
-
-                </li>
+               
                 <li>
                     <a href="profilesettings">
                         <i class="fas fa-cog"></i>
                         <div>Profile Settings</div>
                     </a>
                 </li>
-                <li class="dropdown" id="products">
-                    <a href="products">
-                        <i class="fas fa-box-open"></i>
-                        <div>Options</div>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="addoption">Add Product Option</a>
-                        <a href="addvaluetoOP"> Add Value Option</a>
-                        <!-- Add more links as needed -->
-                    </div>
-                </li>
+                
                 <li class="dropdown" id="products">
                     <a href="products">
                         <i class="fas fa-dumbbell"></i>

@@ -164,9 +164,7 @@ include "header.php";
                         while ($row = $resulte->fetch_assoc()) {
                             echo "<p class='options'>{$row['VALUE']}</p>";
                         }
-                    } else {
-                        echo "<p>No options found for product with ID: $pid</p>";
-                    }
+                    } 
                     ?>
 
                     <p class="detailsinfo">
