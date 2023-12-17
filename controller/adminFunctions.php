@@ -178,6 +178,7 @@ function updatephotos(){
         echo "<script>alert('File upload failed.'); </script>";
     }
 
+    
     adminModel::updatephotos($id, $fileUrl, $fileUrl1 , $fileUrl2, $fileUrl3);
 
 }
