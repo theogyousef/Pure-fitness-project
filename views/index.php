@@ -594,6 +594,7 @@ include "header.php";
         </div>
       </div>
     </div>
+  </div>
     <?php
 
     if (isset($_POST['addtocart'])) {
