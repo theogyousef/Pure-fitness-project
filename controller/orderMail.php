@@ -20,7 +20,6 @@ function confirmation($conn)
             $mail = new PHPMailer(true);
 
             try {
-                // SMTP server configuration
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
@@ -29,25 +28,22 @@ function confirmation($conn)
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port       = 465;
 
-                // Recipient
                 $mail->setFrom('purefitness.equipments@gmail.com', 'Pure Fitness');
                 $mail->addAddress($email, 'user');
 
-                // Email subject and body content
                 $mail->isHTML(true);
                 $mail->Subject = 'Order Confirmation';
 
-                // Capture the PHP processed output
                 ob_start();
-                include('../views/confirmationMail.php'); // Path to the PHP file that outputs the email content
+                include('../views/confirmationMail.php'); 
                 $htmlContent = ob_get_clean();
 
-                $mail->Body = $htmlContent; // Assign the processed output to email body
+                $mail->Body = $htmlContent;
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 if ($mail->send()) {
                     header("Location: confirmation");
-                    exit; // Make sure no further code is executed once the redirect header is sent
+                    exit; 
                 } else {
                     echo 'Message could not be sent.';
                 }

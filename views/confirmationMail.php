@@ -1,45 +1,6 @@
 <?php
 require '../controller/config.php';
 
-
-//     $orderQuery = "SELECT * FROM orders WHERE user_id = '$id' ORDER BY created_at DESC LIMIT 1";
-//         $orderResult = mysqli_query($conn, $orderQuery);
-
-//     if (mysqli_num_rows($orderResult) > 0) {
-//         $orderRow = mysqli_fetch_assoc($orderResult);
-//         $orderNumber = $orderRow['order_id'];
-
-//         $orderDetailsQuery = "SELECT * FROM orders_details WHERE order_id = '$orderNumber'";
-//         $orderDetailsResult = mysqli_query($conn, $orderDetailsQuery);
-//         $orderDetailsRow = mysqli_fetch_assoc($orderDetailsResult);
-//         $orderDate = $orderDetailsRow['status'];
-//         $totalPrice = $orderDetailsRow['total'];
-
-//         $addressQuery = "SELECT * FROM addresses WHERE user_id = '$id'";
-//         $addressResult = mysqli_query($conn, $addressQuery);
-//         $addressRow = mysqli_fetch_assoc($addressResult);
-//         $shippingAddress = $addressRow['street'] . ', ' . $addressRow['city'] . ', ' . $addressRow['governorates'] . ', ' . $addressRow['postalcode']; // Concatenate address parts
-
-//         // Fetch products in the order
-//         $productsQuery = "SELECT prod.*, opd.quantity, prod.file FROM products prod
-//             JOIN order_product_details opd ON prod.id = opd.product_id
-//             WHERE opd.order_id = '$orderNumber'";
-//         $productsResult = mysqli_query($conn, $productsQuery);
-//         $products = mysqli_fetch_all($productsResult, MYSQLI_ASSOC);
-//     } else {
-//         // Handle the case where there are no orders for the user
-//         $orderNumber = "No Orders Found";
-//         $orderDate = "";
-//         $totalPrice = 0;
-//         $shippingAddress = "";
-//         $products = [];
-//     }
-// } else {
-//     header("Location: login");
-//     exit;
-// }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +50,6 @@ require '../controller/config.php';
 
         .highlight {
             color: #0056b3;
-            /* Choose an accent color */
         }
 
         .summary-item {

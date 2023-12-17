@@ -63,13 +63,14 @@ include "header.php";
                 <form method="post" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
 
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingPassword" placeholder="Password" name="email">
+                        <input type="email" class="form-control" id="floatingPassword" placeholder="email" name="email">
                         <label for="floatingPassword">Email</label>
                     </div>
 
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                         <label for="floatingPassword">Password</label>
+                        <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y pe-3" onclick="togglePasswordVisibility('floatingPassword', this)" style="margin-right: 50px; margin-top: -20px;"></i>
 
                         <p class="mt-4 text-left">
                             <a href="forgetpassword" class="text-muted">Forget password?</a>
@@ -96,6 +97,7 @@ include "header.php";
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../public/JS/Registeration.js"></script>
+    <script src="../public/JS/togglePassword.js"></script>
 
     <footer>
         <?php
