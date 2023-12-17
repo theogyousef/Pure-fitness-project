@@ -25,8 +25,16 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
 }
-include "header.php"
-    ?>
+include "header.php";
+
+$selectedCategory = isset($_POST['category']) ? $_POST['category'] : '';
+
+$selectedPrice = isset($_POST['price']) ? $_POST['price'] : '';
+
+$selectedAvailability = isset($_POST['availability']) ? $_POST['availability'] : '';
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,52 +69,50 @@ include "header.php"
         <div class="container mt-4">
             <h1 style="font-size: 40px; font-family: Belleza,Frunchy Sage,Glacial Indifference,serif;">Home Gym</h1>
 
-            <!-- Filters -->
             <div class="row mb-3" id="filters">
                 <div class="col-md-2">
                     <form class="filter" id="filterF" method="post">
-                        <select class="form-select filter-select" aria-label="Availability" name="availability"
-                            data-form-id="filterF">
-                            <option selected disabled>Availability</option>
-                            <option value="1">In Stock</option>
-                            <option value="2">Out of Stock</option>
+                        <select class="form-select filter-select" aria-label="Availability" name="availability" data-form-id="filterF">
+                            <option value="">Availability</option>
+                            <option value="1" <?php echo $selectedAvailability == '1' ? 'selected' : ''; ?>>In Stock</option>
+                            <option value="2" <?php echo $selectedAvailability == '2' ? 'selected' : ''; ?>>Out of Stock</option>
                         </select>
+
+
                     </form>
                 </div>
                 <div class="col-md-2">
                     <form class="filter" id="filterCategory" method="post">
-                        <select class="form-select filter-select" aria-label="Category" name="category"
-                            data-form-id="filterCategory">
-                            <option selected disabled>Category</option>
-                            <option value="1">All Benches</option>
-                            <option value="2">All Bicycle</option>
-                            <option value="3">All Cardio</option>
-                            <option value="4">All Sleds</option>
-                            <option value="5">All Plates</option>
-                            <option value="6">All Collars</option>
-                            <option value="7">All Ropes</option>
-                            <option value="8">All Boxs</option>
-                            <option value="9">All Steps</option>
-                            <option value="10">All Weighted balls</option>
-                            <option value="11">All Racks</option>
-                            <option value="12">All Dumbells</option>
-                            <option value="13">All Cable Extensions</option>
-                            <option value="14">All Barbell</option>
-                            <option value="15">All Kettlebell</option>
+                        <select class="form-select filter-select" aria-label="Category" name="category" data-form-id="filterCategory">
+                            <option value="">Category</option>
+                            <option value="1" <?php echo $selectedCategory == '1' ? 'selected' : ''; ?>>All Benches</option>
+                            <option value="2" <?php echo $selectedCategory == '2' ? 'selected' : ''; ?>>All Bicycle</option>
+                            <option value="3" <?php echo $selectedCategory == '3' ? 'selected' : ''; ?>>All Cardio</option>
+                            <option value="4" <?php echo $selectedCategory == '4' ? 'selected' : ''; ?>>All Sleds</option>
+                            <option value="5" <?php echo $selectedCategory == '5' ? 'selected' : ''; ?>>All Plates</option>
+                            <option value="6" <?php echo $selectedCategory == '6' ? 'selected' : ''; ?>>All Collars</option>
+                            <option value="7"<?php echo $selectedCategory == '7' ? 'selected' : ''; ?>>All Ropes</option>
+                            <option value="8" <?php echo $selectedCategory == '8' ? 'selected' : ''; ?>>All Boxs</option>
+                            <option value="9" <?php echo $selectedCategory == '9' ? 'selected' : ''; ?>>All Steps</option>
+                            <option value="10" <?php echo $selectedCategory == '10' ? 'selected' : ''; ?>>All Weighted balls</option>
+                            <option value="11" <?php echo $selectedCategory == '11' ? 'selected' : ''; ?>>All Racks</option>
+                            <option value="12"<?php echo $selectedCategory == '12' ? 'selected' : ''; ?>>All Dumbells</option>
+                            <option value="13" <?php echo $selectedCategory == '13' ? 'selected' : ''; ?>>All Cable Extensions</option>
+                            <option value="14" <?php echo $selectedCategory == '14' ? 'selected' : ''; ?>>All Barbell</option>
+                            <option value="15" <?php echo $selectedCategory == '15' ? 'selected' : ''; ?>>All Kettlebell</option>
                         </select>
                     </form>
                 </div>
 
                 <div class="col-md-2">
                     <form class="filter" id="filterForm" method="post">
-                        <select class="form-select filter-select" aria-label="Price" name="price"
-                            data-form-id="filterForm">
-                            <option selected disabled>Price</option>
-                            <option value="4">Highest To Lowest </option>
-                            <option value="5">Lowest To Highest</option>
-                            <option value="1">Under 10000</option>
-                            <option value="2">10000 to 40000</option>
-                            <option value="3">40000 and above</option>
+                        <select class="form-select filter-select" aria-label="Price" name="price" data-form-id="filterForm">
+                            <option value="">Price</option>
+                            <option value="4"  <?php echo $selectedPrice == '4' ? 'selected' : ''; ?>>Highest To Lowest </option>
+                            <option value="5"  <?php echo $selectedPrice == '5' ? 'selected' : ''; ?>>Lowest To Highest</option>
+                            <option value="1"  <?php echo $selectedPrice == '1' ? 'selected' : ''; ?>>Under 10000</option>
+                            <option value="2"  <?php echo $selectedPrice == '2' ? 'selected' : ''; ?>>10000 to 40000</option>
+                            <option value="3"  <?php echo $selectedPrice == '3' ? 'selected' : ''; ?>>40000 and above</option>
                         </select>
                     </form>
                 </div>
@@ -115,26 +121,24 @@ include "header.php"
                 <div class="col-md-2" id="reset">
                     <form method="post" action="">
                         <div class="col-md-2">
-                            <button name="reset" style="background-color: black;" type="submit"
-                                class="btn btn-primary">Reset</button>
+                            <button name="reset" style="background-color: black;" type="submit" class="btn btn-primary">Reset</button>
                         </div>
                     </form>
                 </div>
 
             </div>
 
-
-      
             <div class="container mb-3 mt-3">
-                <button class="btn btn-light btn-grid">
+                <button class="btn btn-light btn-grid" style="font-size: 16px; padding: 10px 20px;">
                     <i class="bi bi-grid-3x3-gap"></i>
                 </button>
 
-                <button class="btn btn-light btn-list">
+                <button class="btn btn-light btn-list" style="font-size: 16px; padding: 10px 20px;">
                     <i class="bi bi-list"></i>
                 </button>
             </div>
-        
+
+
         </div>
         <div class="container grid-container">
             <?php
@@ -143,7 +147,7 @@ include "header.php"
 
 
 
-            
+
             if (isset($_POST['price'])) {
                 $selectedPrice = isset($_POST['price']) ? $_POST['price'] : null;
                 switch ($selectedPrice) {
@@ -165,8 +169,8 @@ include "header.php"
                     default:
                         $result = ProductModle::allProducts();
                 }
-            } elseif (isset($_POST['availability'])) { 
-            
+            } elseif (isset($_POST['availability'])) {
+
                 $instock = isset($_POST['availability']) ? $_POST['availability'] : null;
 
                 switch ($instock) {
@@ -179,10 +183,9 @@ include "header.php"
                     default:
                         $result = ProductModle::allProducts();
                 }
-            } elseif (isset($_POST['category'])) { 
-            
-                $cat = isset($_POST['category']) ? $_POST['category'] : null;
+            } elseif (isset($_POST['category'])) {
 
+                $cat = isset($_POST['category']) ? $_POST['category'] : null;
 
                 switch ($cat) {
                     case 1:
@@ -246,7 +249,7 @@ include "header.php"
                     if ($count % 4 == 0) {
                         echo '<div class="row justify-content-start" id="row">';
                     }
-                    ?>
+            ?>
                     <div class="col-md-3" id="product">
                         <form a method="post">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
@@ -256,8 +259,7 @@ include "header.php"
                             <div class="products">
                                 <div class="product-image">
                                     <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>"
-                                            class="pic img-fluid">
+                                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic img-fluid" style="max-height: 270px; max-width: 250px;">
                                     </a>
                                     <div class="links">
                                         <div class="Icon">
@@ -292,9 +294,9 @@ include "header.php"
                                         <div class="cost">
                                             <p class="lower-price">
                                                 From <span class="price">
-                                                    <?php 
-                                                   
-                                                    echo number_format( $product['price'], 2) . " EGP"; ?>
+                                                    <?php
+
+                                                    echo number_format($product['price'], 2) . " EGP"; ?>
                                                 </span>
                                             </p>
                                         </div>
@@ -303,7 +305,7 @@ include "header.php"
                             </a>
                         </form>
                     </div>
-                    <?php
+            <?php
                     if (($count + 1) % 4 == 0 || ($count + 1) == count($products)) {
                         echo '</div>';
                     }
@@ -408,13 +410,11 @@ include "header.php"
         include "footer.php" ?>
     </footer>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
-
     <script src="../public/JS/collections.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('.filter-select').change(function () {
+        $(document).ready(function() {
+            $('.filter-select').change(function() {
                 var formId = $(this).data('form-id');
                 $('#' + formId).submit();
             });
