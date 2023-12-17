@@ -23,10 +23,15 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
 } else {
   header("Location: login");
 }
+if (!empty($_SESSION['products']) && $row['guest'] == 1) {
+  header("Location: login");
+}
 
 if ($row["deactivated"] == 1) {
   header("Location: deactivated");
 }
+
+
 
 
 include "header.php";

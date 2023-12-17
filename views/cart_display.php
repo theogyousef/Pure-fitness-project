@@ -29,6 +29,12 @@ else if (!empty($_SESSION["id"])) {
     header("Location: login");
 }
 
+$result2 = mysqli_query($conn, "SELECT * from permissions where user_id = '$id';");
+$row2 = mysqli_fetch_assoc($result2);
+if (!empty($_SESSION['products']) && $row2['guest'] == 1) {
+  header("Location: login");
+}
+
 include "header.php";
 ?>
 
