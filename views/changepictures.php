@@ -237,7 +237,7 @@ include "adminnav.php";
 
                             <input type="file" class="form-control" id="newProductImage"
 
-                                accept="image/png, image/gif, image/jpeg , image/webp" name="file" value="<?php echo $productDetails['file'] ?>">
+                                accept="image/png, image/gif, image/jpeg , image/webp" name="file" value="<?php echo $productDetails['file'] ?>" >
 
                             <span>
 
@@ -253,7 +253,7 @@ include "adminnav.php";
 
                             <input type="file" class="form-control" id="newProductImage"
 
-                                accept="image/png, image/gif, image/jpeg , image/webp" name="file1" required>
+                                accept="image/png, image/gif, image/jpeg , image/webp" name="file1" >
 
                             <span>
 
@@ -269,7 +269,7 @@ include "adminnav.php";
 
                             <input type="file" class="form-control" id="newProductImage"
 
-                                accept="image/png, image/gif, image/jpeg , image/webp" name="file2" required>
+                                accept="image/png, image/gif, image/jpeg , image/webp" name="file2" >
 
                             <span>
 
@@ -285,7 +285,7 @@ include "adminnav.php";
 
                             <input type="file" class="form-control" id="newProductImage"
 
-                                accept="image/png, image/gif, image/jpeg , image/webp" name="file3" required>
+                                accept="image/png, image/gif, image/jpeg , image/webp" name="file3" >
 
                             <span>
 
