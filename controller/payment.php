@@ -40,6 +40,7 @@ class Payment
 		echo "product id " . $product_id . "and quantity = " . $quantity . "<br>";
 		//insert into orders_product_details 
 		PaymentModle::insertorders_details($order_id,$product_id,$quantity);
+		PaymentModle::managestock($product_id,$quantity);
 
 	endforeach;
     $_SESSION['confirmedorder'] = $_SESSION['products'] ;

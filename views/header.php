@@ -59,7 +59,7 @@ if (!empty($_SESSION['products'])) {
         </div>
         <div id="logo" class="col-md-8 text-center">
           <a href="index" rel="home">
-            <img src="https://purefitness-eg.com/wp-content/uploads/2023/07/IMG_%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A7%D9%A2%D9%A3_%D9%A1%D9%A9%D9%A1%D9%A0%D9%A4%D9%A0-1400x623.png" alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
+            <img src="../public/photos/logoPhotos/purfitnesslogo.webp" alt="Pure Fitness Equipment" style="max-width: 100px; height: auto;" />
           </a>
         </div>
         <div id="left_elements" class="col-md-2 d-flex justify-content-end">

@@ -22,4 +22,23 @@ class PaymentModle
         require '../controller/config.php';
         mysqli_query($conn, "INSERT into  order_product_details  (order_id , product_id , quantity ) VALUES ('$order_id' , '$product_id' , '$quantity' )");
     }
+    public static function managestock($product_id, $quantity)
+    {
+        require '../controller/config.php';
+        $result = mysqli_query($conn, "SELECT * from products where id = '$product_id'");
+        $row = mysqli_fetch_assoc($result);
+
+        if ($result) {
+            $quantityfromdatabase = $row['stock']; 
+            $quantityfromorder = $quantity;
+            $finalquantity = $quantityfromdatabase - $quantityfromorder;
+            
+            $query = "UPDATE products SET stock ='$finalquantity' WHERE id = '$product_id'";
+            
+            mysqli_query($conn, $query);
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
+    }
+    
 }
