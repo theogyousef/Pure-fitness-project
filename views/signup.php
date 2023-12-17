@@ -11,17 +11,16 @@ require "../controller/registerationMail.php";
 
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn," SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE u.id = '$id'  ");
+    $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE u.id = '$id'  ");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
-  
+}
+
 
 if (isset($_POST["submit"])) {
     signup();
     registeration($conn);
-
 } else if (isset($_POST["login"])) {
     signin();
 }
@@ -75,15 +74,18 @@ include "header.php";
                         <label for="floatingPassword">Email</label>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="password">
-                        <label for="floatingPassword">Password</label>
+                    <div class="form-floating mb-3 position-relative">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                        <label for="password">Password</label>
+                        <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y pe-3" onclick="togglePasswordVisibility('password', this)" style="margin-right: 50px;"></i>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" name="confirmpassword" placeholder="Confirm password">
-                        <label for="floatingPassword">confirm password</label>
+                    <div class="form-floating mb-3 position-relative">
+                        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm password">
+                        <label for="confirmpassword">Confirm password</label>
+                        <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y pe-3" onclick="togglePasswordVisibility('confirmpassword', this)" style="margin-right: 50px;"></i>
                     </div>
+
                     <div style="height: 20px;">
                         <span id="errorMessages" class="error-message"></span>
                     </div>
@@ -101,7 +103,7 @@ include "header.php";
                 <a href="#" class="social-button">
                     <img src="https://eg.hm.com/themes/custom/transac/alshaya_white_label/imgs/social-icons/google-login-logo.svg" alt="Google" class="social-icon"> Continue with Google
                 </a>
-             
+
                 <a href="#" class="social-button">
                     <img src="https://eg.hm.com/themes/custom/transac/alshaya_white_label/imgs/social-icons/facebook-login-logo.svg" alt="Facebook" class="social-icon"> Continue with Facebook
                 </a>
@@ -116,6 +118,8 @@ include "header.php";
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../public/JS/Registeration.js"></script>
+    <script src="../public/JS/togglePassword.js"></script>
+
 
     <footer>
         <?php

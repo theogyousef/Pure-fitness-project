@@ -1,3 +1,4 @@
+
 <script>
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
@@ -8,6 +9,7 @@
 require '../controller/config.php';
 require "../controller/payment.php";
 require "../controller/profilesettingsfun.php";
+require "../controller/orderMail.php";
 
 
 $row = Payment::permissions();
@@ -22,6 +24,11 @@ if ($row["deactivated"] == 1) {
 
 Payment::makeorder();
 include "header.php";
+
+if (isset($_POST["submit"])) {
+    confirmation($conn);
+  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +124,9 @@ include "header.php";
                                 <br>
 
                                 <form method="post">
-                                    <input class="btn btn-primary" type="submit" name="confirm" value="confrim order" style="background-color: black;">
+                                <input type="hidden" name="id" value="<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : ''; ?>">
+
+                                    <input class="btn btn-primary" type="submit" name="submit" value="confrim order" style="background-color: black;">
                                 </form>
                             </div>
                         </div>

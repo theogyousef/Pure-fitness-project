@@ -18,7 +18,7 @@ class Payment
     }
     public static function makeorder()
     {
-        if (isset($_POST["confirm"])) {
+        if (isset($_POST["submit"])) {
 	$order_id = rand(1000, 9999);
 	echo "order id " . $order_id . " <br>";
     $_SESSION['order_id'] = $order_id ;
