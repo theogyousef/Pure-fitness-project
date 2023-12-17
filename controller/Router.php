@@ -73,7 +73,13 @@ class Routere
         } elseif ($path === '/SWE/views/payment') {
             require '../views/payment.php';
             exit();
-        } elseif ($path === '/SWE/views/confirmorder') {
+        } elseif ($path === '/SWE/views/addoption') {
+            require '../views/addoption.php';
+            exit();
+        }elseif ($path === '/SWE/views/addvaluetoOP') {
+            require '../views/addvaluetoOP.php';
+            exit();
+        }elseif ($path === '/SWE/views/confirmorder') {
             require '../views/confirmorder.php';
             exit();
         } elseif ($path === '/SWE/views/logout') {

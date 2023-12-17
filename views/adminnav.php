@@ -19,12 +19,10 @@ if (!empty($_SESSION["id"])) {
 
 if ($row["admin"] != 1) {
     header("Location: index");
-
 }
 
 if ($row["id"] == 1) {
     header("Location: index");
-
 }
 
 
@@ -37,11 +35,10 @@ if ($row["id"] == 1) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 
     <title>Admin panel</title>
@@ -55,7 +52,7 @@ if ($row["id"] == 1) {
 <body>
 
     <div class="container">
-    
+
         <div class="topbar">
             <div class="logo">
                 <h2>Pure Fitness</h2>
@@ -70,16 +67,16 @@ if ($row["id"] == 1) {
             <div class="user">
                 <img src="<?php echo $row['profilepicture'] ?>" alt="">
             </div>
-    
+
         </div>
         <!-- Sidebar -->
-    
-    <div class="d-grid gap-2 col-6">
-        <form method="post">
-        <button name="tsales" class="btn btn-primary" type="submit"> Sales Report</button>
-        </form>
-    </div>
-    
+
+        <div class="d-grid gap-2 col-6">
+            <form method="post">
+                <button name="tsales" class="btn btn-primary" type="submit"> Sales Report</button>
+            </form>
+        </div>
+
         <div class="sidebar">
             <ul>
                 <li class="active" id="dashboard">
@@ -119,6 +116,13 @@ if ($row["id"] == 1) {
                     </a>
 
                 </li>
+                <li class="dropdown" id="orders">
+                    <a href="addoption">
+                        <i class="fas fa-box-open"></i>
+                        <div>Add Product Option</div>
+                    </a>
+
+                </li>
                 <li>
                     <a href="profilesettings">
                         <i class="fas fa-cog"></i>
@@ -127,13 +131,24 @@ if ($row["id"] == 1) {
                 </li>
                 <li class="dropdown" id="products">
                     <a href="products">
+                        <i class="fas fa-box-open"></i>
+                        <div>Options</div>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="addoption">Add Product Option</a>
+                        <a href="addvaluetoOP"> Add Value Option</a>
+                        <!-- Add more links as needed -->
+                    </div>
+                </li>
+                <li class="dropdown" id="products">
+                    <a href="products">
                         <i class="fas fa-dumbbell"></i>
                         <div>Reports</div>
                     </a>
                     <div class="dropdown-content">
-                    <form method="post">
-                        <a href="tsales" >Total Sales</a>
-                    </form>
+                        <form method="post">
+                            <a href="tsales">Total Sales</a>
+                        </form>
                         <a href="msales">Monthly Sales</a>
                         <a href="qsales">Quarterly Sales</a>
                         <a href="ysales">Yearly Sales</a>
@@ -153,8 +168,8 @@ if ($row["id"] == 1) {
         <script src="../public/JS/admindasboard.js"></script>
 
     </div>
-    
-</div>
+
+    </div>
 
 </body>
 
