@@ -74,6 +74,31 @@ function updateaddress()
 
 
 }
+
+
+function updateaddressandphone()
+{
+
+    $governorates = $_POST["governorates"];
+    $city = $_POST["city"];
+    $street = $_POST["street"];
+    $house = $_POST["house"];
+    $postalcode = $_POST["postalcode"];
+    $phone = $_POST["phone"];
+    $id = $_SESSION["id"];
+    // $row = $row = UserModel::selectAddress($id);
+    // echo "<script> alert('Updatesd successfuly');</script> ";
+
+
+    UserModel::updateaddress($governorates, $city, $street, $house, $postalcode, $id);
+    UserModel::updatephone($phone, $id);
+
+    //         $jjj = $row["firstname"];
+// echo "<script>alert('$jjj');</script>";
+    // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
+
+
+}
 // socials update
 function updatesocials()
 {
@@ -147,7 +172,8 @@ function deactivateaccount()
 
 }
 
-function cancelorder($id){
+function cancelorder($id)
+{
     UserModel::cancelorder($id);
     header("Location: orders");
 }

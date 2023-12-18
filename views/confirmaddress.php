@@ -10,7 +10,7 @@ require '../controller/config.php';
 require "../controller/profilesettingsfun.php";
 
 if (isset($_POST["addressdetails"])) {
-    updateaddress();
+    updateaddressandphone();
     header("Location: payment ");
 }
 
@@ -135,7 +135,16 @@ include "header.php";
                         <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
                         <input name="postalcode" class="form-control" id="inputpostalcode" type="text" placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
                     </div>
-
+                    <div class="mb-3" id="phonenumberdiv">
+                                <label class="small mb-1" for="inputphonenumber">Phone number</label>
+                                <div class="phone-input-container">
+                                    <select class="form-control" name="international" id="international">
+                                        <option value="Egypt">+20</option>
+                                    </select>
+                                    <input name="phone" class="form-control" type="tel" id="youridhere" class="phone"
+                                        value="<?php echo $row['phone'] ?>">
+                                </div>
+                            </div>
                     <div style="height: 20px;">
                         <span id="AddresserrorMessages" class="errormessage" style="display: none;"></span>
                     </div>

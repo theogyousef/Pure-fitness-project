@@ -199,8 +199,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                 <label class="small mb-1" for="inputphonenumber">Phone number</label>
                                 <div class="phone-input-container">
                                     <select class="form-control" name="international" id="international">
-                                        <option value="volvo">+20</option>
-                                        <option value="saab">+965</option>
+                                        <option value="Egypt">+20</option>
                                     </select>
                                     <input name="phone" class="form-control" type="tel" id="youridhere" class="phone"
                                         value="<?php echo $row['phone'] ?>">
