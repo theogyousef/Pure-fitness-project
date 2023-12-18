@@ -23,10 +23,13 @@ if (isset($_GET['id'])) {
 
     // Fetch product details based on the product ID
     $sql = "SELECT * FROM products WHERE id = $productId";
+    $osql = "SELECT VALUE FROM `product_options_values` WHERE product_id=$productId;";
     $result = mysqli_query($conn, $sql);
+    $resulte = $conn->query($osql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $productDetails = mysqli_fetch_assoc($result);
+        $productoptions = mysqli_fetch_assoc($resulte);
 
         // Append the new product to the cart
         $newProduct = [
@@ -36,6 +39,10 @@ if (isset($_GET['id'])) {
             'image' => $productDetails['file'],
             'quantity' => '1',
         ];
+        if (isset($productoptions['VALUE'])) {
+        $newProduct['options'] = $productoptions['VALUE'];
+    }
+      
 
         if (isset($_POST['addtocart'])) {
             $quantity = $_POST['quantity'];
@@ -112,7 +119,14 @@ include "header.php";
         include "../public/css/index.css"
         ?><?php
             include "../public/css/product.css"
-            ?>
+            ?>#yearInput {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -154,18 +168,26 @@ include "header.php";
                     <p class="description">
                         <?php echo $productDetails['description']; ?>
                     </p>
-                    <?php
+                   
+                        <?php
 
-                    $pid = $_GET['id'];
-                    $osql = "SELECT VALUE FROM `product_options_values` WHERE product_id=$pid;";
-                    $resulte = $conn->query($osql);
-                    if ($resulte->num_rows > 0) {
-                        // Fetch and display the data
-                        while ($row = $resulte->fetch_assoc()) {
-                            echo "<p class='options'>{$row['VALUE']}</p>";
+                        $pid = $_GET['id'];
+                        $oosql = "SELECT VALUE FROM `product_options_values` WHERE product_id=$pid;";
+                        $resulte = $conn->query($oosql);
+                       
+                        if ($resulte->num_rows > 0) {
+                            echo"<select id='yearInput'>";
+                            // Fetch and display the data
+                            while ($row = $resulte->fetch_assoc()) {
+                                //  echo "<p class='options'>{$row['VALUE']}</p>";
+                                echo "<option  >{$row['VALUE']}</option>";
+                            }
+                            echo" </select>";
                         }
-                    } 
-                    ?>
+
+                        
+                        ?>
+                   
 
                     <p class="detailsinfo">
                         <?php

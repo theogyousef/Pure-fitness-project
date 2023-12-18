@@ -78,6 +78,7 @@ include "header.php";
                                     <tr>
                                         <th width="45%">Product Name</th>
                                         <th width="15%">Unit Price</th>
+                                        <th width="15%">Unit Options</th>
                                         <th class="quantity" width="15%">Quantity</th>
                                         <th width="15%"></th>
                                         <th width="10%"></th>
@@ -118,6 +119,13 @@ include "header.php";
                                                         </a>
                                                     <?php endif; ?>
                                                 </td>
+                                                <td width="15%" class="options">
+                                                    <?php if (isset($product['options'])) : ?>
+                                                      <p>
+                                                        <?php echo $product['options']?>
+                                                      </p>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td width="15%" class="quantity">
                                                     <div class="input-group mb-2 quantity-selector">
                                                         <button type="button" class="btn btn-outline-secondary decrement" data-product-id="<?php echo $product['id']; ?>">-</button>
@@ -130,6 +138,7 @@ include "header.php";
                                                         <a href="cart_display?remove=<?php echo $product['id']; ?>" class="trash-icon"><i class="far fa-trash-alt"></i></a>
                                                     <?php endif; ?>
                                                 </td>
+                                                
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else : ?>
