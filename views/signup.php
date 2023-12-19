@@ -19,10 +19,10 @@ if (!empty($_SESSION["id"])) {
 
 
 if (isset($_POST["submit"])) {
-    signup();
-    registeration($conn);
+    Registerationsystem::signup();
+    RegisterationMail::registeration($conn);
 } else if (isset($_POST["login"])) {
-    signin();
+    Registerationsystem::signin();
 }
 
 

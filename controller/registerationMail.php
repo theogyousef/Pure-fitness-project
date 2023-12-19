@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function registeration($conn)
+class RegisterationMail{
+public static function registeration($conn)
 {
     global $email;
 
@@ -47,5 +48,6 @@ function registeration($conn)
             }
         }
     }
+}
 }
 ?>

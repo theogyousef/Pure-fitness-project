@@ -11,7 +11,7 @@
 require "../controller/profilesettingsfun.php";
 if (isset($_POST["cancelorder"])) {
     $id = $_POST["orderid"];
-    cancelorder($id);
+    Profilesettingsfun::cancelorder($id);
 }
 require '../controller/config.php';
 

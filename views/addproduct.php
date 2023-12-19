@@ -10,7 +10,7 @@
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["addproduct"])) {
-    addproduct();
+    AdminFunctions::addproduct();
 }
 
 if (!empty($_SESSION["id"])) {

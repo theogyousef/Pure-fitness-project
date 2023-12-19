@@ -2,7 +2,8 @@
 //include "config.php";
 include "../model/adminModle.php";
 // products funvtions
-function addproduct()
+class AdminFunctions{
+public static function addproduct()
 {
     $name = $_POST["name"];
     $price = $_POST["price"];
@@ -30,7 +31,7 @@ function addproduct()
 
 
 }
-function updateproduct()
+public static function updateproduct()
 {
 
     $id = $_POST["id"];
@@ -47,7 +48,7 @@ function updateproduct()
 
 
 }
-function deleteproduct()
+public static function deleteproduct()
 {
 
 
@@ -57,12 +58,12 @@ function deleteproduct()
 
 }
 
-// users functions 
+// users public static functions 
 
-function adduser()
+public static function adduser()
 {
 
-    global $conn;
+    
 
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
@@ -90,9 +91,9 @@ function adduser()
 
 }
 
-function updateuser()
+public static function updateuser()
 {
-    global $conn;
+    
     $id = $_POST["id"];
     $firstname = $_POST["fname"];
     $lastname = $_POST["lname"];
@@ -104,7 +105,7 @@ function updateuser()
 
 }
 
-function deleteuser()
+public static function deleteuser()
 {
 
     global $conn;
@@ -114,37 +115,37 @@ function deleteuser()
 
 }
 
-function makeadmin()
+public static function makeadmin()
 {
-    global $conn;
+   
     $id = $_POST["id"];
     adminModel::makeadmin($id);
     header("Location: users");
 
 }
 
-function makeuser()
+public static function makeuser()
 {
-    global $conn;
+    
     $id = $_POST["id"];
     adminModel::makeuser($id);
     header("Location: users");
 
 }
 
-function reactivateaccount($id)
+public static function reactivateaccount($id)
 {
     adminModel::activateaccount($id);
 
 }
-function updateorder(){
+public static function updateorder(){
     global $conn;
     $id = $_POST["id"];
     $status = $_POST["status"];
     adminModel::updateorder($id , $status);
 }
 
-function updatephotos(){
+public static function updatephotos(){
     global $conn;
 
     // Retrieve each file
@@ -181,5 +182,6 @@ function updatephotos(){
     
     adminModel::updatephotos($id, $fileUrl, $fileUrl1 , $fileUrl2, $fileUrl3);
 
+}
 }
 

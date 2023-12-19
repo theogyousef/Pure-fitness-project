@@ -3,7 +3,7 @@
 require "../controller/forgetpassword.php";
 
 if (isset($_POST["submitpass"])) {
-  newpassword($conn);
+  Forgetpassword::newpassword($conn);
 }
 
 include "header.php";

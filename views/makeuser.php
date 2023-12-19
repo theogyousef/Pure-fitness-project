@@ -9,7 +9,7 @@
 require "../controller/adminFunctions.php";
 
  if (isset($_POST["makeuserr"])) {
-    makeuser();
+    AdminFunctions::makeuser();
 }
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];

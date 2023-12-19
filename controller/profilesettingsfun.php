@@ -3,7 +3,8 @@
 // include "config.php";
 include "../model/userModel.php";
 
-function uploadpic()
+class Profilesettingsfun{
+public static function uploadpic()
 {
 
 
@@ -30,7 +31,7 @@ function uploadpic()
 
 }
 // Account details 
-function editdetails()
+public static function editdetails()
 {
 
     // echo "<script> alert('changes saved'); </script>";
@@ -53,7 +54,7 @@ function editdetails()
 
 }
 
-function updateaddress()
+public static function updateaddress()
 {
 
     $governorates = $_POST["governorates"];
@@ -76,7 +77,7 @@ function updateaddress()
 }
 
 
-function updateaddressandphone()
+public static function updateaddressandphone()
 {
 
     $governorates = $_POST["governorates"];
@@ -100,7 +101,7 @@ function updateaddressandphone()
 
 }
 // socials update
-function updatesocials()
+public static function updatesocials()
 {
     global $conn;
     // echo "<script> alert('changes saved'); </script>";
@@ -119,7 +120,7 @@ function updatesocials()
 }
 
 //update security 
-function updatepasswords()
+public static function updatepasswords()
 {
     global $conn;
 
@@ -156,7 +157,7 @@ function updatepasswords()
 
 }
 
-function deactivateaccount()
+public static function deactivateaccount()
 {
 
     $password = $_POST["password"];
@@ -172,10 +173,11 @@ function deactivateaccount()
 
 }
 
-function cancelorder($id)
+public static function cancelorder($id)
 {
     UserModel::cancelorder($id);
     header("Location: orders");
+}
 }
 
 

@@ -3,7 +3,7 @@
 require "../controller/forgetpassword.php";
 
 if (isset($_POST["submitOTP"])) {
-  otp($conn);
+  Forgetpassword::otp($conn);
 }
 
 include "header.php";

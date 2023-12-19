@@ -6,11 +6,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if (isset($_POST['submitemail']) && isset($_POST['email'])) {
-    sendmail($_POST['email']);
+    Mail::sendmail($_POST['email']);
 }
-
-
-function sendmail($email) {
+class Mail{
+public static function sendmail($email) {
     $mail = new PHPMailer(true);
 
     try {
@@ -37,6 +36,7 @@ function sendmail($email) {
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+}
 }
 
 

@@ -10,7 +10,7 @@ require '../controller/config.php';
 require "../controller/profilesettingsfun.php";
 
 if (isset($_POST["addressdetails"])) {
-    updateaddressandphone();
+    Profilesettingsfun::updateaddressandphone();
     header("Location: payment ");
 }
 

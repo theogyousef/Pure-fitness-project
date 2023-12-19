@@ -1,13 +1,4 @@
 <?php
-
-require "../controller/indexMail.php";
-
-if (isset($_POST["submitmail"])) {
-  sendmail($email, $firstName);
-}
-?>
-
-<?php
 include '../model/productModle.php';
 
 
