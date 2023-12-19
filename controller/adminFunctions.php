@@ -1,6 +1,7 @@
 <?php
 //include "config.php";
 include "../model/adminModle.php";
+include "../controller/logs.php";
 // products funvtions
 class AdminFunctions{
 public static function addproduct()
@@ -26,6 +27,8 @@ public static function addproduct()
 
     /// apply th query to db by pass to the handler func
     adminModel::addproduct($name, $type, $stock , $price, $description, $fileUrl);
+    $log="Run addproduct function";
+    logger($log);
 
     header("Location: products");
 
@@ -44,6 +47,9 @@ public static function updateproduct()
    
     /// apply th query to db by pass to the handler func
     adminModel::updateproduct($id, $name, $price, $type, $description, $stock);
+    $log="Run updateproduct function";
+    logger($log);
+
     header("Location: products");
 
 
@@ -54,6 +60,8 @@ public static function deleteproduct()
 
     $id = $_POST["id"];
     adminModel::deleteproduct($id);
+    $log="Run deleteproduct function";
+    logger($log);
     header("Location: products");
 
 }
@@ -81,6 +89,8 @@ public static function adduser()
             // we create a query with the inputs of the form to insert into the databse 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             adminModel::adduser($firstname, $lastname, $email, $hashedPassword);
+            $log="Run adduser function";
+                logger($log);
             // echo "<script> alert('Regsitered successfully');</script> ";
             header("Location: users");
 
@@ -100,6 +110,8 @@ public static function updateuser()
     $email = $_POST["email"];
 
     adminModel::updateuser($firstname, $lastname, $email, $id);
+    $log="Run updateuser function";
+    logger($log);
 
     header("Location: users");
 
@@ -111,6 +123,9 @@ public static function deleteuser()
     global $conn;
     $id = $_POST["id"];
     adminModel::deleteuser($id);
+    $log="Run deleteuser function";
+    logger($log);
+
     header("Location: users");
 
 }
@@ -120,6 +135,9 @@ public static function makeadmin()
    
     $id = $_POST["id"];
     adminModel::makeadmin($id);
+    $log="Run makeadmin function";
+    logger($log);
+
     header("Location: users");
 
 }
@@ -129,6 +147,9 @@ public static function makeuser()
     
     $id = $_POST["id"];
     adminModel::makeuser($id);
+    $log="Run makeuser function";
+    logger($log);
+
     header("Location: users");
 
 }
@@ -136,12 +157,17 @@ public static function makeuser()
 public static function reactivateaccount($id)
 {
     adminModel::activateaccount($id);
+    $log="Run reactivateaccount function";
+    logger($log);
+
 
 }
 public static function updateorder(){
     global $conn;
     $id = $_POST["id"];
     $status = $_POST["status"];
+    $log="Run updateorder function";
+    logger($log);
     adminModel::updateorder($id , $status);
 }
 
@@ -181,6 +207,8 @@ public static function updatephotos(){
 
     
     adminModel::updatephotos($id, $fileUrl, $fileUrl1 , $fileUrl2, $fileUrl3);
+    $log="Run updatephotos function";
+    logger($log);
 
 }
 }

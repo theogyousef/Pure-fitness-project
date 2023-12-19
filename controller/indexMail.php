@@ -1,6 +1,7 @@
 <?php
 include "config.php"; 
 require '../phpmailer/vendor/autoload.php';
+include "../controller/logs.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -32,6 +33,8 @@ public static function sendmail($email) {
         $mail->Body = $htmlContent; 
 
         $mail->send();
+        $log = "Run sendmail function";
+        logger($log);
         echo "Message has been sent to {$email}";
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

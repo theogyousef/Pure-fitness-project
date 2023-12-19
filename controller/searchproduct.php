@@ -1,11 +1,14 @@
 <?php
 require "config.php";
+include "../controller/logs.php";
 
 $searchTerm = isset($_GET['query']) ? mysqli_real_escape_string($conn, $_GET['query']) : '';
 
 $query = $searchTerm !== '' ? "SELECT * FROM products WHERE name LIKE '%{$searchTerm}%' OR type LIKE '%{$searchTerm}%'" : "SELECT * FROM products";
 
 $result = mysqli_query($conn, $query);
+$log = "Run searchProduct  function";
+        logger($log);
 
 if(!$result) {
     echo "An error occurred: " . mysqli_error($conn);

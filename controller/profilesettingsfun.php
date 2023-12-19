@@ -2,6 +2,7 @@
 // profile picture upload 
 // include "config.php";
 include "../model/userModel.php";
+include "../controller/logs.php";
 
 class Profilesettingsfun{
 public static function uploadpic()
@@ -20,6 +21,8 @@ public static function uploadpic()
 
         $id = $_SESSION["id"];
         UserModel::uploadpic($fileUrl, $id);
+        $log = "Run uploadpicture function";
+        logger($log);
 
 
 
@@ -46,6 +49,8 @@ public static function editdetails()
     // echo "<script> alert('Updatesd successfuly');</script> ";
 
     UserModel::editdetails($firstname, $lastname, $username, $email, $phone, $id);
+    $log = "Run editdetails function";
+    logger($log);
 
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
@@ -69,6 +74,8 @@ public static function updateaddress()
 
 
     UserModel::updateaddress($governorates, $city, $street, $house, $postalcode, $id);
+    $log = "Run updateaddress function";
+        logger($log);
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
@@ -93,6 +100,8 @@ public static function updateaddressandphone()
 
     UserModel::updateaddress($governorates, $city, $street, $house, $postalcode, $id);
     UserModel::updatephone($phone, $id);
+    $log = "Run updateaddressandphone function";
+        logger($log);
 
     //         $jjj = $row["firstname"];
 // echo "<script>alert('$jjj');</script>";
@@ -113,6 +122,8 @@ public static function updatesocials()
 
 
     UserModel::updatesocials($github, $instagram, $id);
+    $log = "Run updatesocials function";
+        logger($log);
     // echo "<script> alert('Updatesd successfuly');</script> ";
     // $query = "INSERT INTO users VALUES('', '$firstname', '$lastname', '$email', '$password')";
 
@@ -138,6 +149,8 @@ public static function updatepasswords()
                 $hashedPassword = password_hash($newpassword, PASSWORD_DEFAULT);
 
                 UserModel::UpdatePassword($hashedPassword, $id);
+                $log = "Run updatepasswords function";
+                    logger($log);
                 // echo "<script> alert('Updatesd successfuly');</script> ";
             } else {
                 echo "<script> alert('old passes do not match ');</script> ";
@@ -166,6 +179,8 @@ public static function deactivateaccount()
     $row = UserModel::selectUser($id);
     if (password_verify($password, $row['password'])) {
         UserModel::deactivateaccount($id);
+        $log = "Run deactivateaccount function";
+        logger($log);
 
     } else {
         echo "<script> alert('wrong password ');</script> ";
@@ -176,6 +191,8 @@ public static function deactivateaccount()
 public static function cancelorder($id)
 {
     UserModel::cancelorder($id);
+    $log = "Run cancelorder function";
+        logger($log);
     header("Location: orders");
 }
 }
