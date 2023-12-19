@@ -9,17 +9,17 @@
 require "../controller/profilesettingsfun.php";
 
 if (isset($_POST["fileupload"])) {
-    uploadpic();
+    Profilesettingsfun::uploadpic();
 } else if (isset($_POST["accountdetails"])) {
-    editdetails();
+    Profilesettingsfun::editdetails();
 } else if (isset($_POST["socialsave"])) {
-    updatesocials();
+    Profilesettingsfun::updatesocials();
 } else if (isset($_POST["updatesecurity"])) {
-    updatepasswords();
+    Profilesettingsfun::updatepasswords();
 } else if (isset($_POST["addressdetails"])) {
-    updateaddress();
+    Profilesettingsfun::updateaddress();
 } else if (isset($_POST["deactivateaccount"])) {
-    deactivateaccount();
+    Profilesettingsfun::deactivateaccount();
 }
 
 

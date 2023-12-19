@@ -6,7 +6,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function forgetpassword($conn)
+class Forgetpassword 
+{
+public static function forgetpassword($conn)
 {
     global $email;
 
@@ -63,7 +65,7 @@ function forgetpassword($conn)
 }
 
 
-function otp($conn)
+public static function otp($conn)
 {
 
     if (isset($_REQUEST['submitOTP'])) {
@@ -87,7 +89,7 @@ function otp($conn)
 }
 
 
-function newpassword($conn)
+public static function newpassword($conn)
 {
 
     if (isset($_POST['submitpass'])) {
@@ -119,4 +121,5 @@ function newpassword($conn)
             echo "Passwords do not match. Please try again.";
         }
     }
+}
 }

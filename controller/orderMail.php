@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function confirmation($conn)
+class OrderMail{
+public static function confirmation($conn)
 {
     if (isset($_REQUEST['submit'])) {
         $id = $_REQUEST['id'];
@@ -54,5 +55,6 @@ function confirmation($conn)
             echo "No user found with the provided ID.";
         }
     }
+}
 }
 

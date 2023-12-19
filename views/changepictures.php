@@ -23,7 +23,7 @@ require "../controller/adminFunctions.php";
 
 if (isset($_POST["updatephotos"])) {
 
-    updatephotos();
+    AdminFunctions::updatephotos();
 
 }
 

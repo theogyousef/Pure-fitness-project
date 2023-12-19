@@ -9,7 +9,7 @@
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["updateproduct"])) {
-    updateproduct();
+    AdminFunctions::updateproduct();
 }
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];

@@ -9,7 +9,7 @@
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["updateorder"])) {
-    updateorder();
+    AdminFunctions::updateorder();
     header("Location: Adminorders");
 
 }

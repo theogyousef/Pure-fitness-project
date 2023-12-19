@@ -1,7 +1,8 @@
 <?php
 //require "config.php";
 
-function signup()
+class Registerationsystem{
+public static function signup()
 {
 
   require "config.php";
@@ -47,7 +48,7 @@ function signup()
 
 }
 
-function signin()
+public static function signin()
 {
   // echo "ienvie";
   require "config.php";
@@ -74,6 +75,7 @@ function signin()
     echo "<script> alert('user not registered ');</script> ";
 
   }
+}
 }
 
 ?>

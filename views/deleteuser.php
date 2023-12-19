@@ -10,7 +10,7 @@
 require "../controller/adminFunctions.php";
 
 if (isset($_POST["deleteuser"])) {
-    deleteuser();
+    AdminFunctions::deleteuser();
 }
 if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];

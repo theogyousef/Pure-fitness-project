@@ -31,7 +31,7 @@ if ($row["deactivated"] != 1) {
 include "header.php";
 
 if (isset($_POST["activate"])) {
-    reactivateaccount($id);
+    AdminFunctions:: reactivateaccount($id);
 }
 
 ?>

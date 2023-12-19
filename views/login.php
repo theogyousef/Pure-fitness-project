@@ -21,9 +21,9 @@ else{
 }
 
 if (isset($_POST["submit"])) {
-  signup();
+    Registerationsystem::signup();
 } else if (isset($_POST["login"])) {
-  signin();
+    Registerationsystem::signin();
 }
 
 

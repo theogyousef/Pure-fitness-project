@@ -26,7 +26,7 @@ Payment::makeorder();
 include "header.php";
 
 if (isset($_POST["submit"])) {
-    confirmation($conn);
+    OrderMail::confirmation($conn);
   }
   
 ?>
