@@ -285,6 +285,8 @@ include "header.php";
                     <div class="product-image">
                       <a href="product?id=<?php echo $product['id']; ?>" class="images">
                         <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
+                        <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2" width="500px">
+
                       </a>
                       <div class="links">
                         <div class="Icon">
@@ -387,6 +389,8 @@ include "header.php";
                       <div class="product-image">
                         <a href="product?id=<?php echo $product['id']; ?>" class="images">
                           <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
+                          <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2" width="500px">
+
                         </a>
                         <div class="links">
                           <div class="Icon">
