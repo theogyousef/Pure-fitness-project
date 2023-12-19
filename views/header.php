@@ -108,6 +108,95 @@ if (!empty($_SESSION['products'])) {
     </div>
   </header>
 
+  <?php
+// Replace these variables with your database connection details
+
+// Function to fetch menu items from the database
+function fetchMenuItems($conn, $parent_id = NULL) {
+    $sql = "SELECT * FROM menu_items WHERE parent_id " . ($parent_id !== NULL ? "= $parent_id" : "IS NULL");
+    $result = $conn->query($sql);
+    $menuItems = [];
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $menuItem = [
+                'id' => $row['id'],
+                'label' => $row['label'],
+                'url' => $row['url'],
+                'children' => fetchMenuItems($conn, $row['id']), // Recursive call for submenus
+            ];
+            $menuItems[] = $menuItem;
+        }
+    }
+
+    return $menuItems;
+}
+
+// Function to generate HTML for the dropdown menu
+function generateDropdownMenuHTML($menuItems) {
+    $html = '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+    foreach ($menuItems as $menuItem) {
+        $html .= '<a class="dropdown-item" href="' . $menuItem['url'] . '">' . $menuItem['label'] . '</a>';
+    }
+    $html .= '</div>';
+
+    return $html;
+}
+
+// Fetch the top-level menu items
+$topLevelMenu = fetchMenuItems($conn);
+?>
+
+<!-- Output the generated menu HTML -->
+<!-- <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
+            <ul class="navbar-nav text-white text-center">
+                <?php
+                foreach ($topLevelMenu as $menuItem) {
+                    echo '<li class="nav-item';
+
+                    // Add dropdown class if the menu item has children
+                    if (!empty($menuItem['children'])) {
+                        echo ' dropdown';
+                    }
+
+                    echo '">
+                        <a class="nav-link';
+
+                    // Add dropdown-toggle class if the menu item has children
+                    if (!empty($menuItem['children'])) {
+                        echo ' dropdown-toggle';
+                    }
+
+                    echo '" href="' . $menuItem['url'] . '"';
+
+                    // Add dropdown attributes if the menu item has children
+                    if (!empty($menuItem['children'])) {
+                        echo ' id="navbarDropdown' . $menuItem['label'] . '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"';
+                    }
+
+                    echo '>' . $menuItem['label'] . '</a>';
+
+                    // Generate and output dropdown menu if the menu item has children
+                    if (!empty($menuItem['children'])) {
+                        echo generateDropdownMenuHTML($menuItem['children']);
+                    }
+
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+</nav> -->
+
+<?php
+// Close the database connection
+$conn->close();
+?>
+
+
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
@@ -259,7 +348,7 @@ if (!empty($_SESSION['products'])) {
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../public/JS/header.js"></script>
 

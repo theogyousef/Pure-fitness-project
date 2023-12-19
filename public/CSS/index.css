@@ -339,7 +339,6 @@ label.radio input:checked + span {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 /* Style the image */
