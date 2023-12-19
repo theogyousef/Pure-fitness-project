@@ -29,7 +29,6 @@ if (isset($_POST["addreview"])) {
     $userId = $_SESSION["id"];
 
     $result = $databaseSingleton->insertReview($userId, $description);
-
 }
 ?>
 <!DOCTYPE html>
@@ -43,15 +42,12 @@ if (isset($_POST["addreview"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
         <?php include "../public/CSS/wishlist.css";
-        include "../public/CSS/cart_display.css" ?>
-
-        body {
+        include "../public/CSS/cart_display.css" ?>body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -68,23 +64,24 @@ if (isset($_POST["addreview"])) {
 </head>
 
 <body>
-    <header>
-    <h1 class="text-center">Write a review</h1>
-
-    </header>
 
     <main>
         <div class="container">
+            <div class="text-center my-4">
+                <h3 style="font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 600; color: #333;">We Value Your Feedback</h3>
+                <p style="font-family: 'Poppins', sans-serif; font-size: 18px; color: #555;">Your insights and experiences with our products are incredibly important to us. They not only help us improve but also assist other customers in making informed decisions. Please share your thoughts below — we're eager to hear what you have to say!</p>
+            </div>
+
+
             <div class="row justify-content-center" style="margin-top: 50px;">
                 <div class="col-md-6">
 
-                <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="description" required style="height :300px; border : 2px solid black ;">
                         </div>
                         <div class="mb-3">
-                            <input type="submit" name="addreview" value="Add this review " 
-                                style="background-color: black ; color: #fff; padding: 10px 20px; border: none; cursor: pointer; margin-left :40%">
+                            <input type="submit" name="addreview" value="Add this review " style="background-color: black ; color: #fff; padding: 10px 20px; border: none; cursor: pointer; margin-left :40%">
                         </div>
                     </form>
                 </div>
