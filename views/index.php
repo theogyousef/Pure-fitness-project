@@ -457,7 +457,53 @@ include "header.php";
       </a>
     </div>
 
+    <?php
+require '../controller/Singlton.php';
 
+// Assuming you have a DatabaseSingleton class or a database connection
+$databaseSingleton = DatabaseSingleton::getInstance();
+$connection = $databaseSingleton->getConnection();
+
+// Fetch reviews from the database
+$query = "SELECT * FROM reviews";
+$result = $connection->query($query);
+
+// Check if there are reviews
+if ($result->num_rows > 0) {
+    echo '<h2>What Our Customers Have To Say</h2>';
+    echo '<section class="feedback-section">';
+    echo '<div class="container" style="margin-bottom: 80px;">';
+    echo '<div class="feedback-slider">';
+
+    // Loop through each review
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="feedback-review">';
+        echo '<div class="white-box">';
+        $id = $row['user_id'];
+        $resultname = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
+        $rowname = mysqli_fetch_assoc($resultname);
+
+        // Check if 'name' key exists in $rowname array
+        echo '<p class="feedback-text">' . htmlspecialchars($row['review_text']) . '</p>';
+        echo '<p class="feedback-name"> -' . $rowname['firstname'] . " ". $rowname['lastname'] . '</p>';
+        echo '</div>';
+        echo '</div>';
+    }
+
+    echo '</div>';
+    echo '<div class="slider-controls">';
+    echo '<button class="prev-button"><i class="bi bi-arrow-left-circle"></i></button>';
+    echo '<button class="next-button"><i class="bi bi-arrow-right-circle"></i></button>';
+    echo '</div>';
+    echo '</div>';
+    echo '</section>';
+} else {
+    echo '<p>No reviews available.</p>';
+}
+?>
+
+
+<!-- 
     <h2>What Our Customers Have To Say</h2>
     <section class="feedback-section">
 
@@ -495,7 +541,7 @@ include "header.php";
         </div>
 
       </div>
-    </section>
+    </section> -->
     <div class="container">
       <div class="row">
         <div class="col-md-6" id="blogs">
