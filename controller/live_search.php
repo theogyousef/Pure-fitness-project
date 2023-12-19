@@ -1,5 +1,6 @@
 <?php
 require "config.php";
+include "../controller/logs.php";
 
 header('Content-Type: application/json;charset=utf8');
 
@@ -28,6 +29,8 @@ if (isset($_GET['q'])) {
         }
     } 
 
+    $log = "Run livesearch function";
+        logger($log);
     echo json_encode($searchResults);
 } else {
     echo json_encode([]);

@@ -1,5 +1,6 @@
 <?php
 include '../model/productModle.php';
+include"../controller/config.php";
 
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
