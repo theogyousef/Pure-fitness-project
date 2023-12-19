@@ -84,6 +84,7 @@ if (!empty($_SESSION['products'])) {
                 <div class="dropdown-menu" id="loginSignupDropdown">
                   <a class="dropdown-item" href="profilesettings">Profile Settings</a>
                   <a class="dropdown-item" href="orders">My orders</a>
+                  <a class="dropdown-item" href="writeareview">Review our service </a>
 
                   <?php
                   if ($row["admin"] == 1) {

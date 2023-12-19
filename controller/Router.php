@@ -52,6 +52,10 @@ class Routere
         } elseif ($path === '/SWE/views/profilesettings') {
             require '../views/profilesettings.php';
             exit();
+        }
+        elseif ($path === '/SWE/views/writeareview') {
+            require '../views/writeareview.php';
+            exit();
         } elseif ($path === '/SWE/views/checkout') {
             require '../views/checkout.php';
             exit();
