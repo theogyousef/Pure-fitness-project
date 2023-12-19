@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
     $productId = $_GET['id'];
 
     // Fetch product details based on the product ID
-    $sql = "SELECT * FROM products WHERE id = $productId";
+    $sql = "SELECT * FROM products p join product_photos pp on p.id = pp.product_id WHERE id = $productId";
     $osql = "SELECT VALUE FROM `product_options_values` WHERE product_id=$productId;";
     $result = mysqli_query($conn, $sql);
     $resulte = $conn->query($osql);
@@ -143,9 +143,9 @@ include "header.php";
                         <div class="magnify-glass" id="magnifyGlass"></div>
                         <div class="images p-3">
                             <!-- Add a container for the magnifier -->
-                            <img onmouseover="change_image(this)" src="../public/photos/productPhotos/DH66(2).webp" width="70" class="thumbnail-image">
-                            <img onmouseover="change_image(this)" src="../public/photos/productPhotos/DHZ6.webp" width="70" class="thumbnail-image">
-                            <img onmouseover="change_image(this)" src="../public/photos/productPhotos/DHZ6(3).webp" width="70" class="thumbnail-image">
+                            <img onmouseover="change_image(this)" src="<?php echo $productDetails['file1']; ?>" width="70" class="thumbnail-image">
+                            <img onmouseover="change_image(this)" src="<?php echo $productDetails['file2']; ?>" width="70" class="thumbnail-image">
+                            <img onmouseover="change_image(this)" src="<?php echo $productDetails['file3']; ?>" width="70" class="thumbnail-image">
                         </div>
                     </div>
                 </div>

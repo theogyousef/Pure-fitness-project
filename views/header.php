@@ -191,10 +191,7 @@ $topLevelMenu = fetchMenuItems($conn);
     </div>
 </nav> -->
 
-<?php
-// Close the database connection
-$conn->close();
-?>
+
 
 
   <nav class="navbar navbar-expand-lg">
