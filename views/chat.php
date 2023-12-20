@@ -244,7 +244,6 @@
 
 
         <div id="chatbox" class="clearfix">
-    <!-- Bot and user messages here -->
 </div>
 
         <div id="input-container">
@@ -257,40 +256,33 @@
     <script>
         document.getElementById('user_input').addEventListener('keyup', function(event) {
             event.preventDefault();
-            if (event.keyCode === 13) { // 13 is the key code for Enter key
+            if (event.keyCode === 13) { 
                 sendMessage();
             }
         });
 
         function sendMessage() {
-            console.log('sendMessage called'); // Debugging line
+            console.log('sendMessage called'); 
             var userMessage = document.getElementById('user_input').value.trim();
 
-            // Check if the message is empty
             if (userMessage === '') {
-                console.log('No message to send'); // Debugging line
-                return; // Don't send empty messages
+                console.log('No message to send'); 
+                return; 
             }
 
-            // Append user message to chatbox
             var userMessageDiv = document.createElement("div");
             userMessageDiv.classList.add("chat-message", "user-message");
             userMessageDiv.textContent = "You: " + userMessage;
             var chatbox = document.getElementById('chatbox');
             chatbox.appendChild(userMessageDiv);
-
-            // AJAX request to the PHP AJAX Handler
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                    console.log('AJAX response received'); // Debugging line
-                    // Append bot response to chatbox
+                    console.log('AJAX response received');
                     var botMessageDiv = document.createElement("div");
                     botMessageDiv.classList.add("chat-message", "bot-message");
                     botMessageDiv.textContent = "Bot: " + this.responseText;
                     chatbox.appendChild(botMessageDiv);
-
-                    // Scroll to the bottom of the chatbox
                     chatbox.scrollTop = chatbox.scrollHeight;
                 }
             };
@@ -298,7 +290,6 @@
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("message=" + encodeURIComponent(userMessage));
 
-            // Clear the input after sending
             document.getElementById('user_input').value = '';
         }
 
@@ -309,14 +300,12 @@
             chatContainer.style.visibility = 'visible';
             document.getElementById('open-chat-button').style.display = 'none';
 
-            // Call the function to send a default bot message when chat opens
             sendDefaultBotMessage();
         }
 
         function sendDefaultBotMessage() {
             var chatbox = document.getElementById('chatbox');
 
-            // Check if the default message is already there to avoid duplicates
             if (!chatbox.querySelector('.default-bot-message')) {
                 var botMessageDiv = document.createElement("div");
                 botMessageDiv.classList.add("chat-message", "bot-message", "default-bot-message");
@@ -326,15 +315,13 @@
             }
         }
 
-        // Place this inside your existing script tag in the HTML document.
-
 
         function closeChat() {
             var chatContainer = document.getElementById('chat-container');
             chatContainer.style.opacity = '0';
             setTimeout(() => {
                 chatContainer.style.visibility = 'hidden';
-            }, 500); // Match this with your CSS transition duration
+            }, 500); 
             document.getElementById('open-chat-button').style.display = 'block';
         }
 
