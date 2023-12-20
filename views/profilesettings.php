@@ -28,29 +28,26 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     $row = mysqli_fetch_assoc($result);
     $_SESSION["login"] = true;
     $_SESSION["id"] = $row["id"];
-  } 
-  else if (!empty($_SESSION["id"])) {
+} else if (!empty($_SESSION["id"])) {
     $id = $_SESSION["id"];
-    $result = mysqli_query($conn,"SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';" );
+    $result = mysqli_query($conn, "SELECT a.*, p.*, u.* FROM addresses a JOIN permissions p ON a.user_id = p.user_id JOIN users u ON a.user_id = u.id WHERE a.user_id = '$id' AND u.id = '$id';");
     $row = mysqli_fetch_assoc($result);
-  } else {
+} else {
     header("Location: login");
-  }
+}
 
 
 if ($row["guest"] == 1) {
     header("Location: index");
-
 }
 if ($row["deactivated"] == 1) {
     header("Location: deactivated");
-
 }
 
-$instagramUsername = trim($row["instagram"]); 
+$instagramUsername = trim($row["instagram"]);
 $instagramURL = "https://www.instagram.com/" . rawurlencode($instagramUsername);
 
-$githubUsername = trim($row["github"]); 
+$githubUsername = trim($row["github"]);
 $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
@@ -62,8 +59,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
     <title>profile settings</title>
     <style>
@@ -78,7 +74,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
         <nav class="nav nav-borders">
             <a class="nav-link active ms-0" id="detailsnav" href="" onClick="detailsa()">Profile</a>
             <a class="nav-link" id="adresssnav" href="#" onClick="addressa()">Address</a>
-            <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a>
+            <!-- <a class="nav-link" href="#" id="socilanav" onClick="sociala()">Social</a> -->
             <a class="nav-link" href="#" id="securitysnav" onClick="securitya()">Security</a>
             <a class="nav-link" href="#" id="notificationsnav" onClick="notificationsa()">Notifications</a>
             <a class="nav-link" href="#" id="deactivatenav" onClick="deactivatea()">Deactiavte account</a>
@@ -98,8 +94,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="<?php echo $row['profilepicture'] ?> " alt="picture"
-                                class="rounded-circle p-1 bg-primary" width="110">
+                            <img src="<?php echo $row['profilepicture'] ?> " alt="picture" class="rounded-circle p-1 bg-primary" width="110">
                             <div class="mt-3">
                                 <h4>
                                     <?php echo $row['firstname'] . " " . $row['lastname'] ?>
@@ -110,32 +105,16 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                         <hr class="my-4">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-github me-2 icon-inline">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>Github</h6>
-                                <a href="<?php echo $githubURL; ?>" class="text-secondary">
-                                    <?php echo $githubUsername; ?>
-                                </a>
+                                <?php
+                                $id = $row['id'];
+                                $query = "SELECT * from orders where user_id = '$id'";
+                                $result = mysqli_query($conn, $query);
+                                $row_count = mysqli_num_rows($result);
+                                
+echo '<h6 class="mb-0">Orders</h6> ' . $row_count ;
+                                ?>
 
-                            </li>
 
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-instagram me-2 icon-inline text-danger">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>Instagram</h6>
-                                <a href="<?php echo $instagramURL; ?>" class="text-secondary">
-                                    <?php echo $instagramUsername; ?>
-                                </a>
                             </li>
 
                         </ul>
@@ -157,8 +136,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                     Select Image <br />
                                     <i class="fa fa-2x fa-camera"></i>
 
-                                    <input id="inputTag" type="file" name="file"
-                                        accept="image/png, image/jpg, image/gif, image/jpeg" />
+                                    <input id="inputTag" type="file" name="file" accept="image/png, image/jpg, image/gif, image/jpeg" />
                                     <br />
                                     <span id="imageName"></span>
                                 </label>
@@ -172,28 +150,24 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputUsername">Username (how your name will appear to
                                     other users on the site)</label>
-                                <input class="form-control" id="inputUsername" type="text" name="username"
-                                    placeholder="Enter your username" value="<?php echo $row['username'] ?>">
+                                <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Enter your username" value="<?php echo $row['username'] ?>">
                             </div>
 
                             <div class="row gx-3 mb-3">
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputFirstName">First name</label>
-                                    <input name="fname" class="form-control" id="inputFirstName" type="text"
-                                        placeholder="Enter your first name" value="<?php echo $row['firstname'] ?>">
+                                    <input name="fname" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="<?php echo $row['firstname'] ?>">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLastName">Last name</label>
-                                    <input name="lname" class="form-control" id="inputLastName" type="text"
-                                        placeholder="Enter your last name" value="<?php echo $row['lastname'] ?>">
+                                    <input name="lname" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="<?php echo $row['lastname'] ?>">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                <input name="email" class="form-control" id="inputEmailAddress" type="email"
-                                    placeholder="Enter your email address" value="<?php echo $row['email'] ?>">
+                                <input name="email" class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="<?php echo $row['email'] ?>">
                             </div>
                             <div class="mb-3" id="phonenumberdiv">
                                 <label class="small mb-1" for="inputphonenumber">Phone number</label>
@@ -201,8 +175,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                                     <select class="form-control" name="international" id="international">
                                         <option value="Egypt">+20</option>
                                     </select>
-                                    <input name="phone" class="form-control" type="tel" id="youridhere" class="phone"
-                                        value="<?php echo $row['phone'] ?>">
+                                    <input name="phone" class="form-control" type="tel" id="youridhere" class="phone" value="<?php echo $row['phone'] ?>">
                                 </div>
                             </div>
 
@@ -264,27 +237,21 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputcity">Town/city</label>
-                                    <input name="city" class="form-control" id="inputcity" type="text"
-                                        placeholder="Enter your city" value="<?php echo $row['city'] ?>">
+                                    <input name="city" class="form-control" id="inputcity" type="text" placeholder="Enter your city" value="<?php echo $row['city'] ?>">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputstreet">Street address</label>
-                                    <input name="street" class="form-control" id="inputstreet" type="text"
-                                        placeholder="Enter your street name / number"
-                                        value="<?php echo $row['street'] ?>">
+                                    <input name="street" class="form-control" id="inputstreet" type="text" placeholder="Enter your street name / number" value="<?php echo $row['street'] ?>">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputhouse">House number / apartment / suite</label>
-                                <input name="house" class="form-control" id="inputhouse" type="text"
-                                    placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
+                                <input name="house" class="form-control" id="inputhouse" type="text" placeholder="Enter your house number" value="<?php echo $row['house'] ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputpostalcode">Postal code / zip</label>
-                                <input name="postalcode" class="form-control" id="inputpostalcode" type="text"
-                                    placeholder="Enter your house number"
-                                    value="<?php echo $row['postalcode'] ?>">
+                                <input name="postalcode" class="form-control" id="inputpostalcode" type="text" placeholder="Enter your house number" value="<?php echo $row['postalcode'] ?>">
                             </div>
 
                             <div style="height: 20px;">
@@ -297,7 +264,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                 </div>
             </div>
 
-            <div class="col-xl-8" style="display: none;" id="social">
+            <!-- <div class="col-xl-8" style="display: none;" id="social">
                 <div class="card mb-4">
                     <div class="card-header">Social</div>
                     <div class="card-body">
@@ -321,7 +288,7 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-xl-8" style="display: none;" id="security">
                 <div class="card mb-4">
@@ -408,7 +375,6 @@ $githubURL = "https://github.com/" . rawurlencode($githubUsername);
 
 
     <script>
-
         var detailsnav = document.getElementById("detailsnav");
         var securitysnav = document.getElementById("securitysnav");
         var socilanav = document.getElementById("socilanav");

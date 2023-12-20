@@ -58,11 +58,7 @@ if ($row["id"] == 1) {
                 <h2>Pure Fitness</h2>
             </div>
 
-            <div class="search">
-                <h1>Welcome back
-                    <?php echo $row["firstname"] . " (:" ?>
-                </h1>
-            </div>
+          
 
             <div class="user">
                 <img src="<?php echo $row['profilepicture'] ?>" alt="">
