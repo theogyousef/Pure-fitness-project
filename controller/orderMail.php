@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-include "../controller/logs.php";
 require '../phpmailer/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -44,8 +43,6 @@ public static function confirmation($conn)
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 if ($mail->send()) {
-                    $log = "Run confirmation function";
-                     logger($log);
                     header("Location: confirmation");
                     exit; 
                 } else {

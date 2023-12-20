@@ -1,6 +1,5 @@
 <?php
 require "config.php";
-include "../controller/logs.php";
 //check if it exists, and assigning value or an empty string to the variable 
 $searchTerm = isset($_GET['query']) ? mysqli_real_escape_string($conn, $_GET['query']) : '';
 
@@ -9,8 +8,6 @@ $query = $searchTerm !== '' ? "SELECT * FROM users WHERE firstname LIKE '%{$sear
 $result = mysqli_query($conn, $query);
 
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$log = "Run searchUser function";
-        logger($log);
 
 //<<<< returning again the html after searching >>>>
 if (isset($_GET['html']) && $_GET['html'] == 'true') {

@@ -1,6 +1,5 @@
 <?php
 include "../model/paymentModle.php";
-include "../controller/logs.php";
 class Payment
 {
 
@@ -12,8 +11,6 @@ class Payment
             $id = $_SESSION["id"];
             $result = PaymentModle::checkpermissions($id);
             $row = mysqli_fetch_assoc($result);
-			$log = "Run permissions function";
-            logger($log);
             return $row;
         } else {
             header("Location: login");
@@ -34,8 +31,6 @@ class Payment
 	echo "Total from session: " . $total . "<br>";
 	//insert into orders_details 
 	PaymentModle::makeorder($order_id,$user_id,$total);
-	$log = "Run makeorder function";
-    logger($log);
 	$totalquantity = 0;
 	foreach ($_SESSION['products'] as $product) :
 		$totalquantity += $product['quantity'];

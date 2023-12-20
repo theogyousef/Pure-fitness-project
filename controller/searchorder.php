@@ -1,6 +1,5 @@
 <?php
 require "config.php"; 
-include "../controller/logs.php";
 
 $searchTerm = isset($_GET['orderId']) ? $_GET['orderId'] : '';
 
@@ -32,8 +31,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 $orders = $result->fetch_all(MYSQLI_ASSOC);
-$log = "Run searchOrder function";
-        logger($log);
 
 if ($htmlOutput) {
     foreach ($orders as $order) {

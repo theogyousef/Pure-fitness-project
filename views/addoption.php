@@ -91,7 +91,6 @@ include "adminnav.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addOption1'])) {
         include "../controller/config.php";
-        include "../controller/logs.php";
         // Handle the form submission
         $option_name = $_POST['option_name1'];
         $type = $_POST['type1'];
@@ -108,8 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Execute the query
         $stmt->execute();
-        $log = "Run addoption function";
-        logger($log);
 
         // Close the statement and connection
         $stmt->close();
