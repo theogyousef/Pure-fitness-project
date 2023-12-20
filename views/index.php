@@ -1,6 +1,6 @@
 <?php
 include '../model/productModle.php';
-
+include '../controller/config.php';
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
   $result = mysqli_query($conn, " SELECT p.*, u.* FROM permissions p JOIN users u ON p.user_id = u.id WHERE p.guest = '1' ");
@@ -475,8 +475,8 @@ if ($result->num_rows > 0) {
         $rowname = mysqli_fetch_assoc($resultname);
 
         // Check if 'name' key exists in $rowname array
-        echo '<p class="feedback-text">' . htmlspecialchars($row['review_text']) . '</p>';
         echo '<p class="feedback-name"> -' . $rowname['firstname'] . " ". $rowname['lastname'] . '</p>';
+        echo '<p class="feedback-text">' . htmlspecialchars($row['review_text']) . '</p>';
         echo '</div>';
         echo '</div>';
     }
