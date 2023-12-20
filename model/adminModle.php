@@ -58,8 +58,13 @@ class adminModel
     public static function deleteuser($id)
     {
         include "../controller/config.php";
-        $query = "DELETE FROM users WHERE id = '$id'";
+        $query = "DELETE FROM addresses WHERE user_id = '$id'";
+        $query2 = "DELETE FROM permissions WHERE user_id = '$id'";        
+        $query3 = "DELETE FROM users WHERE id = '$id'";
         mysqli_query($conn, $query);
+        mysqli_query($conn, $query2);
+        mysqli_query($conn, $query3);
+
     }
     public static function makeadmin($id)
     {
