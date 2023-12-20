@@ -1,6 +1,5 @@
 <?php
 //require "config.php";
-include "../controller/logs.php";
 
 class Registerationsystem{
 public static function signup()
@@ -39,8 +38,6 @@ public static function signup()
 
       mysqli_query($conn, $query2);
       mysqli_query($conn, $query3);
-      $log = "Run signup function";
-        logger($log);
 
       header("Location: login");
 
@@ -70,8 +67,6 @@ public static function signin()
       $_SESSION["login"] = true;
 
       $_SESSION["id"] = $row["id"];
-      $log = "Run signin function";
-        logger($log);
       header("Location: index");
     } else {
 

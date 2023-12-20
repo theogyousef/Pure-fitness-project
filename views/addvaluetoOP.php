@@ -168,13 +168,11 @@ include "adminnav.php";
             // Your SQL query to insert into the product_options_values table
             $sql = "INSERT INTO product_options_values (value, product_id, product_option_id)
                 VALUES ('$optionValue', '$productId', '$id')";
-             
+                echo $sql;
 
                
             // Execute the query
             if ($conn->query($sql) === TRUE) {
-                $log = "Run addvalueforoption&product function";
-                logger($log);
                
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;

@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-include "../controller/logs.php";
 require '../phpmailer/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -43,8 +42,6 @@ public static function registeration($conn)
                 $mail->Body = $htmlContent; 
         
                 $mail->send();
-                $log = "Run registeration function";
-                logger($log);
                 echo "Message has been sent to {$email}";
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

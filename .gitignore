@@ -3,7 +3,6 @@
 /phpmailer/vendor/composer/*
 /phpmailer/
 /library/*
-/log.txt
 composer.json
 composer.lock
 vendor

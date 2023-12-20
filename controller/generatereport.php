@@ -1,6 +1,5 @@
 <?php
 require "../library/tcpdf.php";
-include "../controller/logs.php";
 class Generatereport
 {
 
@@ -70,8 +69,6 @@ JOIN orders ON orders.order_id = orders_details.order_id;";
         $conn->close();
 
         // Output PDF
-        $log = "Run Totalsales function";
-        logger($log);
         $pdf->Output();
     }
     public static function Msales($month)
@@ -140,8 +137,6 @@ WHERE MONTH(orders_details.Date) = $selectedMonth;";
         // Close the database connection
         $conn->close();
 
-        $log = "Run monthlysales function";
-        logger($log);
         // Output PDF
         $pdf->Output();
     }
@@ -212,9 +207,6 @@ $pdf->SetFont('helvetica', '', 12);
 $conn->close();
 
 // Output PDF
-
-$log = "Run Qurtarsales function";
-logger($log);
 $pdf->Output();
     }
     public static function Ysales($y)
@@ -284,8 +276,6 @@ $pdf->SetFont('helvetica', '', 12);
 $conn->close();
 
 // Output PDF
-$log = "Run Yearlysales function";
-        logger($log);
 $pdf->Output();
     }
 }
