@@ -7,7 +7,7 @@ class ProductModle
     public static function allproducts()
     {
         include "../controller/config.php";
-        $query =  "SELECT * FROM products p join product_photos pp on p.id = pp.product_id ";
+        $query =  "SELECT * FROM products ";
         $result = mysqli_query($conn, $query);
         return $result;
     }
