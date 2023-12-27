@@ -166,7 +166,6 @@ include "header.php";
                           
                         </div>
                     </div>
-                </div>
 
                 <div class="col-md-6">
                     <!-- Product details -->
@@ -256,6 +255,8 @@ include "header.php";
                     </div>
                 </div>
             </div>
+            </div>
+
         </section>
 
         <!-- You may also like section -->
