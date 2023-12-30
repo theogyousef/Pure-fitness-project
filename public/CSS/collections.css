@@ -199,3 +199,170 @@ a{
 a :hover{
   color: black;
 }
+
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-dropdown {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 100%;
+  bottom: -23px;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: black;
+  padding: 5px 0;
+}
+
+.Icon > a {
+  color: white;
+  font-size: 20px;
+}
+
+.product-image:hover .links {
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.Icon:hover .tooltiptext {
+  visibility: visible;
+}
+
+.list-view .row > [class*="col-"] {
+  max-width: 400px;
+  flex: 0 0 100%;
+}
+
+.list-view .row {
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#reset {
+  /* position: absolute; */
+  right: 100px;
+}
+.btn-primary {
+  border-color: white;
+}
+
+/* pagination css */
+.page-link {
+  color: black !important;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a :hover {
+  color: black;
+}
+@media (max-width: 576px) {
+  .list-view .card {
+    flex-direction: row;
+  }
+
+  /* The Grid View */
+  .products {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    box-sizing: border-box;
+  }
+
+  /* The List View */
+  .list-view .products {
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 900px;
+    height: 300px;
+  }
+
+  .list-view .product-image {
+    flex: 0 0 auto;
+    width: 30%;
+    margin-right: 2%;
+  }
+
+  .list-view .Content {
+    flex: 1;
+    padding-left: 2%;
+  }
+
+  .filter {
+    width: 280px;
+  }
+  #row {
+    width: 100%;
+    margin: 0;
+  }
+  #product {
+    width: 175px;
+    margin-right :10px;
+  }
+  #product form {
+    width: 120%;
+  }
+  .products{
+    width: 100%;
+
+  }
+  .container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .list-view #product {
+    width: 200px;
+  }
+ 
+}

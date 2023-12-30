@@ -250,8 +250,9 @@ a{
   color: #ff0000;
 }
 
-
-
+footer{
+  margin-top:120px;
+}
 @media (max-width: 576px) {
 
   #input-group{
