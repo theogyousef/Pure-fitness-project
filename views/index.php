@@ -402,13 +402,19 @@ include "header.php";
                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                     <div class="products" data-product-id="<?php echo $product['id']; ?>">
                       <div class="product-image">
-                        <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                          <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
-                            width="500px">
-                          <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2"
-                            width="500px">
+                      <a href="product?id=<?php echo $product['id']; ?>" class="images">
+                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                          width="500px">
+                        <img src="<?php
+                        $productId = $product['id'];
+                        $sqlphotos = "SELECT * FROM products p join product_photos pp on p.id = pp.product_id WHERE id = $productId";
+                        $resultphotos = mysqli_query($conn, $sqlphotos);
+                        $productphotos = mysqli_fetch_assoc($resultphotos);
 
-                        </a>
+                        echo $productphotos['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2"
+                          width="500px">
+
+                      </a>
                         <div class="links">
                           <div class="Icon">
                             <i class="bi bi-cart3"></i></i>
@@ -483,7 +489,7 @@ include "header.php";
     $connection = $databaseSingleton->getConnection();
 
     // Fetch reviews from the database
-    $query = "SELECT * FROM reviews";
+    $query = "SELECT * FROM reviews where status = '1'";
     $result = $connection->query($query);
 
     // Check if there are reviews

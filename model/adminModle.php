@@ -94,6 +94,13 @@ class adminModel
         $query = "UPDATE orders_details SET status = '$status' WHERE order_id = $id ";
         mysqli_query($conn, $query);
     }
+
+    public static function updatereview($id, $status)
+    {
+        include "../controller/config.php";
+        $query = "UPDATE reviews SET status = '$status' WHERE review_id = $id ";
+        mysqli_query($conn, $query);
+    }
     public static function updatephotos($id, $fileUrl, $fileUrl1, $fileUrl2, $fileUrl3)
     {
         include "../controller/config.php";

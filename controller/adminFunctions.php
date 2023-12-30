@@ -145,6 +145,13 @@ public static function updateorder(){
     adminModel::updateorder($id , $status);
 }
 
+public static function updatereview(){
+    global $conn;
+    $id = $_POST["id"];
+    $status = $_POST["status"];
+    adminModel::updatereview($id , $status);
+}
+
 public static function updatephotos(){
     global $conn;
 

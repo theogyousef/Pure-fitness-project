@@ -16,7 +16,7 @@ class Routere
             $pattern = '/\/SWE\/views\/(cart_display(?:\?remove=)?)(\d*)/';
         } else {
 
-            $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin|editorder|vieworder|cancelorder|changepictures)\?id=(\d+)/';
+            $pattern = '/\/SWE\/views\/(product|editproduct|deleteproduct|edituser|deleteuser|makeuser|makeadmin|editorder|editreview|vieworder|cancelorder|changepictures)\?id=(\d+)/';
         }
         if (preg_match($pattern, $path, $matches)) {
             // Extract the 'id' value from the matched URL
@@ -65,7 +65,10 @@ class Routere
         }elseif ($path === '/SWE/views/Adminorders') {
             require '../views/Adminorders.php';
             exit();
-        } elseif ($path === '/SWE/views/confirmaddress') {
+        }elseif ($path === '/SWE/views/Adminreviews') {
+            require '../views/Adminreviews.php';
+            exit();
+        }elseif ($path === '/SWE/views/confirmaddress') {
 
             require '../views/confirmaddress.php';
             exit();
@@ -151,6 +154,9 @@ class Routere
             exit();
         }elseif ($path === '/SWE/views/cancelorder?id=' . $id) {
             require '../views/cancelorder.php';
+            exit();
+        }elseif ($path === '/SWE/views/editreview?id=' . $id) {
+            require '../views/editreview.php';
             exit();
         } elseif ($path === '/SWE/views/changepictures?id=' . $id) {
             require '../views/changepictures.php';
