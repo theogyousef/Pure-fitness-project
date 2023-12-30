@@ -39,11 +39,13 @@ include "header.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 
   <title>Home Page</title>
   <style>
-    <?php include "../public/CSS/index.css" ?><?php include "../public/CSS/back-to-top.css" ?>
+    <?php include "../public/CSS/index.css" ?>
+    <?php include "../public/CSS/back-to-top.css" ?>
   </style>
 </head>
 
@@ -73,7 +75,8 @@ include "header.php";
             <div class="productcontainer">
               <button class="remove-item">X</button> <!-- Move this X button to the top right -->
               <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="100px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                  class="pic-1" width="100px">
               </div>
               <div class="Content">
                 <h6>Concept 2 PM5 BikeErg</h6>
@@ -100,7 +103,8 @@ include "header.php";
             <div class="productcontainer">
               <button class="remove-item">X</button> <!-- Move this X button to the top right -->
               <div class="cartimage">
-                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg" class="pic-1" width="100px">
+                <img src="../public/photos/productPhotos/Concept 2 PM5 BikeErg.png" alt="Concept 2 PM5 BikeErg"
+                  class="pic-1" width="100px">
               </div>
               <div class="Content">
                 <h6>Concept 2 SkiErg</h6>
@@ -148,9 +152,12 @@ include "header.php";
   <!-- The slider -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -187,11 +194,13 @@ include "header.php";
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -206,11 +215,14 @@ include "header.php";
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image" class="img-fluid" style="height: 500px;">
+            <img id="mainProductImage" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" alt="Product Image"
+              class="img-fluid" style="height: 500px;">
             <div class="images p-3">
               <div class="thumbnail text-center">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp" width="70">
-                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp" width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE2.webp"
+                  width="70">
+                <img onmouseover="change_image(this)" src="../public/photos/productPhotos/ASSAULT AIRBIKE.webp"
+                  width="70">
                 <img onmouseover="change_image(this)" src="../public/photos/productPhotos/assu.webp" width="70">
               </div>
 
@@ -258,25 +270,34 @@ include "header.php";
 
           $result = ProductModle::allproducts();
 
-    
+
           if (mysqli_num_rows($result) > 0) {
             $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
           }
           ?>
 
-          <?php if (!empty($products)) : ?>
-            <?php foreach ($products as $product) : ?>
+          <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
               <div class="col-md-3">
                 <form a method="post">
                   <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                   <div class="input-group mb-2" id="input-group">
-                    <input type="hidden" name="quantity" id="quantity" class="form-control text-center small" value="1" readonly>
+                    <input type="hidden" name="quantity" id="quantity" class="form-control text-center small" value="1"
+                      readonly>
                   </div>
                   <div class="products" data-product-id="<?php echo $product['id']; ?>">
                     <div class="product-image">
                       <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
-                        <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2" width="500px">
+                        <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                          width="500px">
+                        <img src="<?php
+                        $productId = $product['id'];
+                        $sqlphotos = "SELECT * FROM products p join product_photos pp on p.id = pp.product_id WHERE id = $productId";
+                        $resultphotos = mysqli_query($conn, $sqlphotos);
+                        $productphotos = mysqli_fetch_assoc($resultphotos);
+
+                        echo $productphotos['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2"
+                          width="500px">
 
                       </a>
                       <div class="links">
@@ -289,7 +310,8 @@ include "header.php";
                           <button name="addtowishlist" class="tooltiptext">Add to wishlist</button>
                         </div>
                         <div class="Icon">
-                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                          <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>"
+                            data-bs-toggle="modal" data-bs-target="#quickViewModal">
                             <i class="bi bi-eye"></i>
                           </a>
                           <span class="tooltiptext">Quick view</span>
@@ -317,7 +339,7 @@ include "header.php";
                       <div class="cost">
                         <p class="lower-price">
                           From <span class="price">
-                            <?php echo  number_format( $product['price'], 2) . " EGP"; ?>
+                            <?php echo number_format($product['price'], 2) . " EGP"; ?>
                           </span>
                         </p>
                       </div>
@@ -326,7 +348,7 @@ include "header.php";
                 </form>
               </div>
             <?php endforeach; ?>
-          <?php else : ?>
+          <?php else: ?>
             <p>No products found.</p>
           <?php endif; ?>
 
@@ -340,7 +362,8 @@ include "header.php";
     <div class="position-relative text-center" style="height : 300;">
       <a href="product?id=61" id="centered-anchor" class="d-block" style="height : 300;">
         <img src="../public/photos/productPhotos/home.webp" alt="Clickable Image" class="img-fluid mx-auto">
-        <button class="btn btn-dark btn-lg position-absolute bottom-0 start-50 translate-middle-x" style="bottom: -20px;" id="shopnow">
+        <button class="btn btn-dark btn-lg position-absolute bottom-0 start-50 translate-middle-x"
+          style="bottom: -20px;" id="shopnow">
           Shop Now
         </button>
       </a>
@@ -351,7 +374,8 @@ include "header.php";
     <div class="viewproduct">
 
       <div class="row">
-        <div class="col-md text-center" style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
+        <div class="col-md text-center"
+          style="color: maroon; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 70px;">
           <h2 style="margin-top: 40px;">BEST OF WEIGHTLIFTING</h2>
         </div>
       </div>
@@ -371,16 +395,18 @@ include "header.php";
             }
             ?>
 
-            <?php if (!empty($products)) : ?>
-              <?php foreach ($products as $product) : ?>
+            <?php if (!empty($products)): ?>
+              <?php foreach ($products as $product): ?>
                 <div class="col-md-3">
                   <form a method="post">
                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                     <div class="products" data-product-id="<?php echo $product['id']; ?>">
                       <div class="product-image">
                         <a href="product?id=<?php echo $product['id']; ?>" class="images">
-                          <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1" width="500px">
-                          <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2" width="500px">
+                          <img src="<?php echo $product['file']; ?>" alt="<?php echo $product['name']; ?>" class="pic-1"
+                            width="500px">
+                          <img src="<?php echo $product['file1']; ?>" alt="<?php echo $product['name']; ?>" class="pic-2"
+                            width="500px">
 
                         </a>
                         <div class="links">
@@ -393,7 +419,8 @@ include "header.php";
                             <button name="addtowishlist" class="tooltiptext">Add to wishlist</button>
                           </div>
                           <div class="Icon">
-                            <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                            <a href="#" class="quick-view" data-product-id="<?php echo $product['id']; ?>"
+                              data-bs-toggle="modal" data-bs-target="#quickViewModal">
                               <i class="bi bi-eye"></i>
                             </a>
                             <span class="tooltiptext">Quick view</span>
@@ -410,18 +437,18 @@ include "header.php";
                           </span>
                         </p>
                         <p class="detailsinfo">
-                        <?php
-                        if ($product["stock"] < 1) {
-                          echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
-                        } else if ($product["stock"] > 0) {
-                          echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
-                        }
-                        ?>
-                      </p>
+                          <?php
+                          if ($product["stock"] < 1) {
+                            echo '<span style="color: red;  font-size: 16px; "> Out of Stock </span>';
+                          } else if ($product["stock"] > 0) {
+                            echo '<span style="color: green; font-size: 16px;">' . "In stock" . '</span>';
+                          }
+                          ?>
+                        </p>
                         <div class="cost">
                           <p class="lower-price">
                             From <span class="price">
-                              <?php  echo number_format( $product['price'], 2) . " EGP"; ?>
+                              <?php echo number_format($product['price'], 2) . " EGP"; ?>
                             </span>
                           </p>
                         </div>
@@ -430,7 +457,7 @@ include "header.php";
                   </form>
                 </div>
               <?php endforeach; ?>
-            <?php else : ?>
+            <?php else: ?>
               <p>No products found.</p>
             <?php endif; ?>
 
@@ -449,25 +476,25 @@ include "header.php";
     </div>
 
     <?php
-require '../controller/Singlton.php';
+    require '../controller/Singlton.php';
 
-// Assuming you have a DatabaseSingleton class or a database connection
-$databaseSingleton = DatabaseSingleton::getInstance();
-$connection = $databaseSingleton->getConnection();
+    // Assuming you have a DatabaseSingleton class or a database connection
+    $databaseSingleton = DatabaseSingleton::getInstance();
+    $connection = $databaseSingleton->getConnection();
 
-// Fetch reviews from the database
-$query = "SELECT * FROM reviews";
-$result = $connection->query($query);
+    // Fetch reviews from the database
+    $query = "SELECT * FROM reviews";
+    $result = $connection->query($query);
 
-// Check if there are reviews
-if ($result->num_rows > 0) {
-    echo '<h2>What Our Customers Have To Say</h2>';
-    echo '<section class="feedback-section">';
-    echo '<div class="container" style="margin-bottom: 80px;">';
-    echo '<div class="feedback-slider">';
+    // Check if there are reviews
+    if ($result->num_rows > 0) {
+      echo '<h2>What Our Customers Have To Say</h2>';
+      echo '<section class="feedback-section">';
+      echo '<div class="container" style="margin-bottom: 80px;">';
+      echo '<div class="feedback-slider">';
 
-    // Loop through each review
-    while ($row = $result->fetch_assoc()) {
+      // Loop through each review
+      while ($row = $result->fetch_assoc()) {
         echo '<div class="feedback-review">';
         echo '<div class="white-box">';
         $id = $row['user_id'];
@@ -475,26 +502,26 @@ if ($result->num_rows > 0) {
         $rowname = mysqli_fetch_assoc($resultname);
 
         // Check if 'name' key exists in $rowname array
-        echo '<p class="feedback-name"> -' . $rowname['firstname'] . " ". $rowname['lastname'] . '</p>';
+        echo '<p class="feedback-name"> -' . $rowname['firstname'] . " " . $rowname['lastname'] . '</p>';
         echo '<p class="feedback-text">' . htmlspecialchars($row['review_text']) . '</p>';
         echo '</div>';
         echo '</div>';
+      }
+
+      echo '</div>';
+      echo '<div class="slider-controls">';
+      echo '<button class="prev-button"><i class="bi bi-arrow-left-circle"></i></button>';
+      echo '<button class="next-button"><i class="bi bi-arrow-right-circle"></i></button>';
+      echo '</div>';
+      echo '</div>';
+      echo '</section>';
+    } else {
+      echo '<p>No reviews available.</p>';
     }
-
-    echo '</div>';
-    echo '<div class="slider-controls">';
-    echo '<button class="prev-button"><i class="bi bi-arrow-left-circle"></i></button>';
-    echo '<button class="next-button"><i class="bi bi-arrow-right-circle"></i></button>';
-    echo '</div>';
-    echo '</div>';
-    echo '</section>';
-} else {
-    echo '<p>No reviews available.</p>';
-}
-?>
+    ?>
 
 
-<!-- 
+    <!-- 
     <h2>What Our Customers Have To Say</h2>
     <section class="feedback-section">
 
@@ -546,7 +573,8 @@ if ($result->num_rows > 0) {
               <form id="ContactFooter" class="footer-form">
                 <div class="d-flex">
                   <div class="form-floating me-2">
-                    <input type="email" name="email" class="form-control border-0" id="email" placeholder=" " style="background:#F0F0F0		; color: #000;">
+                    <input type="email" name="email" class="form-control border-0" id="email" placeholder=" "
+                      style="background:#F0F0F0		; color: #000;">
                     <label for="email">Enter your email address</label>
                   </div>
                   <button type="button" id="submitMailButton" class="btn-About-us btn-dark">Sign Up</button>
@@ -579,16 +607,21 @@ if ($result->num_rows > 0) {
         <div class="col-md-6">
           <div class="bmi-calculator-container text-black p-4">
             <h3 class="card-title text-center" style="color: maroon;">CALCULATE YOUR BMI</h3>
-            <p class="small">BMI stands for Body Mass Index. The approximated calculation is used to determine your weight
-              to your height. The calculator is useful for adults over 18 years of age. The calculator is only used as an
-              estimator only and should not be used as a medical determination. The team at 365 recommend professional Dr
+            <p class="small">BMI stands for Body Mass Index. The approximated calculation is used to determine your
+              weight
+              to your height. The calculator is useful for adults over 18 years of age. The calculator is only used as
+              an
+              estimator only and should not be used as a medical determination. The team at 365 recommend professional
+              Dr
               or accredited Health Professional in regards to specific health and nutrition advice.</p>
             <form id="bmiForm">
               <div class="mb-3">
-                <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Weight (kg)">
+                <input type="number" class="form-control form-control-sm" id="weight" name="weight"
+                  placeholder="Weight (kg)">
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Height (cm)">
+                <input type="number" class="form-control form-control-sm" id="height" name="height"
+                  placeholder="Height (cm)">
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-sm">Calculate BMI</button>
@@ -634,113 +667,114 @@ if ($result->num_rows > 0) {
               </tbody>
             </table>
 
-            <p class="small mt-3">Please note that this is a general reference. For personalized health advice, consult a
+            <p class="small mt-3">Please note that this is a general reference. For personalized health advice, consult
+              a
               healthcare professional.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <?php
+
+  if (isset($_POST['addtocart'])) {
+    $productId = $_POST["product_id"];
+    var_dump($productId);
+
+    // Fetch product details based on the product ID
+    $sql = "SELECT * FROM products WHERE id = $productId";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+      $productDetails = mysqli_fetch_assoc($result);
+
+      // Append the new product to the cart
+      $newProduct = [
+        'id' => $productDetails['id'],
+        'name' => $productDetails['name'],
+        'price' => $productDetails['price'],
+        'image' => $productDetails['file'],
+        'quantity' => '1',
+      ];
+
+
+      $quantity = $_POST['quantity'];
+      $newProduct['quantity'] = $quantity;
+
+      // If the products array is set, check if the product already exists
+      $productExists = false;
+      foreach ($_SESSION['products'] as $key => $product) {
+        if ($newProduct['id'] == $product['id']) {
+          // If the product exists, update the quantity
+          $_SESSION['products'][$key]['quantity'] += $quantity;
+          $productExists = true;
+          break; // Stop the loop since the product is found
+        }
+      }
+
+      // If the product does not exist, add it to the session['products']
+      if (!$productExists) {
+        $_SESSION['products'][] = $newProduct;
+      }
+    }
+  }
+
+  if (isset($_POST['addtowishlist'])) {
+    $productId = $_POST["product_id"];
+
+
+    // Fetch product details based on the product ID
+    $sql = "SELECT * FROM products WHERE id = $productId";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+      $productDetails = mysqli_fetch_assoc($result);
+
+      // Append the new product to the cart
+      $newProduct = [
+        'id' => $productDetails['id'],
+        'name' => $productDetails['name'],
+        'price' => $productDetails['price'],
+        'image' => $productDetails['file'],
+        'quantity' => '1',
+      ];
+
+
+      $quantity = $_POST['quantity'];
+      $newProduct['quantity'] = $quantity;
+
+      // If the products array is set, check if the product already exists
+      $productExists = false;
+      foreach ($_SESSION['wishlist'] as $key => $product) {
+        if ($newProduct['id'] == $product['id']) {
+          $productExists = true;
+          break; // Stop the loop since the product is found
+        }
+      }
+
+      // If the product does not exist, add it to the session['wishlist']
+      if (!$productExists) {
+        $_SESSION['wishlist'][] = $newProduct;
+      }
+    }
+  }
+
+  ?>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <script src="../public/JS/index.js"></script>
+  <script src="../public/JS/ajaxHandlers.js"></script>
+  <script src="../public/JS/bmi.js"></script>
+  <script src="../public/JS/back-to-top.js"></script>
+
+  <footer>
     <?php
-
-    if (isset($_POST['addtocart'])) {
-      $productId = $_POST["product_id"];
-      var_dump($productId);
-
-      // Fetch product details based on the product ID
-      $sql = "SELECT * FROM products WHERE id = $productId";
-      $result = mysqli_query($conn, $sql);
-
-      if ($result && mysqli_num_rows($result) > 0) {
-        $productDetails = mysqli_fetch_assoc($result);
-
-        // Append the new product to the cart
-        $newProduct = [
-          'id' => $productDetails['id'],
-          'name' => $productDetails['name'],
-          'price' => $productDetails['price'],
-          'image' => $productDetails['file'],
-          'quantity' => '1',
-        ];
-
-
-        $quantity = $_POST['quantity'];
-        $newProduct['quantity'] = $quantity;
-
-        // If the products array is set, check if the product already exists
-        $productExists = false;
-        foreach ($_SESSION['products'] as $key => $product) {
-          if ($newProduct['id'] == $product['id']) {
-            // If the product exists, update the quantity
-            $_SESSION['products'][$key]['quantity'] += $quantity;
-            $productExists = true;
-            break; // Stop the loop since the product is found
-          }
-        }
-
-        // If the product does not exist, add it to the session['products']
-        if (!$productExists) {
-          $_SESSION['products'][] = $newProduct;
-        }
-      }
-    }
-
-    if (isset($_POST['addtowishlist'])) {
-      $productId = $_POST["product_id"];
-
-
-      // Fetch product details based on the product ID
-      $sql = "SELECT * FROM products WHERE id = $productId";
-      $result = mysqli_query($conn, $sql);
-
-      if ($result && mysqli_num_rows($result) > 0) {
-        $productDetails = mysqli_fetch_assoc($result);
-
-        // Append the new product to the cart
-        $newProduct = [
-          'id' => $productDetails['id'],
-          'name' => $productDetails['name'],
-          'price' => $productDetails['price'],
-          'image' => $productDetails['file'],
-          'quantity' => '1',
-        ];
-
-
-        $quantity = $_POST['quantity'];
-        $newProduct['quantity'] = $quantity;
-
-        // If the products array is set, check if the product already exists
-        $productExists = false;
-        foreach ($_SESSION['wishlist'] as $key => $product) {
-          if ($newProduct['id'] == $product['id']) {
-            $productExists = true;
-            break; // Stop the loop since the product is found
-          }
-        }
-
-        // If the product does not exist, add it to the session['wishlist']
-        if (!$productExists) {
-          $_SESSION['wishlist'][] = $newProduct;
-        }
-      }
-    }
+    include "footer.php";
 
     ?>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-    <script src="../public/JS/index.js"></script>
-    <script src="../public/JS/ajaxHandlers.js"></script>
-    <script src="../public/JS/bmi.js"></script>
-    <script src="../public/JS/back-to-top.js"></script>
-
-    <footer>
-      <?php
-      include "footer.php";
-
-      ?>
-    </footer>
+  </footer>
 
 </body>
 

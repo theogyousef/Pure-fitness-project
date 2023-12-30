@@ -79,7 +79,7 @@ include "header.php";
                 ?>
                 <article class="card" style="margin: 20px;">
                     <div class="card-body">
-                        <h6>Order ID:
+                        <h6>
                             <?php
                             echo "<h6>Order ID: " . "#" . $order['order_id'] . "<br>";
                             echo $order['Date'] . " at " . $order['time'] . "<br>";
