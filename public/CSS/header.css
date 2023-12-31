@@ -371,7 +371,7 @@
   }
 
   .navbar .dropdown-menu {
-    margin: 0 80px;
+    margin: 0 ;
     padding: 10px;
   }
 
@@ -427,8 +427,9 @@
 
 @media only screen and (max-width: 576px) {
   #left_elements {
-    margin-right: 250px;
-  }
+    display: flex;
+    margin-right: 150px;
+    }
 
   #loginSignupDropdown {
     position: absolute !important;
@@ -436,5 +437,8 @@
     left: -65px !important;
     transform: none !important;
   }
+  #logo{
+    margin-bottom: 5px;
+}
 }
 
