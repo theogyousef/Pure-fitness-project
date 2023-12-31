@@ -159,16 +159,10 @@ body {
   height: 100%;
 }
 
-.billing-col {
-  flex: 0 0 58%;
-  max-width: 58%;
-  margin-right: 35px;
-}
-
 .cart-col {
   flex: 0 0 42%;
   max-width: 42%;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 .equal-height {
@@ -219,6 +213,7 @@ body {
   background-color: #ffffff;
   border-radius: 5px;
   padding: 20px;
+  margin-left: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -269,4 +264,15 @@ body {
 }
 .btn-primary{
   border:white;
+}
+
+@media (max-width: 576px) {
+  #cart {
+
+  margin-left: 0px;
+  }
+
+.vertical-divider {
+display: none;
+}
 }

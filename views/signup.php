@@ -56,10 +56,10 @@ include "header.php";
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <h3 class="h3 mb-3 fw-bold text-center">CREATE ACCOUNT</h3>
+                <h3 class="h3 mb-3 fw-bold text-center" style="margin-left:30px;" >CREATE ACCOUNT</h3>
 
-                <form method="post" name="signupform" id="myform" onsubmit="validateRegistration(event)">
-                    <div class="form-floating mb-3">
+                <form method="post" name="signupform" id="myform" onsubmit="validateRegistration(event)" style="padding-left: 30px; ">
+                    <div class="form-floating mb-3 ">
                         <input type="text" class="form-control" id="floatingInputEmail" name="fname" placeholder="First name">
                         <label for="floatingInputEmail">First name</label>
                     </div>
@@ -95,7 +95,7 @@ include "header.php";
                     </div>
 
                 </form>
-
+<!-- 
                 <div class="divider-or my-4">
                     <span>OR</span>
                 </div>
@@ -106,7 +106,7 @@ include "header.php";
 
                 <a href="#" class="social-button">
                     <img src="https://eg.hm.com/themes/custom/transac/alshaya_white_label/imgs/social-icons/facebook-login-logo.svg" alt="Facebook" class="social-icon"> Continue with Facebook
-                </a>
+                </a> -->
 
                 <p class="mt-4 text-center">
                     <a href="login" class="text-muted">Already have an account?</a>

@@ -58,9 +58,9 @@ include "header.php";
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <h3 class="h3 mb-3 fw-bold text-center">LOGIN</h3>
+                <h3 class="h3 mb-3 fw-bold text-center" style="margin-left:30px;">LOGIN</h3>
 
-                <form method="post" name="loginForm" id="loginForm" onsubmit="validateLogin(event)">
+                <form method="post" name="loginForm" id="loginForm" onsubmit="validateLogin(event)" style="padding-left:30px;">
 
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="floatingPassword" placeholder="email" name="email">
@@ -88,7 +88,7 @@ include "header.php";
 
 
                 <p class="mt-4 text-center">
-                    <a href="signup" class="text-muted">Create account</a>
+                    <a href="signup" class="text-muted">Create an account ?</a>
                 </p>
 
             </div>

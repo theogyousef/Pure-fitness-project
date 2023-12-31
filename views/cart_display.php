@@ -127,7 +127,7 @@ include "header.php";
                                                     <?php endif; ?>
                                                 </td>
                                                 <td width="15%" class="quantity">
-                                                    <div class="input-group mb-2 quantity-selector">
+                                                    <div class="input-group mb-2 quantity-selector" id="input-group">
                                                         <button type="button" class="btn btn-outline-secondary decrement" data-product-id="<?php echo $product['id']; ?>">-</button>
                                                         <input type="text" name="quantity[<?php echo $product['id']; ?>]" data-product-id="<?php echo $product['id']; ?>" class="form-control text-center small quantity-input" style="background-color: transparent; border: none;" value="<?php echo $product['quantity']; ?>" readonly>
                                                         <button type="button" class="btn btn-outline-secondary increment" data-product-id="<?php echo $product['id']; ?>">+</button>

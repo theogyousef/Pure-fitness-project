@@ -197,7 +197,6 @@
   opacity: 1;
 }
 
-
 /* Responsive styles for small screens (e.g., iPhones) */
 @media only screen and (max-width: 768px) {
   /* Adjust the font size and padding for navigation items */
@@ -296,7 +295,7 @@
   /* Reduce the margin-right for the dropdown menu */
   .navbar .dropdown-menu {
     min-width: 250px;
-    margin-right: 250px;
+    margin-right: 350px;
   }
   .navbar .dropdown-menu .col {
     min-width: 100%; /* Set the width to 100% to stack columns vertically */
@@ -342,15 +341,16 @@
     position: absolute;
     width: 250px;
     top: 100%;
-    left: 0;
+    left: 100px;
   }
   .dropdown-menu {
     width: 100px;
   }
   .navbar .dropdown-menu {
-    margin: 0 80px; 
-  padding: 10px; }
-  
+    margin: 0 80px;
+    padding: 10px;
+  }
+
   .dropdown-menu .dropdown-items-horizontal a {
     font-size: 14px;
     width: 400px;
@@ -375,13 +375,16 @@
     border-style: solid;
     border-color: transparent transparent #ffffff transparent;
   }
+  .show {
+    /* margin-right: 150px; */
+  }
 }
 
 #loginSignupDropdown {
   position: absolute !important;
   top: 100% !important;
-  left: 10% !important; 
-  transform: none !important; 
+  left: 10% !important;
+  transform: none !important;
 }
 
 #left_elements {
@@ -390,11 +393,11 @@
 
 #loginSignupDropdown {
   position: absolute;
-  top: 100%; 
-  right: 0; 
-  left: auto; 
-  transform: none !important; 
-  min-width: 135px; 
+  top: 100%;
+  right: 0;
+  left: auto;
+  transform: none !important;
+  min-width: 135px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -405,12 +408,12 @@
 
 @media only screen and (max-width: 768px) {
   #loginSignupDropdown {
-    right: 0; 
+    right: 0;
   }
 }
 
 @media only screen and (max-width: 576px) {
   #loginSignupDropdown {
-    right: 0; 
+    right: 0;
   }
 }

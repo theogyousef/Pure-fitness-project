@@ -70,12 +70,13 @@ include "header.php";
     ?>
 
     <div class="container-joe">
-        <div class="container" style="margin: 0 42% ;">
-            <h1>My orders</h1>
+        <div class="row text-center" id="Myorders">
+            <h1 style="margin: 0;">My orders</h1>
         </div>
+
         <?php if (!empty($orders)) { ?>
             <?php foreach ($orders as $order):
-             
+
                 ?>
                 <article class="card" style="margin: 20px;">
                     <div class="card-body">
@@ -84,25 +85,24 @@ include "header.php";
                             echo "<h6>Order ID: " . "#" . $order['order_id'] . "<br>";
                             echo $order['Date'] . " at " . $order['time'] . "<br>";
                             $orderid = $order['order_id'];
-                         
-                    
+
+
                             if ($order['status'] == 'Pending' || $order['status'] == 'Confirmed') {
                                 echo "<a href='cancelorder?id=" . $orderid . "' class='cancelorder'>Cancel order?</a></h6>";
                                 echo "Order is Pending or Confirmed";
                             } elseif ($order['status'] == 'Out for delivery' || $order['status'] == 'Delivered') {
                                 echo " <p style='color : black ; text-decoration :underline ;'>Order can not be cancelled ";
-                            }
-                            elseif ($order['status'] == 'Cancelled'){
+                            } elseif ($order['status'] == 'Cancelled') {
                                 echo " <p style='color : black ; text-decoration :underline ;'>Order alreday cancelled";
                             }
                             ?>
 
 
                         </h6>
-                     
+
                         <?php
 
-                      
+
                         $status = $order['status'];
                         switch ($status) {
                             case 'Cancelled':
@@ -124,7 +124,7 @@ include "header.php";
                             Out for delivery </span> </div>
                     <div class="step  "> <span class="icon"> <i class="fa fa-box"></i> </span> <span
                             class="text">Delivered</span> </div>
-                </div>';
+                  </div>';
                                 break;
                             case 'Confirmed':
                                 echo '<div class="track">
@@ -171,8 +171,8 @@ include "header.php";
                         $query3 = "SELECT * FROM products WHERE id = '$productid'";
                         $result3 = mysqli_query($conn, $query3);
                         $productdetails = mysqli_fetch_assoc($result3);
-            
-                        if ($productdetails) { 
+
+                        if ($productdetails) {
                             ?>
                             <a href="product?id=<?php echo $productid; ?>">
                                 <ul class="row">
