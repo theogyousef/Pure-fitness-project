@@ -18,7 +18,9 @@ if (!empty($_SESSION['products'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
+  <link rel="icon" href="../public/photos/logoPhotos/cropped-1-32x32.webp" sizes="32x32" />
+  <link rel="icon" href="../public/photos/logoPhotos/cropped-1-32x32.webp" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../public/photos/logoPhotos/cropped-1-32x32.webp" />
   <style>
     <?php
     include "../public/CSS/header.css";
