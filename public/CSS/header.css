@@ -35,12 +35,15 @@
   padding: 0.5rem 0;
   line-height: 1.5;
 }
+
 .navbar .nav-link {
   color: white;
 }
+
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
 }
+
 .search-input {
   color: black;
 }
@@ -48,6 +51,7 @@
 .search-input:focus {
   color: white !important;
 }
+
 .dropdown-item {
   border-bottom: 1px solid white;
 }
@@ -65,9 +69,11 @@
 .dropdown-menu .dropdown-items-horizontal a {
   font-size: 16px;
 }
-#loginSignupDropdown:hover + .dropdown-menu {
+
+#loginSignupDropdown:hover+.dropdown-menu {
   margin-right: -60px !important;
 }
+
 .dropdown-menu::before {
   content: "";
   position: absolute;
@@ -78,15 +84,6 @@
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
-/* #loginSignupDropdown::before{ signup dropdown ya mariam
-  content: '';
-    position: absolute;
-    top: -10px; 
-    left: 50%;
-    border-width: 0 10px 10px;
-    border-style: solid;
-    border-color: transparent transparent #ffffff transparent; 
-} */
 
 .navbar .dropdown-menu {
   min-width: 575px;
@@ -101,6 +98,7 @@
 .navbar .dropdown-header {
   margin-left: -13px;
 }
+
 #search {
   color: white;
 }
@@ -160,10 +158,12 @@
   background-color: #eee;
   width: 100%;
 }
+
 .search-item:hover {
   background-color: #eee;
   text-decoration: none;
 }
+
 /* Cart icon with counter */
 .cart-icon-with-count {
   position: relative;
@@ -178,27 +178,35 @@
   padding: 0.25em 0.5em;
   font-size: 0.75em;
   position: absolute;
-  top: 10px; /* Adjust if necessary */
-  right: 40px; /* Adjust if necessary */
+  top: 10px;
+  /* Adjust if necessary */
+  right: 40px;
+  /* Adjust if necessary */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px; /* Ensures a round shape for single digits */
-  height: 20px; /* Fixed height for the badge */
+  min-width: 20px;
+  /* Ensures a round shape for single digits */
+  height: 20px;
+  /* Fixed height for the badge */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  visibility: hidden; /* Hide by default */
+  visibility: hidden;
+  /* Hide by default */
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear; /* Smooth transition for the hover effect */
+  transition: visibility 0s, opacity 0.5s linear;
+  /* Smooth transition for the hover effect */
 }
 
 /* Show the counter badge when the cart icon is hovered */
 .cart-icon-with-count:hover .cart-count {
-  visibility: visible; /* Show on hover */
+  visibility: visible;
+  /* Show on hover */
   opacity: 1;
 }
 
 /* Responsive styles for small screens (e.g., iPhones) */
 @media only screen and (max-width: 768px) {
+
   /* Adjust the font size and padding for navigation items */
   .nav-item {
     font-size: 16px;
@@ -215,15 +223,20 @@
     min-width: 250px;
     margin-right: 250px;
   }
+
   .navbar .dropdown-menu .col {
-    min-width: 100%; /* Set the width to 100% to stack columns vertically */
-    margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
+    min-width: 100%;
+    /* Set the width to 100% to stack columns vertically */
+    margin-right: 0;
+    /* Remove the right margin to prevent unnecessary spacing */
   }
 
   /* Additional adjustment to space out the dropdown items */
   .dropdown-menu .row {
-    margin-bottom: 10px; /* Add some bottom margin to separate items */
+    margin-bottom: 10px;
+    /* Add some bottom margin to separate items */
   }
+
   /* Add padding to the search input */
   .input-group {
     padding: 0.25rem;
@@ -261,9 +274,11 @@
     top: 100%;
     left: 0;
   }
+
   .dropdown-menu {
     width: 100px;
   }
+
   /* Adjust the font size for the dropdown items */
   .dropdown-menu .dropdown-items-horizontal a {
     font-size: 14px;
@@ -273,6 +288,7 @@
 
 /* Additional styles for even smaller screens (e.g., iPhone SE) */
 @media only screen and (max-width: 576px) {
+
   /* Adjust font size for the main logo */
   #logo img {
     max-width: 80px;
@@ -282,6 +298,7 @@
   .announcement-container span {
     font-size: 12px;
   }
+
   .nav-item {
     font-size: 16px;
     padding: 0.5rem 0.25rem;
@@ -297,15 +314,20 @@
     min-width: 250px;
     margin-right: 350px;
   }
+
   .navbar .dropdown-menu .col {
-    min-width: 100%; /* Set the width to 100% to stack columns vertically */
-    margin-right: 0; /* Remove the right margin to prevent unnecessary spacing */
+    min-width: 100%;
+    /* Set the width to 100% to stack columns vertically */
+    margin-right: 0;
+    /* Remove the right margin to prevent unnecessary spacing */
   }
 
   /* Additional adjustment to space out the dropdown items */
   .dropdown-menu .row {
-    margin-bottom: 10px; /* Add some bottom margin to separate items */
+    margin-bottom: 10px;
+    /* Add some bottom margin to separate items */
   }
+
   /* Add padding to the search input */
   .input-group {
     padding: 0.25rem;
@@ -343,9 +365,11 @@
     top: 100%;
     left: 100px;
   }
+
   .dropdown-menu {
     width: 100px;
   }
+
   .navbar .dropdown-menu {
     margin: 0 80px;
     padding: 10px;
@@ -355,16 +379,20 @@
     font-size: 14px;
     width: 400px;
   }
+
   .nav-item {
     border-right: none;
     border-bottom: 1px solid white;
   }
+
   .nav-item:last-child {
     border-bottom: none;
   }
+
   #navbarNav ul {
     width: 100%;
   }
+
   .dropdown-menu::before {
     content: "";
     position: absolute;
@@ -374,9 +402,6 @@
     border-width: 0 10px 10px;
     border-style: solid;
     border-color: transparent transparent #ffffff transparent;
-  }
-  .show {
-    /* margin-right: 150px; */
   }
 }
 
@@ -397,23 +422,19 @@
   right: 0;
   left: auto;
   transform: none !important;
-  min-width: 135px;
-}
-
-@media only screen and (max-width: 992px) {
-  #loginSignupDropdown {
-    right: 0;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  #loginSignupDropdown {
-    right: 0;
-  }
+  min-width: 155px;
 }
 
 @media only screen and (max-width: 576px) {
+  #left_elements {
+    margin-right: 250px;
+  }
+
   #loginSignupDropdown {
-    right: 0;
+    position: absolute !important;
+    top: 100% !important;
+    left: -65px !important;
+    transform: none !important;
   }
 }
+
